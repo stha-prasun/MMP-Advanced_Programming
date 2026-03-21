@@ -168,6 +168,7 @@ label {
   justify-content: center;
   gap: 10px;
   cursor: pointer;
+  color: #555555;
 }
 
 .google-btn img {
