@@ -1,0 +1,178 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #000;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* LEFT */
+.left {
+  width: 40%;
+  background: #143EBF;
+  color: white;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  font-family: 'Modak', cursive;
+  font-size: 40px;
+}
+
+.illustration {
+  width: 60%;
+}
+
+/* RIGHT */
+.right {
+  width: 60%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-box {
+  width: 350px;
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.signup-text {
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.signup-text a {
+  color: #143EBF;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  outline: none;
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+}
+
+.role-text {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.roles {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background: #143EBF;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+/* BOTTOM */
+.bottom-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.forgot {
+  color: #143EBF;
+  text-decoration: none;
+}
+
+/* GOOGLE */
+.google-btn {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #143EBF;
+  border-radius: 10px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.google-btn img {
+  width: 18px;
+}
+
+/* Responsive */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .left {
+    display: none;
+  }
+
+  .right {
+    width: 100%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 500px) {
+  .form-box {
+    width: 90%;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .roles {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .bottom-row {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+}
