@@ -2,11 +2,19 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: Inter;
 }
 
 body {
   background: #000;
+}
+
+p {
+    color: #555555;
+}
+
+label {
+    color: #555555;
 }
 
 .container {
@@ -17,7 +25,7 @@ body {
 /* LEFT */
 .left {
   width: 40%;
-  background: #143EBF;
+  background: #03C;
   color: white;
   position: relative;
   display: flex;
@@ -50,27 +58,40 @@ body {
   width: 350px;
 }
 
-h1 {
-  font-size: 32px;
+.form-box h1 {
   margin-bottom: 10px;
+  font-weight: 600;
+  text-align: center;
+  font-size: 44px;
+  font-style: normal;
+  line-height: 100%; /* 44px */
+  letter-spacing: 0.25px;
 }
 
 .signup-text {
   margin-bottom: 20px;
   color: #555;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 100%; /* 18px */
+  letter-spacing: 0.25px;
 }
 
 .signup-text a {
-  color: #143EBF;
   text-decoration: none;
-  font-weight: bold;
+  color: #03C;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 100%;
+  letter-spacing: 0.25px;
 }
 
 .input {
   width: 100%;
   padding: 12px;
   margin-bottom: 15px;
-  border: 1px solid #aaa;
+  border: 1px solid #555555;
   border-radius: 10px;
   outline: none;
 }
@@ -89,21 +110,25 @@ h1 {
 }
 
 .role-text {
+  font-weight: 500;
   font-size: 14px;
   margin-bottom: 5px;
+  letter-spacing: 0.25px;
 }
 
 .roles {
   display: flex;
-  gap: 20px;
+  gap: 10px;
   margin-bottom: 15px;
-  font-size: 14px;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.25px;
 }
 
 .login-btn {
   width: 100%;
   padding: 12px;
-  background: #143EBF;
+  background: #03C;
   color: white;
   border: none;
   border-radius: 10px;
@@ -120,15 +145,22 @@ h1 {
 }
 
 .forgot {
-  color: #143EBF;
   text-decoration: none;
+  color: #03C;
+  text-align: center;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%; /* 12px */
+  letter-spacing: 0.25px;
 }
 
 /* GOOGLE */
 .google-btn {
   width: 100%;
   padding: 12px;
-  border: 1px solid #143EBF;
+  border: 1px solid #03C;
   border-radius: 10px;
   background: transparent;
   display: flex;
