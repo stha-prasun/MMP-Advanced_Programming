@@ -15,6 +15,10 @@ p {
 
 label {
   color: #555555;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
 }
 
 .container {
@@ -125,7 +129,7 @@ label {
   letter-spacing: 0.25px;
 }
 
-.login-btn {
+.signup-btn {
   width: 100%;
   padding: 12px;
   background: #03c;
@@ -173,6 +177,11 @@ label {
 
 .google-btn img {
   width: 18px;
+}
+
+.terms {
+  font-size: 12px;
+  margin-bottom: 15px;
 }
 
 /* Responsive */

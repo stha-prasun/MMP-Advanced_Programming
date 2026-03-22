@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
+    <title>Register</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Modak&display=swap"
       rel="stylesheet"
@@ -17,7 +17,7 @@
     />
     <link
       rel="stylesheet"
-      href="<%= request.getContextPath() %>/CSS/Login.css"
+      href="<%= request.getContextPath() %>/CSS/Register.css"
     />
   </head>
   <body>
@@ -34,12 +34,13 @@
       <!-- RIGHT -->
       <div class="right">
         <div class="form-box">
-          <h1>Welcome back!</h1>
+          <h1>Create Your Account</h1>
           <p class="signup-text">
-            Don’t have an account?
-            <a href="<%= request.getContextPath() %>/register">Sign up now</a>
+            Already have an account?
+            <a href="<%= request.getContextPath() %>/login">Login</a>
           </p>
 
+          <input type="text" placeholder="Full Name" class="input" />
           <input type="email" placeholder="Email address" class="input" />
 
           <div class="password-wrapper">
@@ -49,7 +50,6 @@
               class="input"
               id="password"
             />
-
             <img
               src="<%= request.getContextPath() %>/Assets/Login/view.png"
               id="togglePassword"
@@ -57,26 +57,35 @@
             />
           </div>
 
-          <p class="role-text">Login as a customer or seller?</p>
+          <div class="password-wrapper">
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              class="input"
+              id="confirmPassword"
+            />
+            <img
+              src="<%= request.getContextPath() %>/Assets/Login/view.png"
+              id="toggleConfirmPassword"
+              class="eye-icon"
+            />
+          </div>
+
+          <p class="role-text">Sign up as a customer or seller?</p>
 
           <div class="roles">
             <label><input type="radio" name="role" /> Customer</label>
             <label><input type="radio" name="role" /> Seller</label>
           </div>
 
-          <button class="login-btn">Login</button>
-
-          <div class="bottom-row">
-            <label><input type="checkbox" /> Remember me</label>
-            <a href="#" class="forgot">Forgot password?</a>
+          <div class="terms">
+            <label
+              ><input type="checkbox" /> I agree to the Terms and
+              Conditions</label
+            >
           </div>
 
-          <button class="google-btn">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png"
-            />
-            Continue with Google
-          </button>
+          <button class="signup-btn">Sign up</button>
         </div>
       </div>
     </div>
@@ -92,6 +101,21 @@
         } else {
           password.type = "password";
           toggle.src = "<%= request.getContextPath() %>/Assets/Login/view.png";
+        }
+      });
+
+      const toggleConfirm = document.getElementById("toggleConfirmPassword");
+      const confirmPassword = document.getElementById("confirmPassword");
+
+      toggleConfirm.addEventListener("click", () => {
+        if (confirmPassword.type === "password") {
+          confirmPassword.type = "text";
+          toggleConfirm.src =
+            "<%= request.getContextPath() %>/Assets/Login/hide.png";
+        } else {
+          confirmPassword.type = "password";
+          toggleConfirm.src =
+            "<%= request.getContextPath() %>/Assets/Login/view.png";
         }
       });
     </script>
