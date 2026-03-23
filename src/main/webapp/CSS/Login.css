@@ -14,7 +14,11 @@ p {
 }
 
 label {
-  color: #555555;
+ color: #555555;
+ display: flex;
+ align-items: center;
+ gap: 6px;
+ cursor: pointer;
 }
 
 .container {
