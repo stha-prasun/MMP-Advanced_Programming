@@ -1,5 +1,7 @@
 package com.model;
 
+import com.model.enums.Role;
+
 import java.time.LocalDateTime;
 
 public class Customer {
@@ -7,11 +9,13 @@ public class Customer {
     private String Mail;
     private String password;
     private LocalDateTime createdAt;
+    private Role role;
 
-    public Customer(Long Id, String Mail, String password) {
+    public Customer(Long Id, String Mail, String password, Role role) {
         this.Id = Id;
         this.Mail = Mail;
         this.password = password;
+        this.role=role;
     }
 
     public Customer() {
@@ -47,5 +51,13 @@ public class Customer {
 
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

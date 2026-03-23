@@ -1,9 +1,8 @@
-package com.model;
+package com.model.enums;
 
 public enum Category {
     Electronic,
     Furniture,
     Hardware,
-    Vehicle,
     Other
 }
