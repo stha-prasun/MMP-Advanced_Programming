@@ -5,59 +5,57 @@ import com.model.enums.Role;
 import java.time.LocalDateTime;
 
 public class Customer {
-    private Long Id;
-    private String Mail;
-    private String password;
-    private LocalDateTime createdAt;
-    private Role role;
+    private Long customerId;
+    private String custName;
+    private String custEmail;
+    private String custPassword;
+    private LocalDateTime custCreatedAt;
 
-    public Customer(Long Id, String Mail, String password, Role role) {
-        this.Id = Id;
-        this.Mail = Mail;
-        this.password = password;
-        this.role=role;
+    public Customer(Long customerId, String custName, String custEmail, String custPassword, LocalDateTime custCreatedAt) {
+        this.customerId = customerId;
+        this.custName = custName;
+        this.custEmail = custEmail;
+        this.custPassword = custPassword;
+        this.custCreatedAt = custCreatedAt;
     }
 
-    public Customer() {
+    public Long getCustomerId() {
+        return customerId;
     }
 
-    public Long getId() {
-        return Id;
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
     }
 
-    public void setId(Long id) {
-        Id = id;
+    public String getCustName() {
+        return custName;
     }
 
-    public String getMail() {
-        return Mail;
+    public void setCustName(String custName) {
+        this.custName = custName;
     }
 
-    public void setMail(String mail) {
-        Mail = mail;
+    public String getCustEmail() {
+        return custEmail;
     }
 
-    public String getPassword() {
-        return password;
+    public void setCustEmail(String custEmail) {
+        this.custEmail = custEmail;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public String getCustPassword() {
+        return custPassword;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
+    public void setCustPassword(String custPassword) {
+        this.custPassword = custPassword;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
+    public LocalDateTime getCustCreatedAt() {
+        return custCreatedAt;
     }
 
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
+    public void setCustCreatedAt(LocalDateTime custCreatedAt) {
+        this.custCreatedAt = custCreatedAt;
     }
 }
