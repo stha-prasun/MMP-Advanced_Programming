@@ -39,53 +39,66 @@
             Already have an account?
             <a href="<%= request.getContextPath() %>/login">Login</a>
           </p>
-
-          <input type="text" placeholder="Full Name" class="input" />
-          <input type="email" placeholder="Email address" class="input" />
-
-          <div class="password-wrapper">
+          <% if (request.getAttribute("error") != null) { %>
+          <p style="color: red"><%= request.getAttribute("error") %></p>
+          <% } %>
+          <form
+            method="POST"
+            action="<%= request.getContextPath() %>/customer/register"
+          >
             <input
-              type="password"
-              placeholder="Password"
+              type="text"
+              name="custName"
+              placeholder="Full Name"
               class="input"
-              id="password"
             />
-            <img
-              src="<%= request.getContextPath() %>/Assets/Login/view.png"
-              id="togglePassword"
-              class="eye-icon"
-            />
-          </div>
 
-          <div class="password-wrapper">
             <input
-              type="password"
-              placeholder="Confirm Password"
+              type="email"
+              name="custEmail"
+              placeholder="Email address"
               class="input"
-              id="confirmPassword"
             />
-            <img
-              src="<%= request.getContextPath() %>/Assets/Login/view.png"
-              id="toggleConfirmPassword"
-              class="eye-icon"
-            />
-          </div>
 
-          <p class="role-text">Sign up as a customer or seller?</p>
+            <div class="password-wrapper">
+              <input
+                type="password"
+                name="custPassword"
+                placeholder="Password"
+                class="input"
+                id="password"
+              />
+              <img
+                src="<%= request.getContextPath() %>/Assets/Login/view.png"
+                id="togglePassword"
+                class="eye-icon"
+              />
+            </div>
 
-          <div class="roles">
-            <label><input type="radio" name="role" /> Customer</label>
-            <label><input type="radio" name="role" /> Seller</label>
-          </div>
+            <div class="password-wrapper">
+              <input
+                type="password"
+                name="confirmPassword"
+                placeholder="Confirm Password"
+                class="input"
+                id="confirmPassword"
+              />
+              <img
+                src="<%= request.getContextPath() %>/Assets/Login/view.png"
+                id="toggleConfirmPassword"
+                class="eye-icon"
+              />
+            </div>
 
-          <div class="terms">
-            <label
-              ><input type="checkbox" /> I agree to the Terms and
-              Conditions</label
-            >
-          </div>
+            <div class="terms">
+              <label>
+                <input type="checkbox" name="terms" /> I agree to the Terms and
+                Conditions
+              </label>
+            </div>
 
-          <button class="signup-btn">Sign up</button>
+            <button type="submit" class="signup-btn">Sign up</button>
+          </form>
         </div>
       </div>
     </div>

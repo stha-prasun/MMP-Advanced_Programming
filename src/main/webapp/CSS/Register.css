@@ -116,22 +116,6 @@ text-decoration: none;
   cursor: pointer;
 }
 
-.role-text {
-  font-weight: 500;
-  font-size: 14px;
-  margin-bottom: 5px;
-  letter-spacing: 0.25px;
-}
-
-.roles {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0.25px;
-}
-
 .signup-btn {
   width: 100%;
   padding: 12px;
