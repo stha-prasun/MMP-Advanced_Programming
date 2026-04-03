@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter;
+}
+
+body {
+  background: #000;
+}
+
+p {
+  color: #555555;
+}
+
+label {
+  color: #555555;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* LEFT */
+.left {
+  width: 40%;
+  background: #03c;
+  color: white;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  font-family: "Modak", cursive;
+  font-size: 40px;
+}
+
+.illustration {
+  width: 70%;
+}
+
+/* RIGHT */
+.right {
+  width: 60%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-box {
+  width: 350px;
+}
+
+.form-box h1 {
+  margin-bottom: 10px;
+  font-weight: 600;
+  text-align: center;
+  font-size: 44px;
+  font-style: normal;
+  line-height: 100%; /* 44px */
+  letter-spacing: 0.25px;
+}
+
+
+
+.input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #555555;
+  border-radius: 10px;
+  outline: none;
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+}
+
+.signup-btn {
+  width: 100%;
+  padding: 12px;
+  background: #03c;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+
+
+
+
+/* Responsive */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .left {
+    display: none;
+  }
+
+  .right {
+    width: 100%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 500px) {
+  .form-box {
+    width: 90%;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+
+
+  .bottom-row {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+}
