@@ -98,7 +98,11 @@
             </div>
 
             <button type="submit" class="signup-btn">Sign up</button>
+            <p class="signup-text">
+            <a href="<%= request.getContextPath() %>/Seller">Become a seller?</a>
+            </p>
           </form>
+
         </div>
       </div>
     </div>
