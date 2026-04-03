@@ -30,10 +30,11 @@
       </div>
         <div class="form-box">
           <h1>Hello Admin?</h1>
-          <input type="email" placeholder="Email address" class="input" />
+          <input type="email" name="AdminEmail" placeholder="Email address" class="input" />
           <div class="password-wrapper">
             <input
               type="password"
+              name="AdminPass"
               placeholder="Password"
               class="input"
               id="password"

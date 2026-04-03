@@ -16,4 +16,38 @@ public class Admin_LoginController extends HttpServlet {
 
         request.getRequestDispatcher("/pages/Admin_Login.jsp").forward(request, response);
     }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        try {
+            String adminMail = request.getParameter("AdminEmail");
+            String adminPassword = request.getParameter("AdminPass");//before entering add a hashing function.
+            String hashedadminPassword = request.getParameter("#");//need to import hashed password from database
+
+            //Verifying whether both fields have been entered.
+            if (adminMail == null || adminMail.isEmpty() || adminPassword.isEmpty() ||adminPassword == null) {
+                request.setAttribute("error", "All the Fields are Required");
+                request.getRequestDispatcher("/pages/Login.jsp").forward(request, response);
+                return;
+            }
+
+            if (!adminPassword.equals(hashedadminPassword)) {
+                request.setAttribute("error", "Passwords do not match");
+                request.getRequestDispatcher("/pages/Login.jsp").forward(request, response);
+                return;
+            }
+
+            // Redirect after success
+            response.sendRedirect(request.getContextPath() + "/home");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+            // Redirect back to Login page on error
+            request.setAttribute("error", "Something went wrong");
+            request.getRequestDispatcher("/pages/Login.jsp").forward(request, response);
+        }
+    }
 }
