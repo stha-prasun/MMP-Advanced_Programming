@@ -22,14 +22,7 @@
   </head>
   <body>
     <div class="container">
-      <!-- LEFT -->
-      <div class="left">
-        <h2 class="logo">MMP</h2>
-        <img
-          src="<%= request.getContextPath() %>/Assets/Login/peep.svg"
-          class="illustration"
-        />
-      </div>
+
       <!-- RIGHT -->
       <div class="right">
       <div class="crowd-bg">
