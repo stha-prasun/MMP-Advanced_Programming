@@ -16,7 +16,7 @@
     />
     <link
       rel="stylesheet"
-      href="/css/Seller.css"
+      href="<%= request.getContextPath() %>/CSS/Seller.css"
     />
   </head>
   <body>
@@ -25,7 +25,7 @@
       <div class="left">
         <h2 class="logo">MMP</h2>
         <img
-          src="/assets/peep.svg"
+          src="<%= request.getContextPath() %>/Assets/Login/peep.svg"
           class="illustration"
         />
       </div>
@@ -41,28 +41,28 @@
           >
             <input
               type="text"
-              name="custName"
+              name="sellerName"
               placeholder="Full Name"
               class="input"
             />
 
             <input
               type="text"
-              name="custName"
+              name="verificationId"
               placeholder="National Identity No"
               class="input"
             />
 
             <input
               type="text"
-              name="custName"
+              name="sellerLocation"
               placeholder="Location"
               class="input"
             />
 
             <input
               type="email"
-              name="custEmail"
+              name="sellerEmail"
               placeholder="Email address"
               class="input"
             />
@@ -70,13 +70,13 @@
             <div class="password-wrapper">
               <input
                 type="password"
-                name="custPassword"
+                name="sellerPassword"
                 placeholder="Password"
                 class="input"
                 id="password"
               />
               <img
-                src="/assets/view.png"
+                src="<%= request.getContextPath() %>/Assets/Login/view.png"
                 id="togglePassword"
                 class="eye-icon"
               />
@@ -91,7 +91,7 @@
                 id="confirmPassword"
               />
               <img
-                src="assets/view.png"
+                src="<%= request.getContextPath() %>/Assets/Login/view.png"
                 id="toggleConfirmPassword"
                 class="eye-icon"
               />
@@ -104,3 +104,34 @@
         </div>
       </div>
     </div>
+        <script>
+          const toggle = document.getElementById("togglePassword");
+          const password = document.getElementById("password");
+
+          toggle.addEventListener("click", () => {
+            if (password.type === "password") {
+              password.type = "text";
+              toggle.src = "<%= request.getContextPath() %>/Assets/Login/hide.png";
+            } else {
+              password.type = "password";
+              toggle.src = "<%= request.getContextPath() %>/Assets/Login/view.png";
+            }
+          });
+
+          const toggleConfirm = document.getElementById("toggleConfirmPassword");
+          const confirmPassword = document.getElementById("confirmPassword");
+
+          toggleConfirm.addEventListener("click", () => {
+            if (confirmPassword.type === "password") {
+              confirmPassword.type = "text";
+              toggleConfirm.src =
+                "<%= request.getContextPath() %>/Assets/Login/hide.png";
+            } else {
+              confirmPassword.type = "password";
+              toggleConfirm.src =
+                "<%= request.getContextPath() %>/Assets/Login/view.png";
+            }
+          });
+        </script>
+        </body>
+        </html>

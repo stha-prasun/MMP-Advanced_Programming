@@ -1,48 +1,49 @@
 package com.model;
 
-import com.model.enums.Role;
-
 import java.time.LocalDateTime;
 
 public class Seller {
-    private Long Id;
-    private String Mail;
-    private String password;
+    private Long sellerId;
+    private String sellerEmail;
+    private String sellerPassword;
     private LocalDateTime createdAt;
-    private Role role;
+    private String sellerName;
+    private String sellerLocation;
+    private String sellerIsActive;
+    private Long verificationId;
 
-    public Seller(String password, String Mail, Long Id, Role role) {
-        this.password = password;
-        this.Mail = Mail;
-        this.Id = Id;
-        this.role=role;
+    public Seller(Long sellerId, String sellerEmail, String sellerPassword, String sellName, String sellerLocation, String isActive, Long verificationId) {
+        this.sellerId = sellerId;
+        this.sellerEmail = sellerEmail;
+        this.sellerPassword = sellerPassword;
+        this.sellerName = sellName;
+        this.sellerLocation = sellerLocation;
+        this.sellerIsActive = isActive;
+        this.verificationId = verificationId;
     }
 
-    public Seller() {
+    public Long getSellerId() {
+        return sellerId;
     }
 
-    public Long getId() {
-        return Id;
+    public void setSellerId(Long sellerId) {
+        this.sellerId = sellerId;
     }
 
-    public void setId(Long id) {
-        this.Id = id;
+    public String getSellerEmail() {
+        return sellerEmail;
     }
 
-    public String getMail() {
-        return Mail;
+    public void setSellerEmail(String sellerEmail) {
+        this.sellerEmail = sellerEmail;
     }
 
-    public void setMail(String mail) {
-        this.Mail = mail;
+    public String getSellerPassword() {
+        return sellerPassword;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setSellerPassword(String sellerPassword) {
+        this.sellerPassword = sellerPassword;
     }
 
     public LocalDateTime getCreatedAt() {
@@ -53,11 +54,35 @@ public class Seller {
         this.createdAt = createdAt;
     }
 
-    public Role getRole() {
-        return role;
+    public String getSellerName() {
+        return sellerName;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setSellerName(String sellerName) {
+        this.sellerName = sellerName;
+    }
+
+    public String getSellerLocation() {
+        return sellerLocation;
+    }
+
+    public void setSellerLocation(String sellerLocation) {
+        this.sellerLocation = sellerLocation;
+    }
+
+    public String getSellerIsActive() {
+        return sellerIsActive;
+    }
+
+    public void setSellerIsActive(String sellerIsActive) {
+        this.sellerIsActive = sellerIsActive;
+    }
+
+    public Long getVerificationId() {
+        return verificationId;
+    }
+
+    public void setVerificationId(Long verificationId) {
+        this.verificationId = verificationId;
     }
 }
