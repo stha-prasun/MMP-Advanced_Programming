@@ -11,10 +11,10 @@ public class SellerService {
         // Hash the password
         String hashedPassword = PasswordUtil.getHashPassword(sellerPassword);
         String hashedNID = PasswordUtil.getHashPassword(verificationId.toString());
-        Long LongNID = Long.parseLong(hashedNID);
+        Long longNID = Long.parseLong(hashedNID);
 
         SellerDAO dao = new SellerDAO();
 
-        dao.insertSeller(sellerEmail, hashedPassword, sellerName, sellerLocation, sellerIsActive, LongNID, sellerCreatedAt);
+        dao.insertSeller(sellerEmail, hashedPassword, sellerName, sellerLocation, sellerIsActive, longNID, sellerCreatedAt);
     }
 }
