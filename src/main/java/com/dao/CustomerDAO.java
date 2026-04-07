@@ -2,9 +2,13 @@ package com.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.time.LocalDateTime;
 
+
+import com.model.Customer;
 import com.util.DBconfig;
+import com.util.PasswordUtil;
 
 public class CustomerDAO {
 
@@ -27,4 +31,37 @@ public class CustomerDAO {
         pst.close();
         con.close();
     }
+    //logic for getCustomer: takes in custEmail and password from the front end user(service), checks if the email exists, if it does, checks if password matches
+    // then creates a Customer Object with the database's email's information which will be used for the profile later on.
+    // thus this function has a return type of customer
+    // If this logic is invalid/wrong please let me know :)
+    public Customer getCustomer(String custEmail,String custPassword) throws Exception {
+        Connection con = DBconfig.getConnection();
+
+
+
+        String sql = "SELECT * FROM customer where custEmail = ?";
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setString(1, custEmail);
+        ResultSet rs = pst.executeQuery();
+
+        boolean confirmedPass = PasswordUtil.checkPassword(custPassword, rs.getString("custPassword"));
+
+        if(!confirmedPass){
+            return null;
+
+        }
+        Customer cust= new Customer(
+                rs.getLong("customerId"),
+                rs.getString("custName"),
+                rs.getString("custEmail"),
+                rs.getString("custPassword"),
+                rs.getTimestamp("custCreatedAt").toLocalDateTime()
+
+        );
+        pst.close();
+        con.close();
+        return cust;
+
+        }
 }

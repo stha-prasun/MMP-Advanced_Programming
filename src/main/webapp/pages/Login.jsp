@@ -40,12 +40,13 @@
             <a href="<%= request.getContextPath() %>/register">Sign up now</a>
           </p>
 
-          <input type="email" placeholder="Email address" class="input" />
+          <input type="email" placeholder="Email address" name="custEmail" class="input" />
 
           <div class="password-wrapper">
             <input
               type="password"
               placeholder="Password"
+              name = "custPassword"
               class="input"
               id="password"
             />
@@ -60,8 +61,8 @@
           <p class="role-text">Login as a customer or seller?</p>
 
           <div class="roles">
-            <label><input type="radio" name="role" /> Customer</label>
-            <label><input type="radio" name="role" /> Seller</label>
+            <label><input type="radio" name="role" value="Customer"/> Customer</label>
+            <label><input type="radio" name="role" value="Seller"/> Seller</label>
           </div>
 
           <button class="login-btn">Login</button>
