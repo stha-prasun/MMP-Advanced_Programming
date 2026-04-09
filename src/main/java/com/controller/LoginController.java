@@ -25,14 +25,22 @@ public class LoginController extends HttpServlet {
 
         try {
             // Get form parameters
-            String custEmail = request.getParameter("custEmail");
-            String custPassword = request.getParameter("custPassword");
+            String Email = request.getParameter("Email");
+            String Password = request.getParameter("Password");
             String role =request.getParameter("role");
+
+            if (Email == null || Email.trim().isEmpty() ||
+                    Password == null || Password.trim().isEmpty() ||
+                    role == null || role.trim().isEmpty()) {
+                request.setAttribute("error", "All fields are required");
+                request.getRequestDispatcher("/pages/Register.jsp").forward(request, response);
+                return;
+            }
 
             if (role.equals("customer")) {
                 // Calling Customer Login Service
                 LoginService ls = new LoginService();
-                boolean success= ls.login(custEmail,custPassword);
+                boolean success= ls.login(Email,Password,role);
                 if (success){
                     // Redirect after success
                     response.sendRedirect(request.getContextPath() + "/home");
@@ -44,9 +52,8 @@ public class LoginController extends HttpServlet {
                 }
             }else{
                 //Call Seller Login Service
-                //currently still customer login
                 LoginService ls = new LoginService();
-                boolean success= ls.login(custEmail,custPassword);
+                boolean success= ls.login(Email,Password,role);
                 if (success){
                     // Redirect after success
                     response.sendRedirect(request.getContextPath() + "/home");

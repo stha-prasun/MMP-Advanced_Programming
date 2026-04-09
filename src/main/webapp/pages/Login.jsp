@@ -40,13 +40,13 @@
             <a href="<%= request.getContextPath() %>/register">Sign up now</a>
           </p>
 
-          <input type="email" placeholder="Email address" name="custEmail" class="input" />
+          <input type="email" placeholder="Email address" name="Email" class="input" />
 
           <div class="password-wrapper">
             <input
               type="password"
               placeholder="Password"
-              name = "custPassword"
+              name = "Password"
               class="input"
               id="password"
             />

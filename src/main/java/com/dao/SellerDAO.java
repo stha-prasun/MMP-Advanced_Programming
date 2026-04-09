@@ -1,9 +1,13 @@
 package com.dao;
 
+import com.model.Customer;
+import com.model.Seller;
 import com.util.DBconfig;
+import com.util.PasswordUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.time.LocalDateTime;
 
 public class SellerDAO {
@@ -28,5 +32,35 @@ public class SellerDAO {
 
         pst.close();
         con.close();
+    }
+    public Seller getSeller(String sellerEmail, String sellerPassword) throws Exception {
+        Connection con = DBconfig.getConnection();
+
+
+
+        String sql = "SELECT * FROM seller where custEmail = ?";
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setString(1, sellerEmail);
+        ResultSet rs = pst.executeQuery();
+
+        boolean confirmedPass = PasswordUtil.checkPassword(sellerPassword, rs.getString("sellerPassword"));
+
+        if(!confirmedPass){
+            return null;
+
+        }
+        Seller seller= new Seller(
+                rs.getLong("sellerId"),
+                rs.getString("sellerName"),
+                rs.getString("sellerEmail"),
+                rs.getString("sellerPassword"),
+                rs.getString("sellerLocation"),
+                rs.getString("sellerIsActive"),
+                rs.getLong("verificationId")
+        );
+        pst.close();
+        con.close();
+        return seller;
+
     }
 }
