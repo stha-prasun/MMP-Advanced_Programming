@@ -1,0 +1,335 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: white;
+}
+
+/* HERO SECTION */
+.heroSection {
+  min-height: 100vh;
+  padding: 0 2.5vw;
+  background: linear-gradient(180deg, #CCD9FF -106.48%, #C1CEF3 12.53%, #EFF2FB 54.96%, #FFF 77.89%);
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  height: 5rem;
+  padding: 1.5rem 2.5rem;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0 0 1.25rem 1.25rem;
+  background: #FFF;
+  box-shadow: 0 181px 51px 0 rgba(0, 51, 204, 0.00), 0 116px 46px 0 rgba(0, 51, 204, 0.02), 0 65px 39px 0 rgba(0, 51, 204, 0.07), 0 29px 29px 0 rgba(0, 51, 204, 0.11), 0 7px 16px 0 rgba(0, 51, 204, 0.13);
+}
+
+/* LOGO */
+.logo {
+  font-family: "Modak", cursive;
+  font-size: 1.75rem;
+  color: #0033CC;
+  cursor: pointer;
+}
+
+/* NAV LEFT */
+.navLeft {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* NAV LINKS */
+.navLinks {
+  list-style: none;
+
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navLinks li {
+  cursor: pointer;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.dropdown {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* NAV RIGHT */
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+/* SEARCH WRAPPER */
+.searchWrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  height: 2.875rem;
+  border-radius: 1.5rem;
+  padding: 0.3rem 0.3rem 0.3rem 0.625rem;
+  gap: 0.5rem;
+  background: #fff;
+  width: clamp(280px, 22vw, 400px);
+}
+
+.searchWrapper input {
+  border: none;
+  outline: none;
+  padding: 0;
+  font-size: 0.875rem;
+  flex: 1;
+  color: #333;
+  background: transparent;
+}
+
+.searchIcon {
+  width: 1rem;
+  height: 1rem;
+  opacity: 0.45;
+}
+
+/* SEARCH BUTTON */
+.searchBtn {
+  background: #03C;
+  color: white;
+  border: none;
+  height: 2.25rem;
+  padding: 0.625rem 1.125rem;
+  border-radius: 500px;
+  cursor: pointer;
+  font-size: 0.8125rem;
+  white-space: nowrap;
+}
+
+/* FAV BUTTON */
+.favBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.375rem;
+  height: 2.375rem;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+}
+
+.favBtn img {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+/* PROFILE */
+.icons {
+  cursor: pointer;
+}
+
+.profile {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* HERO CONTENT */
+.heroContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5vh 0 4vh 0;
+  gap: 2.5vw;
+}
+
+/* HERO LEFT */
+.heroLeft {
+  max-width: 35vw;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.heroTitle {
+  color: #0A0A0A;
+  font-family: Inter;
+  font-size: clamp(2rem, 4vw, 3.75rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+}
+
+.heroSubtitle {
+  color: rgba(0, 0, 0, 0.70);
+  font-size: clamp(0.875rem, 1vw, 1rem);
+  font-weight: 400;
+  line-height: 1.75rem;
+}
+
+.cta {
+  background: #03c;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 0.8125rem;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  width: fit-content;
+}
+
+.cta:hover {
+  background: #1a44c2;
+}
+
+/* HERO RIGHT */
+.heroRight {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.heroRight img {
+  width: 100%;
+  max-width: 45vw;
+  height: 55vh;
+  min-height: 300px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+/* FOOTER */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: #03c;
+  padding: 2.5rem 2.5rem 0 2.5rem;
+  position: relative;
+  overflow: hidden;
+  min-height: 26rem;
+}
+
+.footerLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 2.5rem;
+  z-index: 1;
+  max-width: 25vw;
+  min-height: 15rem;
+}
+
+.footerTop {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 4rem;
+}
+
+.footerLogo {
+  font-family: "Modak", cursive;
+  font-size: 1.75rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.footerTagline {
+  color: #fff;
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.015em;
+}
+
+
+.footerCopy {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  margin-bottom: 12rem;;
+}
+
+.footerBgText {
+  font-family: "Modak", cursive;
+  font-size: clamp(8rem, 18vw, 16rem);
+  color: rgba(255, 255, 255, 0.08);
+  position: absolute;
+  bottom: -2rem;
+  left: 2.5rem;
+  line-height: 1;
+  pointer-events: none;
+  z-index: 0;
+  letter-spacing: -0.025em;
+}
+
+.footerRight {
+  display: flex;
+  gap: 0;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  z-index: 1;
+  align-self: flex-start;
+  min-height: 24rem;
+}
+
+.footerCol {
+  padding: 1.875rem 1.25rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+  min-width: 12.5rem;
+}
+
+.footerCol:first-child {
+  border-left: none;
+}
+
+.footerCol h4 {
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 550;
+  line-height: 1;
+  letter-spacing: 0.015em;
+  margin-bottom: 1rem;
+}
+
+.footerCol ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.footerCol ul li {
+  color: rgba(255, 255, 255, 0.70);
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.footerCol a {
+  color: rgba(255, 255, 255, 0.70);
+  font-size: 0.875rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
