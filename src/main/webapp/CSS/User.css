@@ -13,6 +13,7 @@ body {
 .heroSection {
   min-height: 100vh;
   padding: 0 2.5vw;
+  border-bottom: 0.667px solid rgba(0, 0, 0, 0.10);
   background: linear-gradient(180deg, #CCD9FF -106.48%, #C1CEF3 12.53%, #EFF2FB 54.96%, #FFF 77.89%);
 }
 
@@ -46,7 +47,6 @@ body {
 /* NAV LINKS */
 .navLinks {
   list-style: none;
-
   display: flex;
   gap: 1.5rem;
 }
@@ -155,8 +155,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5vh 0 4vh 0;
-  gap: 2.5vw;
+  padding: 12vh 0 16vh 0;
+  gap: 5vw;
 }
 
 /* HERO LEFT */
@@ -166,16 +166,21 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  padding-left: 10rem;
+
 }
 
 .heroTitle {
   color: #0A0A0A;
   font-family: Inter;
-  font-size: clamp(2rem, 4vw, 3.75rem);
+  font-size: 3.75rem;
   font-weight: 500;
   line-height: 1;
   letter-spacing: -0.025em;
   text-transform: uppercase;
+  font-family: "Instrument Serif";
+  font-weight: 400;
+  font-style: normal;
 }
 
 .heroSubtitle {
@@ -198,24 +203,20 @@ body {
   width: fit-content;
 }
 
-.cta:hover {
-  background: #1a44c2;
-}
 
 /* HERO RIGHT */
 .heroRight {
   flex: 1;
   display: flex;
-  justify-content: flex-end;
+
 }
 
 .heroRight img {
-  width: 100%;
-  max-width: 45vw;
-  height: 55vh;
-  min-height: 300px;
   object-fit: cover;
   border-radius: 0.5rem;
+  width: 48.25rem;
+  height: 42.3125rem;
+
 }
 
 /* FOOTER */
@@ -333,3 +334,259 @@ body {
   text-decoration: none;
 }
 
+
+.product {
+  margin: 80px 40px 0px 40px;
+}
+
+.productWrapper {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+.productLeft {
+  width: 220px;
+  flex-shrink: 0;
+}
+
+.categories {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.875rem;
+}
+
+.productRight {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.categoriesHead {
+  border-bottom: 0.667px solid rgba(0, 0, 0, 0.10);
+  width: 100%;
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.filterBtn,
+.clearBtn {
+  width: 100%;
+}
+
+.categories h3 {
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.25rem;
+  letter-spacing: 0.02188rem;
+  text-transform: uppercase;
+}
+
+.categories label {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+.categories input[type="checkbox"] {
+  width: 1.125rem;
+  height: 1.125rem;
+  border: 1.5px solid #ccc;
+  border-radius: 3px;
+  cursor: pointer;
+  accent-color: #03C;
+  flex-shrink: 0;
+}
+
+
+.filterBtn {
+  background: #03C;
+  color: white;
+  border: none;
+  height: 2.25rem;
+  width: 100%;
+  padding: 0.625rem 1.125rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.8125rem;
+  white-space: nowrap;
+  margin-top: 0.5rem;
+}
+
+.clearBtn {
+  border: 1px solid #03C;
+  color: #03c;
+  background: #fff;
+  height: 2.25rem;
+  width: 100%;
+  padding: 0.625rem 1.125rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.8125rem;
+}
+
+.productRight h1{
+  font-size: 1.879rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 2.25rem;
+  letter-spacing: -0.04688rem;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.1rem;
+}
+
+.productCard {
+  border: 0.667px solid rgba(0, 0, 0, 0.12);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  cursor: pointer;
+  background: #fff;
+  transition: box-shadow 0.2s;
+}
+
+
+.cardImageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.cardImageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cardFav {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.cardFav img {
+width: 1.375rem;
+height: 1.375rem;
+aspect-ratio: 1/1;
+}
+
+.cardInfo {
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.cardCategory {
+color: rgba(0, 0, 0, 0.40);
+font-size: 0.75rem;
+font-style: normal;
+font-weight: 400;
+line-height: 1rem; /* 133.333% */
+letter-spacing: 0.01875rem;
+text-transform: uppercase;
+}
+
+.cardName {
+  color: #0A0A0A;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.25rem; /* 142.857% */
+  letter-spacing: 0.02188rem;
+  text-transform: uppercase;
+  padding-top: 16px;
+}
+
+.cardPrice {
+  color: #0A0A0A;
+  font-family: Inter;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.25rem; /* 142.857% */
+  padding-top: 8px;
+}
+
+
+.advert {
+  position: relative;
+  width: 100%;
+  height: 22.8125rem;
+  overflow: hidden;
+  margin: 80px 0 80px 0;
+  padding: 0 40px 0 40px;
+}
+
+.advert img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+    border-radius: 8px;
+
+}
+
+.advertContent {
+  position: absolute;
+  top: 50%;
+  left: 2.5rem;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-left: 40px;
+}
+
+.advertTitle {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.advertSubtitle {
+  color: rgba(255, 255, 255, 0.80);
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.advertBtn {
+  background: #03c;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 0.8125rem;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  width: fit-content;
+  margin-top: 6rem;
+}

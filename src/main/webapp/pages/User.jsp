@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/User.css" />
   </head>
   <body>
@@ -39,18 +41,207 @@
         </div>
       </div>
 
-      <!-- Hero Content -->
-      <div class="heroContent">
-        <div class="heroLeft">
-          <h1 class="heroTitle">BUY SMART.<br>SELL EASY. REPEAT.</h1>
-          <p class="heroSubtitle">Your go to marketplace for buying and selling second-hand products.</p>
-          <button class="cta">SHOP NOW</button>
+    <!-- Hero Content -->
+        <div class="heroContent">
+            <div class="heroLeft">
+            <h1 class="heroTitle">BUY SMART.<br>SELL EASY. REPEAT.</h1>
+            <p class="heroSubtitle">Your go to marketplace for buying and<br>selling second-hand products.</p>
+            <button class="cta">SHOP NOW</button>
+            </div>
+            <div class="heroRight">
+            <img src="assets/watch.png" alt="Watch" />
+            </div>
         </div>
-        <div class="heroRight">
-          <img src="<%= request.getContextPath() %>/Assets/Home/watch.png" alt="Watch" />
-        </div>
-      </div>
+        </section>
 
+        <section class="product">
+        <div class="productWrapper">
+
+            <div class="productLeft">
+            <div class="categories">
+                <div class="categoriesHead">
+                <h3>Categories</h3>
+                </div>
+                <label><input type="checkbox" name="category" value="electronics"> Electronics</label>
+                <label><input type="checkbox" name="category" value="furniture"> Furniture</label>
+                <label><input type="checkbox" name="category" value="outdoors"> Outdoors</label>
+                <label><input type="checkbox" name="category" value="hardwareTools"> Hardware Tools</label>
+                <label><input type="checkbox" name="category" value="others"> Others</label>
+                <button class="filterBtn">Apply Filter</button>
+                <button class="clearBtn">Clear All</button>
+            </div>
+            </div>
+
+            <div class="productRight">
+            <h1>Explore All Products</h1>
+            <div class="productGrid">
+
+                <div class="productCard">
+                <div class="cardImageWrapper">
+                <img src="assets/product/product1.png" alt="Product" />
+                <div class="cardFav">
+                <img src="assets/fav.png" alt="favourites" />
+                </div>
+
+                    </button>
+                </div>
+                <div class="cardInfo">
+                    <span class="cardCategory">ELECTRONICS</span>
+                    <p class="cardName">MINIMALIST HEADPHONES</p>
+                    <p class="cardPrice">$299</p>
+                </div>
+                </div>
+
+                            <div class="productCard">
+                <div class="cardImageWrapper">
+                <img src="assets/product/product2.png" alt="Product" />
+                <div class="cardFav">
+                <img src="assets/fav.png" alt="favourites" />
+                </div>
+
+                    </button>
+                </div>
+                <div class="cardInfo">
+                    <span class="cardCategory">ELECTRONICS</span>
+                    <p class="cardName">MINIMALIST HEADPHONES</p>
+                    <p class="cardPrice">$299</p>
+                </div>
+                </div>
+
+                            <div class="productCard">
+                <div class="cardImageWrapper">
+                <img src="assets/product/product3.png" alt="Product" />
+                <div class="cardFav">
+                <img src="assets/fav.png" alt="favourites" />
+                </div>
+
+                    </button>
+                </div>
+                <div class="cardInfo">
+                    <span class="cardCategory">ELECTRONICS</span>
+                    <p class="cardName">MINIMALIST HEADPHONES</p>
+                    <p class="cardPrice">$299</p>
+                </div>
+                </div>
+
+                            <div class="productCard">
+                <div class="cardImageWrapper">
+                <img src="assets/product/product4.png" alt="Product" />
+                <div class="cardFav">
+                <img src="assets/fav.png" alt="favourites" />
+                </div>
+
+                    </button>
+                </div>
+                <div class="cardInfo">
+                    <span class="cardCategory">ELECTRONICS</span>
+                    <p class="cardName">MINIMALIST HEADPHONES</p>
+                    <p class="cardPrice">$299</p>
+                </div>
+                </div>
+
+                            <div class="productCard">
+                <div class="cardImageWrapper">
+                <img src="assets/product/product5.png" alt="Product" />
+                <div class="cardFav">
+                <img src="assets/fav.png" alt="favourites" />
+                </div>
+
+                    </button>
+                </div>
+                <div class="cardInfo">
+                    <span class="cardCategory">ELECTRONICS</span>
+                    <p class="cardName">MINIMALIST HEADPHONES</p>
+                    <p class="cardPrice">$299</p>
+                </div>
+                </div>
+
+                            <div class="productCard">
+                <div class="cardImageWrapper">
+                <img src="assets/product/product6.png" alt="Product" />
+                <div class="cardFav">
+                <img src="assets/fav.png" alt="favourites" />
+                </div>
+
+                    </button>
+                </div>
+                <div class="cardInfo">
+                    <span class="cardCategory">ELECTRONICS</span>
+                    <p class="cardName">MINIMALIST HEADPHONES</p>
+                    <p class="cardPrice">$299</p>
+                </div>
+                </div>
+
+                            <div class="productCard">
+                <div class="cardImageWrapper">
+                <img src="assets/product/product7.png" alt="Product" />
+                <div class="cardFav">
+                <img src="assets/fav.png" alt="favourites" />
+                </div>
+
+                    </button>
+                </div>
+                <div class="cardInfo">
+                    <span class="cardCategory">ELECTRONICS</span>
+                    <p class="cardName">MINIMALIST HEADPHONES</p>
+                    <p class="cardPrice">$299</p>
+                </div>
+                </div>
+
+                            <div class="productCard">
+                <div class="cardImageWrapper">
+                <img src="assets/product/product8.png" alt="Product" />
+                <div class="cardFav">
+                <img src="assets/fav.png" alt="favourites" />
+                </div>
+
+                    </button>
+                </div>
+                <div class="cardInfo">
+                    <span class="cardCategory">ELECTRONICS</span>
+                    <p class="cardName">MINIMALIST HEADPHONES</p>
+                    <p class="cardPrice">$299</p>
+                </div>
+                </div>
+
+                            <div class="productCard">
+                <div class="cardImageWrapper">
+                <img src="assets/product/product9.png" alt="Product" />
+                <div class="cardFav">
+                <img src="assets/fav.png" alt="favourites" />
+                </div>
+
+                    </button>
+                </div>
+                <div class="cardInfo">
+                    <span class="cardCategory">ELECTRONICS</span>
+                    <p class="cardName">MINIMALIST HEADPHONES</p>
+                    <p class="cardPrice">$299</p>
+                </div>
+                </div>
+
+
+
+
+
+            </div>
+            </div>
+
+        </div>
+
+        <div class="seeMore" style="color: #03c; font-weight: 700; text-decoration: underline; margin-left: 53rem; margin-top: 2rem;">
+            See More.
+        </div>
+    </section>
+
+
+    <section class="advert">
+    <img src="assets/product/adver.png" alt="product" />
+      <div class="advertContent">
+        <h2 class="advertTitle">Upgrade Your Setup</h2>
+        <p class="advertSubtitle">Clean design. Better products. Faster checkout.</p>
+        <button class="advertBtn">Shop Now</button>
+      </div>
     </section>
 
     <!-- Footer -->
