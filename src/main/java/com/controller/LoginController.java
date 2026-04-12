@@ -4,6 +4,8 @@ import java.io.IOException;
 
 
 import com.service.LoginService;
+import com.util.CookieUtil;
+import com.util.SessionUtil;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -12,7 +14,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/customer/login")
 public class LoginController extends HttpServlet {
-    //onject service
+    //object service
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -20,6 +22,8 @@ public class LoginController extends HttpServlet {
 
         request.getRequestDispatcher("/pages/Login.jsp").forward(request, response);
     }
+
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -55,11 +59,14 @@ public class LoginController extends HttpServlet {
                 LoginService ls = new LoginService();
                 boolean success= ls.login(Email,Password,role);
                 if (success){
+                    SessionUtil.setAttribute(request, "Email", Email);
+                    CookieUtil.addCookie(response, "temp", "temp", 5*30); //temp variable for now cause not finalized
                     // Redirect after success
                     response.sendRedirect(request.getContextPath() + "/home");
 
                 }
                 else{
+                    //when the given details aren't found
                     request.setAttribute("error", "Please enter the correct email or password!!!");
                     request.getRequestDispatcher("/pages/login.jsp").forward(request, response);
                 }
