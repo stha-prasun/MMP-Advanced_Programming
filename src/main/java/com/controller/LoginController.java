@@ -60,7 +60,7 @@ public class LoginController extends HttpServlet {
                 boolean success= ls.login(Email,Password,role);
                 if (success){
                     SessionUtil.setAttribute(request, "Email", Email);
-                    CookieUtil.addCookie(response, "temp", "temp", 5*30); //temp variable for now cause not finalized
+                    CookieUtil.addCookie(response, "Email", "temp", 5*30); //temp variable for now cause not finalized
                     // Redirect after success
                     response.sendRedirect(request.getContextPath() + "/home");
 

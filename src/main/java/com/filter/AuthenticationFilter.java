@@ -17,6 +17,12 @@ public class AuthenticationFilter extends HttpFilter implements Filter {
     private static final String ROOT = "/";
 
     @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+
+    }
+
+
+    @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException
     {
@@ -24,13 +30,42 @@ public class AuthenticationFilter extends HttpFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
         // Get the requested URI
+
         String uri = req.getRequestURI();
-        //boolean isLoggedIn = SessionUtil.getAttribute(req, "Email") != null;
-        if (uri.endsWith(".css") || uri.endsWith(HOME) || uri.endsWith(ROOT)) {
+        String contextPath = req.getContextPath();
+
+        String path = uri.substring(contextPath.length());
+
+
+        if (path.startsWith("/resources/") || path.endsWith(".css") || path.endsWith(".js") || path.endsWith(".png") || path.endsWith(".jpg")   || path.startsWith("/WEB-INF")) {
+
             chain.doFilter(request, response);
             return;
         }
+
+        Object user = SessionUtil.getAttribute(req, "Email");
+
+        boolean isLoggedIn = user != null;
+
+        boolean isPublic = path.equals(LOGIN) || path.equals(REGISTER) || path.equals(HOME);
+
+        if (!isLoggedIn) {
+            if (isPublic) {
+                chain.doFilter(request, response);
+            } else {
+                res.sendRedirect(contextPath + HOME);
+            }
+        } else {
+            if (isPublic) {
+                res.sendRedirect(contextPath + "/home");
+            } else {
+                chain.doFilter(request, response);
+            }
+        }
+
     }
 
+    @Override
+    public void destroy() {}
 
 }
