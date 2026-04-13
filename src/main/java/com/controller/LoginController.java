@@ -31,46 +31,31 @@ public class LoginController extends HttpServlet {
             // Get form parameters
             String Email = request.getParameter("Email");
             String Password = request.getParameter("Password");
-            String role =request.getParameter("role");
 
             if (Email == null || Email.trim().isEmpty() ||
-                    Password == null || Password.trim().isEmpty() ||
-                    role == null || role.trim().isEmpty()) {
+                    Password == null || Password.trim().isEmpty()) {
                 request.setAttribute("error", "All fields are required");
-                request.getRequestDispatcher("/pages/Register.jsp").forward(request, response);
+                request.getRequestDispatcher("/pages/User.jsp").forward(request, response);
                 return;
             }
 
-            if (role.equals("customer")) {
+
                 // Calling Customer Login Service
                 LoginService ls = new LoginService();
-                boolean success= ls.login(Email,Password,role);
-                if (success){
-                    // Redirect after success
-                    response.sendRedirect(request.getContextPath() + "/home");
-
-                }
-                else{
-                    request.setAttribute("error", "Please enter the correct email or password!!!");
-                    request.getRequestDispatcher("/pages/login.jsp").forward(request, response);
-                }
-            }else{
-                //Call Seller Login Service
-                LoginService ls = new LoginService();
-                boolean success= ls.login(Email,Password,role);
+                boolean success= ls.login(Email,Password);
                 if (success){
                     SessionUtil.setAttribute(request, "Email", Email);
                     CookieUtil.addCookie(response, "Email", "temp", 5*30); //temp variable for now cause not finalized
                     // Redirect after success
                     response.sendRedirect(request.getContextPath() + "/home");
 
+
                 }
                 else{
-                    //when the given details aren't found
                     request.setAttribute("error", "Please enter the correct email or password!!!");
                     request.getRequestDispatcher("/pages/login.jsp").forward(request, response);
                 }
-            }
+
 
 
         } catch (Exception e) {

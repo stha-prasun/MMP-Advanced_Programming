@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
+<jsp:include page = "/pages/Navbar.jsp">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,35 +12,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/User.css" />
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/CSSgit /User.css" />
   </head>
   <body>
     <section class="heroSection">
-
-      <!-- Navbar -->
-      <div class="navbar">
-        <div class="navLeft">
-          <div class="logo">MMP</div>
-          <ul class="navLinks">
-            <li>About us</a></li>
-            <li>Contact us</a></li>
-            <li class="dropdown">Shop <img src="<%= request.getContextPath() %>/Assets/Home/down.png" alt="" /></li>
-          </ul>
-        </div>
-        <div class="navRight">
-          <div class="searchWrapper">
-            <img class="searchIcon" src="<%= request.getContextPath() %>/Assets/Home/search.png" alt="" />
-            <input type="text" placeholder="Search..." />
-            <button class="searchBtn">Search</button>
-          </div>
-          <div class="favBtn">
-            <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" alt="favourites" />
-          </div>
-          <div class="profile">
-            <img src="<%= request.getContextPath() %>/Assets/Home/me.png" alt="profile" />
-          </div>
-        </div>
-      </div>
 
     <!-- Hero Content -->
         <div class="heroContent">

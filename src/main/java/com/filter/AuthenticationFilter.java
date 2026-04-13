@@ -51,12 +51,13 @@ public class AuthenticationFilter extends HttpFilter implements Filter {
 
         if (!isLoggedIn) {
             if (isPublic) {
-                chain.doFilter(request, response);
+                res.sendRedirect(contextPath + HOME);
             } else {
                 res.sendRedirect(contextPath + HOME);
             }
         } else {
-            if (isPublic) {
+            //seession
+            if (isPublic && !path.equals(HOME)) {
                 res.sendRedirect(contextPath + "/home");
             } else {
                 chain.doFilter(request, response);
