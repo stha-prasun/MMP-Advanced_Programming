@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MMP — System Index</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/AdminDashBoard.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -17,7 +17,7 @@
     <div class="logo">MMP</div>
 
     <div class="search-wrap">
-      <img class="<%= request.getContextPath() %>/Assets/Admin Dashboard/Search.png" src="Search.png" alt="Search" />
+      <img class="search-icon" src="<%= request.getContextPath() %>/Assets/Admin Dashboard/Search.png" alt="Search" />
       <input type="text" class="search-input" placeholder="Search..." />
       <button class="search-btn">Search</button>
     </div>
