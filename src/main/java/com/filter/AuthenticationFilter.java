@@ -11,8 +11,8 @@ import java.io.IOException;
 
 @WebFilter(asyncSupported = true, urlPatterns = "/*")
 public class AuthenticationFilter extends HttpFilter implements Filter {
-    private static final String LOGIN = "/login";
-    private static final String REGISTER = "/register";
+    private static final String LOGIN = "/customer/login";
+    private static final String REGISTER = "/seller/register";
     private static final String HOME = "/home";
     private static final String ROOT = "/";
 
@@ -51,16 +51,22 @@ public class AuthenticationFilter extends HttpFilter implements Filter {
 
         if (!isLoggedIn) {
             if (isPublic) {
-                res.sendRedirect(contextPath + HOME);
+                chain.doFilter(request,response);
+                return;
             } else {
-                res.sendRedirect(contextPath + HOME);
+                res.sendRedirect(contextPath + LOGIN);
+                return;
             }
         } else {
             //seession
-            if (isPublic && !path.equals(HOME)) {
-                res.sendRedirect(contextPath + "/home");
+            if (path.equals(LOGIN) || path.equals(REGISTER)
+                    //||path.equals("/seller/register") || path.equals("/Admin_Login")
+            ) {
+                res.sendRedirect(contextPath + HOME);
+                return;
             } else {
                 chain.doFilter(request, response);
+                return;
             }
         }
 
