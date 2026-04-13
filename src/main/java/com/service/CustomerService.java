@@ -15,5 +15,6 @@ public class CustomerService {
         CustomerDAO dao = new CustomerDAO();
 
         dao.insertCustomer(custName, custEmail, hashedPassword, custCreatedAt);
+        System.out.println("SERVICE CALLED");
     }
 }

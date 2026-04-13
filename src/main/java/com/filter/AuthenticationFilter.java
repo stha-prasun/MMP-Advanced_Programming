@@ -12,7 +12,7 @@ import java.io.IOException;
 @WebFilter(asyncSupported = true, urlPatterns = "/*")
 public class AuthenticationFilter extends HttpFilter implements Filter {
     private static final String LOGIN = "/customer/login";
-    private static final String REGISTER = "/seller/register";
+    private static final String REGISTER = "/customer/register";
     private static final String HOME = "/home";
     private static final String ROOT = "/";
 
