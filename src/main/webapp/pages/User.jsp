@@ -25,7 +25,7 @@
             <button class="cta">SHOP NOW</button>
             </div>
             <div class="heroRight">
-            <img src="Assets/Home/watch.png" alt="Watch" />
+            <img src="<%= request.getContextPath() %>/Assets/Home/watch.png" alt="Watch" />
             </div>
         </div>
         </section>
@@ -54,9 +54,9 @@
 
                 <div class="productCard">
                 <div class="cardImageWrapper">
-                <img src="Assets/Product/product1.png" alt="Product" />
+                <img src="<%= request.getContextPath() %>/Assets/Product/product1.png" alt="Product" />
                 <div class="cardFav">
-                <img src="Assets/Home/fav.png" alt="favourites" />
+                <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" alt="favourites" />
                 </div>
 
                     </button>
@@ -70,9 +70,9 @@
 
                             <div class="productCard">
                 <div class="cardImageWrapper">
-                <img src="Assets/Product/product2.png" alt="Product" />
+                <img src="<%= request.getContextPath() %>/Assets/Product/product2.png" alt="Product" />
                 <div class="cardFav">
-                <img src="Assets/Home/fav.png" alt="favourites" />
+                <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" alt="favourites" />
                 </div>
 
                     </button>
@@ -86,9 +86,9 @@
 
                             <div class="productCard">
                 <div class="cardImageWrapper">
-                <img src="Assets/Product/product3.png" alt="Product" />
+                <img src="<%= request.getContextPath() %>/Assets/Product/product3.png" alt="Product" />
                 <div class="cardFav">
-                <img src="Assets/Home/fav.png" alt="favourites" />
+                <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" alt="favourites" />
                 </div>
 
                     </button>
@@ -102,9 +102,9 @@
 
                             <div class="productCard">
                 <div class="cardImageWrapper">
-                <img src="Assets/Product/product4.png" alt="Product" />
+                <img src="<%= request.getContextPath() %>/Assets/Product/product4.png" alt="Product" />
                 <div class="cardFav">
-                <img src="Assets/Home/fav.png" alt="favourites" />
+                <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" alt="favourites" />
                 </div>
 
                     </button>
@@ -118,9 +118,9 @@
 
                             <div class="productCard">
                 <div class="cardImageWrapper">
-                <img src="Assets/Product/product5.png" alt="Product" />
+                <img src="<%= request.getContextPath() %>/Assets/Product/product5.png" alt="Product" />
                 <div class="cardFav">
-                <img src="Assets/Home/fav.png" alt="favourites" />
+                <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" alt="favourites" />
                 </div>
 
                     </button>
@@ -134,9 +134,9 @@
 
                             <div class="productCard">
                 <div class="cardImageWrapper">
-                <img src="Assets/Product/product6.png" alt="Product" />
+                <img src="<%= request.getContextPath() %>/Assets/Product/product6.png" alt="Product" />
                 <div class="cardFav">
-                <img src="Assets/Home/fav.png" alt="favourites" />
+                <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" alt="favourites" />
                 </div>
 
                     </button>
@@ -150,9 +150,9 @@
 
                             <div class="productCard">
                 <div class="cardImageWrapper">
-                <img src="Assets/Product/product7.png" alt="Product" />
+                <img src="<%= request.getContextPath() %>/Assets/Product/product7.png" alt="Product" />
                 <div class="cardFav">
-                <img src="Assets/Home/fav.png" alt="favourites" />
+                <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" alt="favourites" />
                 </div>
 
                     </button>
@@ -166,9 +166,9 @@
 
                             <div class="productCard">
                 <div class="cardImageWrapper">
-                <img src="Assets/Product/product8.png" alt="Product" />
+                <img src="<%= request.getContextPath() %>/Assets/Product/product8.png" alt="Product" />
                 <div class="cardFav">
-                <img src="Assets/Home/fav.png" alt="favourites" />
+                <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" alt="favourites" />
                 </div>
 
                     </button>
@@ -182,9 +182,9 @@
 
                             <div class="productCard">
                 <div class="cardImageWrapper">
-                <img src="Assets/Product/product9.png" alt="Product" />
+                <img src="<%= request.getContextPath() %>/Assets/Product/product9.png" alt="Product" />
                 <div class="cardFav">
-                <img src="Assets/Home/fav.png" alt="favourites" />
+                <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" alt="favourites" />
                 </div>
 
                     </button>
@@ -212,7 +212,7 @@
 
 
     <section class="advert">
-    <img src="Assets/Product/adver.png" alt="product" />
+    <img src="<%= request.getContextPath() %>/Assets/Product/adver.png" alt="product" />
       <div class="advertContent">
         <h2 class="advertTitle">Upgrade Your Setup</h2>
         <p class="advertSubtitle">Clean design. Better products. Faster checkout.</p>

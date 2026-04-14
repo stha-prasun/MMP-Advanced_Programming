@@ -71,7 +71,7 @@
             <h2 class="index-name">USERS</h2>
             <p class="index-desc">Manage accounts, roles, and status.</p>
           </div>
-          <a href="#" class="index-arrow" aria-label="Go to Users">
+          <a href="<%= request.getContextPath() %>/pages/AdminUsers.jsp" class="index-arrow" aria-label="Go to Users">
             <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/right arrow.png" alt="Arrow" />
           </a>
         </li>
@@ -84,7 +84,7 @@
             <h2 class="index-name">PRODUCTS</h2>
             <p class="index-desc">Review, approve, and filter listings.</p>
           </div>
-          <a href="#" class="index-arrow" aria-label="Go to Products">
+          <a href="<%= request.getContextPath() %>/pages/AdminProduct.jsp" class="index-arrow" aria-label="Go to Products">
             <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/right arrow.png" alt="Arrow" />
           </a>
         </li>

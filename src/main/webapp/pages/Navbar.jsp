@@ -28,19 +28,19 @@
                         <ul class="navLinks">
                             <li>About us</li>
                             <li>Contact us</li>
-                            <li class="dropdown">Shop <img src="Assets/Home/down.png" alt="" /></li>
+                            <li class="dropdown">Shop <img src="<%= request.getContextPath() %>/Assets/Home/down.png" alt="" /></li>
                         </ul>
                     </div>
                     <div class="navRight">
                         <div class="searchWrapper">
-                            <img class="searchIcon" src="Assets/Home/search.png" alt="" />
+                            <img class="searchIcon" src="<%= request.getContextPath() %>/Assets/Home/search.png" alt="" />
                             <input type="text" placeholder="Search..." />
                             <button class="searchBtn">Search</button>
                         </div>
                         <!--  IF user not logged in -->
                         <c:if test="${empty sessionScope.Email}">
                             <a href="${pageContext.request.contextPath}/favourites" href class="favBtn">
-                                <img src="Assets/Home/fav.png" alt="favourites" />
+                                <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" alt="favourites" />
                             </a>
 
                             <a href="${pageContext.request.contextPath}/customer/login" class="cta">Sign up</a>
