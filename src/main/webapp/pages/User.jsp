@@ -25,7 +25,7 @@
             <button class="cta">SHOP NOW</button>
             </div>
             <div class="heroRight">
-            <img src="assets/watch.png" alt="Watch" />
+            <img src="Assets/Home/watch.png" alt="Watch" />
             </div>
         </div>
         </section>
@@ -54,9 +54,9 @@
 
                 <div class="productCard">
                 <div class="cardImageWrapper">
-                <img src="assets/product/product1.png" alt="Product" />
+                <img src="Assets/Product/product1.png" alt="Product" />
                 <div class="cardFav">
-                <img src="assets/fav.png" alt="favourites" />
+                <img src="Assets/Home/fav.png" alt="favourites" />
                 </div>
 
                     </button>
@@ -70,9 +70,9 @@
 
                             <div class="productCard">
                 <div class="cardImageWrapper">
-                <img src="assets/product/product2.png" alt="Product" />
+                <img src="Assets/Product/product2.png" alt="Product" />
                 <div class="cardFav">
-                <img src="assets/fav.png" alt="favourites" />
+                <img src="Assets/Home/fav.png" alt="favourites" />
                 </div>
 
                     </button>
@@ -86,9 +86,9 @@
 
                             <div class="productCard">
                 <div class="cardImageWrapper">
-                <img src="assets/product/product3.png" alt="Product" />
+                <img src="Assets/Product/product3.png" alt="Product" />
                 <div class="cardFav">
-                <img src="assets/fav.png" alt="favourites" />
+                <img src="Assets/Home/fav.png" alt="favourites" />
                 </div>
 
                     </button>
@@ -102,9 +102,9 @@
 
                             <div class="productCard">
                 <div class="cardImageWrapper">
-                <img src="assets/product/product4.png" alt="Product" />
+                <img src="Assets/Product/product4.png" alt="Product" />
                 <div class="cardFav">
-                <img src="assets/fav.png" alt="favourites" />
+                <img src="Assets/Home/fav.png" alt="favourites" />
                 </div>
 
                     </button>
@@ -118,9 +118,9 @@
 
                             <div class="productCard">
                 <div class="cardImageWrapper">
-                <img src="assets/product/product5.png" alt="Product" />
+                <img src="Assets/Product/product5.png" alt="Product" />
                 <div class="cardFav">
-                <img src="assets/fav.png" alt="favourites" />
+                <img src="Assets/Home/fav.png" alt="favourites" />
                 </div>
 
                     </button>
@@ -134,9 +134,9 @@
 
                             <div class="productCard">
                 <div class="cardImageWrapper">
-                <img src="assets/product/product6.png" alt="Product" />
+                <img src="Assets/Product/product6.png" alt="Product" />
                 <div class="cardFav">
-                <img src="assets/fav.png" alt="favourites" />
+                <img src="Assets/Home/fav.png" alt="favourites" />
                 </div>
 
                     </button>
@@ -150,9 +150,9 @@
 
                             <div class="productCard">
                 <div class="cardImageWrapper">
-                <img src="assets/product/product7.png" alt="Product" />
+                <img src="Assets/Product/product7.png" alt="Product" />
                 <div class="cardFav">
-                <img src="assets/fav.png" alt="favourites" />
+                <img src="Assets/Home/fav.png" alt="favourites" />
                 </div>
 
                     </button>
@@ -166,9 +166,9 @@
 
                             <div class="productCard">
                 <div class="cardImageWrapper">
-                <img src="assets/product/product8.png" alt="Product" />
+                <img src="Assets/Product/product8.png" alt="Product" />
                 <div class="cardFav">
-                <img src="assets/fav.png" alt="favourites" />
+                <img src="Assets/Home/fav.png" alt="favourites" />
                 </div>
 
                     </button>
@@ -182,9 +182,9 @@
 
                             <div class="productCard">
                 <div class="cardImageWrapper">
-                <img src="assets/product/product9.png" alt="Product" />
+                <img src="Assets/Product/product9.png" alt="Product" />
                 <div class="cardFav">
-                <img src="assets/fav.png" alt="favourites" />
+                <img src="Assets/Home/fav.png" alt="favourites" />
                 </div>
 
                     </button>
@@ -212,7 +212,7 @@
 
 
     <section class="advert">
-    <img src="assets/product/adver.png" alt="product" />
+    <img src="Assets/Product/adver.png" alt="product" />
       <div class="advertContent">
         <h2 class="advertTitle">Upgrade Your Setup</h2>
         <p class="advertSubtitle">Clean design. Better products. Faster checkout.</p>
