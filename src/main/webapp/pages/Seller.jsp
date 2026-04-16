@@ -25,7 +25,7 @@
       <div class="left">
         <h2 class="logo">MMP</h2>
         <img
-          src="<%= request.getContextPath() %>/Assets/Login/peep.svg"
+          src="<%= request.getContextPath() %>/Assets/Login/peep.png"
           class="illustration"
         />
       </div>
