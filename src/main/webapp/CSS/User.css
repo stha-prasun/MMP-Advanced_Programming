@@ -12,9 +12,7 @@ body {
 /* HERO SECTION */
 .heroSection {
   min-height: 100vh;
-  padding: 0 2.5vw;
   border-bottom: 0.667px solid rgba(0, 0, 0, 0.10);
-  background: linear-gradient(180deg, #CCD9FF -106.48%, #C1CEF3 12.53%, #EFF2FB 54.96%, #FFF 77.89%);
 }
 
 
@@ -83,7 +81,7 @@ body {
   object-fit: cover;
   border-radius: 0.5rem;
   width: 48.25rem;
-  height: 42.3125rem;
+  height: 48.3125rem;
 
 }
 

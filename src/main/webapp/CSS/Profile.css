@@ -1,73 +1,187 @@
-body{
-    overflow: hidden;
-    font-family: Arial,  sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
     background-color: white;
-
+    min-height: 100vh;
 }
+
+.navLinks {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    border-bottom: 0.67px solid #E5E5E5;
+}
+
 .navbar {
+    padding: 1.5rem 2.5rem;
+}
+
+.logo {
+    font-family: 'Modak', cursive;
+    font-size: 1.75rem;
+    color: #03c;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+.navbarLogout {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: none;
+    border: none;
+    color: #03c;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.user {
+    padding: 2rem 2.5rem 0.3rem 2.5rem;
+}
+
+.user h1 {
+    color: #03C;
+    font-family: Inter;
+    font-size: 3.75rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 3.75rem; /* 100% */
+    letter-spacing: -0.1875rem;
+}
+
+.editProfile span {
+    color: #A1A1A1;
+    font-family: Inter;
+    font-size: 0.625rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 0.9375rem; /* 150% */
+    letter-spacing: 0.0625rem;
+}
+
+.contact {
+    color: #737373;
+    font-family: Inter;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1rem; /* 133.333% */
+    letter-spacing: 0.075rem;
+    text-transform: uppercase;
+}
+
+.editPadding {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: blue;
+
+    padding: 1rem 0 3rem 0;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+    border-bottom: 2px solid #03C;
 }
 
-.navbar-logout {
-    color: blue;
-    border-radius: 4px;
 
-}
-.user{
-    color: blue;
-    font-size: 2rem;
-}
-.weluser{
+.editProfile {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    color: grey;
+    gap: 0.4rem;
+    background: none;
+    border: none;
+    color: #03c;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    cursor: pointer;
+}
+
+
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8rem;
+    padding: 2.5rem 2.5rem 2rem 2.5rem;
+}
+
+.circle {
+    width: 13.9375rem;
+    height: 13.9375rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border-radius: 1398100rem;
+    border: 2px solid #E5E5E5;
+}
+
+.circle img {
     width: 100%;
-    padding-bottom: 2rem;
-    border-bottom: 2px solid rgb(2, 2, 255);
+    height: 100%;
+    object-fit: cover;
 }
-.photo{
-    display: flex;
 
-    justify-content: flex-start;
-    gap: 7rem;
-    padding-top: 1rem;
-}
 .text{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
 }
-.name{
-    color: blue;
-    font-size: 0.9rem;
 
+.textTop h6, .textBottom h6 {
+    color: #03C;
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.0625rem;
+    text-transform: uppercase;
 }
-.mail{
-    color: blue;
-    font-size: 0.9rem;
-    margin-top: 5rem;
+
+.textTop h1 {
+    padding-top: 1rem;
+    color: #000;
+    font-family: Inter;
+    font-size: 4.5rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 4.05rem; /* 90% */
+    letter-spacing: -0.225rem;
 }
-.mailname{
-    color:grey;
+
+
+
+.textBottom h3 {
+    padding-top: 0.5rem;
+    color: #737373;
+    font-family: Inter;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2rem; /* 133.333% */
+    letter-spacing: -0.0375rem;
 }
-.circle{
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    overflow: hidden;
-}
-.circle img{
+
+
+.bottom {
     width: 100%;
-    height: 100%;
-    object-fit:cover;
+    margin-top: 3.9375rem;
 }
-.bottom img{
-  width: 90rem;
-height: 25.0625rem;
-aspect-ratio: 1361/379;
 
+.bottom img {
+
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
 }

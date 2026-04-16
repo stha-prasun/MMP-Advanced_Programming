@@ -1,93 +1,121 @@
-body {
+* {
     margin: 0;
-    min-height: 100vh;
-    font-family: Inter, Arial, sans-serif;
-    background-color: #f8fbff;
-    color: #1f2937;
-    overflow: hidden;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.navbar {
+body {
+    overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
+    background-color: white;
+    min-height: 100vh;
+}
+
+.navLinks {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1.25rem 2rem;
-    background: #ffffff;
-    border-bottom: 1px solid rgba(3, 51, 204, 0.12);
+    padding-bottom: 1rem;
+    border-bottom: 0.67px solid #E5E5E5;
 }
 
-.brand {
-    color: #0035d0;
+.navbar {
+    padding: 1.5rem 2.5rem;
+}
+
+.logo {
+    font-family: 'Modak', cursive;
     font-size: 1.75rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-}
-
-.navbar-logout {
-    border: none;
-    background: transparent;
-    color: #0035d0;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    color: #03c;
     cursor: pointer;
+    letter-spacing: 1px;
 }
 
-.content {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 2rem 1.5rem 0;
-}
-
-.hero {
+.navbarLogout {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 1rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 2px solid blue;
-}
-
-.hero-text h1 {
-    margin: 0;
-    color: #0035d0;
-    font-size: clamp(2.75rem, 4vw, 4.5rem);
-    font-weight: 900;
-    letter-spacing: -0.08em;
-    text-transform: uppercase;
-}
-
-.hero-text p {
-    margin: 0.75rem 0 0;
-    color: #6b7280;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-}
-
-.save {
-    border: 1px solid #0035d0;
-    background: #ffffff;
-    color: #0035d0;
-    padding: 0.95rem 1.75rem;
-    border-radius: 0.75rem;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
+    align-items: center;
+    gap: 0.4rem;
+    background: none;
+    border: none;
+    color: #03c;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.13em;
     text-transform: uppercase;
     cursor: pointer;
 }
+
+.user {
+    padding: 2rem 2.5rem 0.3rem 2.5rem;
+}
+
+.user h1 {
+    color: #03C;
+    font-family: Inter;
+    font-size: 3.75rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 3.75rem; /* 100% */
+    letter-spacing: -0.1875rem;
+}
+
+.editProfile span {
+    color: #03C;
+    text-align: center;
+    font-family: Inter;
+    font-size: 0.8rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 0.9375rem; /* 150% */
+    letter-spacing: 0.0625rem;
+}
+
+.contact {
+    color: #737373;
+    font-family: Inter;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1rem; /* 133.333% */
+    letter-spacing: 0.075rem;
+    text-transform: uppercase;
+}
+
+.editPadding {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 1rem 0 3rem 0;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+    border-bottom: 2px solid #03C;
+}
+
+
+.editProfile {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: none;
+    border: none;
+    color: #03c;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    cursor: pointer;
+}
+
 
 .Userprofile {
-    max-width: 44rem;
-    margin: 3rem auto 0;
-    background: #ffffff;
-    border: 1px solid rgba(3, 51, 204, 0.12);
-    border-radius: 1rem;
-    box-shadow: 0 20px 60px rgba(3, 51, 204, 0.08);
+    max-width: 40rem;
+    margin: 4rem auto 0;
+    border-radius: 1.25rem;
+    border: 1px solid rgba(0, 51, 204, 0.10);
     overflow: hidden;
+    margin-top: 7rem;
 }
 
 .profile {
@@ -95,22 +123,16 @@ body {
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    padding: 1.5rem 1.5rem 0;
-}
+    padding: 0.6rem 1rem 0.6rem 1rem;
 
-.profilephoto {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
 }
 
 .circle {
-    width: 5.5rem;
-    height: 5.5rem;
+    width: 5rem;
+    height: 5rem;
     border-radius: 50%;
     overflow: hidden;
     background: #eef4ff;
-    flex-shrink: 0;
 }
 
 .circle img {
@@ -119,74 +141,88 @@ body {
     object-fit: cover;
 }
 
-.profile-title {
-    margin: 0;
-    font-size: 1rem;
-    font-weight: 700;
-    color: #111827;
-}
+
 
 .change {
     border: none;
-    background: #0035d0;
     color: #ffffff;
-    padding: 0.85rem 1.25rem;
-    border-radius: 0.75rem;
-    font-size: 0.8rem;
+    text-align: center;
+    font-family: Inter;
+    font-size: 0.625rem;
+    font-style: normal;
     font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    line-height: 0.9375rem; /* 150% */
+    letter-spacing: 0.0625rem;
+    padding: 0.8rem 1rem;
     cursor: pointer;
-}
-
-.profile-info {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    padding: 1.5rem;
+    align-items: flex-start;
+    gap: 0.625rem;
+    border-radius: 0.5rem;
+    background: #03C;
 }
 
-.apple {
+
+.username {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     gap: 1rem;
-    padding: 1rem 0;
-    border-top: 1px solid rgba(3, 51, 204, 0.10);
+    padding: 0.6rem 1rem 0.6rem 1rem;
+    border-top: 1px solid rgba(0, 51, 204, 0.10);
+    padding: 1.8rem 1rem 1.8rem 1rem;
 }
 
-.apple:first-child {
-    border-top: none;
+.fullname{
+    color: #000;
+    font-family: Inter;
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
 }
-
-
-
-.apple span {
-    color: #6b7280;
-    font-size: 0.95rem;
-}
-
-.edit-link {
-    border: none;
-    background: transparent;
-    color: #8b95a1;
+.editUsername, .editMail {
+    color: #A1A1A1;
+    text-align: center;
+    font-family: Inter;
     font-size: 0.7rem;
+    font-style: normal;
     font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    cursor: pointer;
+    line-height: 0.9375rem; /* 150% */
+    letter-spacing: 0.0625rem;
+}
+
+.mail {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.6rem 1rem 0.6rem 1rem;
+    border-top: 1px solid rgba(0, 51, 204, 0.10);
+    padding: 1.8rem 1rem 1.8rem 1rem;
+}
+
+
+.mailAddress{
+    color: #737373;
+    font-family: Inter;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2rem; /* 177.778% */
+    letter-spacing: -0.0375rem;
 }
 
 .bottom {
     width: 100%;
-    padding: 2rem 0 3rem;
-    overflow: hidden;
+    margin-top: 1.8rem;
 }
 
 .bottom img {
-    width: 100%;
-    max-width: 1220px;
-    display: block;
-    margin: 0 auto;
-}
 
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}

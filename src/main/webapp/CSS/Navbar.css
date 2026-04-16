@@ -1,41 +1,9 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Inter", sans-serif;
-}
-
-body {
-  background: white;
-}
-
-
-.cta {
-  background: #03c;
-  color: white;
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 100rem;
-  cursor: pointer;
-  font-size: 0.8125rem;
-  font-weight: normal;
-  letter-spacing: 0.02em;
-  width: fit-content;
-}
-
-
-/* HERO SECTION */
-.navbarSection {
-  min-height: 100vh;
-  padding: 0 2.5vw;
-  border-bottom: 0.667px solid rgba(0, 0, 0, 0.10);
-
-}
-
+/* NAVBAR */
 .navbar {
   display: flex;
   height: 5rem;
-  padding: 1.5rem 2.5rem;
+  margin: 0 2.5rem 0 2.5rem;
+  padding: 0 20px 0 20px;
   justify-content: space-between;
   align-items: center;
   border-radius: 0 0 1.25rem 1.25rem;

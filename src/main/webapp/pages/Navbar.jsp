@@ -20,8 +20,9 @@
             <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/Navbar.css" </head>
 
         <body>
-            <section class="navbarSection">
+
                 <!-- Navbar -->
+        <section class="navbarSection">
                 <div class="navbar">
                     <div class="navLeft">
                         <div class="logo">MMP</div>
@@ -43,10 +44,10 @@
                                 <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" alt="favourites" />
                             </a>
 
-                            <a href="${pageContext.request.contextPath}/customer/login" class="cta">Sign up</a>
+                            <a href="${pageContext.request.contextPath}/customer/login" class="ctaNavbar">Sign up</a>
                         </c:if>
 
                     </div>
                 </div>
-            </section>
+        <section>
         </body>
