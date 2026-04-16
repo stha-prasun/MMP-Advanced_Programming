@@ -1,20 +1,20 @@
 package com.controller;
 
+import java.io.IOException;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-import java.io.IOException;
-@WebServlet("/admin/dashboard")
-public class AdminPanel extends HttpServlet{
+@WebServlet("/product/add")
+public class AddProductController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        request.getRequestDispatcher("/pages/AdminDashBoard.jsp").forward(request, response);
+        request.getRequestDispatcher("/pages/Add_Product.jsp").forward(request, response);
     }
-
 }

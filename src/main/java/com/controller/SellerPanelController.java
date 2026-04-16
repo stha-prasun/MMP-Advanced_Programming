@@ -1,7 +1,6 @@
 package com.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -10,9 +9,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/seller/dashboard")
-public class SellerPanel extends HttpServlet {
+public class SellerPanelController extends HttpServlet {
 
-    public SellerPanel() {
+    public SellerPanelController() {
         super();
     }
 
