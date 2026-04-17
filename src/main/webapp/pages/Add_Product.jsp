@@ -1,33 +1,30 @@
-<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Add Product</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MMP - Buy Smart. Sell Easy. Repeat.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Modak&display=swap" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Modak&family=DM+Sans:wght@400;500;600;700;900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="<%= request.getContextPath() %>/CSS/Add_Product.css"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/Add_Product.css" />
   </head>
   <body>
     <div class="container">
       <!-- Sidebar -->
       <aside class="sidebar">
-        <div class="logo-wrap">
-          <span class="logo">MMP</span>
-        </div>
+
 
         <nav>
           <ul class="menu">
             <li class="menu-item">
               <span class="menu-icon">
                 <img
-                  src="<%= request.getContextPath() %>/Assets/Seller Dashboard/MyProducts.png"
+                  src="<%= request.getContextPath() %>/Assets/Seller Product/product.png"
                   alt=""
                 />
               </span>
@@ -36,7 +33,7 @@
             <li class="menu-item active">
               <span class="menu-icon">
                 <img
-                  src="<%= request.getContextPath() %>/Assets/Seller Dashboard/Add.png"
+                  src="<%= request.getContextPath() %>/Assets/Seller Product/addPrd.png"
                   alt=""
                 />
               </span>
@@ -45,21 +42,13 @@
             <li class="menu-item">
               <span class="menu-icon">
                 <img
-                  src="<%= request.getContextPath() %>/Assets/Seller Dashboard/Orders.png"
+                  src="<%= request.getContextPath() %>/Assets/Seller Product/order.png"
                   alt=""
                 />
               </span>
               Orders
             </li>
-            <li class="menu-item">
-              <span class="menu-icon">
-                <img
-                  src="<%= request.getContextPath() %>/Assets/Seller Dashboard/Settings.png"
-                  alt=""
-                />
-              </span>
-              Settings
-            </li>
+
           </ul>
         </nav>
       </aside>
@@ -67,36 +56,31 @@
       <!-- Main Content -->
       <main class="main">
         <!-- Topbar -->
-        <header class="topbar">
-          <div class="search-group">
-            <span class="search-icon-wrap">
-              <img
-                src="<%= request.getContextPath() %>/Assets/Seller Dashboard/Search.png"
-                alt="search"
-              />
-            </span>
-            <input type="text" placeholder="Search..." class="search-input" />
-            <button class="search-btn">Search</button>
-          </div>
-
-          <div class="topbar-divider"></div>
-
-          <div class="profile">
-            <span class="profile-name">JOHN DOE</span>
-            <div class="avatar">
-              <img src="https://i.pravatar.cc/40" alt="profile" />
-            </div>
-          </div>
-        </header>
+              <div class="navbar">
+                      <div class="navLeft">
+                        <div class="logo">MMP</div>
+                      </div>
+                <div class="navRight">
+                  <div class="searchWrapper">
+                    <img class="searchIcon" src="<%= request.getContextPath() %>/Assets/Home/search.png" alt="" />
+                    <input type="text" placeholder="Search..." />
+                    <button class="searchBtn">Search</button>
+                  </div>
+                  <div class="profile">
+                    <img src="<%= request.getContextPath() %>/Assets/Home/me.png" alt="profile" />
+                  </div>
+                </div>
+              </div>
 
         <!-- Page Header -->
-        <div class="page-header">
-          <div class="page-header-left">
-            <h1 class="page-title">ADD PRODUCT</h1>
-            <p class="page-subtitle">CREATE A NEW LISTING OF PRODUCT</p>
-          </div>
-          <a href="#" class="btn-add-product-header">+ &nbsp;ADD PRODUCT</a>
-        </div>
+    <div class="user">
+      <h1>Add Product</h1>
+    </div>
+
+    <div class="editPadding">
+      <div class="contact">Create a new listing of product</div>
+
+    </div>
 
         <!-- Form -->
         <div class="form-container">
@@ -104,7 +88,7 @@
           <!-- Section 01: Basic Information -->
           <div class="form-section">
             <h2 class="section-heading">
-              <span class="section-number">01.</span> Basic Information
+             01. Basic Information
             </h2>
 
             <div class="field-group">
@@ -154,7 +138,7 @@
           <!-- Section 02: Description -->
           <div class="form-section">
             <h2 class="section-heading">
-              <span class="section-number">02.</span> Description
+            02. Description
             </h2>
 
             <div class="field-group">
@@ -173,38 +157,28 @@
           <!-- Section 03: Product Image -->
           <div class="form-section">
             <h2 class="section-heading">
-              <span class="section-number">03.</span> Product Image
+              0.3. Product Image
             </h2>
 
-            <div class="upload-zone">
-              <!-- Upload cloud icon -->
-              <svg
-                class="upload-icon"
-                xmlns="http://www.w3.org/2000/svg"
-                width="48"
-                height="48"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#aaaaaa"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <polyline points="16 16 12 12 8 16"></polyline>
-                <line x1="12" y1="12" x2="12" y2="21"></line>
-                <path
-                  d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"
-                ></path>
-              </svg>
+        <label class="upload-zone">
+          <input
+            type="file"
+            name="productImage"
+            class="file-input"
+            accept="image/*"
+          />
 
-              <span class="upload-title">Upload High-Resolution Imagery</span>
-              <span class="upload-hint"
-                >DRAG &amp; DROP FILES HERE OR CLICK TO BROWSE. STRICT ASPECT
-                RATIOS REQUIRED.</span
-              >
+          <img
+            class="upload-icon"
+            src="<%= request.getContextPath() %>/Assets/Seller Product/upload.png"
+            alt="upload"
+          />
 
-            </div>
-          </div>
+          <span class="upload-title">Upload High-Resolution Imagery</span>
+          <span class="upload-hint">
+            DRAG & DROP FILES HERE OR CLICK TO BROWSE. STRICT ASPECT RATIOS REQUIRED.
+          </span>
+        </label>
 
           <!-- Footer Actions -->
           <div class="form-footer">

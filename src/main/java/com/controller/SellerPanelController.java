@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/seller/dashboard")
-public class SellerPanelController extends HttpServlet {
+public class    SellerPanelController extends HttpServlet {
 
     public SellerPanelController() {
         super();

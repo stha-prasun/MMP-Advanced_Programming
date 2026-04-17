@@ -1,4 +1,5 @@
 * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -102,6 +103,30 @@ text-decoration: none;
   border-radius: 10px;
   outline: none;
 }
+
+.photoUpload {
+    color: #03c;
+}
+
+.photoUpload h6{
+    font-size: 1rem;
+    color: #555;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%;
+    letter-spacing: 0.01563rem;
+    margin-bottom: 0.8rem;
+}
+
+.inputPhoto {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 0.67px dashed #E6E6E6;
+  border-radius: 10px;
+  outline: none;
+}
+
 
 .password-wrapper {
   position: relative;

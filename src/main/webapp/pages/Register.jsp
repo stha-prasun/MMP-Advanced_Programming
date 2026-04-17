@@ -1,34 +1,26 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!DOCTYPE html>
-<html lang="en">
+  <!DOCTYPE html>
+  <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Modak&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Modak&display=swap" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="<%= request.getContextPath() %>/CSS/Register.css"
-    />
+      rel="stylesheet" />
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/Register.css" />
   </head>
+
   <body>
     <div class="container">
       <!-- LEFT -->
       <div class="left">
         <h2 class="logo">MMP</h2>
-        <img
-          src="<%= request.getContextPath() %>/Assets/Login/peep.png"
-          class="illustration"
-        />
+        <img src="<%= request.getContextPath() %>/Assets/Login/peep.png" class="illustration" />
       </div>
 
       <!-- RIGHT -->
@@ -39,69 +31,45 @@
             Already have an account?
             <a href="<%= request.getContextPath() %>/login">Login</a>
           </p>
-          <% if (request.getAttribute("error") != null) { %>
-          <p style="color: red"><%= request.getAttribute("error") %></p>
-          <% } %>
-          <form
-            method="POST"
-            action="<%= request.getContextPath() %>/customer/register"
-          >
-            <input
-              type="text"
-              name="custName"
-              placeholder="Full Name"
-              class="input"
-            />
-
-            <input
-              type="email"
-              name="custEmail"
-              placeholder="Email address"
-              class="input"
-            />
-
-            <div class="password-wrapper">
-              <input
-                type="password"
-                name="custPassword"
-                placeholder="Password"
-                class="input"
-                id="password"
-              />
-              <img
-                src="<%= request.getContextPath() %>/Assets/Login/view.png"
-                id="togglePassword"
-                class="eye-icon"
-              />
-            </div>
-
-            <div class="password-wrapper">
-              <input
-                type="password"
-                name="confirmPassword"
-                placeholder="Confirm Password"
-                class="input"
-                id="confirmPassword"
-              />
-              <img
-                src="<%= request.getContextPath() %>/Assets/Login/view.png"
-                id="toggleConfirmPassword"
-                class="eye-icon"
-              />
-            </div>
-
-            <div class="terms">
-              <label>
-                <input type="checkbox" name="terms" /> I agree to the Terms and
-                Conditions
-              </label>
-            </div>
-
-            <button type="submit" class="signup-btn">Sign up</button>
-            <p class="signup-text">
-            <a href="<%= request.getContextPath() %>/Seller">Become a seller?</a>
+          <% if (request.getAttribute("error") !=null) { %>
+            <p style="color: red">
+              <%= request.getAttribute("error") %>
             </p>
-          </form>
+            <% } %>
+              <form method="POST" action="<%= request.getContextPath() %>/customer/register">
+                <input type="text" name="custName" placeholder="Full Name" class="input" />
+
+                <input type="email" name="custEmail" placeholder="Email address" class="input" />
+
+                <div class="password-wrapper">
+                  <input type="password" name="custPassword" placeholder="Password" class="input" id="password" />
+                  <img src="<%= request.getContextPath() %>/Assets/Login/view.png" id="togglePassword"
+                    class="eye-icon" />
+                </div>
+
+                <div class="password-wrapper">
+                  <input type="password" name="confirmPassword" placeholder="Confirm Password" class="input"
+                    id="confirmPassword" />
+                  <img src="<%= request.getContextPath() %>/Assets/Login/view.png" id="toggleConfirmPassword"
+                    class="eye-icon" />
+                </div>
+
+                <div class ="photoUpload">
+                <h6>Upload your profile picture.</h6>
+                <input type="file" name="uploadPhoto" class="inputPhoto" /></div>
+
+                <div class="terms">
+                  <label>
+                    <input type="checkbox" name="terms" /> I agree to the Terms and
+                    Conditions
+                  </label>
+                </div>
+
+                <button type="submit" class="signup-btn">Sign up</button>
+                <p class="signup-text">
+                  <a href="<%= request.getContextPath() %>/Seller">Become a seller?</a>
+                </p>
+              </form>
 
         </div>
       </div>
@@ -137,4 +105,5 @@
       });
     </script>
   </body>
-</html>
+
+  </html>
