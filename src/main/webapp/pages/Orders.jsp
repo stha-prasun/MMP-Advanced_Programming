@@ -1,64 +1,40 @@
-<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Orders</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MMP - Buy Smart. Sell Easy. Repeat.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Modak&display=swap" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Modak&family=DM+Sans:wght@400;500;600;700;900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="<%= request.getContextPath() %>/CSS/Orders.css"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/Orders.css" />
   </head>
   <body>
     <div class="container">
+
       <!-- Sidebar -->
       <aside class="sidebar">
-        <div class="logo-wrap">
-          <span class="logo">MMP</span>
-        </div>
-
         <nav>
           <ul class="menu">
             <li class="menu-item">
               <span class="menu-icon">
-                <img
-                  src="<%= request.getContextPath() %>/Assets/Seller Dashboard/MyProducts.png"
-                  alt=""
-                />
+                <img src="<%= request.getContextPath() %>/Assets/Seller Product/product.png" alt="" />
               </span>
               My Products
             </li>
             <li class="menu-item">
               <span class="menu-icon">
-                <img
-                  src="<%= request.getContextPath() %>/Assets/Seller Dashboard/Add.png"
-                  alt=""
-                />
+                <img src="<%= request.getContextPath() %>/Assets/Seller Product/addPrd.png" alt="" />
               </span>
               Add Products
             </li>
             <li class="menu-item active">
               <span class="menu-icon">
-                <img
-                  src="<%= request.getContextPath() %>/Assets/Seller Dashboard/Orders.png"
-                  alt=""
-                />
+                <img src="<%= request.getContextPath() %>/Assets/Seller Product/order.png" alt="" />
               </span>
               Orders
-            </li>
-            <li class="menu-item">
-              <span class="menu-icon">
-                <img
-                  src="<%= request.getContextPath() %>/Assets/Seller Dashboard/Settings.png"
-                  alt=""
-                />
-              </span>
-              Settings
             </li>
           </ul>
         </nav>
@@ -66,354 +42,221 @@
 
       <!-- Main Content -->
       <main class="main">
+
         <!-- Topbar -->
-        <header class="topbar">
-          <div class="search-group">
-            <span class="search-icon-wrap">
-              <img
-                src="<%= request.getContextPath() %>/Assets/Seller Dashboard/Search.png"
-                alt="search"
-              />
-            </span>
-            <input type="text" placeholder="Search..." class="search-input" />
-            <button class="search-btn">Search</button>
+        <div class="navbar">
+          <div class="navLeft">
+            <div class="logo">MMP</div>
           </div>
-
-          <div class="topbar-divider"></div>
-
-          <div class="profile">
-            <span class="profile-name">JOHN DOE</span>
-            <div class="avatar">
-              <img src="https://i.pravatar.cc/40" alt="profile" />
+          <div class="navRight">
+            <div class="searchWrapper">
+              <img class="searchIcon" src="<%= request.getContextPath() %>/Assets/Home/search.png" alt="" />
+              <input type="text" placeholder="Search..." />
+              <button class="searchBtn">Search</button>
+            </div>
+            <div class="profile">
+              <img src="<%= request.getContextPath() %>/Assets/Home/me.png" alt="profile" />
             </div>
           </div>
-        </header>
+        </div>
 
         <!-- Page Header -->
-        <div class="page-header">
-          <h1 class="page-title">ORDERS</h1>
-          <p class="page-subtitle">TRACK AND MANAGE YOUR SALES &bull; 4 TOTAL</p>
+        <div class="user">
+          <h1>ORDERS</h1>
+        </div>
+
+        <div class="editPadding">
+          <div class="contact">Track and manage your sales • 4 Total</div>
         </div>
 
         <!-- Orders List -->
         <div class="orders-list">
 
-          <!-- ── Order 1 — PENDING (collapsed) ── -->
-          <div class="order-card">
-            <div class="order-main">
-              <!-- Order ID -->
+          <!-- Order Card 1 -->
+          <div class="order-card" id="order-1">
+            <div class="order-summary" onclick="toggleOrder('order-1')">
               <div class="order-row">
-                <span class="order-label">Order ID</span>
-                <span class="order-id-value">ORD-001</span>
+                <span class="order-label">ORDER ID</span>
+                <span class="order-value order-id">ORD-001</span>
               </div>
-
-              <!-- Product -->
-              <div class="order-product-row">
-                <img
-                  src="<%= request.getContextPath() %>/Assets/Seller Dashboard/test.png"
-                  alt="product"
-                  class="order-product-img"
-                />
-                <span class="order-product-name">Record Player</span>
+              <div class="order-row product-row">
+                <div class="product-info">
+                  <img class="productThumb" src="<%= request.getContextPath() %>/Assets/Product/product7.png" alt="Record Player" />
+                  <span class="product-name">Record Player</span>
+                </div>
               </div>
-
-              <!-- Buyer -->
-              <div class="order-detail-row">
-                <span class="order-label">Buyer</span>
-                <span class="order-detail-value">Rohan Shresha</span>
+              <div class="order-row">
+                <span class="order-info">BUYER</span>
+                <span class="order-name">Rohan Shrestha</span>
               </div>
-
-              <!-- Total -->
-              <div class="order-detail-row">
-                <span class="order-label">Total</span>
-                <span class="order-detail-value price">$85.00</span>
+              <div class="order-row">
+                <span class="order-info">TOTAL</span>
+                <span class="order-value price">$85.00</span>
               </div>
-
-              <!-- Date -->
-              <div class="order-detail-row">
-                <span class="order-label">Date</span>
-                <span class="order-detail-value">2026-04-12</span>
+              <div class="order-row">
+                <span class="order-date">DATE</span>
+                <span class="order-value">2026-04-12</span>
               </div>
-
-              <!-- Status -->
-              <div class="order-detail-row">
-                <span class="order-label">Status</span>
-                <span class="badge pending">PENDING</span>
+              <div class="order-row borderBtm">
+                <span class="order-info">STATUS</span>
+                <span class="order-value">
+                  <span class="status-badge pending">PENDING</span>
+                </span>
+              </div>
+              <div class="order-toggle">
+                <span class="toggle-icon"></span>￬ VIEW
               </div>
             </div>
 
-            <!-- Toggle -->
-            <div class="order-toggle-row">
-              <button class="btn-toggle" onclick="toggleOrder('order1-panel', this)">
-                &#8964;&nbsp; VIEW
-              </button>
-            </div>
-
-            <!-- Expandable Panel -->
-            <div class="order-details-panel" id="order1-panel">
-              <p class="details-section-label">Customer Details</p>
-              <p class="customer-name">Rohan Shresha</p>
-              <p class="customer-email">rohanshrestha612@gmail.com</p>
-              <p class="customer-address">Madhyapur Thimi 04,<br />Bhaktapur Nepal</p>
-
-              <p class="details-section-label">Order Timeline</p>
-              <div class="timeline">
+            <div class="order-details hidden">
+              <div class="detail-divider"></div>
+              <div class="customer-section">
+                <div class="borderBtm">
+                  <div class="section-label">CUSTOMER DETAILS</div>
+                </div>
+                <div class="customer-name">Rohan Shrestha</div>
+                <div class="customer-email">rohanshrestha612@gmail.com</div>
+                <div class="customer-address">MADHYAPUR THIMI 04,<br/>BHAKTAPUR NEPAL</div>
+              </div>
+              <div class="timeline-section">
+                <div class="borderBtm">
+                  <div class="section-label">ORDER TIMELINE</div>
+                </div>
                 <div class="timeline-item">
-                  <span class="timeline-icon">
-                    <!-- Clock icon -->
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                      stroke="#aaaaaa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <circle cx="12" cy="12" r="10"/>
-                      <polyline points="12 6 12 12 16 14"/>
-                    </svg>
-                  </span>
+                  <div class="timeline-icon">
+                    <img src="<%= request.getContextPath() %>/Assets/Seller Product/pending.png" alt="" />
+                  </div>
                   <div class="timeline-content">
-                    <p class="timeline-event">Order Placed</p>
-                    <p class="timeline-date">2026-04-09 &bull; 14:23 UTC</p>
+                    <div class="tl-title">Order Placed</div>
+                    <div class="tl-date">2026-04-09 • 14:23 UTC</div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- ── Order 2 — COMPLETED (expanded by default) ── -->
-          <div class="order-card">
-            <div class="order-main">
-              <!-- Order ID -->
+
+          <!-- Order Card 2 -->
+          <div class="order-card expanded" id="order-2">
+            <div class="order-summary" onclick="toggleOrder('order-2')">
               <div class="order-row">
-                <span class="order-label">Order ID</span>
-                <span class="order-id-value">ORD-002</span>
+                <span class="order-label">ORDER ID</span>
+                <span class="order-value order-id">ORD-002</span>
               </div>
-
-              <!-- Product -->
-              <div class="order-product-row">
-                <img
-                  src="<%= request.getContextPath() %>/Assets/Seller Dashboard/test.png"
-                  alt="product"
-                  class="order-product-img"
-                />
-                <span class="order-product-name">Record Player</span>
+              <div class="order-row product-row">
+                <div class="product-info">
+                  <img class="productThumb" src="<%= request.getContextPath() %>/Assets/Product/product7.png" alt="Record Player" />
+                  <span class="product-name">Record Player</span>
+                </div>
               </div>
-
-              <!-- Buyer -->
-              <div class="order-detail-row">
-                <span class="order-label">Buyer</span>
-                <span class="order-detail-value">Rohan Shresha</span>
+              <div class="order-row">
+                <span class="order-info">BUYER</span>
+                <span class="order-name">Rohan Shrestha</span>
               </div>
-
-              <!-- Total -->
-              <div class="order-detail-row">
-                <span class="order-label">Total</span>
-                <span class="order-detail-value price">$85.00</span>
+              <div class="order-row">
+                <span class="order-info">TOTAL</span>
+                <span class="order-value price">$85.00</span>
               </div>
-
-              <!-- Date -->
-              <div class="order-detail-row">
-                <span class="order-label">Date</span>
-                <span class="order-detail-value">2026-04-12</span>
+              <div class="order-row">
+                <span class="order-date">DATE</span>
+                <span class="order-value">2026-04-12</span>
               </div>
-
-              <!-- Status -->
-              <div class="order-detail-row">
-                <span class="order-label">Status</span>
-                <span class="badge completed">COMPLETED</span>
+              <div class="order-row borderBtm">
+                <span class="order-info">STATUS</span>
+                <span class="order-value">
+                  <span class="status-badge completed">COMPLETED</span>
+                </span>
+              </div>
+              <div class="order-toggle">
+                <span class="toggle-icon rotated"></span> HIDE
               </div>
             </div>
 
-            <!-- Toggle -->
-            <div class="order-toggle-row">
-              <button class="btn-toggle" onclick="toggleOrder('order2-panel', this)">
-                &#8963;&nbsp; HIDE
-              </button>
-            </div>
-
-            <!-- Expandable Panel — open by default -->
-            <div class="order-details-panel open" id="order2-panel">
-              <p class="details-section-label">Customer Details</p>
-              <p class="customer-name">Rohan Shresha</p>
-              <p class="customer-email">rohanshrestha612@gmail.com</p>
-              <p class="customer-address">Madhyapur Thimi 04,<br />Bhaktapur Nepal</p>
-
-              <p class="details-section-label">Order Timeline</p>
-              <div class="timeline">
-                <div class="timeline-item">
-                  <span class="timeline-icon">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                      stroke="#aaaaaa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <circle cx="12" cy="12" r="10"/>
-                      <polyline points="12 6 12 12 16 14"/>
-                    </svg>
-                  </span>
-                  <div class="timeline-content">
-                    <p class="timeline-event">Order Placed</p>
-                    <p class="timeline-date">2026-04-09 &bull; 14:23 UTC</p>
-                  </div>
+            <div class="order-details">
+              <div class="detail-divider"></div>
+              <div class="customer-section">
+                <div class="borderBtm">
+                  <div class="section-label">CUSTOMER DETAILS</div>
+                </div>
+                <div class="customer-name">Rohan Shrestha</div>
+                <div class="customer-email">rohanshrestha612@gmail.com</div>
+                <div class="customer-address">MADHYAPUR THIMI 04,<br/>BHAKTAPUR NEPAL</div>
+              </div>
+              <div class="timeline-section">
+                <div class="borderBtm">
+                  <div class="section-label">ORDER TIMELINE</div>
                 </div>
                 <div class="timeline-item">
-                  <span class="timeline-icon">
-                    <!-- Cancel / X circle -->
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                      stroke="#e63232" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <circle cx="12" cy="12" r="10"/>
-                      <line x1="15" y1="9" x2="9" y2="15"/>
-                      <line x1="9" y1="9" x2="15" y2="15"/>
-                    </svg>
-                  </span>
-                  <div class="timeline-content">
-                    <p class="timeline-event">Order Cancelled</p>
-                    <p class="timeline-date">2026-04-14 &bull; 11:45 UTC</p>
+                  <div class="timeline-icon">
+                    <img src="<%= request.getContextPath() %>/Assets/Seller Product/completed.png" alt="" />
                   </div>
-                </div>
-                <div class="timeline-item">
-                  <span class="timeline-icon">
-                    <!-- Check circle -->
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                      stroke="#0f9b58" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <circle cx="12" cy="12" r="10"/>
-                      <polyline points="9 12 11 14 15 10"/>
-                    </svg>
-                  </span>
                   <div class="timeline-content">
-                    <p class="timeline-event">Order Completed</p>
-                    <p class="timeline-date">2026-04-14 &bull; 11:45 UTC</p>
+                    <div class="tl-title">Order Completed</div>
+                    <div class="tl-date">2026-04-09 • 14:23 UTC</div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- ── Order 3 — CANCELLED (collapsed) ── -->
-          <div class="order-card">
-            <div class="order-main">
-              <div class="order-row">
-                <span class="order-label">Order ID</span>
-                <span class="order-id-value">ORD-003</span>
-              </div>
-              <div class="order-product-row">
-                <img
-                  src="<%= request.getContextPath() %>/Assets/Seller Dashboard/test.png"
-                  alt="product"
-                  class="order-product-img"
-                />
-                <span class="order-product-name">Record Player</span>
-              </div>
-              <div class="order-detail-row">
-                <span class="order-label">Buyer</span>
-                <span class="order-detail-value">Rohan Shresha</span>
-              </div>
-              <div class="order-detail-row">
-                <span class="order-label">Total</span>
-                <span class="order-detail-value price">$85.00</span>
-              </div>
-              <div class="order-detail-row">
-                <span class="order-label">Date</span>
-                <span class="order-detail-value">2026-04-13</span>
-              </div>
-              <div class="order-detail-row">
-                <span class="order-label">Status</span>
-                <span class="badge cancelled">CANCELLED</span>
-              </div>
-            </div>
-            <div class="order-toggle-row">
-              <button class="btn-toggle" onclick="toggleOrder('order3-panel', this)">
-                &#8964;&nbsp; VIEW
-              </button>
-            </div>
-            <div class="order-details-panel" id="order3-panel">
-              <p class="details-section-label">Customer Details</p>
-              <p class="customer-name">Rohan Shresha</p>
-              <p class="customer-email">rohanshrestha612@gmail.com</p>
-              <p class="customer-address">Madhyapur Thimi 04,<br />Bhaktapur Nepal</p>
 
-              <p class="details-section-label">Order Timeline</p>
-              <div class="timeline">
-                <div class="timeline-item">
-                  <span class="timeline-icon">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                      stroke="#aaaaaa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <circle cx="12" cy="12" r="10"/>
-                      <polyline points="12 6 12 12 16 14"/>
-                    </svg>
-                  </span>
-                  <div class="timeline-content">
-                    <p class="timeline-event">Order Placed</p>
-                    <p class="timeline-date">2026-04-13 &bull; 09:00 UTC</p>
-                  </div>
-                </div>
-                <div class="timeline-item">
-                  <span class="timeline-icon">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                      stroke="#e63232" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <circle cx="12" cy="12" r="10"/>
-                      <line x1="15" y1="9" x2="9" y2="15"/>
-                      <line x1="9" y1="9" x2="15" y2="15"/>
-                    </svg>
-                  </span>
-                  <div class="timeline-content">
-                    <p class="timeline-event">Order Cancelled</p>
-                    <p class="timeline-date">2026-04-13 &bull; 10:30 UTC</p>
-                  </div>
+          <!-- Order Card 3 -->
+          <div class="order-card expanded" id="order-3">
+            <div class="order-summary" onclick="toggleOrder('order-3')">
+              <div class="order-row">
+                <span class="order-label">ORDER ID</span>
+                <span class="order-value order-id">ORD-003</span>
+              </div>
+              <div class="order-row product-row">
+                <div class="product-info">
+                  <img class="productThumb" src="<%= request.getContextPath() %>/Assets/Product/product7.png" alt="Record Player" />
+                  <span class="product-name">Record Player</span>
                 </div>
               </div>
-            </div>
-          </div>
-
-          <!-- ── Order 4 — PENDING (collapsed) ── -->
-          <div class="order-card">
-            <div class="order-main">
               <div class="order-row">
-                <span class="order-label">Order ID</span>
-                <span class="order-id-value">ORD-004</span>
+                <span class="order-info">BUYER</span>
+                <span class="order-name">Rohan Shrestha</span>
               </div>
-              <div class="order-product-row">
-                <img
-                  src="<%= request.getContextPath() %>/Assets/Seller Dashboard/test.png"
-                  alt="product"
-                  class="order-product-img"
-                />
-                <span class="order-product-name">Record Player</span>
+              <div class="order-row">
+                <span class="order-info">TOTAL</span>
+                <span class="order-value price">$85.00</span>
               </div>
-              <div class="order-detail-row">
-                <span class="order-label">Buyer</span>
-                <span class="order-detail-value">Rohan Shresha</span>
+              <div class="order-row">
+                <span class="order-date">DATE</span>
+                <span class="order-value">2026-04-12</span>
               </div>
-              <div class="order-detail-row">
-                <span class="order-label">Total</span>
-                <span class="order-detail-value price">$85.00</span>
+              <div class="order-row borderBtm">
+                <span class="order-info">STATUS</span>
+                <span class="order-value">
+                  <span class="status-badge cancelled">CANCELLED</span>
+                </span>
               </div>
-              <div class="order-detail-row">
-                <span class="order-label">Date</span>
-                <span class="order-detail-value">2026-04-14</span>
-              </div>
-              <div class="order-detail-row">
-                <span class="order-label">Status</span>
-                <span class="badge pending">PENDING</span>
+              <div class="order-toggle">
+                <span class="toggle-icon rotated"></span> HIDE
               </div>
             </div>
-            <div class="order-toggle-row">
-              <button class="btn-toggle" onclick="toggleOrder('order4-panel', this)">
-                &#8964;&nbsp; VIEW
-              </button>
-            </div>
-            <div class="order-details-panel" id="order4-panel">
-              <p class="details-section-label">Customer Details</p>
-              <p class="customer-name">Rohan Shresha</p>
-              <p class="customer-email">rohanshrestha612@gmail.com</p>
-              <p class="customer-address">Madhyapur Thimi 04,<br />Bhaktapur Nepal</p>
 
-              <p class="details-section-label">Order Timeline</p>
-              <div class="timeline">
+            <div class="order-details">
+              <div class="detail-divider"></div>
+              <div class="customer-section">
+                <div class="borderBtm">
+                  <div class="section-label">CUSTOMER DETAILS</div>
+                </div>
+                <div class="customer-name">Rohan Shrestha</div>
+                <div class="customer-email">rohanshrestha612@gmail.com</div>
+                <div class="customer-address">MADHYAPUR THIMI 04,<br/>BHAKTAPUR NEPAL</div>
+              </div>
+              <div class="timeline-section">
+                <div class="borderBtm">
+                  <div class="section-label">ORDER TIMELINE</div>
+                </div>
                 <div class="timeline-item">
-                  <span class="timeline-icon">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                      stroke="#aaaaaa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <circle cx="12" cy="12" r="10"/>
-                      <polyline points="12 6 12 12 16 14"/>
-                    </svg>
-                  </span>
+                  <div class="timeline-icon">
+                    <img src="<%= request.getContextPath() %>/Assets/Seller Product/cancelled.png" alt="" />
+                  </div>
                   <div class="timeline-content">
-                    <p class="timeline-event">Order Placed</p>
-                    <p class="timeline-date">2026-04-14 &bull; 08:10 UTC</p>
+                    <div class="tl-title">Order Cancelled</div>
+                    <div class="tl-date">2026-04-09 • 14:23 UTC</div>
                   </div>
                 </div>
               </div>
@@ -421,18 +264,27 @@
           </div>
 
         </div>
+        <!-- /orders-list -->
+
       </main>
     </div>
+    <!-- /container -->
 
     <script>
-      function toggleOrder(panelId, btn) {
-        const panel = document.getElementById(panelId);
-        const isOpen = panel.classList.contains('open');
-        panel.classList.toggle('open', !isOpen);
-        btn.innerHTML = isOpen
-          ? '&#8964;&nbsp; VIEW'
-          : '&#8963;&nbsp; HIDE';
+      function toggleOrder(id) {
+        const card = document.getElementById(id);
+        const details = card.querySelector('.order-details');
+        const icon = card.querySelector('.toggle-icon');
+        const label = card.querySelector('.order-toggle');
+
+        const isHidden = details.classList.contains('hidden');
+        details.classList.toggle('hidden');
+        icon.classList.toggle('rotated');
+        label.innerHTML = isHidden
+          ? '<span class="toggle-icon rotated"></span> HIDE'
+          : '<span class="toggle-icon"></span>￬ VIEW';
       }
     </script>
+
   </body>
 </html>

@@ -1,59 +1,54 @@
-<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Seller Dashboard</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MMP - Buy Smart. Sell Easy. Repeat.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Modak&display=swap" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Modak&family=DM+Sans:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="<%= request.getContextPath() %>/CSS/SellerPanel.css"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/SellerPanel.css" />
   </head>
   <body>
     <div class="container">
       <!-- Sidebar -->
       <aside class="sidebar">
-        <div class="logo-wrap">
-          <span class="logo">MMP</span>
-        </div>
+
 
         <nav>
           <ul class="menu">
             <li class="menu-item active">
               <span class="menu-icon">
                 <img
-                  src="<%= request.getContextPath() %>/Assets/Seller Dashboard/Add.png"
+                  src="<%= request.getContextPath() %>/Assets/Seller Product/product.png"
+                  alt=""
                 />
               </span>
               My Products
             </li>
             <li class="menu-item">
-              <img
-                src="<%= request.getContextPath() %>/Assets/Seller Dashboard/Add.png"
-              />
-              Add Product
+              <span class="menu-icon">
+                <img
+                  src="<%= request.getContextPath() %>/Assets/Seller Product/addPrd.png"
+                  alt=""
+                />
+              </span>
+              Add Products
             </li>
             <li class="menu-item">
               <span class="menu-icon">
                 <img
-                  src="<%= request.getContextPath() %>/Assets/Seller Dashboard/Orders.png"
+                  src="<%= request.getContextPath() %>/Assets/Seller Product/order.png"
+                  alt=""
                 />
               </span>
               Orders
             </li>
-            <li class="menu-item">
-              <span class="menu-icon">
-                <img
-                  src="<%= request.getContextPath() %>/Assets/Seller Dashboard/Settings.png"
-                />
-              </span>
-              Settings
-            </li>
+
           </ul>
         </nav>
       </aside>
@@ -61,116 +56,87 @@
       <!-- Main Content -->
       <main class="main">
         <!-- Topbar -->
-        <header class="topbar">
-          <div class="search-group">
-            <span class="search-icon-wrap">
-              <img
-                src="<%= request.getContextPath() %>/Assets/Seller Dashboard/Search.png"
-              />
-            </span>
-            <input type="text" placeholder="Search..." class="search-input" />
-            <button class="search-btn">Search</button>
-          </div>
-
-          <div class="profile">
-            <span class="profile-name">JOHN DOE</span>
-            <div class="avatar">
-              <img src="https://i.pravatar.cc/40" alt="profile" />
-            </div>
-          </div>
-        </header>
+              <div class="navbar">
+                      <div class="navLeft">
+                        <div class="logo">MMP</div>
+                      </div>
+                <div class="navRight">
+                  <div class="searchWrapper">
+                    <img class="searchIcon" src="<%= request.getContextPath() %>/Assets/Home/search.png" alt="" />
+                    <input type="text" placeholder="Search..." />
+                    <button class="searchBtn">Search</button>
+                  </div>
+                  <div class="profile">
+                    <img src="<%= request.getContextPath() %>/Assets/Home/me.png" alt="profile" />
+                  </div>
+                </div>
+              </div>
 
         <!-- Page Header -->
-        <div class="page-header">
-          <h1 class="page-title">INVENTORY</h1>
-          <p class="page-subtitle">MANAGE YOUR CATALOG &bull; 5 ITEMS LISTED</p>
-        </div>
+    <div class="user">
+      <h1>INVENTORY</h1>
+    </div>
 
-        <!-- Table -->
-        <div class="table-wrap">
-          <table class="inventory-table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th class="col-highlight">PRODUCTS</th>
-                <th>NAME</th>
-                <th>PRICE</th>
-                <th>CATEGORY</th>
-                <th>SOLD</th>
-                <th>ACTIONS</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="td-id">01.</td>
-                <td class="td-img">
-                  <img
-                    src="<%= request.getContextPath() %>/Assets/Seller Dashboard/test.png"
-                    alt="product"
-                    class="product-img"
-                  />
-                </td>
-                <td class="td-name">Braun Aromaster Classic</td>
-                <td class="td-price">$85.00</td>
-                <td class="td-category">ELECTRONIC</td>
-                <td><span class="badge available">Available</span></td>
-                <td>
-                  <a href="#" class="btn-edit">
-                    <img
-                      src="<%= request.getContextPath() %>/Assets/Seller Dashboard/Edit.png"
-                    />
-                    Edit
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td class="td-id">02.</td>
-                <td class="td-img">
-                  <img
-                    src="<%= request.getContextPath() %>/Assets/Seller Dashboard/test.png"
-                    alt="product"
-                    class="product-img"
-                  />
-                </td>
-                <td class="td-name">Braun Aromaster Classic</td>
-                <td class="td-price">$85.00</td>
-                <td class="td-category">ELECTRONIC</td>
-                <td><span class="badge sold">Sold</span></td>
-                <td>
-                  <a href="#" class="btn-edit">
-                    <img
-                      src="<%= request.getContextPath() %>/Assets/Seller Dashboard/Edit.png"
-                    />
-                    Edit
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td class="td-id">03.</td>
-                <td class="td-img">
-                  <img
-                    src="<%= request.getContextPath() %>/Assets/Seller Dashboard/test.png"
-                    alt="product"
-                    class="product-img"
-                  />
-                </td>
-                <td class="td-name">Braun Aromaster Classic</td>
-                <td class="td-price">$85.00</td>
-                <td class="td-category">ELECTRONIC</td>
-                <td><span class="badge sold">Sold</span></td>
-                <td>
-                  <a href="#" class="btn-edit">
-                    <img
-                      src="<%= request.getContextPath() %>/Assets/Seller Dashboard/Edit.png"
-                    />
-                    Edit
-                  </a>
-                </td>
-              </tr>
-            </tbody>
+    <div class="editPadding">
+      <div class="contact">Manage your catalog • 5 Items Listed</div>
+
+    </div>
+<div class="tableWrapper">
+          <table class="inventoryTable">
+
+            <tr>
+              <th class="colId">ID</th>
+              <th class="colProduct">Products</th>
+              <th>Name</th>
+              <th class="colPrice">Price</th>
+              <th class="colCategory">Category</th>
+              <th class="colSold">Sold</th>
+              <th class="colActions">Actions</th>
+            </tr>
+
+            <tr>
+              <td class="colId">01.</td>
+              <td class="colProduct">
+                <img class="productThumb" src="<%= request.getContextPath() %>/Assets/Product/product7.png">
+              </td>
+              <td class="tdName">Braun Aromaster Classic</td>
+              <td class="colPrice"><span class="priceDollar">$</span>85.00</td>
+              <td class="colCategory">Electronic</td>
+              <td class="colSold"><span class="badge badgeAvailable">Available</span></td>
+              <td class="colActions">
+              <button class="editProfile">
+                 <img src="<%= request.getContextPath() %>/Assets/Profile/edit.png" alt="Edit" />
+                    <span>EDIT</span>
+              </button>
+              </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="colId">02.</td>
+              <td class="colProduct">
+                <img class="productThumb" src="<%= request.getContextPath() %>/Assets/Product/product7.png">
+              </td>
+              <td class="tdName">Braun Aromaster Classic</td>
+              <td class="colPrice"><span class="priceDollar">$</span>85.00</td>
+              <td class="colCategory">Electronic</td>
+              <td class="colSold"><span class="badgeSold">Sold</span></td>
+              <td class="colActions">
+              <button class="editProfile">
+                <img src="<%= request.getContextPath() %>/Assets/Profile/edit.png" alt="Edit" />
+                    <span>EDIT</span>
+              </button>
+              </div>
+              </td>
+            </tr>
+
           </table>
         </div>
+</div>
+
+
       </main>
     </div>
+
   </body>
 </html>
