@@ -83,6 +83,11 @@
     </div>
 
         <!-- Form -->
+        <% if (request.getAttribute("error") !=null) { %>
+         <p style="color: red">
+          <%= request.getAttribute("error") %>
+         </p>
+        <% } %>
         <form class="form-container"
               action="<%= request.getContextPath() %>/product/add"
               method="post"
