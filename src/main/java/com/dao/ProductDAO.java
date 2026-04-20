@@ -11,7 +11,7 @@ public class ProductDAO {
 
         Connection con = DBconfig.getConnection();
 
-        String sql = "INSERT INTO product (productName, price, category, postedAt, description, imgUrl) "
+        String sql = "INSERT INTO product (productName, productPrice, productCategory, productPostedAt, productDescription, productImageUrl) "
                 + "VALUES (?, ?, ?, ?, ?, ?)";
 
         PreparedStatement pst = con.prepareStatement(sql);
