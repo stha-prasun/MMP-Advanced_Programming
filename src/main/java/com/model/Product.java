@@ -8,22 +8,19 @@ public class Product {
 
     private int productId;
     private String productName;
-    private int price;
-    private Category category;
-    private LocalDateTime postedAt;
-    private String description;
-    private String imgUrl;
+    private int productPrice;
+    private String productImageUrl;
+    private String productCategory;
+    private LocalDateTime productPostedAt;
+    private String productDescription;
 
-    public Product(int productId, String productName, int price, Category category, String description, String imgUrl) {
+    public Product(int productId, String productName, int productPrice, String productImageUrl, String productCategory, String productDescription) {
         this.productId = productId;
         this.productName = productName;
-        this.price = price;
-        this.category = category;
-        this.description = description;
-        this.imgUrl = imgUrl;
-    }
-
-    public Product() {
+        this.productPrice = productPrice;
+        this.productImageUrl = productImageUrl;
+        this.productCategory = productCategory;
+        this.productDescription = productDescription;
     }
 
     public int getProductId() {
@@ -42,43 +39,43 @@ public class Product {
         this.productName = productName;
     }
 
-    public int getPrice() {
-        return price;
+    public int getProductPrice() {
+        return productPrice;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setProductPrice(int productPrice) {
+        this.productPrice = productPrice;
     }
 
-    public Category getCategory() {
-        return category;
+    public String getProductImageUrl() {
+        return productImageUrl;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setProductImageUrl(String productImageUrl) {
+        this.productImageUrl = productImageUrl;
     }
 
-    public LocalDateTime getPostedAt() {
-        return postedAt;
+    public String getProductCategory() {
+        return productCategory;
     }
 
-    public void setPostedAt(LocalDateTime postedAt) {
-        this.postedAt = postedAt;
+    public void setProductCategory(String productCategory) {
+        this.productCategory = productCategory;
     }
 
-    public String getDescription() {
-        return description;
+    public LocalDateTime getProductPostedAt() {
+        return productPostedAt;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setProductPostedAt(LocalDateTime productPostedAt) {
+        this.productPostedAt = productPostedAt;
     }
 
-    public String getImgUrl() {
-        return imgUrl;
+    public String getProductDescription() {
+        return productDescription;
     }
 
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
+    public void setProductDescription(String productDescription) {
+        this.productDescription = productDescription;
     }
 }

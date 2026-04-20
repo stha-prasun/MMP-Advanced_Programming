@@ -1,10 +1,14 @@
 package com.dao;
 
+import com.model.Product;
 import com.util.DBconfig;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProductDAO {
     public void insertProduct(String productName, int price, String category, LocalDateTime postedAt, String description, String imgUrl) throws Exception {
@@ -27,5 +31,38 @@ public class ProductDAO {
 
         pst.close();
         con.close();
+    }
+
+    public List<Product> getAllProducts() throws Exception {
+        List<Product> products = new ArrayList<>();
+
+        Connection con = DBconfig.getConnection();
+
+        String sql = "SELECT * FROM product ORDER BY postedAt DESC";
+        PreparedStatement pst = con.prepareStatement(sql);
+
+        ResultSet rs = pst.executeQuery();
+
+        while (rs.next()) {
+            Product p = new Product(
+                    rs.getInt("productId"),
+                    rs.getString("productName"),
+                    rs.getInt("price"),
+                    rs.getString("imgUrl"),
+                    rs.getString("category"),
+                    rs.getString("description")
+            );
+
+            // Set postedAt separately (since not in constructor)
+            p.setProductPostedAt(rs.getTimestamp("postedAt").toLocalDateTime());
+
+            products.add(p);
+        }
+
+        rs.close();
+        pst.close();
+        con.close();
+
+        return products;
     }
 }
