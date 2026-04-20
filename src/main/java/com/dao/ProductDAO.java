@@ -1,6 +1,5 @@
 package com.dao;
 
-import com.model.enums.Category;
 import com.util.DBconfig;
 
 import java.sql.Connection;
@@ -8,7 +7,7 @@ import java.sql.PreparedStatement;
 import java.time.LocalDateTime;
 
 public class ProductDAO {
-    public void insertProduct(String productName, int price, Category category, LocalDateTime postedAt, String description, String imgUrl) throws Exception {
+    public void insertProduct(String productName, int price, String category, LocalDateTime postedAt, String description, String imgUrl) throws Exception {
 
         Connection con = DBconfig.getConnection();
 
@@ -19,7 +18,7 @@ public class ProductDAO {
 
         pst.setString(1, productName);
         pst.setInt(2, price);
-        pst.setString(3, category.name());
+        pst.setString(3, category);
         pst.setTimestamp(4, java.sql.Timestamp.valueOf(postedAt));
         pst.setString(5, description);
         pst.setString(6, imgUrl);

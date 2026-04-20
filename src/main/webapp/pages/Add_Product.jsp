@@ -83,7 +83,10 @@
     </div>
 
         <!-- Form -->
-        <div class="form-container">
+        <form class="form-container"
+              action="<%= request.getContextPath() %>/product/add"
+              method="post"
+              enctype="multipart/form-data">
 
           <!-- Section 01: Basic Information -->
           <div class="form-section">
@@ -163,7 +166,7 @@
         <label class="upload-zone">
           <input
             type="file"
-            name="productImage"
+            name="image"
             class="file-input"
             accept="image/*"
           />
@@ -182,10 +185,10 @@
 
           <!-- Footer Actions -->
           <div class="form-footer">
-            <button type="button" class="btn-cancel">CANCEL</button>
+            <button type="reset" class="btn-cancel">CANCEL</button>
             <button type="submit" class="btn-submit">ADD PRODUCT</button>
           </div>
-        </div>
+        </form>
       </main>
     </div>
 
