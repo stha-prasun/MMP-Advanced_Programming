@@ -86,7 +86,7 @@ public class AddProductController extends HttpServlet {
 
             // Redirect back to register page on error
             request.setAttribute("error", "Something went wrong");
-            request.getRequestDispatcher("/pages/Register.jsp").forward(request, response);
+            request.getRequestDispatcher("/pages/Add_Product").forward(request, response);
         }
     }
 }
