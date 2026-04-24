@@ -37,47 +37,49 @@
           <h1>Welcome back!</h1>
           <p class="signup-text">
             Don’t have an account?
-            <a href="<%= request.getContextPath() %>/register">Sign up now</a>
+            <a href="<%= request.getContextPath() %>/customer/register">Sign up now</a>
           </p>
+          <form method="POST" action="<%= request.getContextPath() %>/customer/login">
 
-          <input type="email" placeholder="Email address" name="Email" class="input" />
+            <input type="email" placeholder="Email address" name="Email" class="input" />
 
-          <div class="password-wrapper">
-            <input
-              type="password"
-              placeholder="Password"
-              name = "Password"
-              class="input"
-              id="password"
-            />
+              <div class="password-wrapper">
+                <input
+                  type="password"
+                  placeholder="Password"
+                  name = "Password"
+                  class="input"
+                  id="password"
+                />
 
-            <img
-              src="<%= request.getContextPath() %>/Assets/Login/view.png"
-              id="togglePassword"
-              class="eye-icon"
-            />
-          </div>
+                <img
+                  src="<%= request.getContextPath() %>/Assets/Login/view.png"
+                  id="togglePassword"
+                  class="eye-icon"
+                />
+              </div>
 
-          <p class="role-text">Login as a customer or seller?</p>
+              <p class="role-text">Login as a customer or seller?</p>
 
-          <div class="roles">
-            <label><input type="radio" name="role" value="Customer"/> Customer</label>
-            <label><input type="radio" name="role" value="Seller"/> Seller</label>
-          </div>
+              <div class="roles">
+                <label><input type="radio" name="role" value="Customer"/> Customer</label>
+                <label><input type="radio" name="role" value="Seller"/> Seller</label>
+              </div>
 
-          <button class="login-btn">Login</button>
+              <button class="login-btn">Login</button>
 
-          <div class="bottom-row">
-            <label><input type="checkbox" /> Remember me</label>
-            <a href="#" class="forgot">Forgot password?</a>
-          </div>
+              <div class="bottom-row">
+                <label><input type="checkbox" /> Remember me</label>
+                <a href="#" class="forgot">Forgot password?</a>
+              </div>
 
-          <button class="google-btn">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png"
-            />
-            Continue with Google
-          </button>
+              <button class="google-btn">
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png"
+                />
+                Continue with Google
+              </button>
+          </form>
         </div>
       </div>
     </div>

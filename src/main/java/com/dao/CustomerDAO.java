@@ -44,8 +44,10 @@ public class CustomerDAO {
         PreparedStatement pst = con.prepareStatement(sql);
         pst.setString(1, custEmail);
         ResultSet rs = pst.executeQuery();
+        String storedpass = rs.getString("custPassword");
 
-        boolean confirmedPass = PasswordUtil.checkPassword(custPassword, rs.getString("custPassword"));
+
+        boolean confirmedPass = PasswordUtil.checkPassword(custPassword,storedpass );
 
         if(!confirmedPass){
             return null;
