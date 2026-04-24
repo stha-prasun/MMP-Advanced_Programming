@@ -47,14 +47,14 @@ public class ProductDAO {
             Product p = new Product(
                     rs.getInt("productId"),
                     rs.getString("productName"),
-                    rs.getInt("price"),
-                    rs.getString("imgUrl"),
-                    rs.getString("category"),
-                    rs.getString("description")
+                    rs.getInt("productPrice"),
+                    rs.getString("productImageUrl"),
+                    rs.getString("productCategory"),
+                    rs.getString("productDescription")
             );
 
             // Set postedAt separately (since not in constructor)
-            p.setProductPostedAt(rs.getTimestamp("postedAt").toLocalDateTime());
+            p.setPostedAt(rs.getTimestamp("postedAt").toLocalDateTime());
 
             products.add(p);
         }

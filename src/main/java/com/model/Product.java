@@ -1,7 +1,5 @@
 package com.model;
 
-import com.model.enums.Category;
-
 import java.time.LocalDateTime;
 
 public class Product {
@@ -11,7 +9,7 @@ public class Product {
     private int productPrice;
     private String productImageUrl;
     private String productCategory;
-    private LocalDateTime productPostedAt;
+    private LocalDateTime postedAt;
     private String productDescription;
 
     public Product(int productId, String productName, int productPrice, String productImageUrl, String productCategory, String productDescription) {
@@ -63,12 +61,12 @@ public class Product {
         this.productCategory = productCategory;
     }
 
-    public LocalDateTime getProductPostedAt() {
-        return productPostedAt;
+    public LocalDateTime getPostedAt() {
+        return postedAt;
     }
 
-    public void setProductPostedAt(LocalDateTime productPostedAt) {
-        this.productPostedAt = productPostedAt;
+    public void setPostedAt(LocalDateTime postedAt) {
+        this.postedAt = postedAt;
     }
 
     public String getProductDescription() {

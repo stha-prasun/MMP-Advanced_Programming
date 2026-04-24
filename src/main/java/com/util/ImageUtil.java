@@ -2,6 +2,7 @@ package com.util;
 import java.io.File;
 import java.io.IOException;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.Part;
 
 public class ImageUtil {
@@ -62,13 +63,13 @@ public class ImageUtil {
      * @return {@code true} if the file was successfully uploaded, {@code false}
      *         otherwise.
      */
-    public boolean uploadImage(Part part, String saveFolder) {
-        String savePath = getSavePath(saveFolder);
+    public boolean uploadImage(Part part, String saveFolder, HttpServletRequest request) {
+        String savePath = getSavePath(saveFolder, request);
         File fileSaveDir = new File(savePath);
 
         // Ensure the directory exists
         if (!fileSaveDir.exists()) {
-            if (!fileSaveDir.mkdir()) {
+            if (!fileSaveDir.mkdirs()) {
                 return false; // Failed to create the directory
             }
         }
@@ -86,8 +87,9 @@ public class ImageUtil {
         }
     }
 
-    public String getSavePath(String saveFolder) {
-        return "/src/main/java/com/"+saveFolder+"/";
+    public String getSavePath(String saveFolder, HttpServletRequest request) {
+        String appPath = request.getServletContext().getRealPath("");
+        return appPath + File.separator + saveFolder;
     }
 
 }

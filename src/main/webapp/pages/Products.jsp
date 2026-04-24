@@ -83,7 +83,7 @@
 %>
 
     <div class="product-card">
-        <img src="<%= request.getContextPath() + "/" + p.getProductImageUrl() %>" alt="product">
+        <img src="<%= request.getContextPath() %>/<%= p.getProductImageUrl() %>" />
 
         <h3><%= p.getProductName() %></h3>
 
