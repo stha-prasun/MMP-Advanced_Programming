@@ -36,7 +36,7 @@
               <%= request.getAttribute("error") %>
             </p>
             <% } %>
-              <form method="POST" action="<%= request.getContextPath() %>/customer/register">
+              <form method="POST" action="<%= request.getContextPath() %>/customer/register" enctype="multipart/form-data">
                 <input type="text" name="custName" placeholder="Full Name" class="input" />
 
                 <input type="email" name="custEmail" placeholder="Email address" class="input" />
@@ -56,7 +56,7 @@
 
                 <div class ="photoUpload">
                 <h6>Upload your profile picture.</h6>
-                <input type="file" name="uploadPhoto" class="inputPhoto" /></div>
+                <input type="file" name="image" class="inputPhoto" /></div>
 
                 <div class="terms">
                   <label>

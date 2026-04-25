@@ -10,13 +10,15 @@ public class Customer {
     private String custEmail;
     private String custPassword;
     private LocalDateTime custCreatedAt;
+    private String custProfileImg;
 
-    public Customer(Long customerId, String custName, String custEmail, String custPassword, LocalDateTime custCreatedAt) {
+    public Customer(Long customerId, String custName, String custEmail, String custPassword, LocalDateTime custCreatedAt, String custProfileImg) {
         this.customerId = customerId;
         this.custName = custName;
         this.custEmail = custEmail;
         this.custPassword = custPassword;
         this.custCreatedAt = custCreatedAt;
+        this.custProfileImg = custProfileImg;
     }
 
     public Long getCustomerId() {
@@ -29,6 +31,10 @@ public class Customer {
 
     public String getCustName() {
         return custName;
+    }
+
+    public String getCustProfileImg() {
+        return custProfileImg;
     }
 
     public void setCustName(String custName) {
@@ -57,5 +63,9 @@ public class Customer {
 
     public void setCustCreatedAt(LocalDateTime custCreatedAt) {
         this.custCreatedAt = custCreatedAt;
+    }
+
+    public void setCustProfileImg(String custProfileImg) {
+        this.custProfileImg = custProfileImg;
     }
 }

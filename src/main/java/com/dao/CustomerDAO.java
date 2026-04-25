@@ -12,12 +12,12 @@ import com.util.PasswordUtil;
 
 public class CustomerDAO {
 
-    public void insertCustomer(String custName, String custEmail, String custPassword, LocalDateTime custCreatedAt) throws Exception {
+    public void insertCustomer(String custName, String custEmail, String custPassword, LocalDateTime custCreatedAt, String imgUrl) throws Exception {
 
         Connection con = DBconfig.getConnection();
 
-        String sql = "INSERT INTO customer (custName, custEmail, custPassword, custCreatedAt) "
-                + "VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO customer (custName, custEmail, custPassword, custCreatedAt, custProfileImg) "
+                + "VALUES (?, ?, ?, ?, ?)";
 
         PreparedStatement pst = con.prepareStatement(sql);
 
@@ -25,6 +25,7 @@ public class CustomerDAO {
         pst.setString(2, custEmail);
         pst.setString(3, custPassword);
         pst.setTimestamp(4, java.sql.Timestamp.valueOf(custCreatedAt));
+        pst.setString(5, imgUrl);
 
         pst.executeUpdate();
 
@@ -58,8 +59,8 @@ public class CustomerDAO {
                 rs.getString("custName"),
                 rs.getString("custEmail"),
                 rs.getString("custPassword"),
-                rs.getTimestamp("custCreatedAt").toLocalDateTime()
-
+                rs.getTimestamp("custCreatedAt").toLocalDateTime(),
+                rs.getString("custProfileImg")
         );
         pst.close();
         con.close();
