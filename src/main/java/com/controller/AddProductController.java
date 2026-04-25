@@ -64,7 +64,7 @@ public class AddProductController extends HttpServlet {
             // Folder inside your project
             String saveFolder = "/Images/Product";
 
-            boolean uploaded = imageUtil.uploadImage(imagePart, saveFolder);
+            boolean uploaded = imageUtil.uploadImage(imagePart, saveFolder, request);
 
             String imgUrl;
 

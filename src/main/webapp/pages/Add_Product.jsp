@@ -83,6 +83,11 @@
     </div>
 
         <!-- Form -->
+        <% if (request.getAttribute("error") !=null) { %>
+         <p style="color: red">
+          <%= request.getAttribute("error") %>
+         </p>
+        <% } %>
         <form class="form-container"
               action="<%= request.getContextPath() %>/product/add"
               method="post"
@@ -128,8 +133,7 @@
                   id="price"
                   name="price"
                   class="field-price"
-                  placeholder="0.00"
-                  step="0.01"
+                  placeholder = "0.00"
                   min="0"
                 />
               </div>
@@ -171,16 +175,7 @@
             accept="image/*"
           />
 
-          <img
-            class="upload-icon"
-            src="<%= request.getContextPath() %>/Assets/Seller Product/upload.png"
-            alt="upload"
-          />
 
-          <span class="upload-title">Upload High-Resolution Imagery</span>
-          <span class="upload-hint">
-            DRAG & DROP FILES HERE OR CLICK TO BROWSE. STRICT ASPECT RATIOS REQUIRED.
-          </span>
         </label>
 
           <!-- Footer Actions -->
