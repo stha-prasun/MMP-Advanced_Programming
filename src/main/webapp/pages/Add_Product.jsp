@@ -160,7 +160,7 @@
           <!-- Section 03: Product Image -->
           <div class="form-section">
             <h2 class="section-heading">
-              0.3. Product Image
+              03. Product Image
             </h2>
 
         <label class="upload-zone">
@@ -191,6 +191,45 @@
         </form>
       </main>
     </div>
+
+<script>
+  const fileInput = document.querySelector('.file-input');
+  const uploadZone = document.querySelector('.upload-zone');
+  const uploadIcon = document.querySelector('.upload-icon');
+  const uploadTitle = document.querySelector('.upload-title');
+  const uploadHint = document.querySelector('.upload-hint');
+
+  fileInput.addEventListener('change', function () {
+    const file = this.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      // Remove existing preview if any
+      const existing = uploadZone.querySelector('.image-preview');
+      if (existing) existing.remove();
+
+      // Create preview image
+      const img = document.createElement('img');
+      img.src = e.target.result;
+      img.className = 'image-preview';
+      img.style.cssText = `
+        max-width: 100%;
+        max-height: 280px;
+        border-radius: 6px;
+        object-fit: contain;
+      `;
+
+      // Hide placeholder content, show image
+      uploadIcon.style.display = 'none';
+      uploadTitle.textContent = file.name;
+      uploadHint.textContent = (file.size / 1024).toFixed(1) + ' KB - click to replace';
+
+      uploadZone.insertBefore(img, uploadIcon);
+    };
+    reader.readAsDataURL(file);
+  });
+</script>
 
   </body>
 </html>
