@@ -13,6 +13,7 @@ import java.io.IOException;
 public class AuthenticationFilter extends HttpFilter implements Filter {
     private static final String LOGIN = "/customer/login";
     private static final String REGISTER = "/customer/register";
+    private static final String Admin = "/admin/login";
     private static final String HOME = "/home";
     private static final String ROOT = "/";
 
@@ -45,7 +46,7 @@ public class AuthenticationFilter extends HttpFilter implements Filter {
 
         boolean isLoggedIn = user != null;
 
-        boolean isPublic = path.equals(LOGIN) || path.equals(REGISTER) || path.equals(HOME);
+        boolean isPublic = path.equals(LOGIN) || path.equals(REGISTER) || path.equals(HOME) || path.equals(Admin);
 
         if (!isLoggedIn) {
             if (isPublic) {
