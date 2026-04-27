@@ -51,7 +51,8 @@
                   />
                 </div>
               </div>
-              <button class="change">CHANGE PROFILE</button>
+              <div class ="photoUpload">
+                <input type="file" name="image" class="inputPhoto" /></div>
             </div>
 
             <div class="username">
