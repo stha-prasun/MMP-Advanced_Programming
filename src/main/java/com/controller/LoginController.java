@@ -30,7 +30,7 @@ public class LoginController extends HttpServlet {
         try {
             // Get form parameters
             String Email = request.getParameter("Email");
-            String Password = request.getParameter("Password");
+            String Password = request.getParameter("custPassword");
 
             if (Email == null || Email.trim().isEmpty() ||
                     Password == null || Password.trim().isEmpty()) {
@@ -45,15 +45,13 @@ public class LoginController extends HttpServlet {
                 boolean success= ls.login(Email,Password);
                 if (success){
                     SessionUtil.setAttribute(request, "Email", Email);
-                    CookieUtil.addCookie(response, "Email", "temp", 5*30); //temp variable for now cause not finalized
+                    CookieUtil.addCookie(response, "Email", Email, 5*30); //temp variable for now cause not finalized
                     // Redirect after success
                     response.sendRedirect(request.getContextPath() + "/home");
-
-
                 }
                 else{
                     request.setAttribute("error", "Please enter the correct email or password!!!");
-                    request.getRequestDispatcher("/pages/login.jsp").forward(request, response);
+                    request.getRequestDispatcher("/customer/login").forward(request, response);
                 }
 
 
@@ -63,7 +61,7 @@ public class LoginController extends HttpServlet {
 
             // Redirect back to register page on error
             request.setAttribute("error", "Something went wrong");
-            request.getRequestDispatcher("/pages/login.jsp").forward(request, response);
+            request.getRequestDispatcher("/customer/login").forward(request, response);
         }
     }
 }

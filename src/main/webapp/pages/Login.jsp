@@ -47,7 +47,7 @@
                 <input
                   type="password"
                   placeholder="Password"
-                  name = "Password"
+                  name = "custPassword"
                   class="input"
                   id="password"
                 />

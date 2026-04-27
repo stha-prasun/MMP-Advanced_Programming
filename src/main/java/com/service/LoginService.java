@@ -9,7 +9,6 @@ import com.model.Seller;
 public class LoginService {
     public boolean login(String useremail, String custPassword) throws Exception {
 
-
         CustomerDAO custdao = new CustomerDAO();
         Customer cust = custdao.getCustomer(useremail, custPassword);
         if (cust == null) {

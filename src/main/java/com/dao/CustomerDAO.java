@@ -45,6 +45,11 @@ public class CustomerDAO {
         PreparedStatement pst = con.prepareStatement(sql);
         pst.setString(1, custEmail);
         ResultSet rs = pst.executeQuery();
+
+        if (!rs.next()) {
+            return null; // email not found
+        }
+
         String storedpass = rs.getString("custPassword");
 
 
@@ -65,6 +70,5 @@ public class CustomerDAO {
         pst.close();
         con.close();
         return cust;
-
         }
 }
