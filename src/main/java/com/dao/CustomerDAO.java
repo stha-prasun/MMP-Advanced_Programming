@@ -3,6 +3,7 @@ package com.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 
 
@@ -70,5 +71,22 @@ public class CustomerDAO {
         pst.close();
         con.close();
         return cust;
-        }
+    }
+
+    public void updateCustomer(String imgUrl) throws SQLException {
+        Connection con = DBconfig.getConnection();
+
+        String sql = "UPDATE customer" +
+                "SET custProfileImg = ? ";
+
+        PreparedStatement pst = con.prepareStatement(sql);
+
+        pst.setString(1, imgUrl);
+
+        pst.executeUpdate();
+
+        pst.close();
+        con.close();
+
+    }
 }

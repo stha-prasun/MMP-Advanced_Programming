@@ -3,6 +3,7 @@ package com.service;
 import com.dao.CustomerDAO;
 import com.util.PasswordUtil;
 
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 
 public class CustomerService {
@@ -15,6 +16,13 @@ public class CustomerService {
         CustomerDAO dao = new CustomerDAO();
 
         dao.insertCustomer(custName, custEmail, hashedPassword, custCreatedAt, imgUrl);
+        System.out.println("SERVICE CALLED");
+    }
+
+    public void updateCustomer(String imgUrl) throws SQLException {
+        CustomerDAO dao = new CustomerDAO();
+
+        dao.updateCustomer(imgUrl);
         System.out.println("SERVICE CALLED");
     }
 }
