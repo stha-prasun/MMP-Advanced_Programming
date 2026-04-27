@@ -19,10 +19,10 @@ public class CustomerService {
         System.out.println("SERVICE CALLED");
     }
 
-    public void updateCustomer(String imgUrl) throws SQLException {
+    public void updateCustomer(String imgUrl, String custEmail) throws SQLException {
         CustomerDAO dao = new CustomerDAO();
 
-        dao.updateCustomer(imgUrl);
+        dao.updateCustomer(imgUrl, custEmail);
         System.out.println("SERVICE CALLED");
     }
 }

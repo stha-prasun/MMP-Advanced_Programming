@@ -73,15 +73,17 @@ public class CustomerDAO {
         return cust;
     }
 
-    public void updateCustomer(String imgUrl) throws SQLException {
+    public void updateCustomer(String imgUrl, String custEmail) throws SQLException {
         Connection con = DBconfig.getConnection();
 
-        String sql = "UPDATE customer" +
-                "SET custProfileImg = ? ";
+        String sql = "UPDATE customer " +
+                "SET custProfileImg = ? " +
+                "WHERE custEmail = ?";
 
         PreparedStatement pst = con.prepareStatement(sql);
 
         pst.setString(1, imgUrl);
+        pst.setString(2, custEmail);
 
         pst.executeUpdate();
 

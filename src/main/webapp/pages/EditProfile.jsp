@@ -30,7 +30,7 @@
        </div>
      </nav>
 
-     <form action="<%= request.getContextPath() %>/profile/edit" method="put" enctype="multipart/form-data">
+     <form action="<%= request.getContextPath() %>/profile/edit" method="POST" enctype="multipart/form-data">
 
      <div class="user">
        <h1>HELLO USER!</h1>
@@ -38,7 +38,7 @@
 
      <div class="editPadding">
        <div class="contact">Edit Personal Profile & Contact</div>
-       <button class="editProfile">
+       <button type="submit" class="editProfile">
          <span>SAVE CHANGES</span>
        </button>
      </div>
