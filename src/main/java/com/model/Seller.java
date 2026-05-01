@@ -9,10 +9,10 @@ public class Seller {
     private LocalDateTime createdAt;
     private String sellerName;
     private String sellerLocation;
-    private String sellerIsActive;
-    private Long verificationId;
+    private boolean sellerIsActive;
+    private String verificationId;
 
-    public Seller(Long sellerId, String sellerEmail, String sellerPassword, String sellName, String sellerLocation, String isActive, Long verificationId) {
+    public Seller(Long sellerId, String sellerEmail, String sellerPassword, String sellName, String sellerLocation, boolean isActive, String verificationId) {
         this.sellerId = sellerId;
         this.sellerEmail = sellerEmail;
         this.sellerPassword = sellerPassword;
@@ -70,19 +70,19 @@ public class Seller {
         this.sellerLocation = sellerLocation;
     }
 
-    public String getSellerIsActive() {
+    public boolean getSellerIsActive() {
         return sellerIsActive;
     }
 
-    public void setSellerIsActive(String sellerIsActive) {
+    public void setSellerIsActive(boolean sellerIsActive) {
         this.sellerIsActive = sellerIsActive;
     }
 
-    public Long getVerificationId() {
+    public String getVerificationId() {
         return verificationId;
     }
 
-    public void setVerificationId(Long verificationId) {
+    public void setVerificationId(String verificationId) {
         this.verificationId = verificationId;
     }
 }

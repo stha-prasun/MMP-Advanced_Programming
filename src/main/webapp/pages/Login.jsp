@@ -44,7 +44,7 @@
           <%= request.getAttribute("error") %>
           </p>
           <% } %>
-          <form method="POST" action="<%= request.getContextPath() %>/customer/login">
+          <form method="POST" action="<%= request.getContextPath() %>/login">
 
             <input type="email" placeholder="Email address" name="Email" class="input" />
 

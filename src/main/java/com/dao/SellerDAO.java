@@ -38,10 +38,14 @@ public class SellerDAO {
 
 
 
-        String sql = "SELECT * FROM seller where custEmail = ?";
+        String sql = "SELECT * FROM seller where sellerEmail = ?";
         PreparedStatement pst = con.prepareStatement(sql);
         pst.setString(1, sellerEmail);
         ResultSet rs = pst.executeQuery();
+
+        if (!rs.next()) {
+            return null; // email not found
+        }
 
         boolean confirmedPass = PasswordUtil.checkPassword(sellerPassword, rs.getString("sellerPassword"));
 
@@ -55,8 +59,8 @@ public class SellerDAO {
                 rs.getString("sellerEmail"),
                 rs.getString("sellerPassword"),
                 rs.getString("sellerLocation"),
-                rs.getString("sellerIsActive"),
-                rs.getLong("verificationId")
+                rs.getBoolean("sellerIsActive"),
+                rs.getString("sellerVerificationId")
         );
         pst.close();
         con.close();

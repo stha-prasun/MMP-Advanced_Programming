@@ -33,5 +33,17 @@ public class LoginService {
 
     }
 
+    public boolean sellerLogin(String email, String password) throws Exception {
+
+        SellerDAO sellerdao = new SellerDAO();
+        Seller seller = sellerdao.getSeller(email, password);
+        if (seller == null) {
+            return false;
+        }
+        return true;
+
+
+    }
+
 
 }

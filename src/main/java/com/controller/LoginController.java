@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/customer/login")
+@WebServlet("/login")
 public class LoginController extends HttpServlet {
     //object service
 
@@ -31,6 +31,7 @@ public class LoginController extends HttpServlet {
             // Get form parameters
             String Email = request.getParameter("Email");
             String Password = request.getParameter("custPassword");
+            String Role = request.getParameter("role");
 
             if (Email == null || Email.trim().isEmpty() ||
                     Password == null || Password.trim().isEmpty()) {
@@ -39,19 +40,40 @@ public class LoginController extends HttpServlet {
                 return;
             }
 
+            if(Role == null || Role.isEmpty()){
+                request.setAttribute("error", "Role required");
+                request.getRequestDispatcher("/pages/Login.jsp").forward(request, response);
+                return;
+            }
 
                 // Calling Customer Login Service
                 LoginService ls = new LoginService();
-                boolean success= ls.login(Email,Password);
-                if (success){
-                    SessionUtil.setAttribute(request, "Email", Email);
-                    CookieUtil.addCookie(response, "Email", Email, 5*30); //temp variable for now cause not finalized
-                    // Redirect after success
-                    response.sendRedirect(request.getContextPath() + "/home");
-                }
-                else{
-                    request.setAttribute("error", "Please enter the correct email or password!!!");
-                    request.getRequestDispatcher("/pages/Login.jsp").forward(request, response);
+                boolean success= false;
+
+                if("Customer".equals(Role)) {
+                    success = ls.login(Email,Password);
+
+                    if (success) {
+                        SessionUtil.setAttribute(request, "Email", Email);
+                        CookieUtil.addCookie(response, "Email", Email, 5 * 30); //temp variable for now cause not finalized
+                        // Redirect after success
+                        response.sendRedirect(request.getContextPath() + "/home");
+                    } else {
+                        request.setAttribute("error", "Please enter the correct email or password!!!");
+                        request.getRequestDispatcher("/pages/Login.jsp").forward(request, response);
+                    }
+                }else{
+                    success = ls.sellerLogin(Email,Password);
+
+                    if (success) {
+                        SessionUtil.setAttribute(request, "Email", Email);
+                        CookieUtil.addCookie(response, "Email", Email, 5 * 30); //temp variable for now cause not finalized
+                        // Redirect after success
+                        response.sendRedirect(request.getContextPath() + "/home");
+                    } else {
+                        request.setAttribute("error", "Please enter the correct email or password!!!");
+                        request.getRequestDispatcher("/pages/Login.jsp").forward(request, response);
+                    }
                 }
 
 
@@ -61,7 +83,7 @@ public class LoginController extends HttpServlet {
 
             // Redirect back to register page on error
             request.setAttribute("error", "Something went wrong");
-            request.getRequestDispatcher("/customer/login").forward(request, response);
+            request.getRequestDispatcher("/login").forward(request, response);
         }
     }
 }
