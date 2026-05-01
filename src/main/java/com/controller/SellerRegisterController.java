@@ -26,19 +26,12 @@ public class SellerRegisterController extends HttpServlet {
             String sellerPassword = request.getParameter("sellerPassword");
             String confirmPassword = request.getParameter("confirmPassword");
             String sellerLocation = request.getParameter("sellerLocation");
-            String terms = request.getParameter("terms");
 
             if (sellerName == null || sellerName.trim().isEmpty() ||
                     sellerEmail == null || sellerEmail.trim().isEmpty() ||
                     sellerPassword == null || sellerPassword.trim().isEmpty() ||
                     confirmPassword == null || confirmPassword.trim().isEmpty()) {
                 request.setAttribute("error", "All fields are required");
-                request.getRequestDispatcher("/pages/Seller.jsp").forward(request, response);
-                return;
-            }
-
-            if (terms == null) {
-                request.setAttribute("error", "You must agree to Terms and Conditions");
                 request.getRequestDispatcher("/pages/Seller.jsp").forward(request, response);
                 return;
             }
@@ -50,12 +43,11 @@ public class SellerRegisterController extends HttpServlet {
             }
 
             LocalDateTime sellerCreatedAt = LocalDateTime.now();
-            String sellerIsActive= "";
-            Long longNID = Long.parseLong(verificationId);
+            boolean sellerIsActive= true;
 
             // Call service
             SellerService service = new SellerService();
-            service.addSeller(sellerEmail, sellerPassword, sellerName, sellerLocation, sellerIsActive, longNID, sellerCreatedAt);
+            service.addSeller(sellerEmail, sellerPassword, sellerName, sellerLocation, sellerIsActive, verificationId, sellerCreatedAt);
 
             // Redirect after success
             response.sendRedirect(request.getContextPath() + "/home");

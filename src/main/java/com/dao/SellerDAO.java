@@ -11,11 +11,11 @@ import java.sql.ResultSet;
 import java.time.LocalDateTime;
 
 public class SellerDAO {
-    public void insertSeller(String sellerEmail, String sellerPassword, String sellerName, String sellerLocation, String sellerIsActive, Long verificationId, LocalDateTime sellerCreatedAt) throws Exception {
+    public void insertSeller(String sellerEmail, String sellerPassword, String sellerName, String sellerLocation, boolean sellerIsActive, String verificationId, LocalDateTime sellerCreatedAt) throws Exception {
 
         Connection con = DBconfig.getConnection();
 
-        String sql = "INSERT INTO customer (sellerName, sellerEmail, sellerPassword, sellerCreatedAt, sellerLocation, sellerIsActive, verificationId) "
+        String sql = "INSERT INTO seller (sellerName, sellerEmail, sellerPassword, sellerCreatedAt, sellerLocation, sellerIsActive, sellerVerificationId) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         PreparedStatement pst = con.prepareStatement(sql);
@@ -25,8 +25,8 @@ public class SellerDAO {
         pst.setString(3, sellerPassword);
         pst.setTimestamp(4, java.sql.Timestamp.valueOf(sellerCreatedAt));
         pst.setString(5, sellerLocation);
-        pst.setString(6, sellerIsActive);
-        pst.setLong(7, verificationId);
+        pst.setBoolean(6, sellerIsActive);
+        pst.setString(7, verificationId);
 
         pst.executeUpdate();
 

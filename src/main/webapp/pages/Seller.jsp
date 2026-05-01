@@ -35,9 +35,14 @@
         <div class="form-box">
           <h1>Become a Seller</h1>
 
+          <% if (request.getAttribute("error") !=null) { %>
+                    <p style="color: red">
+                    <%= request.getAttribute("error") %>
+                    </p>
+                    <% } %>
           <form
             method="POST"
-            action="/register"
+            action="<%= request.getContextPath() %>/seller/register"
           >
             <input
               type="text"
