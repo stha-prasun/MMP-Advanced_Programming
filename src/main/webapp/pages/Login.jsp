@@ -39,6 +39,11 @@
             Don’t have an account?
             <a href="<%= request.getContextPath() %>/customer/register">Sign up now</a>
           </p>
+          <% if (request.getAttribute("error") !=null) { %>
+          <p style="color: red">
+          <%= request.getAttribute("error") %>
+          </p>
+          <% } %>
           <form method="POST" action="<%= request.getContextPath() %>/customer/login">
 
             <input type="email" placeholder="Email address" name="Email" class="input" />

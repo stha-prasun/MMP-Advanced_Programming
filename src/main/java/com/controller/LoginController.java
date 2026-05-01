@@ -35,7 +35,7 @@ public class LoginController extends HttpServlet {
             if (Email == null || Email.trim().isEmpty() ||
                     Password == null || Password.trim().isEmpty()) {
                 request.setAttribute("error", "All fields are required");
-                request.getRequestDispatcher("/pages/User.jsp").forward(request, response);
+                request.getRequestDispatcher("/pages/Login.jsp").forward(request, response);
                 return;
             }
 
@@ -51,7 +51,7 @@ public class LoginController extends HttpServlet {
                 }
                 else{
                     request.setAttribute("error", "Please enter the correct email or password!!!");
-                    request.getRequestDispatcher("/customer/login").forward(request, response);
+                    request.getRequestDispatcher("/pages/Login.jsp").forward(request, response);
                 }
 
 
