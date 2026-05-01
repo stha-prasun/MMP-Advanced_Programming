@@ -30,6 +30,12 @@
       </div>
         <div class="form-box">
           <h1>Hello Admin?</h1>
+          <% if (request.getAttribute("error") !=null) { %>
+             <p style="color: red">
+                <%= request.getAttribute("error") %>
+                </p>
+             <% } %>
+          <form method="POST" action="<%= request.getContextPath() %>/admin/login">
           <input type="email" name="AdminEmail" placeholder="Email address" class="input" />
           <div class="password-wrapper">
             <input
@@ -45,8 +51,9 @@
               class="eye-icon"
             />
           </div>
-          <button class="login-btn">Login</button>
+          <button type="submit" class="login-btn">Login</button>
         </div>
+        </form>
       </div>
     </div>
 

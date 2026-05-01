@@ -1,7 +1,9 @@
 package com.service;
 
+import com.dao.AdminDAO;
 import com.dao.CustomerDAO;
 import com.dao.SellerDAO;
+import com.model.Admin;
 import com.model.Customer;
 import com.model.Seller;
 
@@ -12,6 +14,18 @@ public class LoginService {
         CustomerDAO custdao = new CustomerDAO();
         Customer cust = custdao.getCustomer(useremail, custPassword);
         if (cust == null) {
+            return false;
+        }
+        return true;
+
+
+    }
+
+    public boolean adminLogin(String email, String password) throws Exception {
+
+        AdminDAO admindao = new AdminDAO();
+        Admin admin = admindao.getAdmin(email, password);
+        if (admin == null) {
             return false;
         }
         return true;
