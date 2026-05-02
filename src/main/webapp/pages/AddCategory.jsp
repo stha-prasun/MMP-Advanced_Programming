@@ -1,4 +1,5 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <!DOCTYPE html>
     <html lang="en">
 
@@ -67,8 +68,12 @@
                                 <span class="field-meta-label">NEW</span>
                                 <label class="category-field-title">CATEGORY NAME</label>
                             </div>
-
                             <div class="category-input-block">
+                            <c:if test="${not empty error}">
+                                <div class="error-message" style="color:red; font-size:16px; margin-bottom:10px;">
+                                    ${error}
+                                </div>
+                            </c:if>
                                 <div class="category-input-border-blue"></div>
                                 <input type="text" class="category-input" id="categoryname" name="categoryName" placeholder="Category Name"
                                     autocomplete="off" />
@@ -78,11 +83,11 @@
                             <div class="category-input-border-grey"></div>
 
                             <div class="category-form-actions">
-                                <button class="btn-approve" type="button" aria-label="Confirm">
+                                <button class="btn-approve" type="submit" aria-label="Confirm">
                                     <img src="<%= request.getContextPath() %>/Assets/Admin Category/Icon.svg"
                                         alt="tick icon" style="width:16px; height:16px;" />
                                 </button>
-                                <button class="btn-reject" type="button" aria-label="Cancel">
+                                <button class="btn-reject" type="submit" aria-label="Cancel">
                                     <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/close-x-svgrepo-com.svg"
                                         alt="close icon" style="width:16px; height:16px;" />
                                 </button>

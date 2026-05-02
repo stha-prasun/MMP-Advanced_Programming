@@ -1,5 +1,6 @@
 package com.controller;
 
+import com.service.CategoryService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -23,14 +24,20 @@ public class AddCategoryController extends HttpServlet {
         try{
             String categoryName=request.getParameter("categoryName");
             if (categoryName==null||categoryName.trim().isEmpty()){
-                request.setAttribute("error", "All fields are required");
-                request.getRequestDispatcher("/pages/Register.jsp").forward(request, response);
+                request.setAttribute("error", "Please Enter a Valid name");
+                request.getRequestDispatcher("/pages/AddCategory.jsp").forward(request, response);
                 return;
             }
+            //calling service
+            CategoryService service = new CategoryService();
+            service.addCategory(categoryName);
 
+            //redirection
+            response.sendRedirect(request.getContextPath() + "/admin/category");
 
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
+
 }
