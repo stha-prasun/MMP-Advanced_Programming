@@ -36,7 +36,7 @@
                         </div>
                         PRODUCTS
                     </a>
-                    <a href="#" class="nav-item">
+                    <a href="<%= request.getContextPath() %>/admin/category" class="nav-item">
                         <div class="nav-icon">
                             <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/category.png"
                                 alt="User Avatar" />
@@ -150,19 +150,7 @@
             <span></span><span></span><span></span>
         </button>
 
-        <!-- Separate JavaScript file (behavior moved to external script.js) -->
-        <script>
-            (function () {
-                const hamburger = document.getElementById('hamburger');
-                const sidebar = document.querySelector('.sidebar');
-                if (hamburger && sidebar) {
-                    hamburger.addEventListener('click', () => {
-                        sidebar.classList.toggle('open');
-                        hamburger.classList.toggle('active');
-                    });
-                }
-            })();
-        </script>
+
     </body>
 
     </html>

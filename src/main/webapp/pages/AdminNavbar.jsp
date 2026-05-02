@@ -6,7 +6,7 @@
         <head>
             <meta charset="UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <title>MMP - Buy Smart. Sell Easy. Repeat.</title>
+            <title>MMP</title>
             <link href="https://fonts.googleapis.com/css2?family=Modak&display=swap" rel="stylesheet" />
             <link rel="preconnect" href="https://fonts.googleapis.com" />
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -36,9 +36,11 @@
               </div>
 
               <div class="topbar-right">
+              <a href="<%= request.getContextPath() %>/admin/category/add">
                 <button class="add-btn">
                   <span class="add-plus">+</span> ADD NEW
                 </button>
+              </a>
                 <div class="divider-v"></div>
                 <div class="user-info">
                   <span class="username">JOHN DOE</span>

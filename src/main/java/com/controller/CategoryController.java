@@ -15,6 +15,6 @@ public class CategoryController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        request.getRequestDispatcher("/pages/AddCategory.jsp").forward(request, response);
+        request.getRequestDispatcher("/pages/Category.jsp").forward(request, response);
     }
 }

@@ -101,14 +101,7 @@
             <span></span><span></span><span></span>
         </button>
 
-        <script>
-            const hamburger = document.getElementById('hamburger');
-            const sidebar = document.querySelector('.sidebar');
-            hamburger.addEventListener('click', () => {
-                sidebar.classList.toggle('open');
-                hamburger.classList.toggle('active');
-            });
-        </script>
+
     </body>
 
     </html>

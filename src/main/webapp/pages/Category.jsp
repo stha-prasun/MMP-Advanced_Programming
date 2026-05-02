@@ -10,7 +10,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
             rel="stylesheet" />
-        <link rel="stylesheet" href="<%= request.getContextPath() %>/pages/Category.css" />
+        <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/Category.css" />
     </head>
 
     <body>
@@ -75,7 +75,7 @@
                             <div class="divider"></div>
                             <div class="category-card-actions">
                                 <button class="btn-icon" aria-label="Edit category">
-                                    <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/edit-pencil.svg"
+                                    <img src="<%= request.getContextPath() %>/Assets/Admin Category/Button.png"
                                         alt="Edit" style="width:15px; height:15px;" />
                                 </button>
                                 <button class="btn-icon" aria-label="Delete category">
@@ -101,7 +101,7 @@
                             <div class="divider"></div>
                             <div class="category-card-actions">
                                 <button class="btn-icon" aria-label="Edit category">
-                                    <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/edit-pencil.svg"
+                                    <img src="<%= request.getContextPath() %>/Assets/Admin Category/Button.png"
                                         alt="Edit" style="width:15px; height:15px;" />
                                 </button>
                                 <button class="btn-icon" aria-label="Delete category">
@@ -127,7 +127,7 @@
                             <div class="divider"></div>
                             <div class="category-card-actions">
                                 <button class="btn-icon" aria-label="Edit category">
-                                    <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/edit-pencil.svg"
+                                    <img src="<%= request.getContextPath() %>/Assets/Admin Category/Button.png"
                                         alt="Edit" style="width:15px; height:15px;" />
                                 </button>
                                 <button class="btn-icon" aria-label="Delete category">
@@ -148,18 +148,7 @@
             <span></span><span></span><span></span>
         </button>
 
-        <script>
-            (function () {
-                const hamburger = document.getElementById('hamburger');
-                const sidebar = document.querySelector('.sidebar');
-                if (hamburger && sidebar) {
-                    hamburger.addEventListener('click', () => {
-                        sidebar.classList.toggle('open');
-                        hamburger.classList.toggle('active');
-                    });
-                }
-            })();
-        </script>
+
     </body>
 
     </html>

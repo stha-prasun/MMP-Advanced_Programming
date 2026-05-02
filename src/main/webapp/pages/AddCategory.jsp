@@ -78,7 +78,7 @@
 
                             <div class="category-form-actions">
                                 <button class="btn-approve" type="button" aria-label="Confirm">
-                                    <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/tick-svgrepo-com.svg"
+                                    <img src="<%= request.getContextPath() %>/Assets/Admin Category/Icon.svg"
                                         alt="tick icon" style="width:16px; height:16px;" />
                                 </button>
                                 <button class="btn-reject" type="button" aria-label="Cancel">
@@ -100,18 +100,7 @@
             <span></span><span></span><span></span>
         </button>
 
-        <script>
-            (function () {
-                const hamburger = document.getElementById('hamburger');
-                const sidebar = document.querySelector('.sidebar');
-                if (hamburger && sidebar) {
-                    hamburger.addEventListener('click', () => {
-                        sidebar.classList.toggle('open');
-                        hamburger.classList.toggle('active');
-                    });
-                }
-            })();
-        </script>
+
     </body>
 
     </html>
