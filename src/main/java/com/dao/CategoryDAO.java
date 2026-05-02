@@ -49,4 +49,25 @@ public class CategoryDAO {
 
         return categoryList;
     }
+
+    public Category getCategory(Long Id) throws Exception{
+        Connection con = DBconfig.getConnection();
+
+        String sql="Select * from category WHERE ID=?";
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setLong(1,Id);
+        ResultSet rs = pst.executeQuery();
+
+        if(!rs.next()){
+            return null;
+        }
+        Category cat = new Category(
+                rs.getLong("categoryId"),
+                rs.getString("type")
+        );
+
+        return cat;
+
+
+    }
 }

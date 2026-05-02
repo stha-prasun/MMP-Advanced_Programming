@@ -81,6 +81,7 @@
                         <!-- Category List -->
                         <ul class="productList">
                             <c:forEach var="cat" items="${categories}">
+                            <form method="POST" action="<%= request.getContextPath() %>/admin/category/edit">
                                 <!-- Category Card -->
                                 <li class="categoryCard">
                                     <div class="productCardMeta">
@@ -93,8 +94,10 @@
                                         <span class="fieldValue">67</span>
                                     </div>
                                     <div class="divider"></div>
+                                    <input type= "hidden" name="catId" value="${cat.categoryId}">
+                                    <input type = "hidden" name="catName" value="${cat.type}">
                                     <div class="categoryCardActions">
-                                        <button class="btnIcon" aria-label="Edit category">
+                                        <button type="submit" class="btnIcon" aria-label="Edit category">
                                             <img src="<%= request.getContextPath() %>/Assets/Admin Category/Button.png"
                                                 alt="Edit" style="width:15px; height:15px;" />
                                         </button>
@@ -106,6 +109,7 @@
                                 </li>
 
                                 <div class="divider"></div>
+                            </form>
                             </c:forEach>
                         </ul>
 
