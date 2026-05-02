@@ -1,107 +1,100 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-    <!DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>MMP</title>
-        <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/AdminDashBoard.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-            rel="stylesheet" />
-    </head>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MMP</title>
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/AdminDashBoard.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+</head>
 
-    <body>
-        <jsp:include page="/pages/AdminNavbar.jsp" />
+<body>
+    <jsp:include page="/pages/AdminNavbar.jsp" />
 
-        <!-- Body: Sidebar + Main -->
-        <div class="body-layout">
+    <!-- Body: Sidebar + Main -->
+    <div class="bodyLayout">
 
+        <aside class="sidebar">
+            <nav class="nav">
+                <a href="<%= request.getContextPath() %>/admin/users" class="navItem">
+                    <img class="navIcon" src="<%= request.getContextPath() %>/Assets/Admin Dashboard/user.png"
+                        alt="Users" />
+                    USERS
+                </a>
+                <a href="<%= request.getContextPath() %>/admin/product" class="navItem">
+                    <img class="navIcon" src="<%= request.getContextPath() %>/Assets/Admin Dashboard/products.png"
+                        alt="Products" />
+                    PRODUCTS
+                </a>
+                <a href="#" class="navItem">
+                    <img class="navIcon" src="<%= request.getContextPath() %>/Assets/Admin Dashboard/category.png"
+                        alt="Categories" />
+                    CATEGORIES
+                </a>
+            </nav>
+        </aside>
 
-            <aside class="sidebar">
-                <nav class="nav">
-                    <a href="<%= request.getContextPath() %>/admin/users" class="nav-item">
-                        <img class="nav-icon" src="<%= request.getContextPath() %>/Assets/Admin Dashboard/user.png"
-                            alt="Users" />
-                        USERS
+        <main class="main">
+            <div class="hero">
+                <h1 class="heroTitle">SYSTEM<br />INDEX</h1>
+                <p class="heroSub">CONTROL PANEL</p>
+            </div>
+
+            <div class="divider dividerBlue"></div>
+
+            <ul class="indexList">
+                <li class="indexItem">
+                    <span class="indexNum">01</span>
+                    <div class="indexContent">
+                        <h2 class="indexName">USERS</h2>
+                        <p class="indexDesc">Manage accounts, roles, and status.</p>
+                    </div>
+                    <a href="<%= request.getContextPath() %>/admin/users" class="indexArrow"
+                        aria-label="Go to Users">
+                        <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/right arrow.png"
+                            alt="Arrow" />
                     </a>
-                    <a href="<%= request.getContextPath() %>/admin/product" class="nav-item">
-                        <img class="nav-icon" src="<%= request.getContextPath() %>/Assets/Admin Dashboard/products.png"
-                            alt="Products" />
-                        PRODUCTS
+                </li>
+
+                <div class="divider"></div>
+
+                <li class="indexItem">
+                    <span class="indexNum">02</span>
+                    <div class="indexContent">
+                        <h2 class="indexName">PRODUCTS</h2>
+                        <p class="indexDesc">Review, approve, and filter listings.</p>
+                    </div>
+                    <a href="<%= request.getContextPath() %>/admin/product" class="indexArrow"
+                        aria-label="Go to Products">
+                        <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/right arrow.png"
+                            alt="Arrow" />
                     </a>
-                    <a href="#" class="nav-item">
-                        <img class="nav-icon" src="<%= request.getContextPath() %>/Assets/Admin Dashboard/category.png"
-                            alt="Categories" />
-                        CATEGORIES
+                </li>
+
+                <div class="divider"></div>
+
+                <li class="indexItem">
+                    <span class="indexNum">03</span>
+                    <div class="indexContent">
+                        <h2 class="indexName">CATEGORIES</h2>
+                        <p class="indexDesc">Organize the platform taxonomy.</p>
+                    </div>
+                    <a href="#" class="indexArrow" aria-label="Go to Categories">
+                        <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/right arrow.png"
+                            alt="Arrow" />
                     </a>
-                </nav>
-            </aside>
+                </li>
 
-            <main class="main">
-                <div class="hero">
-                    <h1 class="hero-title">SYSTEM<br />INDEX</h1>
-                    <p class="hero-sub">CONTROL PANEL</p>
-                </div>
+                <div class="divider"></div>
+            </ul>
+        </main>
+    </div>
 
-                <div class="divider divider--blue"></div>
+</body>
 
-                <ul class="index-list">
-                    <li class="index-item">
-                        <span class="index-num">01</span>
-                        <div class="index-content">
-                            <h2 class="index-name">USERS</h2>
-                            <p class="index-desc">Manage accounts, roles, and status.</p>
-                        </div>
-                        <a href="<%= request.getContextPath() %>/admin/users" class="index-arrow"
-                            aria-label="Go to Users">
-                            <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/right arrow.png"
-                                alt="Arrow" />
-                        </a>
-                    </li>
-
-                    <div class="divider"></div>
-
-                    <li class="index-item">
-                        <span class="index-num">02</span>
-                        <div class="index-content">
-                            <h2 class="index-name">PRODUCTS</h2>
-                            <p class="index-desc">Review, approve, and filter listings.</p>
-                        </div>
-                        <a href="<%= request.getContextPath() %>/admin/product" class="index-arrow"
-                            aria-label="Go to Products">
-                            <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/right arrow.png"
-                                alt="Arrow" />
-                        </a>
-                    </li>
-
-                    <div class="divider"></div>
-
-                    <li class="index-item">
-                        <span class="index-num">03</span>
-                        <div class="index-content">
-                            <h2 class="index-name">CATEGORIES</h2>
-                            <p class="index-desc">Organize the platform taxonomy.</p>
-                        </div>
-                        <a href="#" class="index-arrow" aria-label="Go to Categories">
-                            <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/right arrow.png"
-                                alt="Arrow" />
-                        </a>
-                    </li>
-
-                    <div class="divider"></div>
-                </ul>
-            </main>
-        </div>
-
-        <!-- Mobile Hamburger -->
-        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-            <span></span><span></span><span></span>
-        </button>
-
-
-    </body>
-
-    </html>
+</html>

@@ -22,26 +22,26 @@
     <!-- Full-width Top Bar -->
     <jsp:include page="/pages/AdminNavbar.jsp" />
 
-    <div class="body-layout">
+    <div class="bodyLayout">
         <!-- Sidebar -->
         <aside class="sidebar">
             <nav class="nav">
-                <a href="<%= request.getContextPath() %>/admin/users" class="nav-item">
-                    <div class="nav-icon">
+                <a href="<%= request.getContextPath() %>/admin/users" class="navItem">
+                    <div class="navIcon">
                         <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/user.png"
                             alt="Users" />
                     </div>
                     USERS
                 </a>
-                <a href="<%= request.getContextPath() %>/admin/product" class="nav-item">
-                    <div class="nav-icon">
+                <a href="<%= request.getContextPath() %>/admin/product" class="navItem">
+                    <div class="navIcon">
                         <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/products.png"
                             alt="Products" />
                     </div>
                     PRODUCTS
                 </a>
-                <a href="<%= request.getContextPath() %>/admin/category" class="nav-item active">
-                    <div class="nav-icon">
+                <a href="<%= request.getContextPath() %>/admin/category" class="navItem active">
+                    <div class="navIcon">
                         <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/category.png"
                             alt="Category" />
                     </div>
@@ -52,23 +52,24 @@
 
         <!-- MAIN CONTENT -->
         <main class="main">
-            <div class="products-centered-container">
+            <div class="productsCenteredContainer">
 
                 <!-- Page Header -->
-                <div class="page-header">
+                <div class="pageHeader">
                     <c:if test="${not empty categories}">
-                        <div class="page-header-text">
-                            <h1 class="page-title">CATEGORY</h1>
-                            <p class="page-sub">CATEGORIES FOR THE MMP &bull; &nbsp;
+                        <div class="pageHeaderText">
+                            <h1 class="pageTitle">CATEGORY</h1>
+                            <p class="pageSub">CATEGORIES FOR THE MMP &bull; &nbsp;
                                 ${fn:length(categories)} TOTAL</p>
                         </div>
                     </c:if>
 
-                    <div class="divider divider--blue"></div>
+                    <div class="divider dividerBlue"></div>
                 </div>
+
                 <c:choose>
                     <c:when test="${empty categories}">
-                        <div class="empty-state">
+                        <div class="emptyState">
                             <i class="fa-regular fa-folder-open fa-3x"
                                 style="margin-bottom: 1rem; opacity: 0.5;"></i>
                             <p>No student records found.</p>
@@ -77,29 +78,27 @@
 
                     <c:otherwise>
 
-
-
                         <!-- Category List -->
-                        <ul class="product-list">
+                        <ul class="productList">
                             <c:forEach var="cat" items="${categories}">
                                 <!-- Category Card -->
-                                <li class="category-card">
-                                    <div class="product-card-meta">
-                                        <span class="meta-label">ID</span>
-                                        <span class="meta-id">CAT-00${cat.categoryId}</span>
+                                <li class="categoryCard">
+                                    <div class="productCardMeta">
+                                        <span class="metaLabel">ID</span>
+                                        <span class="metaId">CAT-00${cat.categoryId}</span>
                                     </div>
-                                    <div class="category-name">${cat.type}</div>
-                                    <div class="field-row">
-                                        <span class="field-label">TOTAL PRODUCTS</span>
-                                        <span class="field-value">67</span>
+                                    <div class="categoryName">${cat.type}</div>
+                                    <div class="fieldRow">
+                                        <span class="fieldLabel">TOTAL PRODUCTS</span>
+                                        <span class="fieldValue">67</span>
                                     </div>
                                     <div class="divider"></div>
-                                    <div class="category-card-actions">
-                                        <button class="btn-icon" aria-label="Edit category">
+                                    <div class="categoryCardActions">
+                                        <button class="btnIcon" aria-label="Edit category">
                                             <img src="<%= request.getContextPath() %>/Assets/Admin Category/Button.png"
                                                 alt="Edit" style="width:15px; height:15px;" />
                                         </button>
-                                        <button class="btn-icon" aria-label="Delete category">
+                                        <button class="btnIcon" aria-label="Delete category">
                                             <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/dustbin.png"
                                                 alt="Delete" style="width:15px; height:15px;" />
                                         </button>
@@ -109,11 +108,10 @@
                                 <div class="divider"></div>
                             </c:forEach>
                         </ul>
+
                     </c:otherwise>
                 </c:choose>
 
-
-                </ul>
             </div>
         </main>
     </div>
@@ -121,7 +119,6 @@
     <button class="hamburger" id="hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
     </button>
-
 
 </body>
 

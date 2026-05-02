@@ -20,7 +20,7 @@ body {
 ul { list-style: none; }
 a  { text-decoration: none; color: inherit; }
 
-.body-layout {
+.bodyLayout {
   display: flex;
   margin-top: 64px;
   min-height: calc(100vh - 64px);
@@ -44,7 +44,7 @@ a  { text-decoration: none; color: inherit; }
   flex-direction: column;
 }
 
-.nav-item {
+.navItem {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -56,18 +56,18 @@ a  { text-decoration: none; color: inherit; }
   transition: all 0.18s ease;
 }
 
-.nav-item:hover {
+.navItem:hover {
   background: #f3f3f3;
-  color: #111111;
+  color: #03c;
 }
 
-.nav-item.active {
+.navItem.active {
   background: #e8e8e8;
   color: #0033CC;
   font-weight: 700;
 }
 
-.nav-icon img {
+.navIcon img {
   width: 16px;
   height: 16px;
   flex-shrink: 0;
@@ -82,41 +82,45 @@ a  { text-decoration: none; color: inherit; }
   padding: 59px 48px 80px 76px;
 }
 
-.products-centered-container {
+.productsCenteredContainer {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.page-header {
+.pageHeader {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 34px;
 }
 
-.page-header-text {
+.pageHeaderText {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.page-title {
-  font-family: 'Inter', sans-serif;
+.pageTitle {
+  color: #03C;
+  font-family: Inter;
+  font-size: 3.75rem;
+  font-style: normal;
   font-weight: 900;
-  font-size: clamp(3rem, 6vw, 4.5rem);
-  letter-spacing: -0.02em;
-  color: #0033CC;
+  line-height: 3.75rem;
+  letter-spacing: -0.1875rem;
   text-transform: uppercase;
-  line-height: 1;
   padding-bottom: 20px;
 }
 
-.page-sub {
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  color: #888888;
+.pageSub {
+  color: #737373;
+  font-family: Inter;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1rem;
+  letter-spacing: 0.075rem;
   text-transform: uppercase;
 }
 
@@ -127,13 +131,13 @@ a  { text-decoration: none; color: inherit; }
   margin: 0;
 }
 
-.divider--blue {
+.dividerBlue {
   background: #0033CC;
   width: 100%;
   height: 2px;
 }
 
-.product-list {
+.productList {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -141,7 +145,7 @@ a  { text-decoration: none; color: inherit; }
   margin-top: 32px;
 }
 
-.product-card {
+.productCard {
   width: 100%;
   max-width: 750px;
   padding: 28px 0 20px;
@@ -150,34 +154,39 @@ a  { text-decoration: none; color: inherit; }
   gap: 32px;
 }
 
-.product-card-meta {
+.productCardMeta {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.meta-label {
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  color: #888888;
+.metaLabel {
+  color: #737373;
+  font-family: Consolas;
+  font-size: 0.625rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 0.83331rem;
+  letter-spacing: 0.0625rem;
   text-transform: uppercase;
 }
 
-.meta-id {
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  color: #888888;
+.metaId {
+  color: #737373;
+  font-family: Consolas;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1rem;
 }
 
-.product-card-identity {
+.productCardIdentity {
   display: flex;
   align-items: center;
   gap: 14px;
 }
 
-.product-thumb {
+.productThumb {
   width: 44px;
   height: 44px;
   border-radius: 6px;
@@ -190,81 +199,94 @@ a  { text-decoration: none; color: inherit; }
   border: 1px solid #e0e0e0;
 }
 
-.product-thumb img {
+.productThumb img {
   width: 28px;
   height: 28px;
   object-fit: contain;
 }
 
-.product-name {
-  font-size: 1.1rem;
+.productName {
+  color: #000;
+  font-family: Inter;
+  font-size: 1rem;
+  font-style: normal;
   font-weight: 700;
-  color: #111111;
-  letter-spacing: 0.01em;
+  line-height: 1.25rem;
+  letter-spacing: -0.025rem;
 }
 
-.product-card-fields {
+.productCardFields {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.field-row {
+.fieldRow {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.field-label {
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  color: #888888;
+.fieldLabel {
+  color: #A1A1A1;
+  font-family: Inter;
+  font-size: 0.625rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 0.89288rem;
+  letter-spacing: 0.0625rem;
   text-transform: uppercase;
 }
 
-.field-value {
-  font-size: 0.85rem;
-  color: #111111;
+.fieldValue {
+  color: #000;
+  font-family: Consolas;
+  font-size: 0.875rem;
+  font-style: normal;
   font-weight: 400;
+  line-height: 1.25rem;
 }
 
-.field-value--bold {
-  font-weight: 800;
-  font-size: 0.82rem;
-  letter-spacing: 0.06em;
+.fieldValueBold {
+  color: #525252;
+  font-family: Inter;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.25rem;
 }
 
 .badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 4px 12px;
-  border-radius: 4px;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.badge--approved {
-  border: 2px solid #008236;
   color: #008236;
-  background: transparent;
+  font-family: Inter;
+  font-size: 0.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 0.9375rem;
+  letter-spacing: 0.0625rem;
+  text-transform: uppercase;
+  padding: 0.35419rem 0.48113rem 0.39581rem 0.625rem;
 }
 
-.badge--pending {
+.badgeApproved {
+  border-radius: 0.25rem;
+  border: 2px solid #008236;
+}
+
+.badgePending {
   border: 2px solid #1447E6;
   color: #1447E6;
+  border-radius: 0.25rem;
   background: #EFF6FF;
 }
 
-.badge--inactive {
+.badgeInactive {
   border: 1.5px solid #888888;
   color: #888888;
   background: transparent;
 }
 
-.product-card-actions {
+.productCardActions {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -273,7 +295,7 @@ a  { text-decoration: none; color: inherit; }
   padding-top: 16px;
 }
 
-.btn-delete {
+.btnDelete {
   background: transparent;
   border: none;
   cursor: pointer;
@@ -285,9 +307,9 @@ a  { text-decoration: none; color: inherit; }
   justify-content: center;
 }
 
-.btn-delete:hover { color: #e74c3c; }
+.btnDelete:hover { color: #e74c3c; }
 
-.btn-approve {
+.btnApprove {
   background: #0033CC;
   border: 2px solid #0033CC;
   color: #1a1aff;
@@ -301,7 +323,7 @@ a  { text-decoration: none; color: inherit; }
   transition: background 0.18s, color 0.18s;
 }
 
-.btn-reject {
+.btnReject {
   background: transparent;
   border: 2px solid #0033CC;
   color: #e74c3c;
@@ -315,7 +337,7 @@ a  { text-decoration: none; color: inherit; }
   transition: background 0.18s, color 0.18s;
 }
 
-.product-list .divider {
+.productList .divider {
   width: 100%;
   max-width: 750px;
 }
