@@ -59,6 +59,7 @@
                     </div>
 
                     <!-- Category Form -->
+                    <form method="POST" action="<%= request.getContextPath() %>/admin/category/add">
                     <div class="category-form-wrapper">
                         <div class="category-form-card">
 
@@ -69,7 +70,7 @@
 
                             <div class="category-input-block">
                                 <div class="category-input-border-blue"></div>
-                                <input type="text" class="category-input" name="categoryName" placeholder="Category Name"
+                                <input type="text" class="category-input" id="categoryname" name="categoryName" placeholder="Category Name"
                                     autocomplete="off" />
                                 <div class="category-input-border-blue"></div>
 
@@ -91,6 +92,7 @@
 
                         </div>
                     </div>
+                    </form>
 
                 </div>
             </main>
