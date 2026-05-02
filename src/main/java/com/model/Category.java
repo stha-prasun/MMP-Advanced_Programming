@@ -1,22 +1,20 @@
 package com.model;
 
-import java.time.LocalDateTime;
-
 public class Category {
-    private Long categoryID;
+    private Long categoryId;
     private String type;
 
     public Category(Long categoryID, String type){
-        this.categoryID = categoryID;
+        this.categoryId = categoryID;
         this.type = type;
 
     }
-    public Long getcategoryID() {
-        return categoryID;
+    public Long getCategoryId() {
+        return categoryId;
     }
 
     public void setCustomerId(Long customerId) {
-        this.categoryID = categoryID;
+        this.categoryId = categoryId;
     }
 
     public String getType() {

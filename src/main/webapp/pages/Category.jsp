@@ -67,7 +67,7 @@
                     <div class="divider divider--blue"></div>
                 </div>
                 <c:choose>
-                    <c:when test="${empty students}">
+                    <c:when test="${empty categories}">
                         <div class="empty-state">
                             <i class="fa-regular fa-folder-open fa-3x"
                                 style="margin-bottom: 1rem; opacity: 0.5;"></i>
@@ -76,135 +76,42 @@
                     </c:when>
 
                     <c:otherwise>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Student Details</th>
-                                    <th>Email Address</th>
-                                    <th>Date of Birth</th>
-                                    <th>Enrolled Program</th>
-                                    <th style="text-align: right;">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <c:forEach var="s" items="${students}">
-                                    <tr>
-                                        <td>
-                                            <div class="user-info">
-                                                <span class="user-name">${s.firstName}
-                                                    ${s.lastName}</span>
-                                                <span
-                                                    class="user-handle">@${fn:toLowerCase(s.userName)}</span>
-                                            </div>
-                                        </td>
-                                        <td>${s.email}</td>
-                                        <td>
-                                            <fmt:formatDate value="${s.dob}" pattern="dd MMM, yyyy" />
-                                        </td>
-                                        <td>
-                                            <span class="program-tag">
-                                                <c:choose>
-                                                    <c:when test="${s.program == 2}">Bachelor in
-                                                        Computing</c:when>
-                                                    <c:when test="${s.program == 5}">Bachelor in
-                                                        Multimedia</c:when>
-                                                    <c:when test="${s.program == 6}">Bachelor in
-                                                        Networking</c:when>
-                                                    <c:otherwise>General Studies</c:otherwise>
-                                                </c:choose>
-                                            </span>
-                                        </td>
-                                        <td style="text-align: right;">
-                                            <a href="edit?user=${s.userName}" class="edit-btn">
-                                                <i class="fa fa-pen-to-square"></i> Edit
-                                            </a>
-                                        </td>
-                                    </tr>
-                                </c:forEach>
-                            </tbody>
-                        </table>
+
+
+
+                        <!-- Category List -->
+                        <ul class="product-list">
+                            <c:forEach var="cat" items="${categories}">
+                                <!-- Category Card -->
+                                <li class="category-card">
+                                    <div class="product-card-meta">
+                                        <span class="meta-label">ID</span>
+                                        <span class="meta-id">CAT-00${cat.categoryId}</span>
+                                    </div>
+                                    <div class="category-name">${cat.type}</div>
+                                    <div class="field-row">
+                                        <span class="field-label">TOTAL PRODUCTS</span>
+                                        <span class="field-value">67</span>
+                                    </div>
+                                    <div class="divider"></div>
+                                    <div class="category-card-actions">
+                                        <button class="btn-icon" aria-label="Edit category">
+                                            <img src="<%= request.getContextPath() %>/Assets/Admin Category/Button.png"
+                                                alt="Edit" style="width:15px; height:15px;" />
+                                        </button>
+                                        <button class="btn-icon" aria-label="Delete category">
+                                            <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/dustbin.png"
+                                                alt="Delete" style="width:15px; height:15px;" />
+                                        </button>
+                                    </div>
+                                </li>
+
+                                <div class="divider"></div>
+                            </c:forEach>
+                        </ul>
                     </c:otherwise>
                 </c:choose>
-                <!-- Category List -->
-                <ul class="product-list">
 
-                    <!-- Category Card -->
-                    <li class="category-card">
-                        <div class="product-card-meta">
-                            <span class="meta-label">ID</span>
-                            <span class="meta-id">CAT-009</span>
-                        </div>
-                        <div class="category-name">Furniture</div>
-                        <div class="field-row">
-                            <span class="field-label">TOTAL PRODUCTS</span>
-                            <span class="field-value">67</span>
-                        </div>
-                        <div class="divider"></div>
-                        <div class="category-card-actions">
-                            <button class="btn-icon" aria-label="Edit category">
-                                <img src="<%= request.getContextPath() %>/Assets/Admin Category/Button.png"
-                                    alt="Edit" style="width:15px; height:15px;" />
-                            </button>
-                            <button class="btn-icon" aria-label="Delete category">
-                                <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/dustbin.png"
-                                    alt="Delete" style="width:15px; height:15px;" />
-                            </button>
-                        </div>
-                    </li>
-
-                    <div class="divider"></div>
-
-                    <!-- Category Card -->
-                    <li class="category-card">
-                        <div class="product-card-meta">
-                            <span class="meta-label">ID</span>
-                            <span class="meta-id">CAT-009</span>
-                        </div>
-                        <div class="category-name">Furniture</div>
-                        <div class="field-row">
-                            <span class="field-label">TOTAL PRODUCTS</span>
-                            <span class="field-value">67</span>
-                        </div>
-                        <div class="divider"></div>
-                        <div class="category-card-actions">
-                            <button class="btn-icon" aria-label="Edit category">
-                                <img src="<%= request.getContextPath() %>/Assets/Admin Category/Button.png"
-                                    alt="Edit" style="width:15px; height:15px;" />
-                            </button>
-                            <button class="btn-icon" aria-label="Delete category">
-                                <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/dustbin.png"
-                                    alt="Delete" style="width:15px; height:15px;" />
-                            </button>
-                        </div>
-                    </li>
-
-                    <div class="divider"></div>
-
-                    <!-- Category Card -->
-                    <li class="category-card">
-                        <div class="product-card-meta">
-                            <span class="meta-label">ID</span>
-                            <span class="meta-id">CAT-009</span>
-                        </div>
-                        <div class="category-name">Furniture</div>
-                        <div class="field-row">
-                            <span class="field-label">TOTAL PRODUCTS</span>
-                            <span class="field-value">67</span>
-                        </div>
-                        <div class="divider"></div>
-                        <div class="category-card-actions">
-                            <button class="btn-icon" aria-label="Edit category">
-                                <img src="<%= request.getContextPath() %>/Assets/Admin Category/Button.png"
-                                    alt="Edit" style="width:15px; height:15px;" />
-                            </button>
-                            <button class="btn-icon" aria-label="Delete category">
-                                <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/dustbin.png"
-                                    alt="Delete" style="width:15px; height:15px;" />
-                            </button>
-                        </div>
-                    </li>
-
-                    <div class="divider"></div>
 
                 </ul>
             </div>
