@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
     <%@ taglib uri="jakarta.tags.core" prefix="c" %>
         <!DOCTYPE html>
         <html lang="en">
@@ -39,13 +39,16 @@
                             <button class="searchBtn">Search</button>
                         </div>
                         <!--  IF user not logged in -->
-                        <c:if test="${empty sessionScope.Email}">
-                            <a href="${pageContext.request.contextPath}/favourites" href class="favBtn">
-                                <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" alt="favourites" />
-                            </a>
+                        <c:choose>
+                            <c:when test="${empty sessionScope.Email}">
+                                <a href="${pageContext.request.contextPath}/customer/register" class="navbarBtn">Sign up</a>
+                            </c:when>
 
-                            <a href="${pageContext.request.contextPath}/customer/login" class="ctaNavbar">Sign up</a>
-                        </c:if>
+                            <c:otherwise>
+                                <span>Welcome, ${sessionScope.Email}</span>
+                                <a href="${pageContext.request.contextPath}/logout" class="navbarBtn">Logout</a>
+                            </c:otherwise>
+                        </c:choose>
 
                     </div>
                 </div>
