@@ -13,7 +13,7 @@ public class Category {
         return categoryId;
     }
 
-    public void setCustomerId(Long customerId) {
+    public void setCategoryId(Long categoryId) {
         this.categoryId = categoryId;
     }
 
