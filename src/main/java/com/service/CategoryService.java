@@ -6,15 +6,19 @@ import com.model.Category;
 import java.util.List;
 
 public class CategoryService {
+
     public void addCategory(String categoryName) throws Exception {
         CategoryDAO dao = new CategoryDAO();
         dao.insertCategory(categoryName);
     }
 
-    public List<Category> getAllCategory() throws Exception{
+    public List<Category> getAllCategory() throws Exception {
         CategoryDAO dao = new CategoryDAO();
-
-
         return dao.getAllCategory();
+    }
+
+    public void updateCategory(Long id, String newName) throws Exception {
+        CategoryDAO dao = new CategoryDAO();
+        dao.updateCategory(id, newName);
     }
 }
