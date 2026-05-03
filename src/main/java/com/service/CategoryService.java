@@ -17,10 +17,4 @@ public class CategoryService {
 
         return dao.getAllCategory();
     }
-
-    public Category getCategoryById(Long Id) throws Exception{
-        CategoryDAO dao = new CategoryDAO();
-
-        return dao.getCategory(Id);
-    }
 }
