@@ -125,7 +125,7 @@
 
                                         <!-- Delete button -->
                                         <form method="POST"
-                                              action="${pageContext.request.contextPath}/admin/category/delete"
+                                              action="${pageContext.request.contextPath}/admin/category"
                                               style="display:inline;">
 
                                             <input type="hidden" name="catId" value="${cat.categoryId}" />
