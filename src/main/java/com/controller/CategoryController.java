@@ -33,6 +33,34 @@ public class CategoryController extends HttpServlet {
 
     }
 
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        try{
+
+            String idParam = request.getParameter("catId");
+
+            Long id = Long.parseLong(idParam);
+
+            CategoryService categoryService = new CategoryService();
+            categoryService.deleteCategory(id);
+
+            List<Category> categoryList = categoryService.getAllCategory();
+
+            request.setAttribute("categories", categoryList);
+
+            request.getRequestDispatcher("/pages/Category.jsp").forward(request, response);
+            // Forward to JSP
+            request.getRequestDispatcher("/pages/Category.jsp").forward(request, response);
+        } catch (Exception e) {
+            e.printStackTrace();
+            request.setAttribute("error", "Something went wrong");
+            throw new RuntimeException(e);
+        }
+
+
+    }
+
 }
 
 

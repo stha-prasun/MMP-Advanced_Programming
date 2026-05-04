@@ -124,10 +124,18 @@
                                         </button>
 
                                         <!-- Delete button -->
-                                        <button class="btnIcon" aria-label="Delete category">
-                                            <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/dustbin.png"
-                                                 alt="Delete" style="width:15px; height:15px;" />
-                                        </button>
+                                        <form method="POST"
+                                              action="${pageContext.request.contextPath}/admin/category/delete"
+                                              style="display:inline;">
+
+                                            <input type="hidden" name="catId" value="${cat.categoryId}" />
+
+                                            <button class="btnIcon" aria-label="Delete category" type="submit">
+                                                <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/dustbin.png"
+                                                     alt="Delete" style="width:15px; height:15px;" />
+                                            </button>
+
+                                        </form>
                                     </div>
 
                                 </li>
