@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryDAO {
-
+//make try catch
     public void insertCategory(String categoryName) throws Exception {
         Connection con = DBconfig.getConnection();
         String sql = "INSERT INTO category (type) VALUES (?)";
@@ -63,6 +63,16 @@ public class CategoryDAO {
         PreparedStatement pst = con.prepareStatement(sql);
         pst.setString(1, newName);
         pst.setLong(2, id);
+        pst.executeUpdate();
+        pst.close();
+        con.close();
+    }
+
+    public void deleteCategory(Long id) throws Exception {
+        Connection con = DBconfig.getConnection();
+        String sql = "DELETE FROM category WHERE categoryId = ?";
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setLong(1, id);
         pst.executeUpdate();
         pst.close();
         con.close();

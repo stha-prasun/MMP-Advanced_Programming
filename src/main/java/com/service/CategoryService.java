@@ -21,4 +21,9 @@ public class CategoryService {
         CategoryDAO dao = new CategoryDAO();
         dao.updateCategory(id, newName);
     }
+
+    public void deleteCategory(Long id) throws Exception {
+        CategoryDAO dao = new CategoryDAO();
+        dao.deleteCategory(id);
+    }
 }
