@@ -25,7 +25,7 @@ public class ProductController extends HttpServlet {
 
             request.setAttribute("productList", products);
 
-            request.getRequestDispatcher("/pages/Products.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/pages/Products.jsp").forward(request, response);
 
         } catch (Exception e) {
             e.printStackTrace();

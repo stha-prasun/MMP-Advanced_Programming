@@ -17,7 +17,7 @@
 
 <body>
 
-    <jsp:include page="/pages/AdminNavbar.jsp" />
+    <jsp:include page="/WEB-INF/pages/AdminNavbar.jsp" />
 
     <div class="bodyLayout">
         <aside class="sidebar">

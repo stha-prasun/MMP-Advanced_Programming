@@ -13,7 +13,7 @@ public class AdminUsersController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        request.getRequestDispatcher("/pages/AdminUsers.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/pages/AdminUsers.jsp").forward(request, response);
     }
 
 

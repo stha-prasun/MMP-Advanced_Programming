@@ -21,7 +21,7 @@ public class EditProfileController extends HttpServlet {
             throws ServletException, IOException {
 
 
-        request.getRequestDispatcher("/pages/EditProfile.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/pages/EditProfile.jsp").forward(request, response);
     }
 
     @Override

@@ -25,7 +25,7 @@ public class CategoryController extends HttpServlet {
             // Set in Request Scope for EL access
             request.setAttribute("categories", categoryList);
             // Forward to JSP
-            request.getRequestDispatcher("/pages/Category.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/pages/Category.jsp").forward(request, response);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -49,9 +49,9 @@ public class CategoryController extends HttpServlet {
 
             request.setAttribute("categories", categoryList);
 
-            request.getRequestDispatcher("/pages/Category.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/pages/Category.jsp").forward(request, response);
             // Forward to JSP
-            request.getRequestDispatcher("/pages/Category.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/pages/Category.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
             request.setAttribute("error", "Something went wrong");

@@ -21,7 +21,7 @@ public class RegisterController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        request.getRequestDispatcher("/pages/Register.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/pages/Register.jsp").forward(request, response);
     }
 
     @Override
@@ -41,19 +41,19 @@ public class RegisterController extends HttpServlet {
                     custPassword == null || custPassword.trim().isEmpty() ||
                     confirmPassword == null || confirmPassword.trim().isEmpty()) {
                 request.setAttribute("error", "All fields are required");
-                request.getRequestDispatcher("/pages/Register.jsp").forward(request, response);
+                request.getRequestDispatcher("/WEB-INF/pages/Register.jsp").forward(request, response);
                 return;
             }
 
             if (terms == null) {
                 request.setAttribute("error", "You must agree to Terms and Conditions");
-                request.getRequestDispatcher("/pages/Register.jsp").forward(request, response);
+                request.getRequestDispatcher("/WEB-INF/pages/Register.jsp").forward(request, response);
                 return;
             }
 
             if (!custPassword.equals(confirmPassword)) {
                 request.setAttribute("error", "Passwords do not match");
-                request.getRequestDispatcher("/pages/Register.jsp").forward(request, response);
+                request.getRequestDispatcher("/WEB-INF/pages/Register.jsp").forward(request, response);
                 return;
             }
 
@@ -88,7 +88,7 @@ public class RegisterController extends HttpServlet {
 
             // Redirect back to register page on error
             request.setAttribute("error", "Something went wrong");
-            request.getRequestDispatcher("/pages/Register.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/pages/Register.jsp").forward(request, response);
         }
     }
 }

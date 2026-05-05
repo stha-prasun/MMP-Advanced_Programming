@@ -22,7 +22,7 @@ public class AddProductController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        request.getRequestDispatcher("/pages/Add_Product.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/pages/Add_Product.jsp").forward(request, response);
     }
 
     @Override
@@ -41,7 +41,7 @@ public class AddProductController extends HttpServlet {
                     category == null || category.trim().isEmpty() ||
                     description == null || description.trim().isEmpty()) {
                 request.setAttribute("error", "All fields are required");
-                request.getRequestDispatcher("/pages/Register.jsp").forward(request, response);
+                request.getRequestDispatcher("/WEB-INF/pages/Register.jsp").forward(request, response);
                 return;
             }
 
@@ -51,7 +51,7 @@ public class AddProductController extends HttpServlet {
                 price = Integer.parseInt(priceStr);
             } catch (NumberFormatException e) {
                 request.setAttribute("error", "Price must be a valid number");
-                request.getRequestDispatcher("/pages/Add_Product.jsp").forward(request, response);
+                request.getRequestDispatcher("/WEB-INF/pages/Add_Product.jsp").forward(request, response);
                 return;
             }
 
@@ -86,7 +86,7 @@ public class AddProductController extends HttpServlet {
 
             // Redirect back to register page on error
             request.setAttribute("error", "Something went wrong");
-            request.getRequestDispatcher("/pages/Add_Product").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/pages/Add_Product").forward(request, response);
         }
     }
 }

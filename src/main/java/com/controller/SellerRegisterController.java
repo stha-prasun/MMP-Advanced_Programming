@@ -11,7 +11,7 @@ import jakarta.servlet.annotation.*;
 @WebServlet("/seller/register")
 public class SellerRegisterController extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        request.getRequestDispatcher("/pages/Seller.jsp").forward(request,response);
+        request.getRequestDispatcher("/WEB-INF/pages/Seller.jsp").forward(request,response);
     }
 
     @Override
@@ -32,13 +32,13 @@ public class SellerRegisterController extends HttpServlet {
                     sellerPassword == null || sellerPassword.trim().isEmpty() ||
                     confirmPassword == null || confirmPassword.trim().isEmpty()) {
                 request.setAttribute("error", "All fields are required");
-                request.getRequestDispatcher("/pages/Seller.jsp").forward(request, response);
+                request.getRequestDispatcher("/WEB-INF/pages/Seller.jsp").forward(request, response);
                 return;
             }
 
             if (!sellerPassword.equals(confirmPassword)) {
                 request.setAttribute("error", "Passwords do not match");
-                request.getRequestDispatcher("/pages/Seller.jsp").forward(request, response);
+                request.getRequestDispatcher("/WEB-INF/pages/Seller.jsp").forward(request, response);
                 return;
             }
 
@@ -57,7 +57,7 @@ public class SellerRegisterController extends HttpServlet {
 
             // Redirect back to register page on error
             request.setAttribute("error", "Something went wrong");
-            request.getRequestDispatcher("/pages/Seller.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/pages/Seller.jsp").forward(request, response);
         }
     }
 }

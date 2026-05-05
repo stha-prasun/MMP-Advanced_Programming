@@ -16,7 +16,7 @@ public class AddCategoryController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        request.getRequestDispatcher("/pages/AddCategory.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/pages/AddCategory.jsp").forward(request, response);
     }
 
     @Override
@@ -25,7 +25,7 @@ public class AddCategoryController extends HttpServlet {
             String categoryName=request.getParameter("categoryName");
             if (categoryName==null||categoryName.trim().isEmpty()){
                 request.setAttribute("error", "Please Enter a Valid name");
-                request.getRequestDispatcher("/pages/AddCategory.jsp").forward(request, response);
+                request.getRequestDispatcher("/WEB-INF/pages/AddCategory.jsp").forward(request, response);
                 return;
             }
             //calling service
