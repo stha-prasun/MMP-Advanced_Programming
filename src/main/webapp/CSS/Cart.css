@@ -1,0 +1,380 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #ffffff;
+  min-height: 100vh;
+  padding: 0 2rem 2rem 2rem;
+  color: #111111;
+}
+
+ul {
+  list-style: none;
+}
+
+.cartRoot {
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding-top:5rem;
+}
+
+.cartHeader {
+  display: flex;
+  width: 85rem;
+  height: 7.875rem;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.cartTitle {
+  color: #03C;
+  font-family: Inter;
+  font-size: 3.75rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 3.75rem;
+  letter-spacing: -0.1875rem;
+  text-transform: uppercase;
+}
+
+.cartCount {
+  color: #737373;
+  font-family: Inter;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1rem;
+  letter-spacing: 0.075rem;
+  text-transform: uppercase;
+}
+
+.dividerBlue {
+  background: #0033CC;
+  width: 100%;
+  height: 2px;
+  border: none;
+}
+
+.productList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.productCard {
+  width: 100%;
+  max-width: 750px;
+  padding: 28px 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.productCardMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.metaLabel {
+  color: #737373;
+  font-family: Consolas, monospace;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.0625rem;
+  text-transform: uppercase;
+}
+
+.metaId {
+  color: #737373;
+  font-family: Consolas, monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.productCardIdentity {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.productThumb {
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  background: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+  position: relative;
+}
+
+.productThumb::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 50%, #333 15%, transparent 15%),
+    radial-gradient(circle at 50% 50%, transparent 28%, #111 28%, #111 31%, transparent 31%),
+    radial-gradient(circle at 50% 50%, transparent 42%, #111 42%, #111 45%, transparent 45%);
+}
+
+.productThumb::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #777;
+}
+
+.productName {
+  color: #000;
+  font-family: Inter;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+  letter-spacing: -0.025rem;
+}
+
+.productCardFields {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fieldRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fieldLabel {
+  color: #A1A1A1;
+  font-family: Inter;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.0625rem;
+  text-transform: uppercase;
+}
+
+.fieldValue {
+  color: #000;
+  font-family: Consolas, monospace;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+}
+
+.fieldValueBold {
+  color: #525252;
+  font-family: Inter;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+}
+
+.fieldValue.price {
+  color: #0033CC;
+  font-family: Consolas, monospace;
+}
+
+.productCardActions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  border-top: 1px solid #e8e8e8;
+  padding-top: 16px;
+}
+
+.btnDelete {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  color: #0033CC;
+  transition: color 0.18s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnDelete:hover {
+  color: #e74c3c;
+}
+
+.btnDelete i {
+  font-size: 18px;
+}
+
+.divider {
+  height: 1px;
+  background: #e8e8e8;
+  width: 100%;
+  max-width: 750px;
+}
+
+.summaryBox {
+  display: flex;
+  width: 49.375rem;
+  padding: 2.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  border: 2px solid #000;
+  background: #FAFAFA;
+  max-width: 100%;
+}
+
+.summaryTitle {
+  font-family: Inter;
+  font-size: 1.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #1a1a1a;
+}
+
+.summaryLines {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  align-self: stretch;
+}
+
+.summaryLineSubtotal {
+  display: flex;
+  height: 1.25rem;
+  padding-right: 0;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+}
+
+.summaryLineRest {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+}
+
+.summaryLineSubtotal span,
+.summaryLineRest span {
+  font-family: Inter;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.075rem;
+  text-transform: uppercase;
+  color: #737373;
+}
+
+.summaryLineSubtotal span:last-child,
+.summaryLineRest span:last-child {
+  color: #111;
+}
+
+.totalLine {
+  display: flex;
+  height: 3.5rem;
+  padding-top: 1.5rem;
+  justify-content: space-between;
+  align-items: flex-end;
+  align-self: stretch;
+  border-top: 2px solid #000;
+}
+
+.totalLabel {
+  font-family: Inter;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.075rem;
+  text-transform: uppercase;
+  color: #737373;
+}
+
+.totalAmt {
+  font-family: Inter;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #111;
+  line-height: 1;
+}
+
+.summaryActions {
+  display: flex;
+  padding: 1.25rem 18.4375rem;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.checkoutBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 1.25rem;
+  background: #0033CC;
+  color: #FFF;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s;
+  text-align: center;
+  font-family: Inter;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1rem;
+  letter-spacing: 0.075rem;
+  text-transform: uppercase;
+}
+
+.checkoutBtn:hover {
+  background: #002299;
+}
+
+.cancelBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #A1A1A1;
+  text-align: center;
+  font-family: Inter;
+  font-size: 0.625rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 0.9375rem;
+  letter-spacing: 0.0625rem;
+  text-transform: uppercase;
+  transition: color 0.15s;
+}
+
+.cancelBtn:hover {
+  color: #1a1a1a;
+}
