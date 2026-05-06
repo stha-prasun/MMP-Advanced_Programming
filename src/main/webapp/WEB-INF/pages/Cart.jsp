@@ -31,7 +31,7 @@
         </div>
 
         <div class="productCardIdentity">
-          <div class="productThumb"></div>
+          <img src="<%= request.getContextPath() %>/Assets/Home/me.png" class="productThumb" alt="product image"/>
           <span class="productName">Record Player</span>
         </div>
 
@@ -42,13 +42,13 @@
           </div>
           <div class="fieldRow">
             <span class="fieldLabel">Price</span>
-            <span class="fieldValue price">Rps 85.00</span>
+            <span class="fieldValue price">Rs 85.00</span>
           </div>
         </div>
 
         <div class="productCardActions">
           <button class="btnDelete" aria-label="Remove item">
-            <i class="ti tiTrash"></i>
+            <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/dustbin.png" class="deleteIcon" alt="delete"/>
           </button>
         </div>
 
@@ -62,21 +62,21 @@
       <div class="summaryLines">
         <div class="summaryLineSubtotal">
           <span>Subtotal</span>
-          <span>Rps 85.00</span>
+          <span>Rs 85.00</span>
         </div>
         <div class="summaryLineRest">
           <span>Shipping</span>
-          <span>Rps 7.00</span>
+          <span>Rs 7.00</span>
         </div>
         <div class="summaryLineRest">
           <span>Taxes</span>
-          <span>Rps 7.00</span>
+          <span>Rs 7.00</span>
         </div>
       </div>
 
       <div class="totalLine">
         <span class="totalLabel">Total</span>
-        <span class="totalAmt">Rps 99.00</span>
+        <span class="totalAmt">Rs 99.00</span>
       </div>
 
       <div class="summaryActions">
