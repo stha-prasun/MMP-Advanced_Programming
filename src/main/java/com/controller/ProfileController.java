@@ -17,7 +17,7 @@ public class ProfileController extends HttpServlet {
             throws ServletException, IOException {
 
 
-        request.getRequestDispatcher("/pages/Profile.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/pages/Profile.jsp").forward(request, response);
     }
 
 }

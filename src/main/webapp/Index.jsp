@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/User.css" />
   </head>
   <body>
-  <jsp:include page="/pages/Navbar.jsp" />
+  <jsp:include page="/WEB-INF/pages/Navbar.jsp" />
     <section class="heroSection">
 
     <!-- Hero Content -->

@@ -16,7 +16,7 @@
 <body>
 
     <!-- Full-width Top Bar -->
-    <jsp:include page="/pages/AdminNavbar.jsp" />
+    <jsp:include page="/WEB-INF/pages/AdminNavbar.jsp" />
 
     <div class="bodyLayout">
         <!-- Sidebar -->

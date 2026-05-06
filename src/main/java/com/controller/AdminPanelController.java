@@ -14,7 +14,7 @@ public class AdminPanelController extends HttpServlet{
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        request.getRequestDispatcher("/pages/AdminDashBoard.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/pages/AdminDashBoard.jsp").forward(request, response);
     }
 
 }

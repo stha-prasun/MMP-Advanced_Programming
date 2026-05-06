@@ -20,7 +20,7 @@ public class LoginController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        request.getRequestDispatcher("/pages/Login.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/pages/Login.jsp").forward(request, response);
     }
 
     @Override
@@ -36,13 +36,13 @@ public class LoginController extends HttpServlet {
             if (Email == null || Email.trim().isEmpty() ||
                     Password == null || Password.trim().isEmpty()) {
                 request.setAttribute("error", "All fields are required");
-                request.getRequestDispatcher("/pages/Login.jsp").forward(request, response);
+                request.getRequestDispatcher("/WEB-INF/pages/Login.jsp").forward(request, response);
                 return;
             }
 
             if(Role == null || Role.isEmpty()){
                 request.setAttribute("error", "Role required");
-                request.getRequestDispatcher("/pages/Login.jsp").forward(request, response);
+                request.getRequestDispatcher("/WEB-INF/pages/Login.jsp").forward(request, response);
                 return;
             }
 
@@ -60,7 +60,7 @@ public class LoginController extends HttpServlet {
                         response.sendRedirect(request.getContextPath() + "/home");
                     } else {
                         request.setAttribute("error", "Please enter the correct email or password!!!");
-                        request.getRequestDispatcher("/pages/Login.jsp").forward(request, response);
+                        request.getRequestDispatcher("/WEB-INF/pages/Login.jsp").forward(request, response);
                     }
                 }else{
                     success = ls.sellerLogin(Email,Password);
@@ -72,7 +72,7 @@ public class LoginController extends HttpServlet {
                         response.sendRedirect(request.getContextPath() + "/home");
                     } else {
                         request.setAttribute("error", "Please enter the correct email or password!!!");
-                        request.getRequestDispatcher("/pages/Login.jsp").forward(request, response);
+                        request.getRequestDispatcher("/WEB-INF/pages/Login.jsp").forward(request, response);
                     }
                 }
 

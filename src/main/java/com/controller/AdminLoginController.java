@@ -17,7 +17,7 @@ public class AdminLoginController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        request.getRequestDispatcher("/pages/Admin_Login.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/pages/Admin_Login.jsp").forward(request, response);
     }
 
     @Override
@@ -46,7 +46,7 @@ public class AdminLoginController extends HttpServlet {
             }
             else{
                 request.setAttribute("error", "Please enter the correct email or password!!!");
-                request.getRequestDispatcher("/pages/Admin_Login.jsp").forward(request, response);
+                request.getRequestDispatcher("/WEB-INF/pages/Admin_Login.jsp").forward(request, response);
             }
 
         } catch (Exception e) {
@@ -54,7 +54,7 @@ public class AdminLoginController extends HttpServlet {
 
             // Redirect back to Login page on error
             request.setAttribute("error", "Something went wrong");
-            request.getRequestDispatcher("/pages/Admin_Login.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/pages/Admin_Login.jsp").forward(request, response);
         }
     }
 }
