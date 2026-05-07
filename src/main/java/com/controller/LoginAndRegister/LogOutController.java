@@ -1,4 +1,4 @@
-package com.controller;
+package com.controller.LoginAndRegister;
 
 import com.util.CookieUtil;
 import com.util.SessionUtil;

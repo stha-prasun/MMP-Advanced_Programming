@@ -1,4 +1,4 @@
-package com.controller;
+package com.controller.LoginAndRegister;
 
 import java.io.IOException;
 
