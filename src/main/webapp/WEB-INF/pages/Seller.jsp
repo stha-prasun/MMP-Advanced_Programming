@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -35,11 +36,11 @@
         <div class="form-box">
           <h1>Become a Seller</h1>
 
-          <% if (request.getAttribute("error") !=null) { %>
-                    <p style="color: red">
-                    <%= request.getAttribute("error") %>
-                    </p>
-                    <% } %>
+          <c:if test="${not empty error}">
+              <p style="color: red">
+                  ${error}
+              </p>
+          </c:if>
           <form
             method="POST"
             action="<%= request.getContextPath() %>/seller/register"
