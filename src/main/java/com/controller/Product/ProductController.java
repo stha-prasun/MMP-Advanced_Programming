@@ -20,7 +20,7 @@ public class ProductController extends HttpServlet {
 
         try {
             ProductService service = new ProductService();
-            List<Product> products = service.getProducts();
+            List<Product> products = service.getAllProducts();
 
             request.setAttribute("productList", products);
 
