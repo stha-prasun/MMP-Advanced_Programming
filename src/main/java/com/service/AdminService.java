@@ -1,14 +1,20 @@
 package com.service;
 
-import com.dao.CustomerDAO;
+
+import com.dao.AdminDAO;
 
 import java.sql.SQLException;
 
 public class AdminService {
-    public void updateCustomer(String imgUrl, String custEmail) throws SQLException {
-        CustomerDAO dao = new CustomerDAO();
+    public boolean updateCustomer(boolean custIsActive, Long id)
+            throws SQLException {
 
-        dao.updateCustomer(imgUrl, custEmail);
+        AdminDAO dao = new AdminDAO();
+
+        boolean result = dao.deactivateCustomer(custIsActive, id);
+
         System.out.println("SERVICE CALLED");
+
+        return result;
     }
 }

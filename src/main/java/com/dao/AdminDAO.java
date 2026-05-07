@@ -7,6 +7,7 @@ import com.util.PasswordUtil;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class AdminDAO {
     public Admin getAdmin(String email, String password) throws Exception {
@@ -41,5 +42,23 @@ public class AdminDAO {
         pst.close();
         con.close();
         return admin;
+    }
+
+    public boolean deactivateCustomer(boolean custIsActive, Long id) throws SQLException {
+        Connection con = DBconfig.getConnection();
+
+
+
+        String sql = "UPDATE customer SET custIsActive = ? WHERE customerId = ?";
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setBoolean(1, custIsActive);
+        pst.setLong(2, id);
+        int rs = pst.executeUpdate();
+
+        if (rs == 0) {
+            return false;
+        }
+
+        return true;
     }
 }
