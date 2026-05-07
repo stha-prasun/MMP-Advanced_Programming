@@ -25,4 +25,10 @@ public class ProductService {
         return dao.getAllProducts();
 
     }
+
+    public Product getProductById() throws Exception {
+        ProductDAO dao = new ProductDAO();
+
+
+    }
 }
