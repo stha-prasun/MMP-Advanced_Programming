@@ -8,6 +8,7 @@ public class Product {
     private String productName;
     private int productPrice;
     private String productImageUrl;
+    private boolean productIsSold;
     private String productCategory;
     private LocalDateTime postedAt;
     private String productDescription;
@@ -75,5 +76,13 @@ public class Product {
 
     public void setProductDescription(String productDescription) {
         this.productDescription = productDescription;
+    }
+
+    public boolean isProductIsSold() {
+        return productIsSold;
+    }
+
+    public void setProductIsSold(boolean productIsSold) {
+        this.productIsSold = productIsSold;
     }
 }
