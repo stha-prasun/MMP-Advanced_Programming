@@ -55,7 +55,7 @@ public class LoginController extends HttpServlet {
 
                     if (success) {
                         SessionUtil.setAttribute(request, "Email", Email);
-                        CookieUtil.addCookie(response, "Email", Email, 5 * 30); //temp variable for now cause not finalized
+                        CookieUtil.addCookie(response, "Email", Email, 10 * 30); //temp variable for now cause not finalized
                         // Redirect after success
                         response.sendRedirect(request.getContextPath() + "/home");
                     } else {

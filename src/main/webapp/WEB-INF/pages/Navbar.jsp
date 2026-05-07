@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
     <%@ taglib uri="jakarta.tags.core" prefix="c" %>
         <!DOCTYPE html>
         <html lang="en">
@@ -17,7 +17,7 @@
             <link
                 href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
                 rel="stylesheet" />
-            <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/Navbar.css" </head>
+            <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/Navbar.css"> </head>
 
         <body>
 
@@ -39,7 +39,8 @@
                             <button class="searchBtn">Search</button>
                         </div>
                         <!--  IF user not logged in -->
-                        <c:if test="${empty sessionScope.Email}">
+                        <!--<p>DEBUG: [${sessionScope.Email}]</p>-->
+                        <c:if test="${not empty sessionScope.Email}">
                             <a href="${pageContext.request.contextPath}/favourites" href class="favBtn">
                                 <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" alt="favourites" />
                             </a>
@@ -49,5 +50,5 @@
 
                     </div>
                 </div>
-        <section>
+        </section>
         </body>
