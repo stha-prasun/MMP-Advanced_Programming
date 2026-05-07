@@ -13,11 +13,12 @@ public class Customer {
     private LocalDateTime custCreatedAt;
     private String custProfileImg;
 
-    public Customer(Long customerId, String custName, String custEmail, String custPassword, LocalDateTime custCreatedAt, String custProfileImg) {
+    public Customer(Long customerId, String custName, String custEmail, String custPassword, boolean custIsActive, LocalDateTime custCreatedAt, String custProfileImg) {
         this.customerId = customerId;
         this.custName = custName;
         this.custEmail = custEmail;
         this.custPassword = custPassword;
+        this.custIsActive=custIsActive;
         this.custCreatedAt = custCreatedAt;
         this.custProfileImg = custProfileImg;
     }

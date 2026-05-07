@@ -11,7 +11,7 @@
 //
 //@WebFilter(asyncSupported = true, urlPatterns = "/*")
 //public class AuthenticationFilter extends HttpFilter implements Filter {
-//    private static final String LOGIN = "/customer/login";
+//    private static final String LOGIN = "/login";
 //    private static final String REGISTER = "/customer/register";
 //    private static final String Admin = "/admin/login";
 //    private static final String HOME = "/home";

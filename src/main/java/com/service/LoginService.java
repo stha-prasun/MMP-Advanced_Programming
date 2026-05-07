@@ -13,6 +13,9 @@ public class LoginService {
 
         CustomerDAO custdao = new CustomerDAO();
         Customer cust = custdao.getCustomer(useremail, custPassword);
+        if (cust.getCustIsActive()==false){
+            return false;
+        }
         if (cust == null) {
             return false;
         }

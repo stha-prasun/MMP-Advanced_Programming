@@ -65,6 +65,7 @@ public class CustomerDAO {
                 rs.getString("custName"),
                 rs.getString("custEmail"),
                 rs.getString("custPassword"),
+                rs.getBoolean("custIsActive"),
                 rs.getTimestamp("custCreatedAt").toLocalDateTime(),
                 rs.getString("custProfileImg")
         );
