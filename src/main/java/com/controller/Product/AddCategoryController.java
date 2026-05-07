@@ -1,4 +1,4 @@
-package com.controller;
+package com.controller.Product;
 
 import com.service.CategoryService;
 import jakarta.servlet.ServletException;

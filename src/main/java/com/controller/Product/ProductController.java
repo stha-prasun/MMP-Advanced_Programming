@@ -1,7 +1,6 @@
-package com.controller;
+package com.controller.Product;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 import com.model.Product;

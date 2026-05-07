@@ -1,4 +1,4 @@
-package com.controller;
+package com.controller.Seller;
 
 import java.io.IOException;
 

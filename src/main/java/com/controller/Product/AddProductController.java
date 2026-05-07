@@ -1,4 +1,4 @@
-package com.controller;
+package com.controller.Product;
 
 import java.io.IOException;
 import java.time.LocalDateTime;

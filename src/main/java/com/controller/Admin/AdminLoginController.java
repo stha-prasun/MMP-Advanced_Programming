@@ -1,4 +1,4 @@
-package com.controller;
+package com.controller.Admin;
 
 import com.service.LoginService;
 import com.util.CookieUtil;

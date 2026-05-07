@@ -1,7 +1,6 @@
-package com.controller;
+package com.controller.Customer;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import com.service.CustomerService;
