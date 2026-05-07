@@ -3,23 +3,22 @@ package com.model;
 import java.time.LocalDateTime;
 
 public class CartItem {
-    private Product product;
+    private Long cartItemID;
     private int quantity;
-    private int price;
-    private LocalDateTime addedAt;
 
-    public CartItem(Product product, int quantity, int price) {
-        this.product = product;
+
+    public CartItem( Long cartItemID, int quantity) {
+        this.cartItemID=cartItemID;
         this.quantity = quantity;
-        this.price = price;
+
     }
 
-    public Product getProduct() {
-        return product;
+    public Long getCartItemID() {
+        return cartItemID;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setCartItemID(Long cartItemID) {
+        this.cartItemID = cartItemID;
     }
 
     public int getQuantity() {
@@ -30,19 +29,4 @@ public class CartItem {
         this.quantity = quantity;
     }
 
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public LocalDateTime getAddedAt() {
-        return addedAt;
-    }
-
-    public void setAddedAt(LocalDateTime addedAt) {
-        this.addedAt = addedAt;
-    }
 }

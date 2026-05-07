@@ -9,6 +9,7 @@ public class Customer {
     private String custName;
     private String custEmail;
     private String custPassword;
+    private boolean custIsActive;
     private LocalDateTime custCreatedAt;
     private String custProfileImg;
 
@@ -55,6 +56,12 @@ public class Customer {
 
     public void setCustPassword(String custPassword) {
         this.custPassword = custPassword;
+    }
+
+    public boolean getCustIsActive(){return this.custIsActive;}
+
+    public void setCustIsActive(boolean CustIsActive) {
+        this.custIsActive = CustIsActive;
     }
 
     public LocalDateTime getCustCreatedAt() {
