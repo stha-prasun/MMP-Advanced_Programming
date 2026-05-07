@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 
 import com.service.ProductService;
+import com.util.SessionUtil;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
@@ -30,6 +31,16 @@ public class AddProductController extends HttpServlet {
             throws ServletException, IOException {
 
         try {
+            // Get sellerId from session
+            Long sellerId = (Long) SessionUtil.getAttribute(request, "sellerId");
+
+            // Check if seller is logged in
+            if (sellerId == null) {
+                request.setAttribute("error", "You must be logged in as a seller to add products");
+                request.getRequestDispatcher("/WEB-INF/pages/Login.jsp").forward(request, response);
+                return;
+            }
+
             // Get form parameters
             String productName = request.getParameter("productName");
             String priceStr = request.getParameter("price");
@@ -41,12 +52,11 @@ public class AddProductController extends HttpServlet {
                     category == null || category.trim().isEmpty() ||
                     description == null || description.trim().isEmpty()) {
                 request.setAttribute("error", "All fields are required");
-                request.getRequestDispatcher("/WEB-INF/pages/Register.jsp").forward(request, response);
+                request.getRequestDispatcher("/WEB-INF/pages/Add_Product.jsp").forward(request, response);
                 return;
             }
 
             int price;
-
             try {
                 price = Integer.parseInt(priceStr);
             } catch (NumberFormatException e) {
@@ -60,33 +70,28 @@ public class AddProductController extends HttpServlet {
             Part imagePart = request.getPart("image");
 
             ImageUtil imageUtil = new ImageUtil();
-
-            // Folder inside your project
             String saveFolder = "/Images/Product";
 
             boolean uploaded = imageUtil.uploadImage(imagePart, saveFolder, request);
 
             String imgUrl;
-
             if (uploaded) {
                 imgUrl = saveFolder + "/" + imageUtil.getImageNameFromPart(imagePart);
             } else {
-                imgUrl = "default.png"; // fallback image
+                imgUrl = "default.png";
             }
 
-            // Call service
+            // Call service with sellerId
             ProductService service = new ProductService();
-            service.addProduct(productName, price, category, postedAt, description, imgUrl);
+            service.addProduct(productName, price, category, postedAt, description, imgUrl, sellerId);
 
             // Redirect after success
             response.sendRedirect(request.getContextPath() + "/home");
 
         } catch (Exception e) {
             e.printStackTrace();
-
-            // Redirect back to register page on error
-            request.setAttribute("error", "Something went wrong");
-            request.getRequestDispatcher("/WEB-INF/pages/Add_Product").forward(request, response);
+            request.setAttribute("error", "Something went wrong: " + e.getMessage());
+            request.getRequestDispatcher("/WEB-INF/pages/Add_Product.jsp").forward(request, response);
         }
     }
 }

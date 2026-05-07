@@ -11,12 +11,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductDAO {
-    public void insertProduct(String productName, int price, String category, LocalDateTime postedAt, String description, String imgUrl) throws Exception {
+    public void insertProduct(String productName, int price, String category,
+                              LocalDateTime postedAt, String description,
+                              String imgUrl, Long sellerId) throws Exception {
 
         Connection con = DBconfig.getConnection();
 
-        String sql = "INSERT INTO product (productName, productPrice, productCategory, productPostedAt, productDescription, productImageUrl) "
-                + "VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO product (productName, productPrice, productCategory, " +
+                "productPostedAt, productDescription, productImageUrl, sellerId) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         PreparedStatement pst = con.prepareStatement(sql);
 
@@ -26,6 +29,7 @@ public class ProductDAO {
         pst.setTimestamp(4, java.sql.Timestamp.valueOf(postedAt));
         pst.setString(5, description);
         pst.setString(6, imgUrl);
+        pst.setLong(7, sellerId);
 
         pst.executeUpdate();
 
@@ -33,14 +37,19 @@ public class ProductDAO {
         con.close();
     }
 
+
     public List<Product> getAllProducts() throws Exception {
         List<Product> products = new ArrayList<>();
 
         Connection con = DBconfig.getConnection();
 
-        String sql = "SELECT * FROM product ORDER BY postedAt DESC";
-        PreparedStatement pst = con.prepareStatement(sql);
+        // JOIN with seller table to get seller name
+        String sql = "SELECT p.*, s.sellerName, s.sellerEmail " +
+                "FROM product p " +
+                "LEFT JOIN seller s ON p.sellerId = s.sellerId " +
+                "ORDER BY p.productPostedAt DESC";
 
+        PreparedStatement pst = con.prepareStatement(sql);
         ResultSet rs = pst.executeQuery();
 
         while (rs.next()) {
@@ -51,13 +60,13 @@ public class ProductDAO {
                     rs.getString("productImageUrl"),
                     rs.getBoolean("productIsSold"),
                     rs.getString("productCategory"),
-                    rs.getTimestamp("postedAt").toLocalDateTime(),
-                    rs.getString("productDescription")
+                    rs.getTimestamp("productPostedAt").toLocalDateTime(),
+                    rs.getString("productDescription"),
+                    rs.getLong("sellerId"),
+                    rs.getString("sellerName")
             );
 
-            // Set postedAt separately (since not in constructor)
-            p.setPostedAt(rs.getTimestamp("postedAt").toLocalDateTime());
-
+            p.setSellerEmail(rs.getString("sellerEmail"));
             products.add(p);
         }
 
@@ -68,26 +77,46 @@ public class ProductDAO {
         return products;
     }
 
+
     public Product getProductById(Long id) throws Exception {
         Connection con = DBconfig.getConnection();
-        String sql = "SELECT * FROM product WHERE productId = ?";
+
+        String sql = "SELECT p.*, s.sellerName, s.sellerEmail " +
+                "FROM product p " +
+                "LEFT JOIN seller s ON p.sellerId = s.sellerId " +
+                "WHERE p.productId = ?";
+
         PreparedStatement pst = con.prepareStatement(sql);
         pst.setLong(1, id);
+
         ResultSet rs = pst.executeQuery();
-        if (!rs.next()) return null;
-        Product cat = new Product(
+
+        if (!rs.next()) {
+            rs.close();
+            pst.close();
+            con.close();
+            return null;
+        }
+
+        Product product = new Product(
                 rs.getLong("productId"),
                 rs.getString("productName"),
                 rs.getInt("productPrice"),
                 rs.getString("productImageUrl"),
                 rs.getBoolean("productIsSold"),
                 rs.getString("productCategory"),
-                rs.getTimestamp("postedAt").toLocalDateTime(),
-                rs.getString("productDescription")
+                rs.getTimestamp("productPostedAt").toLocalDateTime(),
+                rs.getString("productDescription"),
+                rs.getLong("sellerId"),
+                rs.getString("sellerName")
         );
+
+        product.setSellerEmail(rs.getString("sellerEmail"));
+
         rs.close();
         pst.close();
         con.close();
-        return cat;
+
+        return product;
     }
 }

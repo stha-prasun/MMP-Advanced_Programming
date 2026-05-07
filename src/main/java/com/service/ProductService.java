@@ -7,27 +7,20 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class ProductService {
-    public void addProduct(String productName, int price, String category, LocalDateTime postedAt, String description, String imgUrl) throws Exception {
-
-
+    public void addProduct(String productName, int price, String category,
+                           LocalDateTime postedAt, String description,
+                           String imgUrl, Long sellerId) throws Exception {
         ProductDAO dao = new ProductDAO();
-
-        dao.insertProduct(productName, price, category, postedAt, description, imgUrl);
+        dao.insertProduct(productName, price, category, postedAt, description, imgUrl, sellerId);
     }
 
-    public List<Product> getProducts() throws Exception {
-
+    public List<Product> getAllProducts() throws Exception {
         ProductDAO dao = new ProductDAO();
-
         return dao.getAllProducts();
-
     }
 
     public Product getProductById(Long id) throws Exception {
         ProductDAO dao = new ProductDAO();
-
-        Product product = getProductById(id);
-
-        return product;
+        return dao.getProductById(id);
     }
 }

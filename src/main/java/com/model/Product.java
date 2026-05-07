@@ -13,6 +13,11 @@ public class Product {
     private LocalDateTime postedAt;
     private String productDescription;
 
+    //seller info
+    private Long sellerId;
+    private String sellerName;
+    private String sellerEmail;
+
     public Product(Long productId, String productName, int productPrice, String productImageUrl, boolean productIsSold, String productCategory, LocalDateTime postedAt, String productDescription) {
         this.productId = productId;
         this.productName = productName;
@@ -22,6 +27,19 @@ public class Product {
         this.productCategory = productCategory;
         this.postedAt = postedAt;
         this.productDescription = productDescription;
+    }
+
+    public Product(Long productId, String productName, int productPrice, String productImageUrl, boolean productIsSold, String productCategory, LocalDateTime postedAt, String productDescription, Long sellerId, String sellerName) {
+        this.productId = productId;
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.productImageUrl = productImageUrl;
+        this.productIsSold = productIsSold;
+        this.productCategory = productCategory;
+        this.postedAt = postedAt;
+        this.productDescription = productDescription;
+        this.sellerId = sellerId;
+        this.sellerName = sellerName;
     }
 
     public Long getProductId() {
@@ -86,5 +104,29 @@ public class Product {
 
     public void setProductDescription(String productDescription) {
         this.productDescription = productDescription;
+    }
+
+    public Long getSellerId() {
+        return sellerId;
+    }
+
+    public void setSellerId(Long sellerId) {
+        this.sellerId = sellerId;
+    }
+
+    public String getSellerName() {
+        return sellerName;
+    }
+
+    public void setSellerName(String sellerName) {
+        this.sellerName = sellerName;
+    }
+
+    public String getSellerEmail() {
+        return sellerEmail;
+    }
+
+    public void setSellerEmail(String sellerEmail) {
+        this.sellerEmail = sellerEmail;
     }
 }

@@ -3,6 +3,7 @@ package com.controller.LoginAndRegister;
 import java.io.IOException;
 
 
+import com.model.Seller;
 import com.service.LoginService;
 import com.util.CookieUtil;
 import com.util.SessionUtil;
@@ -63,12 +64,16 @@ public class LoginController extends HttpServlet {
                         request.getRequestDispatcher("/WEB-INF/pages/Login.jsp").forward(request, response);
                     }
                 }else{
-                    success = ls.sellerLogin(Email,Password);
+                    // Seller login
+                    Seller seller = ls.sellerLogin(Email, Password);
 
-                    if (success) {
+                    if (seller != null) {
                         SessionUtil.setAttribute(request, "Email", Email);
-                        CookieUtil.addCookie(response, "Email", Email, 5 * 30); //temp variable for now cause not finalized
-                        // Redirect after success
+                        SessionUtil.setAttribute(request, "sellerId", seller.getSellerId());
+                        SessionUtil.setAttribute(request, "sellerName", seller.getSellerName());
+                        SessionUtil.setAttribute(request, "userRole", "seller");
+
+                        CookieUtil.addCookie(response, "Email", Email, 5 * 30);
                         response.sendRedirect(request.getContextPath() + "/home");
                     } else {
                         request.setAttribute("error", "Please enter the correct email or password!!!");

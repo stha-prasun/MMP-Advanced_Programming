@@ -36,14 +36,11 @@ public class LoginService {
 
     }
 
-    public boolean sellerLogin(String email, String password) throws Exception {
+    public Seller sellerLogin(String email, String password) throws Exception {
 
         SellerDAO sellerdao = new SellerDAO();
         Seller seller = sellerdao.getSeller(email, password);
-        if (seller == null) {
-            return false;
-        }
-        return true;
+        return seller; //will return null if there is no seller available
 
 
     }

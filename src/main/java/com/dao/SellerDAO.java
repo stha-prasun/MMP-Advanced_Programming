@@ -11,12 +11,15 @@ import java.sql.ResultSet;
 import java.time.LocalDateTime;
 
 public class SellerDAO {
-    public void insertSeller(String sellerEmail, String sellerPassword, String sellerName, String sellerLocation, boolean sellerIsActive, String verificationId, LocalDateTime sellerCreatedAt) throws Exception {
+    public void insertSeller(String sellerEmail, String sellerPassword, String sellerName,
+                             String sellerLocation, boolean sellerIsActive, String verificationId,
+                             LocalDateTime sellerCreatedAt) throws Exception {
 
         Connection con = DBconfig.getConnection();
 
-        String sql = "INSERT INTO seller (sellerName, sellerEmail, sellerPassword, sellerCreatedAt, sellerLocation, sellerIsActive, sellerVerificationId) "
-                + "VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO seller (sellerName, sellerEmail, sellerPassword, sellerCreatedAt, " +
+                "sellerLocation, sellerIsActive, sellerVerificationId) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         PreparedStatement pst = con.prepareStatement(sql);
 
@@ -33,27 +36,32 @@ public class SellerDAO {
         pst.close();
         con.close();
     }
+
     public Seller getSeller(String sellerEmail, String sellerPassword) throws Exception {
         Connection con = DBconfig.getConnection();
 
-
-
-        String sql = "SELECT * FROM seller where sellerEmail = ?";
+        String sql = "SELECT * FROM seller WHERE sellerEmail = ?";
         PreparedStatement pst = con.prepareStatement(sql);
         pst.setString(1, sellerEmail);
         ResultSet rs = pst.executeQuery();
 
         if (!rs.next()) {
+            rs.close();
+            pst.close();
+            con.close();
             return null; // email not found
         }
 
         boolean confirmedPass = PasswordUtil.checkPassword(sellerPassword, rs.getString("sellerPassword"));
 
         if(!confirmedPass){
+            rs.close();
+            pst.close();
+            con.close();
             return null;
-
         }
-        Seller seller= new Seller(
+
+        Seller seller = new Seller(
                 rs.getLong("sellerId"),
                 rs.getString("sellerName"),
                 rs.getString("sellerEmail"),
@@ -62,9 +70,13 @@ public class SellerDAO {
                 rs.getBoolean("sellerIsActive"),
                 rs.getString("sellerVerificationId")
         );
+
+        rs.close();
         pst.close();
         con.close();
         return seller;
-
     }
+
 }
+
+
