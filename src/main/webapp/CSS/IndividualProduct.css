@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Inter;
+    font-family: "Inter";
 }
 
 body{
@@ -17,73 +17,84 @@ body{
     z-index: 999;
 }
 
+/* PRODUCT SECTION */
 .productSection{
-    min-height: calc(100vh - 100px);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    position: relative;
+    height: 100vh;
+    display: flex;
 }
 
 /* LEFT SIDE */
 .leftProduct{
+    width: 50%;
+    background: #FEFEFF;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #FEFEFF;
-    padding: 6rem;
+
+    padding-top: 4rem;
 }
 
-/* RIGHT SIDE */
-.rightProduct{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: #F2F5FE;
-    padding: 10rem 8rem;
-}
-
-/* IMAGE */
 .leftProduct img{
-    width: 26rem;
-    height: 26rem;
+    width: 28rem;
+    height: 28rem;
     object-fit: cover;
     border-radius: 0.25rem;
 }
 
-/* TEXT */
+/* RIGHT SIDE */
+.rightProduct{
+    width: 50%;
+    background: #F2F5FE;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 0 8rem;
+}
+
+/* CATEGORY */
 .rightProduct p{
     color: rgba(0, 0, 0, 0.40);
     font-size: 1rem;
     font-weight: 400;
     letter-spacing: 0.01875rem;
     text-transform: uppercase;
+
     margin-bottom: 1rem;
 }
 
+/* TITLE */
 .rightProduct h2{
     color: #0A0A0A;
-    font-size: 3.5rem;
+    font-size: 4rem;
     font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: 0.02188rem;
+    line-height: 1;
+
     text-transform: uppercase;
-    max-width: 38rem;
+
     margin-bottom: 2rem;
 }
 
+/* DESCRIPTION */
 .rightProduct h6{
     color: rgba(0, 0, 0, 0.70);
     font-size: 1.125rem;
     font-weight: 400;
     line-height: 1.75rem;
-    max-width: 32rem;
+
+    max-width: 34rem;
+
     margin-bottom: 2rem;
 }
 
+/* PRICE */
 .rightProduct h3{
     color: #0A0A0A;
-    font-size: 1.4rem;
+    font-size: 1.7rem;
     font-weight: 700;
+
     margin-bottom: 2rem;
 }
 
@@ -95,18 +106,23 @@ body{
 .buttons{
     display: flex;
     gap: 1rem;
-    max-width: 28rem;
+    width: 28rem;
 }
 
 .buttons button{
     flex: 1;
-    padding: 1rem 2rem;
+
+    padding: 1.1rem 2rem;
+
     border-radius: 0.5rem;
+
     font-size: 1rem;
     cursor: pointer;
+
     transition: 0.3s;
 }
 
+/* ADD TO CART */
 .addToCart{
     border: 2px solid #03C;
     background: transparent;
@@ -120,10 +136,11 @@ body{
     0 7px 16px rgba(0, 51, 204, 0.13);
 }
 
+/* BUY NOW */
 .buyNow{
     border: none;
     background: #03C;
-    color: #fff;
+    color: white;
 
     box-shadow:
     0 181px 51px rgba(0, 51, 204, 0),
