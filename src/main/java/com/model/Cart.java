@@ -3,40 +3,43 @@ package com.model;
 import java.util.List;
 
 public class Cart {
-    private Long id;
-    private Customer customer;
-    private List<CartItem> items;
+    private Long cartId;
+    private List<CartItem> cartTotalItems;
+    private int cartTotalPrice;
 
-    public Cart(Long id, Customer customer, List<CartItem> items) {
-        this.id = id;
-        this.customer = customer;
-        this.items = items;
+
+
+    public Cart(Long cartId, int cartTotalPrice, List<CartItem> cartTotalItems) {
+        this.cartId = cartId;
+        this.cartTotalPrice=cartTotalPrice;
+        this.cartTotalItems = cartTotalItems;
     }
 
     public Cart() {
     }
 
-    public Long getId() {
-        return id;
+    public Long getCartId() {
+        return cartId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setCartId(Long cartId) {
+        this.cartId = cartId;
     }
 
-    public Customer getCustomer() {
-        return customer;
+
+    public List<CartItem> getCartTotalItems() {
+        return cartTotalItems;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setCartTotalItems(List<CartItem> cartTotalItems) {
+        this.cartTotalItems = this.cartTotalItems;
     }
 
-    public List<CartItem> getItems() {
-        return items;
+    public int getCartTotalPrice() {
+        return cartTotalPrice;
     }
 
-    public void setItems(List<CartItem> items) {
-        this.items = items;
+    public void setCartTotalPrice(int cartTotalPrice) {
+        this.cartTotalPrice = cartTotalPrice;
     }
 }
