@@ -223,7 +223,7 @@ height: 18.6875rem;
 
 .member h4,
 .member p {
-  padding: 0.25rem 0 0 0;
+  padding: 0.25rem 0 0 1rem;
 color: #03C;
 font-family: "PT Mono";
 font-size: 1rem;
@@ -233,6 +233,10 @@ line-height: 100%; /* 1rem */
 letter-spacing: 0.01938rem;
 }
 
+
+.member p{
+    font-size: 0.8rem;
+}
 /* NEWSLETTER */
 .newsleter {
   display: flex;

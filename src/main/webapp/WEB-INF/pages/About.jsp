@@ -36,38 +36,38 @@
 <section class="team">
         <div class = "member">
         <img src="<%= request.getContextPath() %>/Assets/User/Umang.png" alt=""/>
-        <h4>Rohan Shrestha</h4>
-        <p>role</p>
+        <h4>Umang Kansakar</h4>
+        <p>backend dev</p>
         </div>
 
         <div class = "member">
         <img src="<%= request.getContextPath() %>/Assets/User/Pramish.png" alt=""/>
-        <h4>Rohan Shrestha</h4>
-        <p>role</p>
+        <h4>Pramish Devkota</h4>
+        <p>devops</p>
         </div>
 
         <div class = "member">
         <img src="<%= request.getContextPath() %>/Assets/User/Meetej.png" alt=""/>
-        <h4>Rohan Shrestha</h4>
-        <p>role</p>
+        <h4>Meetej Saru Magar</h4>
+        <p>qa/qt</p>
         </div>
 
         <div class = "member">
         <img src="<%= request.getContextPath() %>/Assets/User/Prasun.png" alt=""/>
-        <h4>Rohan Shrestha</h4>
-        <p>role</p>
+        <h4>Prasun Shrestha</h4>
+        <p>tech lead</p>
         </div>
 
         <div class = "member">
         <img src="<%= request.getContextPath() %>/Assets/User/Sanrose.png" alt=""/>
-        <h4>Rohan Shrestha</h4>
-        <p>role</p>
+        <h4>Sanrose Bhetuwal</h4>
+        <p>fullstack dev</p>
         </div>
 
         <div class = "member">
         <img src="<%= request.getContextPath() %>/Assets/User/Rohan.png" alt=""/>
         <h4>Rohan Shrestha</h4>
-        <p>role</p>
+        <p>frontend dev</p>
         </div>
 </section>
 
