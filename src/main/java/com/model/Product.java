@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public class Product {
 
-    private int productId;
+    private Long productId;
     private String productName;
     private int productPrice;
     private String productImageUrl;
@@ -13,20 +13,22 @@ public class Product {
     private LocalDateTime postedAt;
     private String productDescription;
 
-    public Product(int productId, String productName, int productPrice, String productImageUrl, String productCategory, String productDescription) {
+    public Product(Long productId, String productName, int productPrice, String productImageUrl, boolean productIsSold, String productCategory, LocalDateTime postedAt, String productDescription) {
         this.productId = productId;
         this.productName = productName;
         this.productPrice = productPrice;
         this.productImageUrl = productImageUrl;
+        this.productIsSold = productIsSold;
         this.productCategory = productCategory;
+        this.postedAt = postedAt;
         this.productDescription = productDescription;
     }
 
-    public int getProductId() {
+    public Long getProductId() {
         return productId;
     }
 
-    public void setProductId(int productId) {
+    public void setProductId(Long productId) {
         this.productId = productId;
     }
 
@@ -54,6 +56,14 @@ public class Product {
         this.productImageUrl = productImageUrl;
     }
 
+    public boolean isProductIsSold() {
+        return productIsSold;
+    }
+
+    public void setProductIsSold(boolean productIsSold) {
+        this.productIsSold = productIsSold;
+    }
+
     public String getProductCategory() {
         return productCategory;
     }
@@ -76,13 +86,5 @@ public class Product {
 
     public void setProductDescription(String productDescription) {
         this.productDescription = productDescription;
-    }
-
-    public boolean isProductIsSold() {
-        return productIsSold;
-    }
-
-    public void setProductIsSold(boolean productIsSold) {
-        this.productIsSold = productIsSold;
     }
 }

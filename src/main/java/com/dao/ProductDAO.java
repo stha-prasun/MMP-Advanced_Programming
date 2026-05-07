@@ -45,11 +45,13 @@ public class ProductDAO {
 
         while (rs.next()) {
             Product p = new Product(
-                    rs.getInt("productId"),
+                    rs.getLong("productId"),
                     rs.getString("productName"),
                     rs.getInt("productPrice"),
                     rs.getString("productImageUrl"),
+                    rs.getBoolean("productIsSold"),
                     rs.getString("productCategory"),
+                    rs.getTimestamp("postedAt").toLocalDateTime(),
                     rs.getString("productDescription")
             );
 
@@ -64,5 +66,28 @@ public class ProductDAO {
         con.close();
 
         return products;
+    }
+
+    public Product getProductById(Long id) throws Exception {
+        Connection con = DBconfig.getConnection();
+        String sql = "SELECT * FROM product WHERE productId = ?";
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setLong(1, id);
+        ResultSet rs = pst.executeQuery();
+        if (!rs.next()) return null;
+        Product cat = new Product(
+                rs.getLong("productId"),
+                rs.getString("productName"),
+                rs.getInt("productPrice"),
+                rs.getString("productImageUrl"),
+                rs.getBoolean("productIsSold"),
+                rs.getString("productCategory"),
+                rs.getTimestamp("postedAt").toLocalDateTime(),
+                rs.getString("productDescription")
+        );
+        rs.close();
+        pst.close();
+        con.close();
+        return cat;
     }
 }

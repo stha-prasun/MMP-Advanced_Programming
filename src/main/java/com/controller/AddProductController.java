@@ -76,7 +76,7 @@ public class AddProductController extends HttpServlet {
 
             // Call service
             ProductService service = new ProductService();
-            service.addSeller(productName, price, category, postedAt, description, imgUrl);
+            service.addProduct(productName, price, category, postedAt, description, imgUrl);
 
             // Redirect after success
             response.sendRedirect(request.getContextPath() + "/home");

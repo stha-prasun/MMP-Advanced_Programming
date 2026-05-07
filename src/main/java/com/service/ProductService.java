@@ -2,15 +2,12 @@ package com.service;
 
 import com.dao.ProductDAO;
 import com.model.Product;
-import com.util.DBconfig;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.time.LocalDateTime;
 import java.util.List;
 
 public class ProductService {
-    public void addSeller(String productName, int price, String category, LocalDateTime postedAt, String description, String imgUrl) throws Exception {
+    public void addProduct(String productName, int price, String category, LocalDateTime postedAt, String description, String imgUrl) throws Exception {
 
 
         ProductDAO dao = new ProductDAO();
@@ -24,5 +21,13 @@ public class ProductService {
 
         return dao.getAllProducts();
 
+    }
+
+    public Product getProductById(Long id) throws Exception {
+        ProductDAO dao = new ProductDAO();
+
+        Product product = getProductById(id);
+
+        return product;
     }
 }
