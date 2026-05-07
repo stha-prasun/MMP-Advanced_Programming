@@ -1,4 +1,7 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,104 +54,116 @@
 
                 <!-- Page Header -->
                 <div class="pageHeader">
-                    <div class="pageHeaderText">
-                        <h1 class="pageTitle">PRODUCT</h1>
-                        <p class="pageSub">REVIEW, APPROVE, AND MANAGE LISTINGS 5 TOTAL</p>
-                    </div>
+                    <c:if test="${not empty productList}">
+                        <div class="pageHeaderText">
+                            <h1 class="pageTitle">PRODUCT</h1>
+                            <p class="pageSub">REVIEW, APPROVE, AND MANAGE LISTINGS &bull; &nbsp;${fn:length(productList)} TOTAL</p>
+                        </div>
+                    </c:if>
+                    <c:if test="${empty productList}">
+                        <div class="pageHeaderText">
+                            <h1 class="pageTitle">PRODUCT</h1>
+                            <p class="pageSub">REVIEW, APPROVE, AND MANAGE LISTINGS &bull; &nbsp;0 TOTAL</p>
+                        </div>
+                    </c:if>
                     <div class="divider dividerBlue"></div>
                 </div>
 
-                <!-- Product Cards -->
-                <ul class="productList">
+                <c:choose>
+                    <c:when test="${empty productList}">
+                        <div class="emptyState">
+                            <p>No products found.</p>
+                        </div>
+                    </c:when>
+                    <c:otherwise>
+                        <!-- Product Cards -->
+                        <ul class="productList">
+                            <c:forEach var="product" items="${productList}" varStatus="status">
+                                <li class="productCard">
+                                    <div class="productCardMeta">
+                                        <span class="metaLabel">ID</span>
+                                        <span class="metaId">PRO-${product.productId}</span>
+                                    </div>
+                                    <div class="productCardIdentity">
+                                        <div class="productThumb">
+                                            <img src="${not empty product.productImageUrl ? pageContext.request.contextPath.concat(product.productImageUrl) : pageContext.request.contextPath.concat('/Assets/Admin Dashboard/products.png')}"
+                                                alt="${product.productName}" />
+                                        </div>
+                                        <span class="productName">${product.productName}</span>
+                                    </div>
+                                    <div class="productCardFields">
+                                        <div class="fieldRow">
+                                            <span class="fieldLabel">SELLER</span>
+                                            <span class="fieldValue fieldValueBold">${product.sellerName}</span>
+                                        </div>
+                                        <div class="fieldRow">
+                                            <span class="fieldLabel">PRICE</span>
+                                            <span class="fieldValue">
+                                                $ ${product.productPrice}
+                                            </span>
+                                        </div>
+                                        <div class="fieldRow">
+                                            <span class="fieldLabel">CATEGORY</span>
+                                            <span class="fieldValue fieldValueBold">${product.productCategory}</span>
+                                        </div>
+                                        <div class="fieldRow">
+                                            <span class="fieldLabel">STATUS</span>
+                                            <c:choose>
+                                                <c:when test="${product.productIsSold}">
+                                                    <span class="badge badgeApproved">APPROVED</span>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <span class="badge badgePending">PENDING</span>
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </div>
+                                    </div>
 
-                    <!-- Product 1 -->
-                    <li class="productCard">
-                        <div class="productCardMeta">
-                            <span class="metaLabel">ID</span>
-                            <span class="metaId">PRO-1043</span>
-                        </div>
-                        <div class="productCardIdentity">
-                            <div class="productThumb">
-                                <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/products.png"
-                                    alt="Record Player" />
-                            </div>
-                            <span class="productName">Record Player</span>
-                        </div>
-                        <div class="productCardFields">
-                            <div class="fieldRow">
-                                <span class="fieldLabel">SELLER</span>
-                                <span class="fieldValue fieldValueBold">Rohan Shrestha</span>
-                            </div>
-                            <div class="fieldRow">
-                                <span class="fieldLabel">PRICE</span>
-                                <span class="fieldValue">$4200.00</span>
-                            </div>
-                            <div class="fieldRow">
-                                <span class="fieldLabel">CATEGORY</span>
-                                <span class="fieldValue fieldValueBold">FURNITURE</span>
-                            </div>
-                            <div class="fieldRow">
-                                <span class="fieldLabel">STATUS</span>
-                                <span class="badge badgeApproved">APPROVED</span>
-                            </div>
-                        </div>
-                        <div class="productCardActions">
-                            <button class="btnDelete" aria-label="Delete product">
-                                <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/dustbin.png"
-                                    alt="Delete" style="width:16px; height:16px;" />
-                            </button>
-                        </div>
-                    </li>
+                                    <div class="productCardActions ${!product.productIsSold ? 'productCardActionsPending' : ''}">
+                                        <c:choose>
+                                            <c:when test="${!product.productIsSold}">
+                                                <!-- PENDING: Show Approve and Reject buttons -->
+                                                <form method="POST" action="${pageContext.request.contextPath}/admin/product" style="display:inline;">
+                                                    <input type="hidden" name="action" value="approve" />
+                                                    <input type="hidden" name="productId" value="${product.productId}" />
+                                                    <button class="btnApprove" aria-label="Approve product" type="submit">
+                                                        <img src="<%= request.getContextPath() %>/Assets/Admin Category/Icon.svg"
+                                                            alt="tick icon" style="width:16px; height:16px;">
+                                                    </button>
+                                                </form>
 
-                    <div class="divider"></div>
+                                                <form method="POST" action="${pageContext.request.contextPath}/admin/product" style="display:inline;">
+                                                    <input type="hidden" name="action" value="reject" />
+                                                    <input type="hidden" name="productId" value="${product.productId}" />
+                                                    <button class="btnReject" aria-label="Reject product" type="submit">
+                                                        <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/close-x-svgrepo-com.svg"
+                                                            alt="close icon" style="width:16px; height:16px;">
+                                                    </button>
+                                                </form>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <!-- APPROVED: Show Delete button -->
+                                                <form method="POST" action="${pageContext.request.contextPath}/admin/product" style="display:inline;">
+                                                    <input type="hidden" name="action" value="delete" />
+                                                    <input type="hidden" name="productId" value="${product.productId}" />
+                                                    <button class="btnDelete" aria-label="Delete product" type="submit">
+                                                        <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/dustbin.png"
+                                                            alt="Delete" style="width:16px; height:16px;" />
+                                                    </button>
+                                                </form>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </div>
+                                </li>
 
-                    <!-- Product 2 -->
-                    <li class="productCard">
-                        <div class="productCardMeta">
-                            <span class="metaLabel">ID</span>
-                            <span class="metaId">PRO-1043</span>
-                        </div>
-                        <div class="productCardIdentity">
-                            <div class="productThumb">
-                                <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/products.png"
-                                    alt="Record Player" />
-                            </div>
-                            <span class="productName">Record Player</span>
-                        </div>
-                        <div class="productCardFields">
-                            <div class="fieldRow">
-                                <span class="fieldLabel">SELLER</span>
-                                <span class="fieldValue fieldValueBold">Rohan Shrestha</span>
-                            </div>
-                            <div class="fieldRow">
-                                <span class="fieldLabel">PRICE</span>
-                                <span class="fieldValue">$4200.00</span>
-                            </div>
-                            <div class="fieldRow">
-                                <span class="fieldLabel">CATEGORY</span>
-                                <span class="fieldValue fieldValueBold">FURNITURE</span>
-                            </div>
-                            <div class="fieldRow">
-                                <span class="fieldLabel">STATUS</span>
-                                <span class="badge badgePending">PENDING</span>
-                            </div>
-                        </div>
-                        <div class="productCardActions productCardActionsPending">
-                            <button class="btnApprove" aria-label="Approve product">
-                                <img src="<%= request.getContextPath() %>/Assets/Admin Category/Icon.svg"
-                                    alt="tick icon" style="width:16px; height:16px;">
-                            </button>
-                            <button class="btnReject" aria-label="Reject product">
-                                <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/close-x-svgrepo-com.svg"
-                                    alt="close icon" style="width:16px; height:16px;">
-                            </button>
-                        </div>
-                    </li>
+                                <c:if test="${!status.last}">
+                                    <div class="divider"></div>
+                                </c:if>
+                            </c:forEach>
+                        </ul>
+                    </c:otherwise>
+                </c:choose>
 
-                    <div class="divider"></div>
-                    <div class="divider"></div>
-
-                </ul>
             </div>
         </main>
     </div>

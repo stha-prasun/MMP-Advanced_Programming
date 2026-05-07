@@ -17,9 +17,10 @@ public class ProductDAO {
 
         Connection con = DBconfig.getConnection();
 
-        String sql = "INSERT INTO product (productName, productPrice, productCategory, " +
-                "productPostedAt, productDescription, productImageUrl, sellerId) " +
+        String sql = "INSERT INTO product (productName, productPrice, categoryId, " +
+                "postedAt, productDescription, productImageUrl, sellerId) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?)";
+
 
         PreparedStatement pst = con.prepareStatement(sql);
 
@@ -47,7 +48,7 @@ public class ProductDAO {
         String sql = "SELECT p.*, s.sellerName, s.sellerEmail " +
                 "FROM product p " +
                 "LEFT JOIN seller s ON p.sellerId = s.sellerId " +
-                "ORDER BY p.productPostedAt DESC";
+                "ORDER BY p.postedAt DESC";
 
         PreparedStatement pst = con.prepareStatement(sql);
         ResultSet rs = pst.executeQuery();
@@ -59,8 +60,8 @@ public class ProductDAO {
                     rs.getInt("productPrice"),
                     rs.getString("productImageUrl"),
                     rs.getBoolean("productIsSold"),
-                    rs.getString("productCategory"),
-                    rs.getTimestamp("productPostedAt").toLocalDateTime(),
+                    rs.getString("categoryId"),
+                    rs.getTimestamp("postedAt").toLocalDateTime(),
                     rs.getString("productDescription"),
                     rs.getLong("sellerId"),
                     rs.getString("sellerName")
@@ -105,7 +106,7 @@ public class ProductDAO {
                 rs.getString("productImageUrl"),
                 rs.getBoolean("productIsSold"),
                 rs.getString("productCategory"),
-                rs.getTimestamp("productPostedAt").toLocalDateTime(),
+                rs.getTimestamp("postedAt").toLocalDateTime(),
                 rs.getString("productDescription"),
                 rs.getLong("sellerId"),
                 rs.getString("sellerName")
@@ -118,5 +119,21 @@ public class ProductDAO {
         con.close();
 
         return product;
+    }
+
+    public void updateProductStatus(Long productId, String status) throws Exception {
+        Connection con = DBconfig.getConnection();
+
+        boolean isSold = "APPROVED".equals(status);
+
+        String sql = "UPDATE product SET productIsSold = ? WHERE productId = ?";
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setBoolean(1, isSold);
+        pst.setLong(2, productId);
+
+        pst.executeUpdate();
+
+        pst.close();
+        con.close();
     }
 }

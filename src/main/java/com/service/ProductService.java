@@ -23,4 +23,14 @@ public class ProductService {
         ProductDAO dao = new ProductDAO();
         return dao.getProductById(id);
     }
+
+    public void approveProduct(Long productId) throws Exception {
+        ProductDAO dao = new ProductDAO();
+        dao.updateProductStatus(productId, "APPROVED");
+    }
+
+    public void rejectProduct(Long productId) throws Exception {
+        ProductDAO dao = new ProductDAO();
+        dao.updateProductStatus(productId, "REJECTED");
+    }
 }
