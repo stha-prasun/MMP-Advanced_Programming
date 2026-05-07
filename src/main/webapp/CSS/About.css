@@ -1,0 +1,282 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: white;
+}
+
+/* FOOTER */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: #03c;
+  padding: 2.5rem 2.5rem 0 2.5rem;
+  position: relative;
+  overflow: hidden;
+  min-height: 26rem;
+}
+
+.footerLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 2.5rem;
+  z-index: 1;
+  max-width: 25vw;
+  min-height: 15rem;
+}
+
+.footerTop {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 4rem;
+}
+
+.footerLogo {
+  font-family: "Modak", cursive;
+  font-size: 1.75rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.footerTagline {
+  color: #fff;
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.015em;
+}
+
+
+.footerCopy {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  margin-bottom: 12rem;;
+}
+
+.footerBgText {
+  font-family: "Modak", cursive;
+  font-size: clamp(8rem, 18vw, 16rem);
+  color: rgba(255, 255, 255, 0.08);
+  position: absolute;
+  bottom: -2rem;
+  left: 2.5rem;
+  line-height: 1;
+  pointer-events: none;
+  z-index: 0;
+  letter-spacing: -0.025em;
+}
+
+.footerRight {
+  display: flex;
+  gap: 0;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  z-index: 1;
+  align-self: flex-start;
+  min-height: 24rem;
+}
+
+.footerCol {
+  padding: 1.875rem 1.25rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+  min-width: 12.5rem;
+}
+
+.footerCol:first-child {
+  border-left: none;
+}
+
+.footerCol h4 {
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 550;
+  line-height: 1;
+  letter-spacing: 0.015em;
+  margin-bottom: 1rem;
+}
+
+.footerCol ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.footerCol ul li {
+  color: rgba(255, 255, 255, 0.70);
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.footerCol a {
+  color: rgba(255, 255, 255, 0.70);
+  font-size: 0.875rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/*HERO*/
+.aboutHero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+padding: 10rem 2.5rem 10rem 10rem;
+}
+
+.heroLeft {
+  flex: 1;
+  max-width: 32rem;
+}
+
+.heroLeft h1 {
+color: #03C;
+text-align: center;
+font-family: "PT Mono";
+font-size: 2rem;
+font-style: normal;
+font-weight: 400;
+line-height: 100%; /* 2rem */
+letter-spacing: 0.01563rem;
+  margin-bottom: 1.5rem;
+}
+
+.heroLeft p {
+color: #03C;
+text-align: center;
+font-family: Inter;
+font-size: 1.125rem;
+font-style: normal;
+font-weight: 400;
+line-height: 100%; /* 1.125rem */
+letter-spacing: 0.01938rem;
+  margin-bottom: 1rem;
+}
+
+.heroRight {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.heroRight img {
+width: 34.125rem;
+height: 46.3125rem;
+border: 8px solid #03C;
+}
+
+/* STORY */
+.story {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 3rem 6rem;
+  gap: 3rem;
+}
+
+.story h1 {
+color: #03C;
+text-align: center;
+font-family: "PT Mono";
+font-size: 2rem;
+font-style: normal;
+font-weight: 400;
+line-height: 100%; /* 2rem */
+letter-spacing: 0.01563rem;
+}
+
+.story p {
+color: #03C;
+text-align: center;
+font-family: Inter;
+font-size: 2.5rem;
+font-style: normal;
+font-weight: 700;
+line-height: 100%; /* 2.5rem */
+letter-spacing: 0.01938rem;
+width: 49.0625rem;
+}
+
+/* TEAM */
+.team {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.member img {
+width: 100%;
+height: 18.6875rem;
+  object-fit: cover;
+  display: block;
+  border: 3.5px solid #03c;
+}
+
+.member h4,
+.member p {
+  padding: 0.25rem 0 0 0;
+color: #03C;
+font-family: "PT Mono";
+font-size: 1rem;
+font-style: normal;
+font-weight: 400;
+line-height: 100%; /* 1rem */
+letter-spacing: 0.01938rem;
+}
+
+/* NEWSLETTER */
+.newsleter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+padding: 10rem 10rem 10rem 10rem;
+
+}
+
+
+.newsleter .heroLeft img {
+  width: 34.125rem;
+  height: 46.3125rem;
+  border: 8px solid #03C;
+}
+
+
+.newsleter .heroRight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 28rem;
+}
+
+.newsleter p {
+color: #03C;
+text-align: center;
+font-family: Inter;
+font-size: 1.125rem;
+font-style: normal;
+font-weight: 400;
+line-height: 100%; /* 1.125rem */
+letter-spacing: 0.01938rem;
+  margin-bottom: 1.5rem;
+  align-self: stretch;
+}
+
+.newsleter button {
+  border-radius: 0.25rem;
+  border: none;
+  background: #03C;
+  width: 10rem;
+  height: 3.125rem;
+  color: white;
+  cursor: pointer;
+}
+
