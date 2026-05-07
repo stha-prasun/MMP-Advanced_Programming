@@ -1,109 +1,422 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.util.List" %>
-<%@ page import="com.model.Product" %>
-
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>All Products</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Products</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
-            margin: 0;
-            padding: 20px;
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 20px;
-        }
-
-        .product-card {
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            transition: 0.3s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .product-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        .product-card h3 {
-            margin: 10px 0 5px;
-        }
-
-        .price {
-            color: green;
-            font-weight: bold;
-        }
-
-        .category {
-            font-size: 12px;
-            color: gray;
-        }
-
-        .empty {
-            text-align: center;
-            font-size: 18px;
-            color: gray;
-        }
-    </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/Product.css" />
 </head>
 
 <body>
 
-<h1>All Products</h1>
+<section class="heroSection">
 
-<%
-    List<Product> products = (List<Product>) request.getAttribute("productList");
-%>
+  <div class="heroContainer">
 
-<div class="product-grid">
+    <div class="heroContent">
 
-<% if (products != null && !products.isEmpty()) {
-       for (Product p : products) {
-%>
+      <div class="heroLeft">
 
-    <div class="product-card">
-        <img src="<%= request.getContextPath() %>/<%= p.getProductImageUrl() %>" />
+        <h1 class="heroTitle">
+          BUY SMART.<br>
+          SELL EASY. REPEAT.
+        </h1>
 
-        <h3><%= p.getProductName() %></h3>
+        <p class="heroDescription">
+          Precision engineering meets timeless design.
+          Explore our curated collection of modern watches.
+        </p>
 
-        <p class="price">$<%= p.getProductPrice() %></p>
+        <button class="heroButton">
+          SHOP NOW
+        </button>
 
-        <p class="category"><%= p.getProductCategory() %></p>
+      </div>
+
+      <div class="heroRight">
+
+        <img
+          src="<%= request.getContextPath() %>/Assets/Product/watch.png"
+          alt="Watch Product"
+          class="heroImage"
+        />
+
+      </div>
+
     </div>
 
-<%
-       }
-   } else {
-%>
+    <div class="heroActions">
 
-    <div class="empty">No products available</div>
+      <button class="heroActionBtn">
+        FILTER
+      </button>
 
-<%
-   }
-%>
+      <button class="heroActionBtn">
+        SORT BY
+      </button>
 
-</div>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="productSection">
+
+  <div class="productGrid">
+
+    <!-- CARD -->
+
+    <div class="productCard">
+
+      <div class="productImageWrapper">
+
+        <img
+          src="<%= request.getContextPath() %>/Assets/Product/product1.png"
+          alt="Product"
+          class="productImage"
+        />
+
+        <button class="wishlistBtn">
+
+          <img
+            src="<%= request.getContextPath() %>/Assets/Icons/favourite.png"
+            alt="Wishlist"
+            class="wishlistIcon"
+          />
+
+        </button>
+
+      </div>
+
+      <div class="productInfo">
+
+        <p class="productCategory">
+          ELECTRONICS
+        </p>
+
+        <h3 class="productName">
+          MINIMALIST HEADPHONES
+        </h3>
+
+        <p class="productPrice">
+          $299
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- CARD -->
+
+    <div class="productCard">
+
+      <div class="productImageWrapper">
+
+        <img
+          src="<%= request.getContextPath() %>/Assets/Product/product2.png"
+          alt="Product"
+          class="productImage"
+        />
+
+        <button class="wishlistBtn">
+
+          <img
+            src="<%= request.getContextPath() %>/Assets/Icons/favourite.png"
+            alt="Wishlist"
+            class="wishlistIcon"
+          />
+
+        </button>
+
+      </div>
+
+      <div class="productInfo">
+
+        <p class="productCategory">
+          ELECTRONICS
+        </p>
+
+        <h3 class="productName">
+          MINIMALIST HEADPHONES
+        </h3>
+
+        <p class="productPrice">
+          $299
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- CARD -->
+
+    <div class="productCard">
+
+      <div class="productImageWrapper">
+
+        <img
+          src="<%= request.getContextPath() %>/Assets/Product/product3.png"
+          alt="Product"
+          class="productImage"
+        />
+
+        <button class="wishlistBtn">
+
+          <img
+            src="<%= request.getContextPath() %>/Assets/Icons/favourite.png"
+            alt="Wishlist"
+            class="wishlistIcon"
+          />
+
+        </button>
+
+      </div>
+
+      <div class="productInfo">
+
+        <p class="productCategory">
+          ELECTRONICS
+        </p>
+
+        <h3 class="productName">
+          MINIMALIST HEADPHONES
+        </h3>
+
+        <p class="productPrice">
+          $299
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- CARD -->
+
+    <div class="productCard">
+
+      <div class="productImageWrapper">
+
+        <img
+          src="<%= request.getContextPath() %>/Assets/Product/product4.png"
+          alt="Product"
+          class="productImage"
+        />
+
+        <button class="wishlistBtn">
+
+          <img
+            src="<%= request.getContextPath() %>/Assets/Icons/favourite.png"
+            alt="Wishlist"
+            class="wishlistIcon"
+          />
+
+        </button>
+
+      </div>
+
+      <div class="productInfo">
+
+        <p class="productCategory">
+          ELECTRONICS
+        </p>
+
+        <h3 class="productName">
+          MINIMALIST HEADPHONES
+        </h3>
+
+        <p class="productPrice">
+          $299
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- CARD -->
+
+    <div class="productCard">
+
+      <div class="productImageWrapper">
+
+        <img
+          src="<%= request.getContextPath() %>/Assets/Product/product5.png"
+          alt="Product"
+          class="productImage"
+        />
+
+        <button class="wishlistBtn">
+
+          <img
+            src="<%= request.getContextPath() %>/Assets/Icons/favourite.png"
+            alt="Wishlist"
+            class="wishlistIcon"
+          />
+
+        </button>
+
+      </div>
+
+      <div class="productInfo">
+
+        <p class="productCategory">
+          ELECTRONICS
+        </p>
+
+        <h3 class="productName">
+          MINIMALIST HEADPHONES
+        </h3>
+
+        <p class="productPrice">
+          $299
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- CARD -->
+
+    <div class="productCard">
+
+      <div class="productImageWrapper">
+
+        <img
+          src="<%= request.getContextPath() %>/Assets/Product/product6.png"
+          alt="Product"
+          class="productImage"
+        />
+
+        <button class="wishlistBtn">
+
+          <img
+            src="<%= request.getContextPath() %>/Assets/Icons/favourite.png"
+            alt="Wishlist"
+            class="wishlistIcon"
+          />
+
+        </button>
+
+      </div>
+
+      <div class="productInfo">
+
+        <p class="productCategory">
+          ELECTRONICS
+        </p>
+
+        <h3 class="productName">
+          MINIMALIST HEADPHONES
+        </h3>
+
+        <p class="productPrice">
+          $299
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- CARD -->
+
+    <div class="productCard">
+
+      <div class="productImageWrapper">
+
+        <img
+          src="<%= request.getContextPath() %>/Assets/Product/product7.png"
+          alt="Product"
+          class="productImage"
+        />
+
+        <button class="wishlistBtn">
+
+          <img
+            src="<%= request.getContextPath() %>/Assets/Icons/favourite.png"
+            alt="Wishlist"
+            class="wishlistIcon"
+          />
+
+        </button>
+
+      </div>
+
+      <div class="productInfo">
+
+        <p class="productCategory">
+          ELECTRONICS
+        </p>
+
+        <h3 class="productName">
+          MINIMALIST HEADPHONES
+        </h3>
+
+        <p class="productPrice">
+          $299
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- CARD -->
+
+    <div class="productCard">
+
+      <div class="productImageWrapper">
+
+        <img
+          src="<%= request.getContextPath() %>/Assets/Product/product8.png"
+          alt="Product"
+          class="productImage"
+        />
+
+        <button class="wishlistBtn">
+
+          <img
+            src="<%= request.getContextPath() %>/Assets/Icons/favourite.png"
+            alt="Wishlist"
+            class="wishlistIcon"
+          />
+
+        </button>
+
+      </div>
+
+      <div class="productInfo">
+
+        <p class="productCategory">
+          ELECTRONICS
+        </p>
+
+        <h3 class="productName">
+          MINIMALIST HEADPHONES
+        </h3>
+
+        <p class="productPrice">
+          $299
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="shopMoreWrapper">
+
+    <button class="shopMoreBtn">
+      SHOP ALL PRODUCTS
+    </button>
+
+  </div>
+
+</section>
 
 </body>
 </html>

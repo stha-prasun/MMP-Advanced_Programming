@@ -1,0 +1,214 @@
+                                 *{
+                                   margin:0;
+                                   padding:0;
+                                   box-sizing:border-box;
+                                 }
+
+                                 body{
+                                   background:#fff;
+                                   font-family:'Inter',sans-serif;
+                                   color:#111;
+                                 }
+
+                                 /* HERO */
+
+                                 .heroSection{
+                                   background:#F5F5F5;
+                                   padding:5rem 2rem 4rem;
+                                 }
+
+                                 .heroContainer{
+                                   max-width:1400px;
+                                   margin:0 auto;
+                                   display:flex;
+                                   flex-direction:column;
+                                   gap:4rem;
+                                 }
+
+                                 .heroContent{
+                                   display:flex;
+                                   align-items:center;
+                                   justify-content:space-between;
+                                   gap:4rem;
+                                 }
+
+                                 .heroLeft{
+                                   max-width:480px;
+                                   display:flex;
+                                   flex-direction:column;
+                                   gap:1.5rem;
+                                 }
+
+                                 .heroTitle{
+                                   color:#03C;
+                                   font-size:5rem;
+                                   font-weight:500;
+                                   line-height:0.9;
+                                   letter-spacing:-0.25rem;
+                                   text-transform:uppercase;
+                                   font-family:"Instrument Serif",serif;
+                                 }
+
+                                 .heroDescription{
+                                   color:#525252;
+                                   font-size:1rem;
+                                   line-height:1.8;
+                                   max-width:340px;
+                                 }
+
+                                 .heroButton{
+                                   width:fit-content;
+                                   height:3rem;
+                                   padding:0 2rem;
+                                   border:none;
+                                   border-radius:0.4rem;
+                                   background:#03C;
+                                   color:#fff;
+                                   font-size:0.75rem;
+                                   font-weight:700;
+                                   letter-spacing:0.08rem;
+                                   text-transform:uppercase;
+                                   cursor:pointer;
+                                 }
+
+                                 .heroRight{
+                                   flex:1;
+                                   display:flex;
+                                   justify-content:flex-end;
+                                 }
+
+                                 .heroImage{
+                                   width:100%;
+                                   max-width:620px;
+                                   object-fit:contain;
+                                 }
+
+                                 .heroActions{
+                                   display:flex;
+                                   justify-content:center;
+                                   align-items:center;
+                                 }
+
+                                 .heroActionBtn{
+                                   width:180px;
+                                   height:3rem;
+                                   border:none;
+                                   background:#03C;
+                                   color:#fff;
+                                   font-size:0.75rem;
+                                   font-weight:700;
+                                   letter-spacing:0.08rem;
+                                   text-transform:uppercase;
+                                   cursor:pointer;
+                                 }
+
+                                 .heroActionBtn:first-child{
+                                   border-right:1px solid rgba(255,255,255,0.3);
+                                 }
+
+                                 /* PRODUCTS */
+
+                                 .productSection{
+                                   padding:3rem 2rem 5rem;
+                                 }
+
+                                 .productGrid{
+                                   max-width:1400px;
+                                   margin:0 auto;
+
+                                   display:grid;
+                                   grid-template-columns:repeat(4,1fr);
+                                   gap:1.5rem;
+                                 }
+
+                                 .productCard{
+                                   border:1px solid #ECECEC;
+                                   background:#fff;
+                                   overflow:hidden;
+                                 }
+
+                                 .productImageWrapper{
+                                   position:relative;
+                                   width:100%;
+                                   aspect-ratio:1/1;
+                                   overflow:hidden;
+                                 }
+
+                                 .productImage{
+                                   width:100%;
+                                   height:100%;
+                                   object-fit:cover;
+                                   display:block;
+                                 }
+
+                                 .wishlistBtn{
+                                   position:absolute;
+                                   top:0.75rem;
+                                   right:0.75rem;
+
+                                   width:2rem;
+                                   height:2rem;
+
+                                   border:none;
+                                   border-radius:50%;
+                                   background:#fff;
+
+                                   display:flex;
+                                   align-items:center;
+                                   justify-content:center;
+
+                                   cursor:pointer;
+                                 }
+
+                                 .wishlistIcon{
+                                   width:1.25rem;
+                                   height:1.25rem;
+                                   object-fit:contain;
+                                 }
+
+                                 .productInfo{
+                                   padding:1rem;
+                                   display:flex;
+                                   flex-direction:column;
+                                   gap:0.6rem;
+                                 }
+
+                                 .productCategory{
+                                   color:#A3A3A3;
+                                   font-size:0.65rem;
+                                   font-weight:500;
+                                   letter-spacing:0.08rem;
+                                   text-transform:uppercase;
+                                 }
+
+                                 .productName{
+                                   color:#0A0A0A;
+                                   font-size:0.9rem;
+                                   font-weight:600;
+                                   line-height:1.4;
+                                   text-transform:uppercase;
+                                 }
+
+                                 .productPrice{
+                                   color:#03C;
+                                   font-size:0.9rem;
+                                   font-weight:600;
+                                 }
+
+                                 .shopMoreWrapper{
+                                   margin-top:3rem;
+                                   display:flex;
+                                   justify-content:center;
+                                 }
+
+                                 .shopMoreBtn{
+                                   border:none;
+                                   background:none;
+                                   color:#03C;
+                                   font-size:0.7rem;
+                                   font-weight:700;
+                                   letter-spacing:0.08rem;
+                                   text-transform:uppercase;
+                                   cursor:pointer;
+                                 }
+
