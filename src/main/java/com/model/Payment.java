@@ -2,12 +2,12 @@ package com.model;
 
 public class Payment {
     private Long paymentId;
-    private int paymentAmount;
+    private int paidAmount;
     private String type;
 
-    public Payment(Long paymentId, int paymentAmount, String type) {
+    public Payment(Long paymentId, int paidAmount, String type) {
         this.paymentId = paymentId;
-        this.paymentAmount = paymentAmount;
+        this.paidAmount = paidAmount;
         this.type = type;
     }
 
@@ -19,12 +19,12 @@ public class Payment {
         this.paymentId = paymentId;
     }
 
-    public int getPaymentAmount() {
-        return paymentAmount;
+    public int getPaidAmount() {
+        return paidAmount;
     }
 
-    public void setPaymentAmount(int paymentAmount) {
-        this.paymentAmount = paymentAmount;
+    public void setPaidAmount(int paidAmount) {
+        this.paidAmount = paidAmount;
     }
 
     public String getType() {

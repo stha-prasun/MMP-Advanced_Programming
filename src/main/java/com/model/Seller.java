@@ -3,10 +3,10 @@ package com.model;
 import java.time.LocalDateTime;
 
 public class Seller {
-    private Long sellerId;
+    private Long sellerId; //Primary Key
     private String sellerEmail;
     private String sellerPassword;
-    private LocalDateTime createdAt;
+    private LocalDateTime sellerCreatedAt;
     private String sellerName;
     private String sellerLocation;
     private boolean sellerIsActive;
@@ -46,12 +46,12 @@ public class Seller {
         this.sellerPassword = sellerPassword;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
+    public LocalDateTime getSellerCreatedAt() {
+        return sellerCreatedAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
+    public void setSellerCreatedAt(LocalDateTime sellerCreatedAt) {
+        this.sellerCreatedAt = sellerCreatedAt;
     }
 
     public String getSellerName() {
