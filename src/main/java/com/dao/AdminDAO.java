@@ -61,4 +61,21 @@ public class AdminDAO {
 
         return true;
     }
+
+    public boolean deactivateSeller(boolean sellerIsActive, Long id) throws SQLException {
+        Connection con = DBconfig.getConnection();
+
+
+        String sql = "UPDATE seller SET sellerIsActive = ? WHERE sellerId = ?";
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setBoolean(1, sellerIsActive);
+        pst.setLong(2, id);
+        int rs = pst.executeUpdate();
+
+        if (rs == 0) {
+            return false;
+        }
+
+        return true;
+    }
 }

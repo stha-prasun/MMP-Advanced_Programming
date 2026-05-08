@@ -17,4 +17,16 @@ public class AdminService {
 
         return result;
     }
+
+    public boolean updateSeller(boolean sellerIsActive, Long id)
+            throws SQLException {
+
+        AdminDAO dao = new AdminDAO();
+
+        boolean result = dao.deactivateSeller(sellerIsActive, id);
+
+        System.out.println("SERVICE CALLED");
+
+        return result;
+    }
 }
