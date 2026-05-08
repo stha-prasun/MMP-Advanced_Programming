@@ -85,8 +85,8 @@
         <button class="wishlistBtn">
 
           <img
-            src="<%= request.getContextPath() %>/Assets/Icons/favourite.png"
-            alt="Wishlist"
+            src="<%= request.getContextPath() %>/Assets/Home/fav.png"
+            alt="apple"
             class="wishlistIcon"
           />
 

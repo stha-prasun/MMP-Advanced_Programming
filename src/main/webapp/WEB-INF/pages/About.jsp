@@ -37,19 +37,19 @@
         <div class = "member">
         <img src="<%= request.getContextPath() %>/Assets/User/Umang.png" alt=""/>
         <h4>Umang Kansakar</h4>
-        <p>backend dev</p>
+        <p>Backend Dev</p>
         </div>
 
         <div class = "member">
         <img src="<%= request.getContextPath() %>/Assets/User/Pramish.png" alt=""/>
         <h4>Pramish Devkota</h4>
-        <p>devops</p>
+        <p>Devops</p>
         </div>
 
         <div class = "member">
         <img src="<%= request.getContextPath() %>/Assets/User/Meetej.png" alt=""/>
         <h4>Meetej Saru Magar</h4>
-        <p>qa/qt</p>
+        <p>Qa/Qt</p>
         </div>
 
         <div class = "member">
@@ -61,13 +61,13 @@
         <div class = "member">
         <img src="<%= request.getContextPath() %>/Assets/User/Sanrose.png" alt=""/>
         <h4>Sanrose Bhetuwal</h4>
-        <p>fullstack dev</p>
+        <p>Fullstack Dev</p>
         </div>
 
         <div class = "member">
         <img src="<%= request.getContextPath() %>/Assets/User/Rohan.png" alt=""/>
         <h4>Rohan Shrestha</h4>
-        <p>frontend dev</p>
+        <p>UI/UX-Frontend Dev</p>
         </div>
 </section>
 

@@ -45,7 +45,11 @@
                                             <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" alt="favourites" />
                                         </a>
                                         <a href="${pageContext.request.contextPath}/favourites" href class="favBtn">
-                                            <img src="<%= request.getContextPath() %>/Assets/Home/cart.png" alt="cart" />
+                                            <img src="<%= request.getContextPath() %>/Assets/User/cartActive.png" alt="cart" />
+                                        </a>
+
+                                        <a href="${pageContext.request.contextPath}/Profile" href class="favBtn">
+                                            <img src="<%= request.getContextPath() %>/Assets/User/Rohan.png" alt="profile" />
                                         </a>
                                     </c:when>
                                     <c:otherwise>
@@ -54,7 +58,7 @@
                                             <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" alt="favourites" />
                                         </a>
                                         <a href="${pageContext.request.contextPath}/favourites" href class="favBtn">
-                                            <img src="<%= request.getContextPath() %>/Assets/Home/cart.png" alt="cart" />
+                                            <img src="<%= request.getContextPath() %>/Assets/User/cartActive.png" alt="cart" />
                                         </a>
 
                                         <a href="${pageContext.request.contextPath}/customer/login" class="ctaNavbar">Sign up</a>
