@@ -23,32 +23,46 @@
 
                 <!-- Navbar -->
         <section class="navbarSection">
-                <div class="navbar">
-                    <div class="navLeft">
-                        <div class="logo">MMP</div>
-                        <ul class="navLinks">
-                            <li>About us</li>
-                            <li>Contact us</li>
-                            <li class="dropdown">Shop <img src="<%= request.getContextPath() %>/Assets/Home/down.png" alt="" /></li>
-                        </ul>
-                    </div>
-                    <div class="navRight">
-                        <div class="searchWrapper">
-                            <img class="searchIcon" src="<%= request.getContextPath() %>/Assets/Home/search.png" alt="" />
-                            <input type="text" placeholder="Search..." />
-                            <button class="searchBtn">Search</button>
+                        <div class="navbar">
+                            <div class="navLeft">
+                                <div class="logo">MMP</div>
+                                <ul class="navLinks">
+                                    <li>About us</li>
+                                    <li>Contact us</li>
+                                    <li class="dropdown">Shop <img src="<%= request.getContextPath() %>/Assets/Home/down.png" alt="" /></li>
+                                </ul>
+                            </div>
+                            <div class="navRight">
+                                <div class="searchWrapper">
+                                    <img class="searchIcon" src="<%= request.getContextPath() %>/Assets/Home/search.png" alt="" />
+                                    <input type="text" placeholder="Search..." />
+                                    <button class="searchBtn">Search</button>
+                                </div>
+                                <c:choose>
+                                    <c:when test="${not empty sessionScope.Email}">
+                                        <!--Logged in-->
+                                        <a href="${pageContext.request.contextPath}/favourites" href class="favBtn">
+                                            <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" alt="favourites" />
+                                        </a>
+                                        <a href="${pageContext.request.contextPath}/favourites" href class="favBtn">
+                                            <img src="<%= request.getContextPath() %>/Assets/Home/cart.png" alt="cart" />
+                                        </a>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <!--Not Logged in-->
+                                        <a href="${pageContext.request.contextPath}/favourites" href class="favBtn">
+                                            <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" alt="favourites" />
+                                        </a>
+                                        <a href="${pageContext.request.contextPath}/favourites" href class="favBtn">
+                                            <img src="<%= request.getContextPath() %>/Assets/Home/cart.png" alt="cart" />
+                                        </a>
+
+                                        <a href="${pageContext.request.contextPath}/customer/login" class="ctaNavbar">Sign up</a>
+
+                                    </c:otherwise>
+                                </c:choose>
+
+                            </div>
                         </div>
-                        <!--  IF user not logged in -->
-                        <!--<p>DEBUG: [${sessionScope.Email}]</p>-->
-                        <c:if test="${not empty sessionScope.Email}">
-                            <a href="${pageContext.request.contextPath}/favourites" href class="favBtn">
-                                <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" alt="favourites" />
-                            </a>
-
-                            <a href="${pageContext.request.contextPath}/customer/login" class="ctaNavbar">Sign up</a>
-                        </c:if>
-
-                    </div>
-                </div>
-        </section>
+                </section>
         </body>
