@@ -5,8 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 
+import com.model.Category;
 import com.model.Customer;
 import com.util.DBconfig;
 import com.util.PasswordUtil;
@@ -91,5 +94,30 @@ public class CustomerDAO {
         pst.close();
         con.close();
 
+    }
+
+    /*A public method that will return a list of all the customers registered in the systems database*/
+    public List<Customer> getAllCustomer() throws Exception {
+        Connection con = DBconfig.getConnection();
+        List<Customer> customerList = new ArrayList<>();
+        String sql="SELECT * FROM customer";
+        PreparedStatement pst = con.prepareStatement(sql);
+        ResultSet rs = pst.executeQuery();
+        while (rs.next()) {
+            Customer cust = new Customer(
+                    rs.getLong("customerId"),
+                    rs.getString("custName"),
+                    rs.getString("custEmail"),
+                    rs.getString("custPassword"),
+                    rs.getBoolean("custIsActive"),
+                    rs.getTimestamp("custCreatedAt").toLocalDateTime(),
+                    rs.getString("custProfileImg")
+            );
+            customerList.add(cust);
+        }
+        rs.close();
+        pst.close();
+        con.close();
+        return customerList;
     }
 }

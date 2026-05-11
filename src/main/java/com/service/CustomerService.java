@@ -1,10 +1,12 @@
 package com.service;
 
 import com.dao.CustomerDAO;
+import com.model.Customer;
 import com.util.PasswordUtil;
 
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class CustomerService {
 
@@ -24,5 +26,9 @@ public class CustomerService {
 
         dao.updateCustomer(imgUrl, custEmail);
         System.out.println("SERVICE CALLED");
+    }
+    public List<Customer> getAllCustomer() throws Exception {
+        CustomerDAO dao = new CustomerDAO();
+        return dao.getAllCustomer();
     }
 }

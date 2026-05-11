@@ -1,4 +1,5 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -30,11 +31,11 @@
       </div>
         <div class="form-box">
           <h1>Hello Admin?</h1>
-          <% if (request.getAttribute("error") !=null) { %>
-             <p style="color: red">
-                <%= request.getAttribute("error") %>
-                </p>
-             <% } %>
+          <c:if test="${not empty error}">
+              <p style="color: red">
+                  ${error}
+              </p>
+          </c:if>
           <form method="POST" action="<%= request.getContextPath() %>/admin/login">
           <input type="email" name="AdminEmail" placeholder="Email address" class="input" />
           <div class="password-wrapper">
