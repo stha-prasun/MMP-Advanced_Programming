@@ -26,6 +26,9 @@ public class EditProfileController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        String custName = req.getParameter("custName");
+        String updatedCustEmail = req.getParameter("custEmail");
+
         //image handling
         Part imagePart = req.getPart("image");
         ImageUtil imageUtil = new ImageUtil();
@@ -53,7 +56,7 @@ public class EditProfileController extends HttpServlet {
 
         CustomerService service = new CustomerService();
         try {
-            service.updateCustomer(imgUrl, custEmail);
+            service.updateCustomer(imgUrl, custEmail, updatedCustEmail, custName);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
