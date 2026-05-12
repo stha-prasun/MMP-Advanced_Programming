@@ -35,7 +35,7 @@ public class AdminSellerController extends HttpServlet {
 
             AdminService service = new AdminService();
 
-            boolean updated = service.updateCustomer(false, id);
+            boolean updated = service.updateSeller(false, id);
 
             if (updated) {
                 response.sendRedirect(request.getContextPath() + "/admin/users");
