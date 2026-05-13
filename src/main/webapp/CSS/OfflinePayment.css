@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: #f7f7fa;
+}
+
+
+.user {
+  margin-top: 9rem;
+  padding: 0 10.5rem;
+}
+
+.user h1 {
+  color: #03c;
+  font-size: 5.2rem;
+  font-weight: 900;
+  line-height: 90%;
+  letter-spacing: -0.32rem;
+}
+
+/* TOP SECTION */
+
+.editPadding {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 1.8rem 10.5rem 0 10.5rem;
+  padding-bottom: 2.2rem;
+
+  border-bottom: 2px solid #03c;
+}
+
+.contact {
+  color: #7a7a7a;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.12rem;
+  text-transform: uppercase;
+}
+
+.editProfile {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.editProfile img {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+.editProfile span {
+  color: #9b9b9b;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+}
+
+/* SECTION CENTERING */
+.offline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5rem;
+  text-align: center;
+}
+
+/* ICON CIRCLE */
+.circle {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: #eef1f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.circle img {
+  width: 40px;
+  opacity: 0.9;
+}
+
+/* TEXT */
+.text h1 {
+  color: #03c;
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 0.6rem;
+}
+
+.text p {
+  color: #6f6f6f;
+  font-size: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+/* TOTAL BOX */
+.total {
+  width: 500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border: 1.5px solid #03c;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 1.8rem;
+}
+
+.total h1 {
+  font-size: 1.1rem;
+  color: #03c;
+  font-weight: 700;
+}
+
+/* BUTTON */
+.offline button {
+  width: 500px;
+  padding: 1.1rem;
+  background: #03c;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.offline button:hover {
+  background: #002bb5;
+}

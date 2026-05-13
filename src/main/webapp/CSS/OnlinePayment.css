@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: #f7f7fa;
+}
+
+/* PAGE TITLE */
+
+.user {
+  margin-top: 9rem;
+  padding: 0 10.5rem;
+}
+
+.user h1 {
+  color: #03c;
+  font-size: 5.2rem;
+  font-weight: 900;
+  line-height: 90%;
+  letter-spacing: -0.32rem;
+}
+
+/* TOP SECTION */
+
+.editPadding {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 1.8rem 10.5rem 0 10.5rem;
+  padding-bottom: 2.2rem;
+
+  border-bottom: 2px solid #03c;
+}
+
+.contact {
+  color: #7a7a7a;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.12rem;
+  text-transform: uppercase;
+}
+
+.editProfile {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.editProfile img {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+.editProfile span {
+  color: #9b9b9b;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+}
+
+/* TOTAL BOX */
+.total {
+  width: 500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border: 1.5px solid #03c;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 1.8rem;
+}
+
+.total h1 {
+  font-size: 1.1rem;
+  color: #03c;
+  font-weight: 700;
+}
+
+.online {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+/* FORM */
+.paymentForm {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* LABELS */
+.paymentForm label {
+  color: #03c;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  margin-top: 1.2rem;
+}
+
+/* INPUTS */
+.paymentForm input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 1rem;
+  border: 1.5px solid #03c;
+  background: #f7f7fa;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+/* ROW (Expiry + CVV) */
+.row {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.field {
+  flex: 1;
+    margin-top: 2rem;
+}
+
+.paymentForm button {
+  margin-top: 2rem;
+}
+
+/* BUTTON */
+.online button {
+  width: 500px;
+  padding: 1.1rem;
+  background: #03c;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.online button:hover {
+  background: #002bb5;
+}

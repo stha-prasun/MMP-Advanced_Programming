@@ -8,18 +8,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/Payment.css" />
+  <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/OfflinePayment.css" />
 
 </head>
 <body>
 <jsp:include page="/WEB-INF/pages/Navbar.jsp" />
 
    <div class="user">
-      <h1>PAYMENT METHOD</h1>
+      <h1>OFFLINE PAYMENT</h1>
     </div>
 
     <div class="editPadding">
-      <div class="contact">How would you like to pay?</div>
+      <div class="contact">Cash on delivery</div>
       <button class="editProfile">
         <img src="<%= request.getContextPath() %>/Assets/User/back.png" alt="back" />
         <span>Back</span>
@@ -27,25 +27,23 @@
     </div>
 
 
-    <section class= "methods">
-    <div class="online">
-        <div class="left">
-            <img src="<%= request.getContextPath() %>/Assets/User/card.png" alt="back" />
+    <section class="offline">
+
+        <div class="circle">
+            <img src="<%= request.getContextPath() %>/Assets/User/cash.png" alt="cash" />
         </div>
-        <div class="right">
-            <h1>Online Payment</h1>
-            <p>Pay with Credit/Debit Card</p>
+
+        <div class="text">
+        <h1>Pay with Cash</h1>
+        <p>Our rider will collect the payment upon delivery.</p>
         </div>
-    </div>
-    <div class="offline">
-        <div class="left">
-            <img src="<%= request.getContextPath() %>/Assets/User/cash.png" alt="back" />
+
+        <div class="total">
+        <h1>Total:</h1>
+        <h1>rs.450.00</h1>
         </div>
-        <div class="right">
-            <h1>Offline Payment</h1>
-            <p>Pay with cash upon delivery or pickup</p>
-        </div>
-    </div>
+
+        <button>Confirm Order</button>
     </section>
 
 </body>

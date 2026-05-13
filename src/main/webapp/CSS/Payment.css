@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: #f7f7fa;
+}
+
+/* PAGE TITLE */
+
+.user {
+  margin-top: 9rem;
+  padding: 0 10.5rem;
+}
+
+.user h1 {
+  color: #03c;
+  font-size: 5.2rem;
+  font-weight: 900;
+  line-height: 90%;
+  letter-spacing: -0.32rem;
+}
+
+/* TOP SECTION */
+
+.editPadding {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 1.8rem 10.5rem 0 10.5rem;
+  padding-bottom: 2.2rem;
+
+  border-bottom: 2px solid #03c;
+}
+
+.contact {
+  color: #7a7a7a;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.12rem;
+  text-transform: uppercase;
+}
+
+.editProfile {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.editProfile img {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+.editProfile span {
+  color: #9b9b9b;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+}
+
+/* PAYMENT METHODS */
+
+.methods {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 4.8rem;
+}
+
+/* CARD */
+
+.online,
+.offline {
+  width: 37.5rem;
+  height: 8.3rem;
+
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+
+  padding: 0 2rem;
+
+  border: 1px solid #d9d9d9;
+}
+
+.offline {
+  border-top: none;
+}
+
+.left {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 2rem;
+}
+
+.left img {
+  width: 1.7rem;
+  height: 1.7rem;
+  object-fit: contain;
+
+}
+
+/* TEXT */
+
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.right h1 {
+    color: #03C;
+    font-family: Inter;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 2.25rem; /* 150% */
+    letter-spacing: -0.0375rem;
+}
+
+.right p {
+    color: #737373;
+    font-family: Inter;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5rem; /* 150% */
+}
+
+/* HOVER */
+.online:hover,
+.offline:hover {
+  background: #ffffff;
+  cursor: pointer;
+}

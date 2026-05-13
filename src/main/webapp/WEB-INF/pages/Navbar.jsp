@@ -28,7 +28,7 @@
                                 <div class="logo">MMP</div>
                                 <ul class="navLinks">
                                     <li>About us</li>
-                                    <li>Contact us</li>
+                                    <li>Newsletter</li>
                                     <li class="dropdown">Shop <img src="<%= request.getContextPath() %>/Assets/Home/down.png" alt="" /></li>
                                 </ul>
                             </div>
