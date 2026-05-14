@@ -66,7 +66,7 @@
                                         </a>
 
                                         <!-- Profile -->
-                                        <a href="${pageContext.request.contextPath}/Profile"
+                                        <a href="${pageContext.request.contextPath}/profile"
                                            class="favBtn">
 
                                             <c:choose>

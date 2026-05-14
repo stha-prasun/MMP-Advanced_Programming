@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
     <%@ taglib uri="jakarta.tags.core" prefix="c" %>
         <!DOCTYPE html>
         <html lang="en">
@@ -33,16 +33,16 @@
 
     <div class="editPadding">
       <div class="contact">Personal Profile and Contact</div>
-      <button class="editProfile">
+      <a href="<%= request.getContextPath() %>/profile/edit" class="editProfile">
         <img src="<%= request.getContextPath() %>/Assets/Profile/edit.png" alt="Edit" />
         <span>EDIT PROFILE</span>
-      </button>
+      </a>
     </div>
 
     <div class="profile">
       <div class="circle">
         <img
-          src="<%= request.getContextPath() %>/Assets/Profile/img.png"
+          src="${pageContext.request.contextPath}/${sessionScope.custProfileImg}"
           alt="User photo"
         />
       </div>
@@ -50,12 +50,12 @@
     <div class="text">
       <div class="textTop">
         <h6>FULL NAME</h6>
-        <h1>Apple Banana</h1>
+        <h1>${sessionScope.Name}</h1>
         </div>
 
       <div class="textBottom">
         <h6>EMAIL ADDRESS</h6>
-        <h3>rohanshresta612@gmail.com</h3>
+        <h3>${sessionScope.Email}</h3>
         </div>
       </div>
     </div>

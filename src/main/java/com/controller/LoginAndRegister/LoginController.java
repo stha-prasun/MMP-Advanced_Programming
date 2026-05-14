@@ -69,6 +69,7 @@ public class LoginController extends HttpServlet {
                         SessionUtil.setAttribute(request, "Email", Email);
                         CookieUtil.addCookie(response, "Email", Email, 10 * 30); //temp variable for now cause not finalized
                         SessionUtil.setAttribute(request, "custProfileImg", customer.getCustProfileImg());
+                        SessionUtil.setAttribute(request, "Name", customer.getCustName());
                         // Redirect after success
                         response.sendRedirect(request.getContextPath() + "/home");
                     } else {
