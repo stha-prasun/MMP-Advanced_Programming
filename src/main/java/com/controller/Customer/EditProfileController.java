@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import com.service.CustomerService;
 import com.util.CookieUtil;
 import com.util.ImageUtil;
+import com.util.SessionUtil;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
@@ -61,6 +62,11 @@ public class EditProfileController extends HttpServlet {
             throw new RuntimeException(e);
         }
 
+        SessionUtil.setAttribute(req, "Email", updatedCustEmail);
+        SessionUtil.setAttribute(req, "Name", custName);
+        SessionUtil.setAttribute(req, "custProfileImg", imgUrl);
+
+        CookieUtil.addCookie(resp, "Email", updatedCustEmail, 10 * 30);
         resp.sendRedirect(req.getContextPath() + "/profile");
     }
 }

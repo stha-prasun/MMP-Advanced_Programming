@@ -81,9 +81,9 @@ public class CustomerDAO {
         Connection con = DBconfig.getConnection();
 
         String sql = "UPDATE customer " +
-                "SET custProfileImg = ? " +
-                "SET custEmail = ? " +
-                "SET custName = ? " +
+                "SET custProfileImg = ?, " +
+                "custEmail = ?, " +
+                "custName = ? " +
                 "WHERE custEmail = ?";
 
         PreparedStatement pst = con.prepareStatement(sql);
