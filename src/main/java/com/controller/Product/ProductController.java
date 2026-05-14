@@ -20,14 +20,15 @@ public class ProductController extends HttpServlet {
 
         try {
             ProductService service = new ProductService();
-            List<Product> products = service.getAllProducts();
+            List<Product> products = service.getAvailableProducts();
 
-            request.setAttribute("productList", products);
+            request.setAttribute("products", products);
 
             request.getRequestDispatcher("/WEB-INF/pages/Products.jsp").forward(request, response);
 
         } catch (Exception e) {
             e.printStackTrace();
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Unable to load products");
         }
     }
 }

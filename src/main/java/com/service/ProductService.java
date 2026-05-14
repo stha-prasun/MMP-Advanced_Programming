@@ -33,4 +33,15 @@ public class ProductService {
         ProductDAO dao = new ProductDAO();
         dao.updateProductStatus(productId, "REJECTED");
     }
+
+
+    public List<Product> getAvailableProducts() throws Exception {
+        ProductDAO dao = new ProductDAO();
+        return dao.getAllApprovedUnsoldProducts();
+    }
+
+    public Product getAvailableProductById(Long id) throws Exception {
+        ProductDAO dao = new ProductDAO();
+        return dao.getApprovedUnsoldProductById(id);
+    }
 }

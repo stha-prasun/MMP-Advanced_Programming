@@ -57,131 +57,27 @@
 
 <section class="productSection">
 
-  <div class="productGrid">
-
-    <!-- CARD -->
-    <div class="productCard">
-      <div class="productImageWrapper">
-        <img src="<%= request.getContextPath() %>/Assets/Product/product1.png" class="productImage"/>
-        <button class="wishlistBtn">
-          <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" class="wishlistIcon"/>
-        </button>
-      </div>
-      <div class="productInfo">
-        <p class="productCategory">ELECTRONICS</p>
-        <h3 class="productName">MINIMALIST HEADPHONES</h3>
-        <p class="productPrice">$299</p>
-      </div>
-    </div>
-
-    <!-- CARD -->
-    <div class="productCard">
-      <div class="productImageWrapper">
-        <img src="<%= request.getContextPath() %>/Assets/Product/product2.png" class="productImage"/>
-        <button class="wishlistBtn">
-          <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" class="wishlistIcon"/>
-        </button>
-      </div>
-      <div class="productInfo">
-        <p class="productCategory">ELECTRONICS</p>
-        <h3 class="productName">MINIMALIST HEADPHONES</h3>
-        <p class="productPrice">$299</p>
-      </div>
-    </div>
-
-    <!-- CARD -->
-    <div class="productCard">
-      <div class="productImageWrapper">
-        <img src="<%= request.getContextPath() %>/Assets/Product/product3.png" class="productImage"/>
-        <button class="wishlistBtn">
-          <!-- FIXED LINE -->
-          <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" class="wishlistIcon"/>
-        </button>
-      </div>
-      <div class="productInfo">
-        <p class="productCategory">ELECTRONICS</p>
-        <h3 class="productName">MINIMALIST HEADPHONES</h3>
-        <p class="productPrice">$299</p>
-      </div>
-    </div>
-
-    <!-- CARD -->
-    <div class="productCard">
-      <div class="productImageWrapper">
-        <img src="<%= request.getContextPath() %>/Assets/Product/product4.png" class="productImage"/>
-        <button class="wishlistBtn">
-          <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" class="wishlistIcon"/>
-        </button>
-      </div>
-      <div class="productInfo">
-        <p class="productCategory">ELECTRONICS</p>
-        <h3 class="productName">MINIMALIST HEADPHONES</h3>
-        <p class="productPrice">$299</p>
-      </div>
-    </div>
-
-    <!-- CARD -->
-    <div class="productCard">
-      <div class="productImageWrapper">
-        <img src="<%= request.getContextPath() %>/Assets/Product/product5.png" class="productImage"/>
-        <button class="wishlistBtn">
-          <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" class="wishlistIcon"/>
-        </button>
-      </div>
-      <div class="productInfo">
-        <p class="productCategory">ELECTRONICS</p>
-        <h3 class="productName">MINIMALIST HEADPHONES</h3>
-        <p class="productPrice">$299</p>
-      </div>
-    </div>
-
-    <!-- CARD -->
-    <div class="productCard">
-      <div class="productImageWrapper">
-        <img src="<%= request.getContextPath() %>/Assets/Product/product6.png" class="productImage"/>
-        <button class="wishlistBtn">
-          <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" class="wishlistIcon"/>
-        </button>
-      </div>
-      <div class="productInfo">
-        <p class="productCategory">ELECTRONICS</p>
-        <h3 class="productName">MINIMALIST HEADPHONES</h3>
-        <p class="productPrice">$299</p>
-      </div>
-    </div>
-
-    <!-- CARD -->
-    <div class="productCard">
-      <div class="productImageWrapper">
-        <img src="<%= request.getContextPath() %>/Assets/Product/product7.png" class="productImage"/>
-        <button class="wishlistBtn">
-          <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" class="wishlistIcon"/>
-        </button>
-      </div>
-      <div class="productInfo">
-        <p class="productCategory">ELECTRONICS</p>
-        <h3 class="productName">MINIMALIST HEADPHONES</h3>
-        <p class="productPrice">$299</p>
-      </div>
-    </div>
-
-    <!-- CARD -->
-    <div class="productCard">
-      <div class="productImageWrapper">
-        <img src="<%= request.getContextPath() %>/Assets/Product/product8.png" class="productImage"/>
-        <button class="wishlistBtn">
-          <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" class="wishlistIcon"/>
-        </button>
-      </div>
-      <div class="productInfo">
-        <p class="productCategory">ELECTRONICS</p>
-        <h3 class="productName">MINIMALIST HEADPHONES</h3>
-        <p class="productPrice">$299</p>
-      </div>
-    </div>
-
-  </div>
-
+<div class="productGrid">
+    <c:forEach var="product" items="${products}">
+        <div class="productCard">
+            <a href="product/details?id=${product.productId}" style="text-decoration: none; color: inherit;">
+                <div class="productImageWrapper">
+                    <img src="<%= request.getContextPath() %>/${product.productImageUrl}"
+                         class="productImage"
+                         alt="${product.productName}"/>
+                    <button class="wishlistBtn">
+                        <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" class="wishlistIcon"/>
+                    </button>
+                </div>
+                <div class="productInfo">
+                    <p class="productCategory">${product.productCategory}</p>
+                    <h3 class="productName">${product.productName}</h3>
+                    <p class="productPrice">$${product.productPrice}</p>
+                </div>
+            </a>
+        </div>
+    </c:forEach>
+</div>
   <div class="shopMoreWrapper">
     <button class="shopMoreBtn">SHOP ALL PRODUCTS</button>
   </div>

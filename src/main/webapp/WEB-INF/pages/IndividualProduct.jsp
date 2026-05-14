@@ -15,30 +15,20 @@
 <jsp:include page="/WEB-INF/pages/Navbar.jsp" />
 
 <div class="productSection">
-
     <div class="leftProduct">
-        <img src="<%= request.getContextPath() %>/Assets/Product/product8.png" alt="product image"/>
+        <img src="<%= request.getContextPath() %>/${product.productImageUrl}"
+             alt="${product.productName}"/>
     </div>
-
     <div class="rightProduct">
-
-        <p>Electronics</p>
-
-        <h2>Minimalist Headphones</h2>
-
-        <h6>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-        </h6>
-
-        <h3><span>$</span>299</h3>
-
+        <p>${product.productCategory}</p>
+        <h2>${product.productName}</h2>
+        <h6>${product.productDescription}</h6>
+        <h3><span>$</span>${product.productPrice}</h3>
         <div class="buttons">
             <button class="addToCart">ADD TO CART</button>
             <button class="buyNow">BUY NOW</button>
         </div>
-
     </div>
-
 </div>
 
 </body>

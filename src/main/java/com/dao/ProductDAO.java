@@ -121,6 +121,7 @@ public class ProductDAO {
         return product;
     }
 
+
     public void updateProductStatus(Long productId, String status) throws Exception {
         Connection con = DBconfig.getConnection();
 
@@ -136,4 +137,75 @@ public class ProductDAO {
         pst.close();
         con.close();
     }
+
+    //Will be used in product page to get products that are approved by admin and arent sold
+    public List<Product> getAllApprovedUnsoldProducts() throws Exception {
+        List<Product> products = new ArrayList<>();
+        Connection con = DBconfig.getConnection();
+
+        String sql = "SELECT p.*, s.sellerName, s.sellerEmail " +
+                "FROM product p " +
+                "LEFT JOIN seller s ON p.sellerId = s.sellerId " +
+                "WHERE p.isApproved = TRUE AND p.productIsSold = FALSE " +
+                "ORDER BY p.postedAt DESC";
+
+        PreparedStatement pst = con.prepareStatement(sql);
+        ResultSet rs = pst.executeQuery();
+
+        while (rs.next()) {
+            Product p = new Product(
+                    rs.getLong("productId"),
+                    rs.getString("productName"),
+                    rs.getInt("productPrice"),
+                    rs.getString("productImageUrl"),
+                    rs.getBoolean("productIsSold"),
+                    rs.getString("categoryId"),
+                    rs.getTimestamp("postedAt").toLocalDateTime(),
+                    rs.getString("productDescription"),
+                    rs.getLong("sellerId"),
+                    rs.getString("sellerName")
+            );
+            products.add(p);
+        }
+
+        rs.close();
+        pst.close();
+        con.close();
+        return products;
+    }
+
+    public Product getApprovedUnsoldProductById(Long id) throws Exception {
+        Connection con = DBconfig.getConnection();
+
+        String sql = "SELECT p.*, s.sellerName, s.sellerEmail " +
+                "FROM product p " +
+                "LEFT JOIN seller s ON p.sellerId = s.sellerId " +
+                "WHERE p.productId = ? AND p.isApproved = TRUE AND p.productIsSold = FALSE";
+
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setLong(1, id);
+        ResultSet rs = pst.executeQuery();
+
+        Product product = null;
+        if (rs.next()) {
+            product = new Product(
+                    rs.getLong("productId"),
+                    rs.getString("productName"),
+                    rs.getInt("productPrice"),
+                    rs.getString("productImageUrl"),
+                    rs.getBoolean("productIsSold"),
+                    rs.getString("categoryId"),
+                    rs.getTimestamp("postedAt").toLocalDateTime(),
+                    rs.getString("productDescription"),
+                    rs.getLong("sellerId"),
+                    rs.getString("sellerName")
+            );
+        }
+
+        rs.close();
+        pst.close();
+        con.close();
+        return product;
+    }
+
 }
