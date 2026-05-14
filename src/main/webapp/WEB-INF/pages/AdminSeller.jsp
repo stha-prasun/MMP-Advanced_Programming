@@ -183,11 +183,7 @@
                                                 STATUS
                                             </span>
 
-                                            <span class="badge ${seller.sellerIsActive ? 'badgeActive' : 'badgeInactive'}">
-
-                                                ${seller.sellerIsActive ? 'Active' : 'Inactive'}
-
-                                            </span>
+                                            <span class="badge badgeActive">${cust.custIsActive ? 'Active' : 'InActive'}</span>
 
                                         </div>
 
