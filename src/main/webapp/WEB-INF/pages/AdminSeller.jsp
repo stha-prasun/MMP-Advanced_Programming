@@ -32,29 +32,32 @@
 
             <nav class="nav">
 
-                <a href="<%= request.getContextPath() %>/admin/users"
-                   class="navItem">
-                    <div class="navIcon">
-                        <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/user.png" />
-                    </div>
-                    USERS
-                </a>
+              <a href="<%= request.getContextPath() %>/admin/customer" class="navItem">
+                <div class="navIcon">
+                  <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/user.png" />
+                </div>
+                USERS
+              </a>
 
-                <a href="<%= request.getContextPath() %>/admin/seller"
-                   class="navItem active">
-                    <div class="navIcon">
-                        <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/user.png" />
-                    </div>
-                    SELLERS
-                </a>
+              <a href="<%= request.getContextPath() %>/admin/seller" class="navItem active">
+                <div class="navIcon">
+                  <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/user.png" />
+                </div>
+                SELLERS
+              </a>
 
-                <a href="<%= request.getContextPath() %>/admin/product"
-                   class="navItem">
-                    <div class="navIcon">
-                        <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/products.png" />
-                    </div>
-                    PRODUCTS
-                </a>
+              <a href="<%= request.getContextPath() %>/admin/product" class="navItem">
+                <div class="navIcon">
+                  <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/products.png" />
+                </div>
+                PRODUCTS
+              </a>
+              <a href="<%= request.getContextPath() %>/admin/category" class="navItem">
+                <div class="navIcon">
+                  <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/category.png" alt="User Avatar" />
+                </div>
+                CATEGORIES
+              </a>
 
             </nav>
 

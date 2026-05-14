@@ -13,8 +13,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet("/admin/users")
-public class AdminUsersController extends HttpServlet {
+@WebServlet("/admin/customer")
+public class AdminCustomerController extends HttpServlet {
     @Override
     //in this doGet method all the customers that are registered in the system will be displayed
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -27,7 +27,7 @@ public class AdminUsersController extends HttpServlet {
             //setting request scope for EL access
             request.setAttribute("customers", customerList);
             //redirection
-            request.getRequestDispatcher("/WEB-INF/pages/AdminUsers.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/pages/AdminCustomer.jsp").forward(request, response);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -46,7 +46,7 @@ public class AdminUsersController extends HttpServlet {
 
             request.setAttribute("error", "Customer ID is required");
 
-            request.getRequestDispatcher("/WEB-INF/pages/AdminUsers.jsp")
+            request.getRequestDispatcher("/WEB-INF/pages/AdminCustomer.jsp")
                     .forward(request, response);
 
             return;
@@ -64,13 +64,13 @@ public class AdminUsersController extends HttpServlet {
 
             if (updated) {
 
-                response.sendRedirect(request.getContextPath() + "/admin/users");
+                response.sendRedirect(request.getContextPath() + "/admin/customer");
 
             } else {
 
                 request.setAttribute("error", "Customer not found");
 
-                request.getRequestDispatcher("/WEB-INF/pages/AdminUsers.jsp")
+                request.getRequestDispatcher("/WEB-INF/pages/AdminCustomer.jsp")
                         .forward(request, response);
             }
 
@@ -78,7 +78,7 @@ public class AdminUsersController extends HttpServlet {
 
             request.setAttribute("error", "Invalid customer ID");
 
-            request.getRequestDispatcher("/WEB-INF/pages/AdminUsers.jsp")
+            request.getRequestDispatcher("/WEB-INF/pages/AdminCustomer.jsp")
                     .forward(request, response);
 
         } catch (SQLException e) {

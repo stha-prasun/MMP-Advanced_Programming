@@ -22,7 +22,7 @@
     <div class="bodyLayout">
         <aside class="sidebar">
             <nav class="nav">
-                <a href="<%= request.getContextPath() %>/admin/users" class="navItem">
+                <a href="<%= request.getContextPath() %>/admin/customer" class="navItem">
                     <div class="navIcon">
                         <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/user.png" alt="Users" />
                     </div>

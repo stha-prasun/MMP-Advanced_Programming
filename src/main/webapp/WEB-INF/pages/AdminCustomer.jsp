@@ -24,12 +24,19 @@
                     <!-- Sidebar -->
                     <aside class="sidebar">
                         <nav class="nav">
-                            <a href="<%= request.getContextPath() %>/admin/users" class="navItem active">
+                            <a href="<%= request.getContextPath() %>/admin/customer" class="navItem active">
                                 <div class="navIcon">
                                     <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/user.png"
                                         alt="User Avatar" />
                                 </div>
-                                USERS
+                                CUSTOMERS
+                            </a>
+                            <a href="<%= request.getContextPath() %>/admin/seller" class="navItem">
+                                <div class="navIcon">
+                                    <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/user.png"
+                                        alt="User Avatar" />
+                                </div>
+                                SELLERS
                             </a>
                             <a href="<%= request.getContextPath() %>/admin/product" class="navItem">
                                 <div class="navIcon">
@@ -119,7 +126,7 @@
                                                     <c:when test="${cust.custIsActive}">
                                                         <div class="userCardActions">
 
-                                                            <form action="<%= request.getContextPath() %>/admin/users" method="post">
+                                                            <form action="<%= request.getContextPath() %>/admin/customer" method="post">
                                                                 <input type="hidden" name="customerId" value="${cust.customerId}" />
                                                                 <input type="hidden" name="status" value="false" />
 
@@ -134,7 +141,7 @@
                                                     <c:otherwise>
                                                         <div class="userCardActions">
 
-                                                            <form action="<%= request.getContextPath() %>/admin/users" method="post">
+                                                            <form action="<%= request.getContextPath() %>/admin/customer" method="post">
                                                                 <input type="hidden" name="customerId" value="${cust.customerId}" />
                                                                 <input type="hidden" name="status" value="true" />
 

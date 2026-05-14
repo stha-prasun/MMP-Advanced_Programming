@@ -21,10 +21,16 @@
 
         <aside class="sidebar">
             <nav class="nav">
-                <a href="<%= request.getContextPath() %>/admin/users" class="navItem">
+                <a href="<%= request.getContextPath() %>/admin/customer" class="navItem">
                     <img class="navIcon" src="<%= request.getContextPath() %>/Assets/Admin Dashboard/user.png"
                         alt="Users" />
-                    USERS
+                    CUSTOMER
+                </a>
+                <a href="<%= request.getContextPath() %>/admin/seller" class="navItem">
+
+                    <img class="navIcon" src="<%= request.getContextPath() %>/Assets/Admin Dashboard/user.png" />
+
+                     SELLERS
                 </a>
                 <a href="<%= request.getContextPath() %>/admin/product" class="navItem">
                     <img class="navIcon" src="<%= request.getContextPath() %>/Assets/Admin Dashboard/products.png"
@@ -54,7 +60,7 @@
                         <h2 class="indexName">Customer</h2>
                         <p class="indexDesc">Manage accounts and status.</p>
                     </div>
-                    <a href="<%= request.getContextPath() %>/admin/users" class="indexArrow"
+                    <a href="<%= request.getContextPath() %>/admin/customer" class="indexArrow"
                         aria-label="Go to Users">
                         <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/right arrow.png"
                             alt="Arrow" />
