@@ -211,7 +211,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
-  max-width: 28rem;
+  max-width: 40rem;
   margin: 0 auto;
   cursor: pointer;
 }
@@ -370,7 +370,7 @@ body {
 
 /* ── Order Details ── */
 .order-details {
-  max-width: 28rem;
+  max-width: 40rem;
   margin: 0 auto;
   overflow: hidden;
   transition: all 0.25s ease;
