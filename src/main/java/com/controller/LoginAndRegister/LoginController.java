@@ -3,6 +3,7 @@ package com.controller.LoginAndRegister;
 import java.io.IOException;
 
 
+import com.model.Customer;
 import com.model.Seller;
 import com.service.LoginService;
 import com.util.CookieUtil;
@@ -50,14 +51,24 @@ public class LoginController extends HttpServlet {
 
                 // Calling Customer Login Service
                 LoginService ls = new LoginService();
-                boolean success= false;
+            if("Customer".equals(Role)) {
 
-                if("Customer".equals(Role)) {
-                    success = ls.login(Email,Password);
+                Customer customer = ls.login(Email, Password);
 
-                    if (success) {
+                if (customer != null) {
+
+                    if (!customer.getCustIsActive()) {
+
+                        request.setAttribute("error", "Your account has been deactivated.");
+
+                        request.getRequestDispatcher("/WEB-INF/pages/Login.jsp").forward(request, response);
+
+                        return;
+                    }
+
                         SessionUtil.setAttribute(request, "Email", Email);
                         CookieUtil.addCookie(response, "Email", Email, 10 * 30); //temp variable for now cause not finalized
+                        SessionUtil.setAttribute(request, "custProfileImg", customer.getCustProfileImg());
                         // Redirect after success
                         response.sendRedirect(request.getContextPath() + "/home");
                     } else {
@@ -69,6 +80,14 @@ public class LoginController extends HttpServlet {
                     Seller seller = ls.sellerLogin(Email, Password);
 
                     if (seller != null) {
+                        if (!seller.getSellerIsActive()) {
+
+                            request.setAttribute("error", "Your seller account has been deactivated.");
+
+                            request.getRequestDispatcher("/WEB-INF/pages/Login.jsp").forward(request, response);
+
+                            return;
+                        }
                         SessionUtil.setAttribute(request, "Email", Email);
                         SessionUtil.setAttribute(request, "sellerId", seller.getSellerId());
                         SessionUtil.setAttribute(request, "sellerName", seller.getSellerName());

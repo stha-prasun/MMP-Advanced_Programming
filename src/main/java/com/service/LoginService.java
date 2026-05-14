@@ -9,18 +9,10 @@ import com.model.Seller;
 
 //logic flow, sends emails pass to the customer dao, checks if customer returned/ exists or not then returns a boolean val to indicate login in or no
 public class LoginService {
-    public boolean login(String useremail, String custPassword) throws Exception {
+    public Customer login(String useremail, String custPassword) throws Exception {
 
         CustomerDAO custdao = new CustomerDAO();
-        Customer cust = custdao.getCustomer(useremail, custPassword);
-        if (cust.getCustIsActive()==false){
-            return false;
-        }
-        if (cust == null) {
-            return false;
-        }
-        return true;
-
+        return custdao.getCustomer(useremail, custPassword);
 
     }
 
@@ -39,11 +31,8 @@ public class LoginService {
     public Seller sellerLogin(String email, String password) throws Exception {
 
         SellerDAO sellerdao = new SellerDAO();
-        Seller seller = sellerdao.getSeller(email, password);
-        return seller; //will return null if there is no seller available
-
+        return sellerdao.getSeller(email, password);
 
     }
-
 
 }
