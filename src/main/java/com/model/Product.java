@@ -18,13 +18,13 @@ public class Product {
     private String sellerName;
     private String sellerEmail;
 
-    public Product(Long productId, String productName, int productPrice, String productImageUrl, boolean productIsSold, String productCategory, LocalDateTime postedAt, String productDescription) {
+    public Product(Long productId, String productName, int productPrice, String productImageUrl, boolean productIsSold, LocalDateTime postedAt, String productDescription) {
         this.productId = productId;
         this.productName = productName;
         this.productPrice = productPrice;
         this.productImageUrl = productImageUrl;
         this.productIsSold = productIsSold;
-        this.productCategory = productCategory;
+        //this.productCategory = productCategory;
         this.postedAt = postedAt;
         this.productDescription = productDescription;
     }
