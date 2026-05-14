@@ -42,7 +42,7 @@ public class AdminLoginController extends HttpServlet {
                 CookieUtil.addCookie(response, "Email", adminMail, 5*30);
                 CookieUtil.addCookie(response, "Role", "Admin", 5*30);
                 // Redirect after success
-                response.sendRedirect(request.getContextPath() + "/home");
+                response.sendRedirect(request.getContextPath() + "/admin/dashboard");
             }
             else{
                 request.setAttribute("error", "Please enter the correct email or password!!!");

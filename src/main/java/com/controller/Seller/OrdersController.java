@@ -26,6 +26,9 @@ public class OrdersController extends HttpServlet {
         if (cookie!=null){
             sellerEmail=cookie.getValue();
         }
+        else{
+            System.out.println("Cookie not there");
+        }
 
         try{
             OrderService orderService = new OrderService();

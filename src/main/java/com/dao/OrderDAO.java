@@ -70,7 +70,7 @@ public class OrderDAO {
                     orderrs.getLong("productId"),
                     orderrs.getString("productName"),
                     orderrs.getInt("productPrice"),
-                    orderrs.getString("productImageIrl"),
+                    orderrs.getString("productImageUrl"),
                     orderrs.getBoolean("productIsSold"),
                     orderrs.getTimestamp("postedAt").toLocalDateTime(),
                     orderrs.getString("productDescription")

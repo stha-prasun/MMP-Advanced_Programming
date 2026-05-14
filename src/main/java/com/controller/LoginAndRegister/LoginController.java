@@ -75,7 +75,7 @@ public class LoginController extends HttpServlet {
                         SessionUtil.setAttribute(request, "userRole", "seller");
 
                         CookieUtil.addCookie(response, "Email", Email, 5 * 30);
-                        response.sendRedirect(request.getContextPath() + "/home");
+                        response.sendRedirect(request.getContextPath() + "/seller/dashboard");
                     } else {
                         request.setAttribute("error", "Please enter the correct email or password!!!");
                         request.getRequestDispatcher("/WEB-INF/pages/Login.jsp").forward(request, response);
