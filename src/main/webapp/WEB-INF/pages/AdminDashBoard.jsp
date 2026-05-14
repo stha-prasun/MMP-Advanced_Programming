@@ -51,14 +51,29 @@
                 <li class="indexItem">
                     <span class="indexNum">01</span>
                     <div class="indexContent">
-                        <h2 class="indexName">USERS</h2>
-                        <p class="indexDesc">Manage accounts, roles, and status.</p>
+                        <h2 class="indexName">Customer</h2>
+                        <p class="indexDesc">Manage accounts and status.</p>
                     </div>
                     <a href="<%= request.getContextPath() %>/admin/users" class="indexArrow"
                         aria-label="Go to Users">
                         <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/right arrow.png"
                             alt="Arrow" />
                     </a>
+                </li>
+
+                <div class="divider"></div>
+
+                <li class="indexItem">
+                   <span class="indexNum">02</span>
+                     <div class="indexContent">
+                       <h2 class="indexName">Seller</h2>
+                       <p class="indexDesc">Manage accounts and status.</p>
+                     </div>
+                        <a href="<%= request.getContextPath() %>/admin/seller" class="indexArrow"
+                            aria-label="Go to Users">
+                              <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/right arrow.png"
+                                alt="Arrow" />
+                        </a>
                 </li>
 
                 <div class="divider"></div>
