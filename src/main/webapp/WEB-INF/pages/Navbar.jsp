@@ -39,31 +39,78 @@
                                     <button class="searchBtn">Search</button>
                                 </div>
                                 <c:choose>
+
+                                    <%-- LOGGED IN --%>
                                     <c:when test="${not empty sessionScope.Email}">
-                                        <!--Logged in-->
-                                        <a href="${pageContext.request.contextPath}/favourites" href class="favBtn">
-                                            <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" alt="favourites" />
-                                        </a>
-                                        <a href="${pageContext.request.contextPath}/favourites" href class="favBtn">
-                                            <img src="<%= request.getContextPath() %>/Assets/User/cartActive.png" alt="cart" />
+
+                                        <!-- Favourite -->
+                                        <a href="${pageContext.request.contextPath}/favourites"
+                                           class="favBtn">
+
+                                            <img
+                                                src="${pageContext.request.contextPath}/Assets/Home/fav.png"
+                                                alt="favourites"
+                                            />
+
                                         </a>
 
-                                        <a href="${pageContext.request.contextPath}/Profile" href class="favBtn">
-                                            <img src="<%= request.getContextPath() %>/Assets/User/Rohan.png" alt="profile" />
+                                        <!-- Cart -->
+                                        <a href="${pageContext.request.contextPath}/cart"
+                                           class="favBtn">
+
+                                            <img
+                                                src="${pageContext.request.contextPath}/Assets/User/cartActive.png"
+                                                alt="cart"
+                                            />
+
                                         </a>
+
+                                        <!-- Profile -->
+                                        <a href="${pageContext.request.contextPath}/Profile"
+                                           class="favBtn">
+
+                                            <c:choose>
+
+                                                <%-- IF PROFILE IMAGE EXISTS --%>
+                                                <c:when test="${not empty sessionScope.custProfileImg}">
+
+                                                    <img
+                                                        src="${pageContext.request.contextPath}/${sessionScope.custProfileImg}"
+                                                        alt="profile"
+                                                        class="profileImg"
+                                                    />
+
+                                                </c:when>
+
+                                                <%-- DEFAULT IMAGE --%>
+                                                <c:otherwise>
+
+                                                    <img
+                                                        src="${pageContext.request.contextPath}/Assets/User/defaultUser.png"
+                                                        alt="profile"
+                                                        class="profileImg"
+                                                    />
+
+                                                </c:otherwise>
+
+                                            </c:choose>
+
+                                        </a>
+
                                     </c:when>
-                                    <c:otherwise>
-                                        <!--Not Logged in-->
-                                        <a href="${pageContext.request.contextPath}/favourites" href class="favBtn">
-                                            <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" alt="favourites" />
-                                        </a>
-                                        <a href="${pageContext.request.contextPath}/favourites" href class="favBtn">
-                                            <img src="<%= request.getContextPath() %>/Assets/User/cartActive.png" alt="cart" />
-                                        </a>
 
-                                        <a href="${pageContext.request.contextPath}/customer/login" class="ctaNavbar">Sign up</a>
+                                    <%-- NOT LOGGED IN --%>
+                                    <c:otherwise>
+
+                                        <a href="${pageContext.request.contextPath}/customer/login"
+                                           class="ctaNavbar">
+
+                                            Sign up
+
+                                        </a>
 
                                     </c:otherwise>
+
                                 </c:choose>
 
                             </div>
