@@ -79,7 +79,7 @@
                 <div class="divider"></div>
 
                 <li class="indexItem">
-                    <span class="indexNum">02</span>
+                    <span class="indexNum">03</span>
                     <div class="indexContent">
                         <h2 class="indexName">PRODUCTS</h2>
                         <p class="indexDesc">Review, approve, and filter listings.</p>
@@ -94,7 +94,7 @@
                 <div class="divider"></div>
 
                 <li class="indexItem">
-                    <span class="indexNum">03</span>
+                    <span class="indexNum">04</span>
                     <div class="indexContent">
                         <h2 class="indexName">CATEGORIES</h2>
                         <p class="indexDesc">Organize the platform taxonomy.</p>
