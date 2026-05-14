@@ -105,8 +105,14 @@
 
                     <c:when test="${empty sellers}">
 
-                        <div class="emptyState">
-                            <p>No SELLERS found.</p>
+                        <div class="usersCenteredContainer">
+                           <section class="emptyState">
+                                <img src="<%= request.getContextPath() %>/Assets/User/peeps.png" alt="profile" />
+                                <h1 class="emptyText">
+                                    No Sellers <br>
+                                    <span>yet</span>
+                                </h1>
+                           </section>
                         </div>
 
                     </c:when>

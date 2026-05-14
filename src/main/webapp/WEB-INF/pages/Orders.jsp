@@ -15,6 +15,7 @@
           href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
           rel="stylesheet" />
         <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/Orders.css" />
+         <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/AndminEmptyState.css" />
       </head>
 
       <body>
@@ -86,9 +87,16 @@
             <!-- Orders List -->
             <c:choose>
               <c:when test="${empty orderList}">
-                <div class="emptyState">
-                  <p>No Orders found.</p>
-                </div>
+                <div class="usersCenteredContainer">
+                              <!-- Page Header -->
+                              <section class="emptyState">
+                                <img src="<%= request.getContextPath() %>/Assets/User/peeps.png" alt="profile" />
+                                <h1 class="emptyText">
+                                  No Orders <br>
+                                  <span>yet</span>
+                                </h1>
+                              </section>
+                            </div>
               </c:when>
               <c:otherwise>
 

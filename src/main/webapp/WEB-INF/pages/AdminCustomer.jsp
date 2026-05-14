@@ -83,9 +83,16 @@
                             <!-- User Cards -->
                             <c:choose>
                                 <c:when test="${empty customers}">
-                                    <div class="emptyState">
-                                        <p>No CUSTOMERS found.</p>
-                                    </div>
+                                  <div class="usersCenteredContainer">
+                                    <!-- Page Header -->
+                                    <section class="emptyState">
+                                      <img src="<%= request.getContextPath() %>/Assets/User/peeps.png" alt="profile" />
+                                      <h1 class="emptyText">
+                                        No Customers <br>
+                                        <span>yet</span>
+                                      </h1>
+                                    </section>
+                                  </div>
                                 </c:when>
                                 <c:otherwise>
                                     <ul class="userList">

@@ -71,9 +71,16 @@
 
                 <c:choose>
                     <c:when test="${empty productList}">
-                        <div class="emptyState">
-                            <p>No products found.</p>
-                        </div>
+                        <div class="usersCenteredContainer">
+                                                            <!-- Page Header -->
+                                                            <section class="emptyState">
+                                                              <img src="<%= request.getContextPath() %>/Assets/User/peeps.png" alt="profile" />
+                                                              <h1 class="emptyText">
+                                                                No Customers <br>
+                                                                <span>yet</span>
+                                                              </h1>
+                                                            </section>
+                                                          </div>
                     </c:when>
                     <c:otherwise>
                         <!-- Product Cards -->
