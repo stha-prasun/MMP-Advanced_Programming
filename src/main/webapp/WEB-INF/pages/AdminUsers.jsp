@@ -115,15 +115,34 @@
                                                     </div>
                                                 </div>
                                                 <c:choose>
+
                                                     <c:when test="${cust.custIsActive}">
                                                         <div class="userCardActions">
-                                                            <button type="submit" class="btnSubmit">Deactivate</button>
+
+                                                            <form action="<%= request.getContextPath() %>/admin/users" method="post">
+                                                                <input type="hidden" name="customerId" value="${cust.customerId}" />
+                                                                <input type="hidden" name="status" value="false" />
+
+                                                                <button type="submit" class="btnSubmit">
+                                                                    Deactivate
+                                                                </button>
+                                                            </form>
+
                                                         </div>
                                                     </c:when>
 
                                                     <c:otherwise>
                                                         <div class="userCardActions">
-                                                            <button type="submit" class="btnSubmit">Activate</button>
+
+                                                            <form action="<%= request.getContextPath() %>/admin/users" method="post">
+                                                                <input type="hidden" name="customerId" value="${cust.customerId}" />
+                                                                <input type="hidden" name="status" value="true" />
+
+                                                                <button type="submit" class="btnSubmit">
+                                                                    Activate
+                                                                </button>
+                                                            </form>
+
                                                         </div>
                                                     </c:otherwise>
 

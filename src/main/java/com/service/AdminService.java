@@ -2,8 +2,11 @@ package com.service;
 
 
 import com.dao.AdminDAO;
+import com.dao.SellerDAO;
+import com.model.Seller;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class AdminService {
     public boolean updateCustomer(boolean custIsActive, Long id)
@@ -28,5 +31,10 @@ public class AdminService {
         System.out.println("SERVICE CALLED");
 
         return result;
+    }
+
+    public List<Seller> getAllSellers() throws Exception {
+        SellerDAO dao = new SellerDAO();
+        return dao.getAllSellers();
     }
 }

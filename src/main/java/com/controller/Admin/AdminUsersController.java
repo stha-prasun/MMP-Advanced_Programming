@@ -39,26 +39,37 @@ public class AdminUsersController extends HttpServlet {
             throws ServletException, IOException {
 
         String idParam = request.getParameter("customerId");
+        String statusParam = request.getParameter("status");
 
         // Validation
         if (idParam == null || idParam.trim().isEmpty()) {
+
             request.setAttribute("error", "Customer ID is required");
+
             request.getRequestDispatcher("/WEB-INF/pages/AdminUsers.jsp")
                     .forward(request, response);
+
             return;
         }
 
         try {
+
             Long id = Long.parseLong(idParam);
+
+            boolean status = Boolean.parseBoolean(statusParam);
 
             AdminService service = new AdminService();
 
-            boolean updated = service.updateCustomer(false, id);
+            boolean updated = service.updateCustomer(status, id);
 
             if (updated) {
+
                 response.sendRedirect(request.getContextPath() + "/admin/users");
+
             } else {
+
                 request.setAttribute("error", "Customer not found");
+
                 request.getRequestDispatcher("/WEB-INF/pages/AdminUsers.jsp")
                         .forward(request, response);
             }
@@ -66,10 +77,12 @@ public class AdminUsersController extends HttpServlet {
         } catch (NumberFormatException e) {
 
             request.setAttribute("error", "Invalid customer ID");
+
             request.getRequestDispatcher("/WEB-INF/pages/AdminUsers.jsp")
                     .forward(request, response);
 
         } catch (SQLException e) {
+
             throw new RuntimeException(e);
         }
     }

@@ -12,13 +12,13 @@ public class Seller {
     private boolean sellerIsActive;
     private String verificationId;
 
-    public Seller(Long sellerId, String sellerEmail, String sellerPassword, String sellName, String sellerLocation, boolean isActive, String verificationId) {
+    public Seller(Long sellerId, String sellerName, String sellerEmail, String sellerPassword, String sellerLocation, boolean sellerIsActive, String verificationId) {
         this.sellerId = sellerId;
+        this.sellerName = sellerName;
         this.sellerEmail = sellerEmail;
         this.sellerPassword = sellerPassword;
-        this.sellerName = sellName;
         this.sellerLocation = sellerLocation;
-        this.sellerIsActive = isActive;
+        this.sellerIsActive = sellerIsActive;
         this.verificationId = verificationId;
     }
 

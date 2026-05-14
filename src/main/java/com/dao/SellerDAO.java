@@ -1,6 +1,5 @@
 package com.dao;
 
-import com.model.Customer;
 import com.model.Seller;
 import com.util.DBconfig;
 import com.util.PasswordUtil;
@@ -9,6 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SellerDAO {
     public void insertSeller(String sellerEmail, String sellerPassword, String sellerName,
@@ -75,6 +76,30 @@ public class SellerDAO {
         pst.close();
         con.close();
         return seller;
+    }
+
+    public List<Seller> getAllSellers() throws Exception {
+        Connection con = DBconfig.getConnection();
+        List<Seller> sellerList = new ArrayList<>();
+        String sql="SELECT * FROM seller";
+        PreparedStatement pst = con.prepareStatement(sql);
+        ResultSet rs = pst.executeQuery();
+        while (rs.next()) {
+            Seller seller = new Seller(
+                    rs.getLong("sellerId"),
+                    rs.getString("sellerName"),
+                    rs.getString("sellerEmail"),
+                    rs.getString("sellerPassword"),
+                    rs.getString("sellerLocation"),
+                    rs.getBoolean("sellerIsActive"),
+                    rs.getString("sellerVerificationId")
+            );
+            sellerList.add(seller);
+        }
+        rs.close();
+        pst.close();
+        con.close();
+        return sellerList;
     }
 
 }
