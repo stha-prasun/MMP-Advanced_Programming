@@ -17,15 +17,22 @@
 
   <body>
 
-    <nav class="navbar">
-      <div class= "navLinks">
-      <div class="logo">MMP</div>
-        <button class="navbarLogout">
-          <span>Logout</span>
-          <img src="<%= request.getContextPath() %>/Assets/Profile/logout.png" alt="Logout" />
-        </button>
-      </div>
-    </nav>
+<nav class="navbar">
+  <div class="navLinks">
+
+    <form action="<%= request.getContextPath() %>/home" method="GET" style="display:inline;">
+      <button type="submit" class="logo">MMP</button>
+    </form>
+
+    <form action="<%= request.getContextPath() %>/logout" method="POST" style="display:inline;">
+      <button type="submit" class="navbarLogout">
+        <span>Logout</span>
+        <img src="<%= request.getContextPath() %>/Assets/Profile/logout.png" alt="Logout" />
+      </button>
+    </form>
+
+  </div>
+</nav>
 
     <div class="user">
       <h1>HELLO USER!</h1>

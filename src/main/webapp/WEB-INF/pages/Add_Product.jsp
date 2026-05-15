@@ -175,7 +175,19 @@
             accept="image/*"
           />
 
+          <img
+            class="upload-icon"
+            src="<%= request.getContextPath() %>/Assets/Seller Product/upload.png"
+            alt="upload"
+          />
 
+          <span class="upload-title">
+            Upload High-Resolution Imagery
+          </span>
+
+          <span class="upload-hint">
+            DRAG & DROP FILES HERE OR CLICK TO BROWSE. STRICT ASPECT RATIOS REQUIRED.
+          </span>
         </label>
 
           <!-- Footer Actions -->
