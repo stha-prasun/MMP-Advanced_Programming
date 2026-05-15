@@ -7,234 +7,140 @@
 
 body {
   background: white;
+  color: #111;
+  overflow-x: hidden;
 }
 
 /* HERO SECTION */
 .heroSection {
-  min-height: 100vh;
-  border-bottom: 0.667px solid rgba(0, 0, 0, 0.10);
-}
-
-
-/* HERO CONTENT */
-.heroContent {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 11.25rem 0 0;
-  padding: 12vh 0 16vh 0;
-}
-
-/* HERO LEFT */
-.heroLeft {
-  max-width: 35vw;
-  min-width: 280px;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  padding-left: 10rem;
-
-}
-
-.heroTitle {
-  color: #0A0A0A;
-  font-family: Inter;
-  font-size: 3.75rem;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: -0.025em;
-  text-transform: uppercase;
-  font-family: "Instrument Serif";
-  font-weight: 400;
-  font-style: normal;
-}
-
-.heroSubtitle {
-  color: rgba(0, 0, 0, 0.70);
-  font-size: clamp(0.875rem, 1vw, 1rem);
-  font-weight: 400;
-  line-height: 1.75rem;
-}
-
-.cta {
-  background: #03c;
-  color: white;
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  font-size: 0.8125rem;
-  font-weight: normal;
-  letter-spacing: 0.02em;
-  width: fit-content;
-}
-
-
-/* HERO RIGHT */
-.heroRight {
-  flex: 1;
-  display: flex;
-    justify-content: flex-end;
-    padding: 2rem;
-}
-
-.heroRight img {
-  object-fit: cover;
-  border-radius: 0.5rem;
-  width: 48.25rem;
-  height: 48.3125rem;
-
-}
-
-
-
-
-.product {
-  margin: 80px 40px 0px 40px;
-}
-
-.productWrapper {
-  display: flex;
-  gap: 2.5rem;
-  align-items: flex-start;
-}
-
-.productLeft {
-  width: 220px;
-  flex-shrink: 0;
-}
-
-.categories {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.875rem;
-}
-
-.productRight {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-.categoriesHead {
-  border-bottom: 0.667px solid rgba(0, 0, 0, 0.10);
-  width: 100%;
-  padding-bottom: 0.75rem;
-  margin-bottom: 0.25rem;
-}
-
-.filterBtn,
-.clearBtn {
-  width: 100%;
-}
-
-.categories h3 {
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 1.25rem;
-  letter-spacing: 0.02188rem;
-  text-transform: uppercase;
-}
-
-.categories label {
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.25rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  cursor: pointer;
-}
-
-.categories input[type="checkbox"] {
-  width: 1.125rem;
-  height: 1.125rem;
-  border: 1.5px solid #ccc;
-  border-radius: 3px;
-  cursor: pointer;
-  accent-color: #03C;
-  flex-shrink: 0;
-}
-
-
-.filterBtn {
-  background: #03C;
-  color: white;
-  border: none;
-  height: 2.25rem;
-  width: 100%;
-  padding: 0.625rem 1.125rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 0.8125rem;
-  white-space: nowrap;
-  margin-top: 0.5rem;
-}
-
-.clearBtn {
-  border: 1px solid #03C;
-  color: #03c;
-  background: #fff;
-  height: 2.25rem;
-  width: 100%;
-  padding: 0.625rem 1.125rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 0.8125rem;
-}
-
-.productRight h1{
-  font-size: 1.879rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 2.25rem;
-  letter-spacing: -0.04688rem;
-  text-transform: uppercase;
-  margin-bottom: 40px;
-}
-
-
-.productGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.1rem;
-}
-
-.productCard {
-  border: 0.667px solid rgba(0, 0, 0, 0.12);
-  border-radius: 0.5rem;
-  overflow: hidden;
-  cursor: pointer;
-  background: #fff;
-  transition: box-shadow 0.2s;
-}
-
-
-.cardImageWrapper {
   position: relative;
-  width: 100%;
-  aspect-ratio: 1 / 1;
+  height: 90vh;
   overflow: hidden;
 }
 
-.cardImageWrapper img {
+.heroCarousel {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.heroSlide {
+  position: absolute;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: none;
+}
+
+.heroSlide.active {
   display: block;
 }
 
-.cardFav {
+.heroContainer {
+  position: relative;
+  z-index: 2;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 7rem 2rem 4rem;
+  color: #fff;
+}
+
+.heroContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+.heroLeft {
+  margin: 14rem 0 0 1rem;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.heroTitle {
+  color: #03C;
+  font-size: 3.75rem;
+  font-weight: 500;
+  line-height: 3.75rem;
+  letter-spacing: -0.09375rem;
+  text-transform: uppercase;
+}
+
+.heroDescription {
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1.8;
+  max-width: 340px;
+}
+
+.heroButton {
+  display: flex;
+  padding: 1rem 2.0625rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  background: #03C;
+  color: #FFF;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  border: none;
+  max-width: 148px;
+}
+
+
+/* PRODUCT SECTION*/
+.productSection {
+  margin: 1rem 2.5rem 2.5rem 2.5rem;
+}
+
+.productSection {
+color: #03C;
+font-family: Inter;
+font-size: 1rem;
+font-style: normal;
+font-weight: 700;
+line-height: 2.25rem; /* 120% */
+letter-spacing: -0.04688rem;
+text-transform: uppercase;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.productCard {
+  border: 1px solid #ECECEC;
+  background: #fff;
+  overflow: hidden;
+}
+
+.productImageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+}
+
+.productImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wishlistBtn {
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
+  top: 0.75rem;
+  right: 0.75rem;
   width: 2rem;
   height: 2rem;
+  border: none;
   border-radius: 50%;
-  border: 1px solid rgba(0,0,0,0.1);
   background: #fff;
   display: flex;
   align-items: center;
@@ -242,67 +148,100 @@ body {
   cursor: pointer;
 }
 
-.cardFav img {
-width: 1.375rem;
-height: 1.375rem;
-aspect-ratio: 1/1;
+.wishlistIcon {
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
-.cardInfo {
-  padding: 0.75rem;
+.productInfo {
+  padding: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.6rem;
 }
 
-.cardCategory {
-color: rgba(0, 0, 0, 0.40);
-font-size: 0.75rem;
-font-style: normal;
-font-weight: 400;
-line-height: 1rem; /* 133.333% */
-letter-spacing: 0.01875rem;
-text-transform: uppercase;
-}
-
-.cardName {
-  color: #0A0A0A;
-  font-size: 0.875rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 1.25rem; /* 142.857% */
-  letter-spacing: 0.02188rem;
+.productCategory {
+  color: #A3A3A3;
+  font-size: 0.65rem;
   text-transform: uppercase;
-  padding-top: 16px;
 }
 
-.cardPrice {
-  color: #0A0A0A;
-  font-family: Inter;
-  font-size: 0.875rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.25rem; /* 142.857% */
-  padding-top: 8px;
+.productName {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
+.productPrice {
+  color: #03C;
+  font-weight: 600;
+}
 
+/* SHOP MORE */
+.shopMoreWrapper {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.shopMoreBtn {
+  border: none;
+  background: none;
+  color: #03C;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* EMPTY STATE */
+.usersCenteredContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.emptyState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 3rem 0;
+}
+
+.emptyState img {
+  width: 150px;
+}
+
+.emptyText {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-family: Modak;
+  font-size: 3rem;
+  color: #E0E7FF;
+}
+
+.emptyText span {
+  font-size: 3rem;
+  color: #E0E7FF;
+}
+
+/* ADVERT SECTION */
 .advert {
   position: relative;
   width: 100%;
   height: 22.8125rem;
   overflow: hidden;
-  margin: 80px 0 80px 0;
-  padding: 0 40px 0 40px;
+  margin: 80px 0;
+  padding: 0 40px;
 }
 
 .advert img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
-    border-radius: 8px;
-
+  border-radius: 8px;
 }
 
 .advertContent {
@@ -321,26 +260,20 @@ text-transform: uppercase;
   font-size: 2rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: -0.02em;
-  line-height: 1;
 }
 
 .advertSubtitle {
-  color: rgba(255, 255, 255, 0.80);
+  color: rgba(255, 255, 255, 0.8);
   font-size: 0.875rem;
-  font-weight: 400;
 }
 
 .advertBtn {
   background: #03c;
-  color: white;
+  color: #fff;
   border: none;
   padding: 1rem 2rem;
   border-radius: 0.5rem;
   cursor: pointer;
-  font-size: 0.8125rem;
-  font-weight: normal;
-  letter-spacing: 0.02em;
-  width: fit-content;
   margin-top: 6rem;
+  width: 9rem;
 }
