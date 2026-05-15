@@ -1,225 +1,126 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MMP - Buy Smart. Sell Easy. Repeat.</title>
-    <link href="https://fonts.googleapis.com/css2?family=Modak&display=swap" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/User.css" />
-  </head>
-  <body>
-  <jsp:include page="/WEB-INF/pages/Navbar.jsp" />
-    <section class="heroSection">
 
-    <!-- Hero Content -->
-        <div class="heroContent">
-            <div class="heroLeft">
-            <h1 class="heroTitle">BUY SMART.<br>SELL EASY. REPEAT.</h1>
-            <p class="heroSubtitle">Your go to marketplace for buying and<br>selling second-hand products.</p>
-            <button class="cta">SHOP NOW</button>
-            </div>
-            <div class="heroRight">
-            <img src="<%= request.getContextPath() %>/Assets/Home/watch.png" alt="Watch" />
-            </div>
-        </div>
-        </section>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MMP</title>
 
-        <section class="product">
-        <div class="productWrapper">
+  <link href="https://fonts.googleapis.com/css2?family=Modak&display=swap" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 
-            <div class="productLeft">
-            <div class="categories">
-                <div class="categoriesHead">
-                <h3>Categories</h3>
-                </div>
-                <label><input type="checkbox" name="category" value="electronics"> Electronics</label>
-                <label><input type="checkbox" name="category" value="furniture"> Furniture</label>
-                <label><input type="checkbox" name="category" value="outdoors"> Outdoors</label>
-                <label><input type="checkbox" name="category" value="hardwareTools"> Hardware Tools</label>
-                <label><input type="checkbox" name="category" value="others"> Others</label>
-                <button class="filterBtn">Apply Filter</button>
-                <button class="clearBtn">Clear All</button>
-            </div>
-            </div>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 
-            <div class="productRight">
-            <h1>Explore All Products</h1>
-            <div class="productGrid">
+  <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/User.css">
+</head>
 
-                <div class="productCard">
-                <div class="cardImageWrapper">
-                <img src="<%= request.getContextPath() %>/Assets/Product/product1.png" alt="Product" />
-                <div class="cardFav">
-                <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" alt="favourites" />
-                </div>
+<body>
 
-                    </button>
-                </div>
-                <div class="cardInfo">
-                    <span class="cardCategory">ELECTRONICS</span>
-                    <p class="cardName">MINIMALIST HEADPHONES</p>
-                    <p class="cardPrice">$299</p>
-                </div>
-                </div>
+<jsp:include page="/WEB-INF/pages/Navbar.jsp" />
 
-                            <div class="productCard">
-                <div class="cardImageWrapper">
-                <img src="<%= request.getContextPath() %>/Assets/Product/product2.png" alt="Product" />
-                <div class="cardFav">
-                <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" alt="favourites" />
-                </div>
+<section class="heroSection">
 
-                    </button>
-                </div>
-                <div class="cardInfo">
-                    <span class="cardCategory">ELECTRONICS</span>
-                    <p class="cardName">MINIMALIST HEADPHONES</p>
-                    <p class="cardPrice">$299</p>
-                </div>
-                </div>
+  <div class="heroCarousel">
+    <img src="<%= request.getContextPath() %>/Assets/Product/c1.jpg" class="heroSlide active" />
+    <img src="<%= request.getContextPath() %>/Assets/Product/c2.jpg" class="heroSlide" />
+    <img src="<%= request.getContextPath() %>/Assets/Product/c3.jpg" class="heroSlide" />
+  </div>
 
-                            <div class="productCard">
-                <div class="cardImageWrapper">
-                <img src="<%= request.getContextPath() %>/Assets/Product/product3.png" alt="Product" />
-                <div class="cardFav">
-                <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" alt="favourites" />
-                </div>
+  <div class="heroContainer">
+    <div class="heroContent">
+      <div class="heroLeft">
+        <h1 class="heroTitle">
+          BUY SMART.<br>
+          SELL EASY. REPEAT.
+        </h1>
 
-                    </button>
-                </div>
-                <div class="cardInfo">
-                    <span class="cardCategory">ELECTRONICS</span>
-                    <p class="cardName">MINIMALIST HEADPHONES</p>
-                    <p class="cardPrice">$299</p>
-                </div>
-                </div>
+        <p class="heroDescription">
+          Precision engineering meets timeless design.
+          Explore your curated collection of modern watches.
+        </p>
 
-                            <div class="productCard">
-                <div class="cardImageWrapper">
-                <img src="<%= request.getContextPath() %>/Assets/Product/product4.png" alt="Product" />
-                <div class="cardFav">
-                <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" alt="favourites" />
-                </div>
-
-                    </button>
-                </div>
-                <div class="cardInfo">
-                    <span class="cardCategory">ELECTRONICS</span>
-                    <p class="cardName">MINIMALIST HEADPHONES</p>
-                    <p class="cardPrice">$299</p>
-                </div>
-                </div>
-
-                            <div class="productCard">
-                <div class="cardImageWrapper">
-                <img src="<%= request.getContextPath() %>/Assets/Product/product5.png" alt="Product" />
-                <div class="cardFav">
-                <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" alt="favourites" />
-                </div>
-
-                    </button>
-                </div>
-                <div class="cardInfo">
-                    <span class="cardCategory">ELECTRONICS</span>
-                    <p class="cardName">MINIMALIST HEADPHONES</p>
-                    <p class="cardPrice">$299</p>
-                </div>
-                </div>
-
-                            <div class="productCard">
-                <div class="cardImageWrapper">
-                <img src="<%= request.getContextPath() %>/Assets/Product/product6.png" alt="Product" />
-                <div class="cardFav">
-                <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" alt="favourites" />
-                </div>
-
-                    </button>
-                </div>
-                <div class="cardInfo">
-                    <span class="cardCategory">ELECTRONICS</span>
-                    <p class="cardName">MINIMALIST HEADPHONES</p>
-                    <p class="cardPrice">$299</p>
-                </div>
-                </div>
-
-                            <div class="productCard">
-                <div class="cardImageWrapper">
-                <img src="<%= request.getContextPath() %>/Assets/Product/product7.png" alt="Product" />
-                <div class="cardFav">
-                <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" alt="favourites" />
-                </div>
-
-                    </button>
-                </div>
-                <div class="cardInfo">
-                    <span class="cardCategory">ELECTRONICS</span>
-                    <p class="cardName">MINIMALIST HEADPHONES</p>
-                    <p class="cardPrice">$299</p>
-                </div>
-                </div>
-
-                            <div class="productCard">
-                <div class="cardImageWrapper">
-                <img src="<%= request.getContextPath() %>/Assets/Product/product8.png" alt="Product" />
-                <div class="cardFav">
-                <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" alt="favourites" />
-                </div>
-
-                    </button>
-                </div>
-                <div class="cardInfo">
-                    <span class="cardCategory">ELECTRONICS</span>
-                    <p class="cardName">MINIMALIST HEADPHONES</p>
-                    <p class="cardPrice">$299</p>
-                </div>
-                </div>
-
-                            <div class="productCard">
-                <div class="cardImageWrapper">
-                <img src="<%= request.getContextPath() %>/Assets/Product/product9.png" alt="Product" />
-                <div class="cardFav">
-                <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" alt="favourites" />
-                </div>
-
-                    </button>
-                </div>
-                <div class="cardInfo">
-                    <span class="cardCategory">ELECTRONICS</span>
-                    <p class="cardName">MINIMALIST HEADPHONES</p>
-                    <p class="cardPrice">$299</p>
-                </div>
-                </div>
-
-
-
-
-
-            </div>
-            </div>
-
-        </div>
-
-        <div class="seeMore" style="color: #03c; font-weight: 700; text-decoration: underline; margin-left: 53rem; margin-top: 2rem;">
-            See More.
-        </div>
-    </section>
-
-
-    <section class="advert">
-    <img src="<%= request.getContextPath() %>/Assets/Product/adver.png" alt="product" />
-      <div class="advertContent">
-        <h2 class="advertTitle">Upgrade Your Setup</h2>
-        <p class="advertSubtitle">Clean design. Better products. Faster checkout.</p>
-        <button class="advertBtn">Shop Now</button>
+        <button class="heroButton">SHOP NOW</button>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-  <jsp:include page="/WEB-INF/pages/Footer.jsp" />
-  </body>
+
+
+<section class="productSection">
+  <h1>Explore All Products</h1>
+
+  <c:choose>
+    <c:when test="${empty products}">
+      <div class="usersCenteredContainer">
+        <section class="emptyState">
+          <img src="<%= request.getContextPath() %>/Assets/User/peeps.png" alt="profile" />
+          <h1 class="emptyText">
+            No Products <br>
+            <span>Available Right now</span>
+          </h1>
+        </section>
+      </div>
+    </c:when>
+
+    <c:otherwise>
+      <div class="productGrid">
+        <c:forEach var="product" items="${products}">
+          <div class="productCard">
+            <a href="product/details?id=${product.productId}" style="text-decoration: none; color: inherit;">
+              <div class="productImageWrapper">
+                <img src="<%= request.getContextPath() %>/${product.productImageUrl}" class="productImage" alt="${product.productName}" />
+                <button class="wishlistBtn">
+                  <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" class="wishlistIcon" />
+                </button>
+              </div>
+
+              <div class="productInfo">
+                <p class="productCategory">${product.productCategory}</p>
+                <h3 class="productName">${product.productName}</h3>
+                <p class="productPrice">$${product.productPrice}</p>
+              </div>
+            </a>
+          </div>
+        </c:forEach>
+      </div>
+    </c:otherwise>
+  </c:choose>
+
+  <div class="shopMoreWrapper">
+    <button class="shopMoreBtn">SHOP ALL PRODUCTS</button>
+  </div>
+</section>
+
+<section class="advert">
+  <img src="<%= request.getContextPath() %>/Assets/Product/adver.png" alt="product" />
+
+  <div class="advertContent">
+    <h2 class="advertTitle">Upgrade Your Setup</h2>
+    <p class="advertSubtitle">Clean design. Better products. Faster checkout.</p>
+    <button class="advertBtn">Shop Now</button>
+  </div>
+</section>
+
+<jsp:include page="/WEB-INF/pages/Footer.jsp" />
+
+<script>
+  let index = 0;
+  const slides = document.querySelectorAll(".heroSlide");
+
+  function showSlide(i) {
+    slides.forEach(s => s.classList.remove("active"));
+    slides[i].classList.add("active");
+  }
+
+  setInterval(() => {
+    index = (index + 1) % slides.length;
+    showSlide(index);
+  }, 3000);
+</script>
+
+</body>
 </html>
