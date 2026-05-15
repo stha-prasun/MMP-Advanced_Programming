@@ -57,7 +57,7 @@
 
       <section class="productSection">
         <c:choose>
-          <c:when test="${empty customers}">
+          <c:when test="${empty products}">
             <div class="usersCenteredContainer">
               <!-- Page Header -->
               <section class="emptyState">
