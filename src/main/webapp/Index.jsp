@@ -42,7 +42,9 @@
           Explore your curated collection of modern watches.
         </p>
 
-        <button class="heroButton">SHOP NOW</button>
+        <a href="<%= request.getContextPath() %>/products" class="heroButton">
+            SHOP NOW
+        </a>
       </div>
     </div>
   </div>
@@ -91,7 +93,9 @@
   </c:choose>
 
   <div class="shopMoreWrapper">
-    <button class="shopMoreBtn">SHOP ALL PRODUCTS</button>
+        <a href="<%= request.getContextPath() %>/products" class="shopMoreBtn">
+            View All.
+        </a>
   </div>
 </section>
 
@@ -101,7 +105,9 @@
   <div class="advertContent">
     <h2 class="advertTitle">Upgrade Your Setup</h2>
     <p class="advertSubtitle">Clean design. Better products. Faster checkout.</p>
-    <button class="advertBtn">Shop Now</button>
+        <a href="<%= request.getContextPath() %>/products" class="advertBtn">
+            SHOP NOW
+        </a>
   </div>
 </section>
 

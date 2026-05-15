@@ -25,7 +25,9 @@
     <div class="container">
       <!-- LEFT -->
       <div class="left">
-        <h2 class="logo">MMP</h2>
+<a href="<%= request.getContextPath() %>/seller/dashboard" class="logo" style="text-decoration: none;">
+  MMP
+</a>
         <img
           src="<%= request.getContextPath() %>/Assets/Login/peep.png"
           class="illustration"

@@ -25,12 +25,31 @@
         <section class="navbarSection">
                         <div class="navbar">
                             <div class="navLeft">
-                                <div class="logo">MMP</div>
-                                <ul class="navLinks">
-                                    <li>About us</li>
-                                    <li>Newsletter</li>
-                                    <li class="dropdown">Shop <img src="<%= request.getContextPath() %>/Assets/Home/down.png" alt="" /></li>
-                                </ul>
+<a href="<%= request.getContextPath() %>/home" class="logo" style="text-decoration: none;">
+  MMP
+</a>
+<ul class="navLinks">
+
+    <li>
+        <a href="<%= request.getContextPath() %>/customer/about" class="navLink">
+            About us
+        </a>
+    </li>
+
+    <li>
+        <a href="<%= request.getContextPath() %>/customer/about#newsletter" class="navLink">
+            Newsletter
+        </a>
+    </li>
+
+    <li class="dropdown">
+        <a href="<%= request.getContextPath() %>/products" class="navLink">
+            Shop
+        </a>
+        <img src="<%= request.getContextPath() %>/Assets/Home/down.png" alt="" />
+    </li>
+
+</ul>
                             </div>
                             <div class="navRight">
                                 <div class="searchWrapper">
@@ -102,7 +121,7 @@
                                     <%-- NOT LOGGED IN --%>
                                     <c:otherwise>
 
-                                        <a href="${pageContext.request.contextPath}/customer/login"
+                                        <a href="${pageContext.request.contextPath}/login"
                                            class="ctaNavbar">
 
                                             Sign up

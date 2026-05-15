@@ -28,26 +28,30 @@
 
 
       <nav>
-        <ul class="menu">
-          <li class="menu-item active">
-            <a class="menu-icon" href="<%= request.getContextPath() %>/seller/dashboard">
-              <img src="<%= request.getContextPath() %>/Assets/Seller Product/product.png" alt="" />
-            </a>
-            My Products
-          </li>
-          <li class="menu-item">
-            <a class="menu-icon" href="<%= request.getContextPath() %>/product/add">
-              <img src="<%= request.getContextPath() %>/Assets/Seller Product/addPrd.png" alt="" />
-            </a>
-            Add Products
-          </li>
-          <li class="menu-item">
-            <a class="menu-icon" href="<%= request.getContextPath() %>/seller/orders">
-              <img src="<%= request.getContextPath() %>/Assets/Seller Product/order.png" alt="" />
-            </a>
-            Orders
-          </li>
-        </ul>
+<ul class="menu">
+
+  <li class="menu-item active">
+    <a href="<%= request.getContextPath() %>/seller/dashboard" class="menu-icon">
+      <img src="<%= request.getContextPath() %>/Assets/Seller Product/product.png" alt="" />
+      My Products
+    </a>
+  </li>
+
+  <li class="menu-item">
+    <a href="<%= request.getContextPath() %>/product/add" class="menu-icon">
+      <img src="<%= request.getContextPath() %>/Assets/Seller Product/addPrd.png" alt="" />
+      Add Products
+    </a>
+  </li>
+
+  <li class="menu-item">
+    <a href="<%= request.getContextPath() %>/seller/orders" class="menu-icon">
+      <img src="<%= request.getContextPath() %>/Assets/Seller Product/order.png" alt="" />
+      Orders
+    </a>
+  </li>
+
+</ul>
       </nav>
     </aside>
 
@@ -56,7 +60,9 @@
       <!-- Topbar -->
       <div class="navbar">
         <div class="navLeft">
-          <div class="logo">MMP</div>
+<a href="<%= request.getContextPath() %>/seller/dashboard" class="logo" style="text-decoration: none;">
+  MMP
+</a>
         </div>
         <div class="navRight">
           <div class="searchWrapper">

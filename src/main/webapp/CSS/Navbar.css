@@ -37,10 +37,11 @@
   gap: 1.5rem;
 }
 
-.navLinks li {
+.navLink{
   cursor: pointer;
   color: #333;
   font-size: 0.9rem;
+text-decoration: none;
 }
 
 .dropdown {

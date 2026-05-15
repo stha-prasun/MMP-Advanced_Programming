@@ -71,14 +71,16 @@
         </div>
 </section>
 
-<section class = "newsleter">
+<section class="newsleter" id="newsletter">
     <div class="heroLeft">
     <img src="<%= request.getContextPath() %>/Assets/User/AboutUpside.png" alt=""/>
     </div>
 
     <div class="heroRight">
     <p>Get updates from Malik Market Place, MPP, on new listings and price drops. I send short picks and useful deals so you can find value fast. Join to stay in the loop and make better second-hand buys.</p>
-    <button>Newsletter</button>
+<a href="<%= request.getContextPath() %>/customer/about#newsletter"class="newsleterBtn">
+  Newsletter
+</a>
     </div>
 </section>
 

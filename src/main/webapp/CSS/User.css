@@ -89,6 +89,7 @@ body {
   text-transform: uppercase;
   border: none;
   max-width: 148px;
+  text-decoration: none;
 }
 
 
@@ -275,5 +276,6 @@ text-transform: uppercase;
   border-radius: 0.5rem;
   cursor: pointer;
   margin-top: 6rem;
-  width: 9rem;
+  width: 10rem;
+  text-decoration: none;
 }

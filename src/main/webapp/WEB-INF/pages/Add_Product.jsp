@@ -20,36 +20,30 @@
 
 
         <nav>
-          <ul class="menu">
-            <li class="menu-item">
-              <span class="menu-icon">
-                <img
-                  src="<%= request.getContextPath() %>/Assets/Seller Product/product.png"
-                  alt=""
-                />
-              </span>
-              My Products
-            </li>
-            <li class="menu-item active">
-              <span class="menu-icon">
-                <img
-                  src="<%= request.getContextPath() %>/Assets/Seller Product/addPrd.png"
-                  alt=""
-                />
-              </span>
-              Add Products
-            </li>
-            <li class="menu-item">
-              <span class="menu-icon">
-                <img
-                  src="<%= request.getContextPath() %>/Assets/Seller Product/order.png"
-                  alt=""
-                />
-              </span>
-              Orders
-            </li>
+<ul class="menu">
 
-          </ul>
+  <li class="menu-item">
+    <a href="<%= request.getContextPath() %>/seller/dashboard" class="menu-icon">
+      <img src="<%= request.getContextPath() %>/Assets/Seller Product/product.png" alt="" />
+      My Products
+    </a>
+  </li>
+
+  <li class="menu-item active">
+    <a href="<%= request.getContextPath() %>/product/add" class="menu-icon">
+      <img src="<%= request.getContextPath() %>/Assets/Seller Product/addPrd.png" alt="" />
+      Add Products
+    </a>
+  </li>
+
+  <li class="menu-item">
+    <a href="<%= request.getContextPath() %>/seller/orders" class="menu-icon">
+      <img src="<%= request.getContextPath() %>/Assets/Seller Product/order.png" alt="" />
+      Orders
+    </a>
+  </li>
+
+</ul>
         </nav>
       </aside>
 
@@ -58,7 +52,9 @@
         <!-- Topbar -->
               <div class="navbar">
                       <div class="navLeft">
-                        <div class="logo">MMP</div>
+                <a href="<%= request.getContextPath() %>/seller/dashboard" class="logo" style="text-decoration: none;">
+                  MMP
+                </a>
                       </div>
                 <div class="navRight">
                   <div class="searchWrapper">

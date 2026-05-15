@@ -43,7 +43,9 @@
                 Explore your curated collection of modern watches.
               </p>
 
-              <button class="heroButton">SHOP NOW</button>
+        <a href="<%= request.getContextPath() %>/products" class="heroButton">
+            SHOP NOW
+        </a>
             </div>
           </div>
 
@@ -93,7 +95,9 @@
           </c:otherwise>
         </c:choose>
         <div class="shopMoreWrapper">
-          <button class="shopMoreBtn">SHOP ALL PRODUCTS</button>
+        <a href="<%= request.getContextPath() %>/products" class="shopMoreBtn">
+            View All.
+        </a>
         </div>
 
       </section>
