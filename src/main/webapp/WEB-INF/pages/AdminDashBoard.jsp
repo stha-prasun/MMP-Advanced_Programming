@@ -37,7 +37,7 @@
                         alt="Products" />
                     PRODUCTS
                 </a>
-                <a href="#" class="navItem">
+                <a href="<%= request.getContextPath() %>/admin/category" class="navItem">
                     <img class="navIcon" src="<%= request.getContextPath() %>/Assets/Admin Dashboard/category.png"
                         alt="Categories" />
                     CATEGORIES

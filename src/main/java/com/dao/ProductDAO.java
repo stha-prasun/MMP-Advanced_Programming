@@ -121,6 +121,58 @@ public class ProductDAO {
         return product;
     }
 
+    public List<Product> getProductBySeller(String sellerEmail) throws Exception {
+        Connection con = DBconfig.getConnection();
+        List<Product> productList = new ArrayList<>();
+
+        String sqlid="SELECT sellerId FROM seller WHERE sellerEmail = ?";
+        PreparedStatement idpst = con.prepareStatement(sqlid);
+        idpst.setString(1,sellerEmail);
+        ResultSet idrs = idpst.executeQuery();
+        Long Id;
+
+        if(idrs.next()){
+            Id= idrs.getLong("sellerId");
+        }else{
+            //returns an empty orderlist
+            return productList;
+        }
+        idrs.close();
+        idpst.close();
+
+
+        String sql = "SELECT prod.*, cat.* FROM product prod LEFT JOIN category cat on prod.categoryId=cat.categoryId WHERE sellerId = ?";
+
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setLong(1, Id);
+
+        ResultSet rs = pst.executeQuery();
+
+
+        while(rs.next()) {
+            Product product = new Product(
+                    rs.getLong("productId"),
+                    rs.getString("productName"),
+                    rs.getInt("productPrice"),
+                    rs.getString("productImageUrl"),
+                    rs.getBoolean("productIsSold"),
+                    rs.getString("type"),
+                    rs.getTimestamp("postedAt").toLocalDateTime(),
+                    rs.getString("productDescription")
+
+            );
+            productList.add(product);
+        }
+
+
+
+        rs.close();
+        pst.close();
+        con.close();
+
+        return productList;
+    }
+
 
     public void updateProductStatus(Long productId, String status) throws Exception {
         Connection con = DBconfig.getConnection();

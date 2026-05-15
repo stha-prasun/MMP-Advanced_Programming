@@ -28,6 +28,17 @@ public class Product {
         this.postedAt = postedAt;
         this.productDescription = productDescription;
     }
+    //this is JUST a temporary solution so that eveyrhting doesnt break when Category is being impletemented
+    public Product(Long productId, String productName, int productPrice, String productImageUrl, boolean productIsSold, String productCategory, LocalDateTime postedAt, String productDescription) {
+        this.productId = productId;
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.productImageUrl = productImageUrl;
+        this.productIsSold = productIsSold;
+        this.productCategory = productCategory;
+        this.postedAt = postedAt;
+        this.productDescription = productDescription;
+    }
 
     public Product(Long productId, String productName, int productPrice, String productImageUrl, boolean productIsSold, String productCategory, LocalDateTime postedAt, String productDescription, Long sellerId, String sellerName) {
         this.productId = productId;

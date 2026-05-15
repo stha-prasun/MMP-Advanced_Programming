@@ -23,6 +23,12 @@ public class ProductService {
         ProductDAO dao = new ProductDAO();
         return dao.getProductById(id);
     }
+    //a method that returns a list of products sold by a particular seller
+    public List<Product> getProductBySeller(String sellerEmail) throws Exception {
+        ProductDAO dao = new ProductDAO();
+        return dao.getProductBySeller(sellerEmail);
+    }
+
 
     public void approveProduct(Long productId) throws Exception {
         ProductDAO dao = new ProductDAO();
