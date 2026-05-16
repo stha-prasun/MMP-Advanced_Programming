@@ -13,6 +13,16 @@ public class Product {
     private LocalDateTime postedAt;
     private String productDescription;
 
+    private boolean isApproved;
+
+    public boolean isApproved() {
+        return isApproved;
+    }
+
+    public void setApproved(boolean approved) {
+        isApproved = approved;
+    }
+
     //seller info
     private Long sellerId;
     private String sellerName;

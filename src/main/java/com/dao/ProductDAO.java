@@ -69,6 +69,7 @@ public class ProductDAO {
             );
 
             p.setSellerEmail(rs.getString("sellerEmail"));
+            p.setApproved(rs.getBoolean("isApproved"));
             products.add(p);
         }
 
@@ -115,6 +116,7 @@ public class ProductDAO {
         );
 
         product.setSellerEmail(rs.getString("sellerEmail"));
+        product.setApproved(rs.getBoolean("isApproved"));
 
         rs.close();
         pst.close();
@@ -162,6 +164,7 @@ public class ProductDAO {
                     rs.getString("productDescription")
 
             );
+            product.setApproved(rs.getBoolean("isApproved"));
             productList.add(product);
         }
 
@@ -178,11 +181,11 @@ public class ProductDAO {
     public void updateProductStatus(Long productId, String status) throws Exception {
         Connection con = DBconfig.getConnection();
 
-        boolean isSold = "APPROVED".equals(status);
+        boolean isApproved = "APPROVED".equals(status);
 
-        String sql = "UPDATE product SET productIsSold = ? WHERE productId = ?";
+        String sql = "UPDATE product SET isApproved = ? WHERE productId = ?";
         PreparedStatement pst = con.prepareStatement(sql);
-        pst.setBoolean(1, isSold);
+        pst.setBoolean(1, isApproved);
         pst.setLong(2, productId);
 
         pst.executeUpdate();

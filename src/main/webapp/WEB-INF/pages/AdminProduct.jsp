@@ -122,7 +122,7 @@
                                         <div class="fieldRow">
                                             <span class="fieldLabel">STATUS</span>
                                             <c:choose>
-                                                <c:when test="${product.productIsSold}">
+                                                <c:when test="${product.approved}">
                                                     <span class="badge badgeApproved">APPROVED</span>
                                                 </c:when>
                                                 <c:otherwise>
@@ -132,9 +132,9 @@
                                         </div>
                                     </div>
 
-                                    <div class="productCardActions ${!product.productIsSold ? 'productCardActionsPending' : ''}">
+                                    <div class="productCardActions ${!product.approved ? 'productCardActionsPending' : ''}">
                                         <c:choose>
-                                            <c:when test="${!product.productIsSold}">
+                                            <c:when test="${!product.approved}">
                                                 <!-- PENDING: Show Approve and Reject buttons -->
                                                 <form method="POST" action="${pageContext.request.contextPath}/admin/product" style="display:inline;">
                                                     <input type="hidden" name="action" value="approve" />
