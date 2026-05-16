@@ -2,7 +2,10 @@ package com.controller.Product;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.List;
 
+import com.model.Category;
+import com.service.CategoryService;
 import com.service.ProductService;
 import com.util.SessionUtil;
 import jakarta.servlet.ServletException;
@@ -22,6 +25,16 @@ public class AddProductController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        try {
+            // Fetch categories from database
+            CategoryService categoryService = new CategoryService();
+            List<Category> categoryList = categoryService.getAllCategory();
+            request.setAttribute("categories", categoryList);
+        } catch (Exception e) {
+            e.printStackTrace();
+            request.setAttribute("error", "Failed to load categories");
+        }
 
         request.getRequestDispatcher("/WEB-INF/pages/Add_Product.jsp").forward(request, response);
     }
@@ -51,6 +64,16 @@ public class AddProductController extends HttpServlet {
                     priceStr == null || priceStr.trim().isEmpty() ||
                     category == null || category.trim().isEmpty() ||
                     description == null || description.trim().isEmpty()) {
+
+                // Reload categories for the form
+                try {
+                    CategoryService categoryService = new CategoryService();
+                    List<Category> categoryList = categoryService.getAllCategory();
+                    request.setAttribute("categories", categoryList);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
                 request.setAttribute("error", "All fields are required");
                 request.getRequestDispatcher("/WEB-INF/pages/Add_Product.jsp").forward(request, response);
                 return;
@@ -60,6 +83,15 @@ public class AddProductController extends HttpServlet {
             try {
                 price = Integer.parseInt(priceStr);
             } catch (NumberFormatException e) {
+                // Reload categories for the form
+                try {
+                    CategoryService categoryService = new CategoryService();
+                    List<Category> categoryList = categoryService.getAllCategory();
+                    request.setAttribute("categories", categoryList);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+
                 request.setAttribute("error", "Price must be a valid number");
                 request.getRequestDispatcher("/WEB-INF/pages/Add_Product.jsp").forward(request, response);
                 return;
@@ -90,6 +122,16 @@ public class AddProductController extends HttpServlet {
 
         } catch (Exception e) {
             e.printStackTrace();
+
+            // Reload categories for the form
+            try {
+                CategoryService categoryService = new CategoryService();
+                List<Category> categoryList = categoryService.getAllCategory();
+                request.setAttribute("categories", categoryList);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+
             request.setAttribute("error", "Something went wrong: " + e.getMessage());
             request.getRequestDispatcher("/WEB-INF/pages/Add_Product.jsp").forward(request, response);
         }

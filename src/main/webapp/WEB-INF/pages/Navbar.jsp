@@ -124,7 +124,7 @@
                                         <a href="${pageContext.request.contextPath}/login"
                                            class="ctaNavbar">
 
-                                            Sign up
+                                            Sign in
 
                                         </a>
 

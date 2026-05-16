@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.List, com.model.Category" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -109,14 +110,17 @@
             <div class="field-group">
               <label class="field-label" for="category">Category</label>
               <select id="category" name="category" class="field-select">
-                <option value="" disabled selected></option>
-                <option value="electronic">Electronic</option>
-                <option value="furniture">Furniture</option>
-                <option value="clothing">Clothing</option>
-                <option value="books">Books</option>
-                <option value="collectibles">Collectibles</option>
-                <option value="sports">Sports</option>
-                <option value="other">Other</option>
+                <option value="" disabled selected>Select a category</option>
+                <%
+                  List<Category> categories = (List<Category>) request.getAttribute("categories");
+                  if (categories != null) {
+                    for (Category cat : categories) {
+                %>
+                  <option value="<%= cat.getType() %>"><%= cat.getType() %></option>
+                <%
+                    }
+                  }
+                %>
               </select>
             </div>
 
