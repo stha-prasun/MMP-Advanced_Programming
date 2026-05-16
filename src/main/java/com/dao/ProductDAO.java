@@ -44,10 +44,11 @@ public class ProductDAO {
 
         Connection con = DBconfig.getConnection();
 
-        // JOIN with seller table to get seller name
-        String sql = "SELECT p.*, s.sellerName, s.sellerEmail " +
+        // JOIN with seller and category tables
+        String sql = "SELECT p.*, s.sellerName, s.sellerEmail, c.type AS categoryName " +
                 "FROM product p " +
                 "LEFT JOIN seller s ON p.sellerId = s.sellerId " +
+                "LEFT JOIN category c ON p.categoryId = c.categoryId " +
                 "ORDER BY p.postedAt DESC";
 
         PreparedStatement pst = con.prepareStatement(sql);
@@ -60,7 +61,7 @@ public class ProductDAO {
                     rs.getInt("productPrice"),
                     rs.getString("productImageUrl"),
                     rs.getBoolean("productIsSold"),
-                    rs.getString("categoryId"),
+                    rs.getString("categoryName"),
                     rs.getTimestamp("postedAt").toLocalDateTime(),
                     rs.getString("productDescription"),
                     rs.getLong("sellerId"),
@@ -82,9 +83,10 @@ public class ProductDAO {
     public Product getProductById(Long id) throws Exception {
         Connection con = DBconfig.getConnection();
 
-        String sql = "SELECT p.*, s.sellerName, s.sellerEmail " +
+        String sql = "SELECT p.*, s.sellerName, s.sellerEmail, c.type AS categoryName " +
                 "FROM product p " +
                 "LEFT JOIN seller s ON p.sellerId = s.sellerId " +
+                "LEFT JOIN category c ON p.categoryId = c.categoryId " +
                 "WHERE p.productId = ?";
 
         PreparedStatement pst = con.prepareStatement(sql);
@@ -105,7 +107,7 @@ public class ProductDAO {
                 rs.getInt("productPrice"),
                 rs.getString("productImageUrl"),
                 rs.getBoolean("productIsSold"),
-                rs.getString("productCategory"),
+                rs.getString("categoryName"),
                 rs.getTimestamp("postedAt").toLocalDateTime(),
                 rs.getString("productDescription"),
                 rs.getLong("sellerId"),
@@ -120,7 +122,6 @@ public class ProductDAO {
 
         return product;
     }
-
     public List<Product> getProductBySeller(String sellerEmail) throws Exception {
         Connection con = DBconfig.getConnection();
         List<Product> productList = new ArrayList<>();
@@ -195,9 +196,10 @@ public class ProductDAO {
         List<Product> products = new ArrayList<>();
         Connection con = DBconfig.getConnection();
 
-        String sql = "SELECT p.*, s.sellerName, s.sellerEmail " +
+        String sql = "SELECT p.*, s.sellerName, s.sellerEmail, c.type AS categoryName " +
                 "FROM product p " +
                 "LEFT JOIN seller s ON p.sellerId = s.sellerId " +
+                "LEFT JOIN category c ON p.categoryId = c.categoryId " +
                 "WHERE p.isApproved = TRUE AND p.productIsSold = FALSE " +
                 "ORDER BY p.postedAt DESC";
 
@@ -211,7 +213,7 @@ public class ProductDAO {
                     rs.getInt("productPrice"),
                     rs.getString("productImageUrl"),
                     rs.getBoolean("productIsSold"),
-                    rs.getString("categoryId"),
+                    rs.getString("categoryName"),  // ← Changed from categoryId
                     rs.getTimestamp("postedAt").toLocalDateTime(),
                     rs.getString("productDescription"),
                     rs.getLong("sellerId"),
@@ -229,9 +231,10 @@ public class ProductDAO {
     public Product getApprovedUnsoldProductById(Long id) throws Exception {
         Connection con = DBconfig.getConnection();
 
-        String sql = "SELECT p.*, s.sellerName, s.sellerEmail " +
+        String sql = "SELECT p.*, s.sellerName, s.sellerEmail, c.type AS categoryName " +
                 "FROM product p " +
                 "LEFT JOIN seller s ON p.sellerId = s.sellerId " +
+                "LEFT JOIN category c ON p.categoryId = c.categoryId " +
                 "WHERE p.productId = ? AND p.isApproved = TRUE AND p.productIsSold = FALSE";
 
         PreparedStatement pst = con.prepareStatement(sql);
@@ -246,7 +249,7 @@ public class ProductDAO {
                     rs.getInt("productPrice"),
                     rs.getString("productImageUrl"),
                     rs.getBoolean("productIsSold"),
-                    rs.getString("categoryId"),
+                    rs.getString("categoryName"),  // ← Changed from categoryId
                     rs.getTimestamp("postedAt").toLocalDateTime(),
                     rs.getString("productDescription"),
                     rs.getLong("sellerId"),
