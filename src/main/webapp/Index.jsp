@@ -53,7 +53,7 @@
 
 
 <section class="productSection">
-  <h1>Explore All Products</h1>
+  <h1 style="margin-bottom: 2rem;">Explore All Products</h1>
 
   <c:choose>
     <c:when test="${empty products}">
@@ -74,7 +74,7 @@
           <div class="productCard">
             <a href="product/details?id=${product.productId}" style="text-decoration: none; color: inherit;">
               <div class="productImageWrapper">
-                <img src="<%= request.getContextPath() %>/${product.productImageUrl}" class="productImage" alt="${product.productName}" />
+                <img src="<%= request.getContextPath() %>/${product.productImageUrl}" class="productImage" alt="${product.productName}" onerror="this.src='<%= request.getContextPath() %>/Assets/Home/NOTFOUND.png'"/>
                 <button class="wishlistBtn">
                   <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" class="wishlistIcon" />
                 </button>

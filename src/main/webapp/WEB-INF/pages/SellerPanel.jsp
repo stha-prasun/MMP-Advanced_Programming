@@ -126,7 +126,7 @@
                   <td class="colId">${prod.productId}</td>
                   <td class="colProduct">
                     <img class="productThumb"
-                      src="<%= request.getContextPath() %>/Assets/Product/${prod.productImageUrl}" alt=${prod.productName}>
+                      src="<%= request.getContextPath() %>/Assets/Product/${prod.productImageUrl}" alt=${prod.productName} onerror="this.src='<%= request.getContextPath() %>/Assets/Home/NOTFOUND.png'">
                   </td>
                   <td class="tdName">${prod.productName}</td>
                   <td class="colPrice"><span class="priceDollar">$</span>${prod.productPrice}</td>

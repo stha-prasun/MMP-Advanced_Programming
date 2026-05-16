@@ -26,8 +26,14 @@
                     <div class="navIcon">
                         <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/user.png" alt="Users" />
                     </div>
-                    USERS
+                    CUSTOMER
                 </a>
+                <a href="<%= request.getContextPath() %>/admin/customer" class="navItem">
+                                    <div class="navIcon">
+                                        <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/user.png" alt="Users" />
+                                    </div>
+                                    SELLERS
+                                </a>
                 <a href="<%= request.getContextPath() %>/admin/product" class="navItem">
                     <div class="navIcon">
                         <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/products.png" alt="Products" />

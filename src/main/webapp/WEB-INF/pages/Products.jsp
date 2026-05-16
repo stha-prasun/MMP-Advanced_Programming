@@ -78,7 +78,7 @@
                   <a href="product/details?id=${product.productId}" style="text-decoration: none; color: inherit;">
                     <div class="productImageWrapper">
                       <img src="<%= request.getContextPath() %>/${product.productImageUrl}" class="productImage"
-                        alt="${product.productName}" />
+                        alt="${product.productName}" onerror="this.src='<%= request.getContextPath() %>/Assets/Home/NOTFOUND.png'"/>
                       <form action="<%= request.getContextPath() %>/favourite/add" method="post">
                           <input type="hidden" name="productId" value="${product.productId}" />
 

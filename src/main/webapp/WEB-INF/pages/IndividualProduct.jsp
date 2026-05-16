@@ -25,7 +25,7 @@
 <div class="productSection">
     <div class="leftProduct">
         <img src="<%= request.getContextPath() %>/${product.productImageUrl}"
-             alt="${product.productName}"/>
+             alt="${product.productName}" onerror="this.src='<%= request.getContextPath() %>/Assets/Home/NOTFOUND.png'"/>
     </div>
     <div class="rightProduct">
         <p>${product.productCategory}</p>
