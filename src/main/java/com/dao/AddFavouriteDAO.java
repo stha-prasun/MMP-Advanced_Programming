@@ -91,7 +91,7 @@ public class AddFavouriteDAO {
 
         boolean exists = false;
 
-        String query = "SELECT * FROM favourite_item WHERE favouriteId = ? AND productId = ?";
+        String query = "SELECT * FROM favouriteitem WHERE favouriteId = ? AND productId = ?";
 
         Connection conn = DBconfig.getConnection();
 
@@ -117,7 +117,7 @@ public class AddFavouriteDAO {
     // Insert
     public void addFavouriteItem(FavouriteItem item) throws SQLException {
 
-        String query = "INSERT INTO favourite_item(favouriteId, productId) VALUES(?, ?)";
+        String query = "INSERT INTO favouriteitem(favouriteId, productId) VALUES(?, ?)";
 
         Connection conn = DBconfig.getConnection();
 

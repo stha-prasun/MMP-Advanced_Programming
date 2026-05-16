@@ -34,7 +34,7 @@ public class AddFavourite extends HttpServlet {
             AddFavouriteService service = new AddFavouriteService();
             service.addToFavourite(productId, custEmail);
 
-            response.sendRedirect(request.getContextPath() + "/favourites");
+            response.sendRedirect(request.getContextPath() + "/products");
 
         } catch (SQLException e) {
             e.printStackTrace();
