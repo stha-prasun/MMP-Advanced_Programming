@@ -165,8 +165,11 @@
                           </div>
                           <div class="customer-name">${order.customer.custName}</div>
                           <div class="customer-email">${order.customer.custEmail}</div>
-                          <div class="customer-address">MADHYAPUR THIMI 04,<br />BHAKTAPUR NEPAL</div>
-                          <!-- enter order address here -->
+                          <c:set var="addressParts" value="${fn:split(order.deliveryLocation, ',')}" />
+                          <div class="customer-address">
+                              ${fn:trim(addressParts[0])},<br />
+                              ${fn:trim(addressParts[1])}
+                          </div>
                         </div>
                         <div class="timeline-section">
                           <div class="borderBtm">

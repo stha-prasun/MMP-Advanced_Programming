@@ -6,6 +6,7 @@ public class Order {
     private Long orderId;
     private LocalDateTime orderedAt;
     private String orderStatus;
+    private String deliveryLocation;
 
     //Now for detils of Customer
     Customer customer;
@@ -18,10 +19,11 @@ public class Order {
 
     //POJO CREATION
 
-    public Order (Long orderId, LocalDateTime orderedAt, String orderStatus, Customer customer, Product product, OrderItem orderItem){
+    public Order (Long orderId, LocalDateTime orderedAt, String orderStatus, String deliveryLocation,  Customer customer , Product product, OrderItem orderItem){
         this.orderId=orderId;
         this.orderedAt=orderedAt;
         this.orderStatus=orderStatus;
+        this.deliveryLocation=deliveryLocation;
         this.customer=customer;
         this.product=product;
         this.orderItem=orderItem;
@@ -48,6 +50,14 @@ public class Order {
 
     public void setOrderStatus(String orderStatus) {
         this.orderStatus = orderStatus;
+    }
+
+    public String getDeliveryLocation() {
+        return deliveryLocation;
+    }
+
+    public void setDeliveryLocation(String deliveryLocation) {
+        this.deliveryLocation = deliveryLocation;
     }
 
     public Customer getCustomer() {

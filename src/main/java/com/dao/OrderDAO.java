@@ -82,6 +82,7 @@ public class OrderDAO {
                     orderrs.getLong("orderId"),
                     orderrs.getTimestamp("orderedAt").toLocalDateTime(),
                     orderrs.getString("OrderStatus"),
+                    orderrs.getString("deliveryLocation"),
                     customer,
                     product,
                     orderItem
