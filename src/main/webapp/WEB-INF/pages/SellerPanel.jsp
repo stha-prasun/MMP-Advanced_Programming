@@ -71,7 +71,9 @@
             <button class="searchBtn">Search</button>
           </div>
           <div class="profile">
-            <img src="<%= request.getContextPath() %>/Assets/Home/me.png" alt="profile" />
+          <a href="<%= request.getContextPath() %>/seller/profile">
+            <img src="<%= request.getContextPath() %>/Assets/Profile/profile.svg" alt="profile" />
+          </a>
           </div>
         </div>
       </div>

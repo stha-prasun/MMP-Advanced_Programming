@@ -7,6 +7,7 @@ import com.util.PasswordUtil;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -100,6 +101,28 @@ public class SellerDAO {
         pst.close();
         con.close();
         return sellerList;
+    }
+
+    public void updateSeller(String sellerEmail, String updatedSellerEmail, String sellerName, String sellerPassword) throws SQLException {
+        Connection con = DBconfig.getConnection();
+
+        String sql = "UPDATE seller " +
+                "SET sellerEmail = ?, " +
+                "sellerName = ?, " +
+                "sellerPassword = ? " +
+                "WHERE sellerEmail = ?";
+
+        PreparedStatement pst = con.prepareStatement(sql);
+
+        pst.setString(1, updatedSellerEmail);
+        pst.setString(2, sellerName);
+        pst.setString(3, sellerPassword);
+        pst.setString(4, sellerEmail);
+
+        pst.executeUpdate();
+
+        pst.close();
+        con.close();
     }
 
 }
