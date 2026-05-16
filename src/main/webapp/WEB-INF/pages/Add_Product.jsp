@@ -216,16 +216,7 @@
       const existing = uploadZone.querySelector('.image-preview');
       if (existing) existing.remove();
 
-      // Create preview image
-      const img = document.createElement('img');
-      img.src = e.target.result;
-      img.className = 'image-preview';
-      img.style.cssText = `
-        max-width: 100%;
-        max-height: 280px;
-        border-radius: 6px;
-        object-fit: contain;
-      `;
+
 
       // Hide placeholder content, show image
       uploadIcon.style.display = 'none';

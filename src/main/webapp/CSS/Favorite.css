@@ -1,0 +1,286 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:#fff;
+  color:#111;
+  min-height:100vh;
+  padding:4rem 2rem 6rem;
+}
+
+ul{
+  list-style:none;
+}
+
+button{
+  border:none;
+  background:none;
+  cursor:pointer;
+  font-family:inherit;
+}
+
+/* PAGE */
+
+.pageContainer{
+  width:100%;
+  max-width:1400px;
+  margin:10rem auto;
+
+  display:flex;
+  flex-direction:column;
+  gap:3rem;
+}
+
+/* HEADER */
+
+.pageHeader{
+  display:flex;
+  flex-direction:column;
+  gap:1.5rem;
+}
+
+.pageTitle{
+  color:#03C;
+  font-size:5rem;
+  font-weight:900;
+  line-height:0.9;
+  letter-spacing:-0.28rem;
+  text-transform:uppercase;
+}
+
+.pageCount{
+  color:#737373;
+  font-size:0.75rem;
+  font-weight:700;
+  letter-spacing:0.08rem;
+  text-transform:uppercase;
+}
+
+.pageDivider{
+  width:100%;
+  height:2px;
+  background:#03C;
+}
+
+/* LIST */
+
+.itemList{
+  width:100%;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.itemCard{
+  width:100%;
+  max-width:1150px;
+
+  padding:3rem 0;
+
+  border-bottom:1px solid #ECECEC;
+
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:3rem;
+  align-items:center;
+}
+
+/* LEFT */
+
+.itemLeft{
+  display:flex;
+  flex-direction:column;
+  gap:2rem;
+}
+
+.itemIdLabel{
+  color:#737373;
+  font-family:Consolas;
+  font-size:0.625rem;
+  font-weight:700;
+  line-height:0.83331rem;
+  letter-spacing:0.0625rem;
+  text-transform:uppercase;
+}
+
+.itemIdentity{
+  display:flex;
+  align-items:center;
+  gap:1.5rem;
+}
+
+.itemImage{
+  width:70px;
+  height:70px;
+
+  border:2px solid #E5E5E5;
+
+  object-fit:cover;
+  flex-shrink:0;
+}
+
+.itemInfo{
+  display:flex;
+  flex-direction:column;
+  gap:0.35rem;
+}
+
+.itemName{
+  color:#000;
+  font-size:1.125rem;
+  font-weight:700;
+  line-height:1.40625rem;
+  letter-spacing:-0.02813rem;
+}
+
+.itemCategory{
+  color:#A1A1A1;
+  font-size:0.625rem;
+  font-weight:700;
+  line-height:0.9375rem;
+  letter-spacing:0.0625rem;
+  text-transform:uppercase;
+}
+
+.itemMeta{
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+}
+
+.metaRow{
+  display:flex;
+  flex-direction:column;
+  gap:0.35rem;
+}
+
+.metaLabel{
+  color:#A1A1A1;
+  font-family:Consolas;
+  font-size:0.625rem;
+  font-weight:400;
+  line-height:0.9375rem;
+  letter-spacing:0.0625rem;
+  text-transform:uppercase;
+}
+
+/* RIGHT */
+
+.itemRight{
+  min-width:220px;
+
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:1.8rem;
+}
+
+.itemCode{
+  color:#737373;
+  font-family:Consolas;
+  font-size:0.75rem;
+  font-weight:700;
+  line-height:1rem;
+}
+
+/* PRICE */
+
+.productPrice{
+  color:#0A0A0A;
+  font-size:1.125rem;
+  font-weight:700;
+  line-height:1.25rem;
+}
+
+.productPrice span{
+  color:#03C;
+}
+
+/* STATUS */
+
+.itemStatus{
+  display:flex;
+  align-items:center;
+  gap:0.55rem;
+
+  font-size:0.625rem;
+  font-weight:700;
+  line-height:0.9375rem;
+  letter-spacing:0.0625rem;
+  text-transform:uppercase;
+}
+
+.statusDot{
+  width:7px;
+  height:7px;
+
+  border-radius:999px;
+}
+
+.available{
+  color:#008236;
+}
+
+.available .statusDot{
+  background:#008236;
+}
+
+.unavailable{
+  color:#C10007;
+}
+
+.unavailable .statusDot{
+  background:#C10007;
+}
+
+/* ACTIONS */
+
+.itemActions{
+  display:flex;
+  align-items:center;
+  gap:0.8rem;
+}
+
+.cartBtn{
+  width:42px;
+  height:42px;
+
+  border:2px solid #03C;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  transition:0.18s ease;
+}
+
+
+.cartBtn.disabled{
+  opacity:0.3;
+  pointer-events:none;
+
+  border:2px solid #E5E5E5;
+  background:#F5F5F5;
+}
+
+.iconImage{
+  width:18px;
+  height:18px;
+
+  object-fit:contain;
+}
+
+.deleteBtn{
+  width:20px;
+  height:20px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
