@@ -21,10 +21,12 @@ public class CustomerService {
         System.out.println("SERVICE CALLED");
     }
 
-    public void updateCustomer(String imgUrl, String custEmail, String updatedCustEmail, String custName) throws SQLException {
+    public void updateCustomer(String imgUrl, String custEmail, String updatedCustEmail, String custName, String custPassword) throws SQLException {
+        String hashedPassword = PasswordUtil.getHashPassword(custPassword);
+
         CustomerDAO dao = new CustomerDAO();
 
-        dao.updateCustomer(imgUrl, custEmail, updatedCustEmail, custName);
+        dao.updateCustomer(imgUrl, custEmail, updatedCustEmail, custName, hashedPassword);
         System.out.println("SERVICE CALLED");
     }
     public List<Customer> getAllCustomer() throws Exception {

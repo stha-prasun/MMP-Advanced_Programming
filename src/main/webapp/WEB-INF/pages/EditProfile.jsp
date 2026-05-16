@@ -48,7 +48,7 @@
               <div class="profilephoto">
                 <div class="circle">
                   <img
-                    src="<%= request.getContextPath() %>/Assets/Profile/img.png"
+                    src="${pageContext.request.contextPath}/${sessionScope.custProfileImg}"
                     alt="User photo"
                   />
                 </div>
@@ -71,6 +71,14 @@
                              class="mailAddress" />
 
                       <div class="editMail">Edit Email</div>
+            </div>
+
+            <div class="mail">
+                        <input type="text"
+                                 name="custPassword"
+                                 class="mailAddress" />
+
+                        <div class="editMail">Edit Password</div>
             </div>
         </section>
         </form>

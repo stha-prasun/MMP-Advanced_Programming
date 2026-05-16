@@ -29,6 +29,7 @@ public class EditProfileController extends HttpServlet {
 
         String custName = req.getParameter("custName");
         String updatedCustEmail = req.getParameter("custEmail");
+        String custPassword = req.getParameter("custPassword");
 
         //image handling
         Part imagePart = req.getPart("image");
@@ -57,7 +58,7 @@ public class EditProfileController extends HttpServlet {
 
         CustomerService service = new CustomerService();
         try {
-            service.updateCustomer(imgUrl, custEmail, updatedCustEmail, custName);
+            service.updateCustomer(imgUrl, custEmail, updatedCustEmail, custName, custPassword);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
