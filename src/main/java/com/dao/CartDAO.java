@@ -264,4 +264,22 @@ public class CartDAO {
         pst.close();
         return total;
     }
+
+    public void clearCartItems(Long cartId) throws SQLException {
+        Connection conn = DBconfig.getConnection();
+
+        String deleteSql = "DELETE FROM cartItem WHERE cartId = ?";
+        PreparedStatement deletePs = conn.prepareStatement(deleteSql);
+        deletePs.setLong(1, cartId);
+        deletePs.executeUpdate();
+        deletePs.close();
+
+        String updateSql = "UPDATE cart SET cartTotalPrice = 0 WHERE cartId = ?";
+        PreparedStatement updatePs = conn.prepareStatement(updateSql);
+        updatePs.setLong(1, cartId);
+        updatePs.executeUpdate();
+        updatePs.close();
+
+        conn.close();
+    }
 }

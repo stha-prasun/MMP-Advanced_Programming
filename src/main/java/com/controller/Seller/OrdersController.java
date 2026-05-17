@@ -32,7 +32,7 @@ public class OrdersController extends HttpServlet {
 
         try{
             OrderService orderService = new OrderService();
-            List<Order> orderList = orderService.getAllOrderforSeller(sellerEmail);
+            List<Order> orderList = orderService.getAllOrderForSeller(sellerEmail);
 
             request.setAttribute("orderList",orderList);
             request.getRequestDispatcher("/WEB-INF/pages/Orders.jsp").forward(request, response);

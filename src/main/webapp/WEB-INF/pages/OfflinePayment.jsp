@@ -9,10 +9,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/OfflinePayment.css" />
-
 </head>
 <body>
-<jsp:include page="/WEB-INF/pages/Navbar.jsp" />
+<<jsp:include page="/WEB-INF/pages/Navbar.jsp" />
 
    <div class="user">
       <h1>OFFLINE PAYMENT</h1>
@@ -20,12 +19,11 @@
 
     <div class="editPadding">
       <div class="contact">Cash on delivery</div>
-      <button class="editProfile">
+      <a href="${pageContext.request.contextPath}/customer/payment?orderId=${orderId}" class="editProfile">
         <img src="<%= request.getContextPath() %>/Assets/User/back.png" alt="back" />
         <span>Back</span>
-      </button>
+      </a>
     </div>
-
 
     <section class="offline">
 
@@ -40,10 +38,13 @@
 
         <div class="total">
         <h1>Total:</h1>
-        <h1>rs.450.00</h1>
+        <h1>$ ${orderTotal}</h1>
         </div>
 
-        <button>Confirm Order</button>
+        <form method="POST" action="${pageContext.request.contextPath}/customer/payment/offline">
+            <input type="hidden" name="orderId" value="${orderId}" />
+            <button type="submit">Confirm Order</button>
+        </form>
     </section>
 
 </body>

@@ -105,8 +105,10 @@
           </div>
 
           <div class="summaryActions">
-            <button class="checkoutBtn">Proceed to Checkout</button>
-            <button class="cancelBtn">Cancel</button>
+              <form method="POST" action="${pageContext.request.contextPath}/customer/checkout" style="display:inline;">
+                  <button type="submit" class="checkoutBtn">Proceed to Checkout</button>
+              </form>
+              <a href="<%= request.getContextPath() %>/products" class="cancelBtn">Cancel</a>
           </div>
         </div>
       </c:otherwise>
