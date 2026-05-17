@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/Favorite.css" />
 </head>
 <body>
-<<jsp:include page="/WEB-INF/pages/Navbar.jsp" />
+<jsp:include page="/WEB-INF/pages/Navbar.jsp" />
 
   <main class="pageContainer">
 

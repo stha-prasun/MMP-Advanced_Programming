@@ -15,8 +15,8 @@
             <section class="emptyState">
             <img src="<%= request.getContextPath() %>/Assets/User/404.png" alt="profile" />
             <h1 class="emptyText">
-              404 NOT <br>
-              <span>FOUND</span>
+              404 PAGE  <br>
+              <span>NOT FOUND</span>
             </h1>
             </section>
 </body>
