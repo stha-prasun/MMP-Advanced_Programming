@@ -33,7 +33,7 @@ public class FavouriteProductsController extends HttpServlet {
 
             request.setAttribute("productList", products);
 
-            request.getRequestDispatcher("/WEB-INF/pages/Products.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/pages/Favorite.jsp").forward(request, response);
 
         } catch (Exception e) {
             e.printStackTrace();

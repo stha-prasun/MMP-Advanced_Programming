@@ -50,7 +50,7 @@ public class SellerRegisterController extends HttpServlet {
             service.addSeller(sellerEmail, sellerPassword, sellerName, sellerLocation, sellerIsActive, verificationId, sellerCreatedAt);
 
             // Redirect after success
-            response.sendRedirect(request.getContextPath() + "/home");
+            response.sendRedirect(request.getContextPath() + "/login");
 
         } catch (Exception e) {
             e.printStackTrace();

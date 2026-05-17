@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
     <%@ taglib uri="jakarta.tags.core" prefix="c" %>
         <!DOCTYPE html>
         <html lang="en">
@@ -25,7 +25,7 @@
                 <!-- Navbar -->
         <header class="topbar">
 
-              <a href="<%= request.getContextPath() %>/admin/dashboard" class="logo-anchor">
+              <a href="<%= request.getContextPath() %>/seller/dashboard" class="logo-anchor">
                 <div class="logo">MMP</div>
               </a>
 
@@ -36,14 +36,9 @@
               </div>
 
               <div class="topbar-right">
-              <a href="<%= request.getContextPath() %>/admin/category/add">
-                <button class="add-btn">
-                  <span class="add-plus">+</span> ADD NEW
-                </button>
-              </a>
                 <div class="divider-v"></div>
                 <div class="user-info">
-                  <span class="username">JOHN DOE</span>
+                  <span class="username">${sessionScope.sellerName}</span>
                   <div class="avatar">
                     <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/user.png" alt="User Avatar" />
                   </div>

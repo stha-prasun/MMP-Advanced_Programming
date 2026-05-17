@@ -33,10 +33,16 @@
 
     <c:choose>
       <c:when test="${empty cartItems}">
-        <div class="emptyCart">
-          <p>Your cart is empty</p>
-          <a href="<%= request.getContextPath() %>/products" class="shopNowBtn">Shop Now</a>
-        </div>
+                  <div class="usersCenteredContainer">
+                    <!-- Page Header -->
+                    <section class="emptyState">
+                      <img src="<%= request.getContextPath() %>/Assets/User/peeps.png" alt="profile" />
+                      <h1 class="emptyText">
+                        Nothing added  <br>
+                        <span>yet</span>
+                      </h1>
+                    </section>
+                  </div>
       </c:when>
       <c:otherwise>
         <ul class="productList">
@@ -111,6 +117,8 @@
               <a href="<%= request.getContextPath() %>/products" class="cancelBtn">Cancel</a>
           </div>
         </div>
+
+
       </c:otherwise>
     </c:choose>
 

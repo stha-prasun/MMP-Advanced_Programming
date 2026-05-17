@@ -20,10 +20,10 @@
       <aside class="sidebar">
 
 
-        <nav>
+      <nav>
 <ul class="menu">
 
-  <li class="menu-item">
+  <li class="menu-item ">
     <a href="<%= request.getContextPath() %>/seller/dashboard" class="menu-icon">
       <img src="<%= request.getContextPath() %>/Assets/Seller Product/product.png" alt="" />
       My Products
@@ -45,29 +45,12 @@
   </li>
 
 </ul>
-        </nav>
+      </nav>
       </aside>
 
       <!-- Main Content -->
       <main class="main">
-        <!-- Topbar -->
-              <div class="navbar">
-                      <div class="navLeft">
-                <a href="<%= request.getContextPath() %>/seller/dashboard" class="logo" style="text-decoration: none;">
-                  MMP
-                </a>
-                      </div>
-                <div class="navRight">
-                  <div class="searchWrapper">
-                    <img class="searchIcon" src="<%= request.getContextPath() %>/Assets/Home/search.png" alt="" />
-                    <input type="text" placeholder="Search..." />
-                    <button class="searchBtn">Search</button>
-                  </div>
-                  <div class="profile">
-                    <img src="<%= request.getContextPath() %>/Assets/Home/me.png" alt="profile" />
-                  </div>
-                </div>
-              </div>
+        <jsp:include page="/WEB-INF/pages/SellerNavbar.jsp" />
 
         <!-- Page Header -->
     <div class="user">
