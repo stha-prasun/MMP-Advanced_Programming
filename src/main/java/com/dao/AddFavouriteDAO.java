@@ -117,7 +117,7 @@ public class AddFavouriteDAO {
     // Insert
     public void addFavouriteItem(FavouriteItem item) throws SQLException {
 
-        String query = "INSERT INTO favouriteitem(favouriteId, customerId ,productId) VALUES(?, ?)";
+        String query = "INSERT INTO favouriteitem(favouriteId, customerId ,productId) VALUES(?, ?, ?)";
 
         Connection conn = DBconfig.getConnection();
 

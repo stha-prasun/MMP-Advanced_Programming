@@ -33,7 +33,7 @@
     </c:if>
 
     <!-- EMPTY STATE -->
-    <c:if test="${empty productList or fn:length(productList) == 0}">
+    <c:if test="${empty productList}">
       <div class="emptyState" style="text-align: center; padding: 4rem 2rem;">
         <h2 style="font-size: 1.5rem; color: #333; margin-bottom: 0.5rem;">No saved items yet</h2>
         <p style="color: #666;">Browse products and click the heart icon to save them here.</p>
@@ -45,7 +45,7 @@
     </c:if>
 
     <!-- LIST -->
-    <c:if test="${not empty productList and fn:length(productList) > 0}">
+    <c:if test="${not empty productList}">
       <ul class="itemList">
         <c:forEach var="product" items="${productList}" varStatus="loop">
           <li class="itemCard">
@@ -56,15 +56,15 @@
 
               <div class="itemIdentity">
                 <img
-                  src="<%= request.getContextPath() %>/Assets/Product/${not empty product.image ? product.image : 'product'.concat(loop.index + 1).concat('.png')}"
+                  src="<%= request.getContextPath() %>/Assets/Product/${product.productImageUrl}"
                   class="itemImage"
-                  alt="${not empty product.name ? product.name : 'Product image'}"
-                  onerror="this.src='<%= request.getContextPath() %>/Assets/Product/default.png'"
+                  alt="${product.productName}"
+                  onerror="this.src='<%= request.getContextPath() %>/Assets/Home/NOTFOUND.png'"
                 />
 
                 <div class="itemInfo">
-                  <h2 class="itemName">${not empty product.name ? product.name : 'Unknown Product'}</h2>
-                  <p class="itemCategory">${not empty product.category ? product.category : 'Uncategorized'}</p>
+                  <h2 class="itemName">${product.productName}</h2>
+                  <p class="itemCategory">${product.categoryName}</p>
                 </div>
               </div>
 
@@ -80,14 +80,14 @@
 
             <!-- RIGHT -->
             <div class="itemRight">
-              <span class="itemCode">${not empty product.itemCode ? product.itemCode : 'ITM-'.concat(product.id)}</span>
+              <span class="itemCode">${product.productId}</span>
 
               <h3 class="productPrice">
-                <span>$</span><fmt:formatNumber value="${product.price}" pattern="#,#00" />
+                <span>$</span><fmt:formatNumber value="${product.productPrice}" pattern="#,#00" />
               </h3>
 
               <c:choose>
-                <c:when test="${product.available}">
+                <c:when test="${!product.productIsSold}">
                   <div class="itemStatus available">
                     <span class="statusDot"></span>
                     Available
@@ -103,9 +103,9 @@
 
               <div class="itemActions">
                 <c:choose>
-                  <c:when test="${product.available}">
+                  <c:when test="${!product.productIsSold}">
                     <form action="<%= request.getContextPath() %>/cart/add" method="post" style="display: inline;">
-                      <input type="hidden" name="productId" value="${product.id}" />
+                      <input type="hidden" name="productId" value="${product.productId}" />
                       <button type="submit" class="cartBtn" title="Add to cart">
                         <img src="<%= request.getContextPath() %>/Assets/Product/cart.png" class="iconImage" alt="cart icon" />
                       </button>
@@ -119,7 +119,7 @@
                 </c:choose>
 
                 <form action="<%= request.getContextPath() %>/favourite/remove" method="post" style="display: inline;" onsubmit="return confirm('Remove this item from favourites?');">
-                  <input type="hidden" name="productId" value="${product.id}" />
+                  <input type="hidden" name="productId" value="${product.productId}" />
                   <button type="submit" class="deleteBtn" title="Remove from favourites">
                     <img src="<%= request.getContextPath() %>/Assets/Product/delete.png" class="iconImage" alt="delete icon" />
                   </button>

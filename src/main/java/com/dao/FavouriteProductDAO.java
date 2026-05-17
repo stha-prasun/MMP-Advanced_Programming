@@ -38,7 +38,7 @@ public class FavouriteProductDAO {
         customerPst.close();
 
         // Get favourite products
-        String sql = "SELECT fi.favouriteItemId, f.favouriteId, f.totalFavourites, p.productId, p.productName, p.productPrice, p.productImageUrl, c.type AS categoryName FROM favourites f JOIN favourite_item fi ON f.favouriteId = fi.favouriteId JOIN product p ON fi.productId = p.productId JOIN category c ON p.categoryId = c.categoryId WHERE f.customerId = ?";
+        String sql = "SELECT fi.favouriteItemId, f.favouriteId, f.totalFavourites, p.productId, p.productName, p.productPrice, p.productImageUrl,p.productIsSold, c.type AS categoryName FROM favourites f JOIN favouriteitem fi ON f.favouriteId = fi.favouriteId JOIN product p ON fi.productId = p.productId JOIN category c ON p.categoryId = c.categoryId WHERE f.customerId = ?";
 
         PreparedStatement pst = con.prepareStatement(sql);
         pst.setLong(1, customerId);
@@ -55,6 +55,7 @@ public class FavouriteProductDAO {
                     rs.getString("productName"),
                     rs.getInt("productPrice"),
                     rs.getString("productImageUrl"),
+                    rs.getBoolean("productIsSold"),
                     rs.getString("categoryName")
             );
 

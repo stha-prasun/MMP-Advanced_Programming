@@ -63,7 +63,7 @@
                                     <c:when test="${not empty sessionScope.Email}">
 
                                         <!-- Favourite -->
-                                        <a href="${pageContext.request.contextPath}/favourites"
+                                        <a href="<%= request.getContextPath() %>/customer/favorite"
                                            class="favBtn">
 
                                             <img

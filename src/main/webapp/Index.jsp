@@ -75,9 +75,12 @@
             <a href="product/details?id=${product.productId}" style="text-decoration: none; color: inherit;">
               <div class="productImageWrapper">
                 <img src="<%= request.getContextPath() %>/${product.productImageUrl}" class="productImage" alt="${product.productName}" onerror="this.src='<%= request.getContextPath() %>/Assets/Home/NOTFOUND.png'"/>
-                <button class="wishlistBtn">
-                  <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" class="wishlistIcon" />
-                </button>
+                <form action="<%= request.getContextPath() %>/favourite/add" method="post">
+                <input type="hidden" name="productId" value="${product.productId}" />
+                    <button type="submit" class="wishlistBtn">
+                        <img src="<%= request.getContextPath() %>/Assets/Home/fav.png" class="wishlistIcon" />
+                    </button>
+                </form>
               </div>
 
               <div class="productInfo">

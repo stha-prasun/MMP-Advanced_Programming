@@ -9,10 +9,11 @@ public class FavouriteProductModel {
     private String productName;
     private int productPrice;
     private String productImageUrl;
+    private Boolean productIsSold;
 
     private String categoryName;
 
-    public FavouriteProductModel(Long favouriteId, Long favouriteItemId, int totalFavourites, Long productId, String productName, int productPrice, String productImageUrl, String categoryName) {
+    public FavouriteProductModel(Long favouriteId, Long favouriteItemId, int totalFavourites, Long productId, String productName, int productPrice, String productImageUrl,Boolean productIsSold, String categoryName) {
         this.favouriteId = favouriteId;
         this.favouriteItemId = favouriteItemId;
         this.totalFavourites = totalFavourites;
@@ -20,6 +21,7 @@ public class FavouriteProductModel {
         this.productName = productName;
         this.productPrice = productPrice;
         this.productImageUrl = productImageUrl;
+        this.productIsSold=productIsSold;
         this.categoryName = categoryName;
     }
 
@@ -45,6 +47,14 @@ public class FavouriteProductModel {
 
     public void setTotalFavourites(int totalFavourites) {
         this.totalFavourites = totalFavourites;
+    }
+
+    public Boolean getProductIsSold() {
+        return productIsSold;
+    }
+
+    public void setProductIsSold(Boolean productIsSold) {
+        this.productIsSold = productIsSold;
     }
 
     public Long getProductId() {
