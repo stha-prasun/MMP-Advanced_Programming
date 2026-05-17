@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/IndividualProduct.css" />
 </head>
 <body>
-<jsp:include page="/WEB-INF/pages/Navbar.jsp" />
+<<jsp:include page="/WEB-INF/pages/Navbar.jsp" />
 
 <!-- Display cart message if exists -->
 <c:if test="${not empty sessionScope.cartMessage}">
@@ -41,8 +41,7 @@
             <c:otherwise>
                 <div class="buttons">
                     <!-- Add to Cart Form -->
-                    <form method="POST" action="${pageContext.request.contextPath}/customer/cart" style="display:inline;">
-                        <input type="hidden" name="action" value="add" />
+                    <form method="POST" action="${pageContext.request.contextPath}/customer/cart/add" style="display:inline;">
                         <input type="hidden" name="productId" value="${product.productId}" />
                         <button type="submit" class="addToCart">ADD TO CART</button>
                     </form>

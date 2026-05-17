@@ -1,20 +1,17 @@
 package com.model;
 
-import java.time.LocalDateTime;
-
 public class CartItem {
     private Long cartItemID;
     private int quantity;
-
-    //cart field
     private Long cartId;
-
-    //product field
     private Long productId;
     private String productName;
     private int productPrice;
     private String productImageUrl;
     private String sellerName;
+
+    public CartItem() {
+    }
 
     public CartItem(Long cartItemID, int quantity, Long cartId, Long productId) {
         this.cartItemID = cartItemID;
@@ -23,8 +20,8 @@ public class CartItem {
         this.productId = productId;
     }
 
-
-    public CartItem(Long cartItemID, int quantity, Long cartId, Long productId, String productName, int productPrice, String productImageUrl, String sellerName) {
+    public CartItem(Long cartItemID, int quantity, Long cartId, Long productId,
+                    String productName, int productPrice, String productImageUrl, String sellerName) {
         this.cartItemID = cartItemID;
         this.quantity = quantity;
         this.cartId = cartId;

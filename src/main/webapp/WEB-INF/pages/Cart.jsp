@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/Cart.css" />
 </head>
 <body>
-<jsp:include page="/WEB-INF/pages/Navbar.jsp" />
+<<jsp:include page="/WEB-INF/pages/Navbar.jsp" />
 
 <div class="cartRoot">
 
@@ -66,8 +66,7 @@
               </div>
 
               <div class="productCardActions">
-                <form method="POST" action="${pageContext.request.contextPath}/customer/cart">
-                  <input type="hidden" name="action" value="remove" />
+                <form method="POST" action="${pageContext.request.contextPath}/customer/cart/remove">
                   <input type="hidden" name="cartItemId" value="${item.cartItemID}" />
                   <button type="submit" class="btnDelete" aria-label="Remove item">
                     <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/dustbin.png" class="deleteIcon" alt="delete"/>

@@ -13,79 +13,88 @@ import java.util.List;
 
 public class CartDAO {
 
-    // Get cart by customer email with all cart items
-    public Cart getCartByCustomerEmail(String custEmail) throws SQLException {
-
-        Connection con = DBconfig.getConnection();
-
-        // Get customer ID from email
-        String getQuery = "SELECT customerId FROM customer WHERE custEmail = ?";
-        PreparedStatement customerPst = con.prepareStatement(getQuery);
-        customerPst.setString(1, custEmail);
-        ResultSet res = customerPst.executeQuery();
-
+    // Get customer ID by email
+    public Long getCustomerIdByEmail(String custEmail) throws SQLException {
         Long customerId = null;
-        if (res.next()) {
-            customerId = res.getLong("customerId");
-        } else {
-            res.close();
-            customerPst.close();
-            con.close();
-            return null; // no customer found
+        String query = "SELECT customerId FROM customer WHERE custEmail = ?";
+
+        Connection conn = DBconfig.getConnection();
+        PreparedStatement ps = conn.prepareStatement(query);
+        ps.setString(1, custEmail);
+        ResultSet rs = ps.executeQuery();
+
+        if (rs.next()) {
+            customerId = rs.getLong("customerId");
         }
-        res.close();
-        customerPst.close();
 
-        // Get cart for customer
-        String cartQuery = "SELECT * FROM cart WHERE customerId = ?";
-        PreparedStatement cartPst = con.prepareStatement(cartQuery);
-        cartPst.setLong(1, customerId);
-        ResultSet cartRs = cartPst.executeQuery();
+        rs.close();
+        ps.close();
+        conn.close();
+        return customerId;
+    }
 
+    // Get cart by customer ID
+    public Cart getCartByCustomerId(Long customerId) throws SQLException {
         Cart cart = null;
-        if (cartRs.next()) {
+        String sql = "SELECT * FROM cart WHERE customerId = ?";
+
+        Connection conn = DBconfig.getConnection();
+        PreparedStatement pst = conn.prepareStatement(sql);
+        pst.setLong(1, customerId);
+        ResultSet rs = pst.executeQuery();
+
+        if (rs.next()) {
             cart = new Cart();
-            cart.setCartId(cartRs.getLong("cartId"));
+            cart.setCartId(rs.getLong("cartId"));
             cart.setCustomerId(customerId);
-        } else {
-            cartRs.close();
-            cartPst.close();
-            con.close();
-            return null; // no cart found
         }
-        cartRs.close();
-        cartPst.close();
-        con.close();
 
-        // Clean up sold items before fetching
-        removeSoldItemsFromCart(cart.getCartId());
-
-        // Get cart items (only unsold products)
-        con = DBconfig.getConnection();
-        List<CartItem> cartItems = getCartItemsByCartId(cart.getCartId(), con);
-        cart.setCartTotalItems(cartItems);
-
-        // Update and get cart total price
-        updateCartTotalPrice(cart.getCartId(), con);
-        cart.setCartTotalPrice(getCartTotalPrice(cart.getCartId(), con));
-
-        con.close();
+        rs.close();
+        pst.close();
+        conn.close();
         return cart;
     }
 
-    // Get cart items by cart ID - only returns unsold products
-    private List<CartItem> getCartItemsByCartId(Long cartId, Connection con) throws SQLException {
+    // Get full cart by customer email (items + totals)
+    public Cart getCartByCustomerEmail(String custEmail) throws SQLException {
+        Long customerId = getCustomerIdByEmail(custEmail);
+        if (customerId == null) {
+            return null;
+        }
+
+        Cart cart = getCartByCustomerId(customerId);
+        if (cart == null) {
+            return null;
+        }
+
+        // Clean up sold items and refresh totals under one connection
+        Connection conn = DBconfig.getConnection();
+        try {
+            removeSoldItemsFromCart(cart.getCartId(), conn);
+
+            List<CartItem> cartItems = getCartItemsByCartId(cart.getCartId(), conn);
+            cart.setCartTotalItems(cartItems);
+
+            updateCartTotalPrice(cart.getCartId(), conn);
+            cart.setCartTotalPrice(getCartTotalPrice(cart.getCartId(), conn));
+        } finally {
+            conn.close();
+        }
+        return cart;
+    }
+
+    // Get cart items by cart ID (unsold products only)
+    private List<CartItem> getCartItemsByCartId(Long cartId, Connection conn) throws SQLException {
         List<CartItem> cartItems = new ArrayList<>();
 
         String sql = "SELECT ci.cartItemID, ci.quantity, ci.cartId, ci.productId, " +
-                "p.productName, p.productPrice, p.productImageUrl, " +
-                "s.sellerName " +
-                "FROM cart_item ci " +
+                "p.productName, p.productPrice, p.productImageUrl, s.sellerName " +
+                "FROM cartItem ci " +
                 "JOIN product p ON ci.productId = p.productId " +
                 "JOIN seller s ON p.sellerId = s.sellerId " +
                 "WHERE ci.cartId = ? AND p.productIsSold = false";
 
-        PreparedStatement pst = con.prepareStatement(sql);
+        PreparedStatement pst = conn.prepareStatement(sql);
         pst.setLong(1, cartId);
         ResultSet rs = pst.executeQuery();
 
@@ -111,23 +120,29 @@ public class CartDAO {
 
     // Create a new cart for customer
     public void createCart(Long customerId) throws SQLException {
-        Connection con = DBconfig.getConnection();
-
+        Connection conn = DBconfig.getConnection();
         String sql = "INSERT INTO cart (cartTotalPrice, customerId) VALUES (0, ?)";
-        PreparedStatement pst = con.prepareStatement(sql);
+        PreparedStatement pst = conn.prepareStatement(sql);
         pst.setLong(1, customerId);
         pst.executeUpdate();
-
         pst.close();
-        con.close();
+        conn.close();
+    }
+
+    // Create cart by customer email
+    public void createCartByEmail(String customerEmail) throws SQLException {
+        Long customerId = getCustomerIdByEmail(customerEmail);
+        if (customerId == null) {
+            throw new SQLException("Customer not found with email: " + customerEmail);
+        }
+        createCart(customerId);
     }
 
     // Check if product already exists in cart
     public boolean isProductInCart(Long cartId, Long productId) throws SQLException {
-        Connection con = DBconfig.getConnection();
-
-        String sql = "SELECT COUNT(*) FROM cart_item WHERE cartId = ? AND productId = ?";
-        PreparedStatement pst = con.prepareStatement(sql);
+        Connection conn = DBconfig.getConnection();
+        String sql = "SELECT COUNT(*) FROM cartItem WHERE cartId = ? AND productId = ?";
+        PreparedStatement pst = conn.prepareStatement(sql);
         pst.setLong(1, cartId);
         pst.setLong(2, productId);
         ResultSet rs = pst.executeQuery();
@@ -139,16 +154,15 @@ public class CartDAO {
 
         rs.close();
         pst.close();
-        con.close();
+        conn.close();
         return exists;
     }
 
-    // Get available stock for a product (isSold status)
+    // Check if product is available (not sold)
     public boolean isProductAvailable(Long productId) throws SQLException {
-        Connection con = DBconfig.getConnection();
-
+        Connection conn = DBconfig.getConnection();
         String sql = "SELECT productIsSold FROM product WHERE productId = ?";
-        PreparedStatement pst = con.prepareStatement(sql);
+        PreparedStatement pst = conn.prepareStatement(sql);
         pst.setLong(1, productId);
         ResultSet rs = pst.executeQuery();
 
@@ -159,94 +173,85 @@ public class CartDAO {
 
         rs.close();
         pst.close();
-        con.close();
+        conn.close();
         return available;
     }
 
-    // Add item to cart - single unique items only
+    // Add item to cart
     public String addCartItem(Long cartId, Long productId) throws SQLException {
-        Connection con = DBconfig.getConnection();
-
-        // Check if product already in cart
         if (isProductInCart(cartId, productId)) {
-            con.close();
             return "This product is already in your cart";
         }
 
-        // Check if product is still available (not sold)
         if (!isProductAvailable(productId)) {
-            con.close();
             return "Sorry, this product is no longer available";
         }
 
-        String sql = "INSERT INTO cart_item (quantity, cartId, productId) VALUES (1, ?, ?)";
-        PreparedStatement pst = con.prepareStatement(sql);
+        Connection conn = DBconfig.getConnection();
+        String sql = "INSERT INTO cartItem (quantity, cartId, productId) VALUES (1, ?, ?)";
+        PreparedStatement pst = conn.prepareStatement(sql);
         pst.setLong(1, cartId);
         pst.setLong(2, productId);
         pst.executeUpdate();
-
         pst.close();
 
-        // Update cart total price
-        updateCartTotalPrice(cartId, con);
-
-        con.close();
+        updateCartTotalPrice(cartId, conn);
+        conn.close();
         return "success";
     }
 
     // Remove item from cart
     public void removeCartItem(Long cartItemId, Long cartId) throws SQLException {
-        Connection con = DBconfig.getConnection();
-
-        String sql = "DELETE FROM cart_item WHERE cartItemID = ?";
-        PreparedStatement pst = con.prepareStatement(sql);
+        Connection conn = DBconfig.getConnection();
+        String sql = "DELETE FROM cartItem WHERE cartItemID = ?";
+        PreparedStatement pst = conn.prepareStatement(sql);
         pst.setLong(1, cartItemId);
         pst.executeUpdate();
-
         pst.close();
 
-        // Update cart total price
-        updateCartTotalPrice(cartId, con);
-
-        con.close();
+        updateCartTotalPrice(cartId, conn);
+        conn.close();
     }
 
-    // Clean up sold items from cart
+    // Clean up sold items from cart (public self-contained version)
     public void removeSoldItemsFromCart(Long cartId) throws SQLException {
-        Connection con = DBconfig.getConnection();
+        Connection conn = DBconfig.getConnection();
+        removeSoldItemsFromCart(cartId, conn);
+        conn.close();
+    }
 
-        String sql = "DELETE ci FROM cart_item ci " +
+    // Clean up sold items (internal reuse version)
+    private void removeSoldItemsFromCart(Long cartId, Connection conn) throws SQLException {
+        String sql = "DELETE ci FROM cartItem ci " +
                 "JOIN product p ON ci.productId = p.productId " +
                 "WHERE ci.cartId = ? AND p.productIsSold = true";
 
-        PreparedStatement pst = con.prepareStatement(sql);
+        PreparedStatement pst = conn.prepareStatement(sql);
         pst.setLong(1, cartId);
         pst.executeUpdate();
-
         pst.close();
-        con.close();
     }
 
     // Update cart total price
-    private void updateCartTotalPrice(Long cartId, Connection con) throws SQLException {
+    private void updateCartTotalPrice(Long cartId, Connection conn) throws SQLException {
         String sql = "UPDATE cart SET cartTotalPrice = " +
                 "(SELECT COALESCE(SUM(ci.quantity * p.productPrice), 0) " +
-                "FROM cart_item ci " +
+                "FROM cartItem ci " +
                 "JOIN product p ON ci.productId = p.productId " +
                 "WHERE ci.cartId = ? AND p.productIsSold = false) " +
                 "WHERE cartId = ?";
 
-        PreparedStatement pst = con.prepareStatement(sql);
+        PreparedStatement pst = conn.prepareStatement(sql);
         pst.setLong(1, cartId);
         pst.setLong(2, cartId);
         pst.executeUpdate();
         pst.close();
     }
 
-    // Helper to get cart total
-    private int getCartTotalPrice(Long cartId, Connection con) throws SQLException {
+    // Get cart total price
+    private int getCartTotalPrice(Long cartId, Connection conn) throws SQLException {
         String sql = "SELECT cartTotalPrice FROM cart WHERE cartId = ?";
-        PreparedStatement pst = con.prepareStatement(sql);
+        PreparedStatement pst = conn.prepareStatement(sql);
         pst.setLong(1, cartId);
         ResultSet rs = pst.executeQuery();
 

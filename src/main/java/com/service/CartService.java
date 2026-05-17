@@ -18,12 +18,22 @@ public class CartService {
         return cartDAO.getCartByCustomerEmail(custEmail);
     }
 
-    // Create a new cart for customer
-    public void createCart(Long customerId) throws SQLException {
-        cartDAO.createCart(customerId);
+    // Get existing cart or create one if it doesn't exist
+    public Cart getOrCreateCartByCustomerEmail(String custEmail) throws SQLException {
+        Cart cart = cartDAO.getCartByCustomerEmail(custEmail);
+        if (cart == null) {
+            cartDAO.createCartByEmail(custEmail);
+            cart = cartDAO.getCartByCustomerEmail(custEmail);
+        }
+        return cart;
     }
 
-    // Add item to cart - returns success/error message
+    // Create cart for customer
+    public void createCartForCustomer(String customerEmail) throws SQLException {
+        cartDAO.createCartByEmail(customerEmail);
+    }
+
+    // Add item to cart
     public String addItemToCart(Long cartId, Long productId) throws SQLException {
         return cartDAO.addCartItem(cartId, productId);
     }

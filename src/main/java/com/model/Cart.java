@@ -6,15 +6,14 @@ public class Cart {
     private Long cartId;
     private List<CartItem> cartTotalItems;
     private int cartTotalPrice;
-
-    //Customer field
     private Long customerId;
 
-
+    public Cart() {
+    }
 
     public Cart(Long cartId, int cartTotalPrice, List<CartItem> cartTotalItems) {
         this.cartId = cartId;
-        this.cartTotalPrice=cartTotalPrice;
+        this.cartTotalPrice = cartTotalPrice;
         this.cartTotalItems = cartTotalItems;
     }
 
@@ -25,9 +24,6 @@ public class Cart {
         this.customerId = customerId;
     }
 
-    public Cart() {
-    }
-
     public Long getCartId() {
         return cartId;
     }
@@ -36,13 +32,12 @@ public class Cart {
         this.cartId = cartId;
     }
 
-
     public List<CartItem> getCartTotalItems() {
         return cartTotalItems;
     }
 
     public void setCartTotalItems(List<CartItem> cartTotalItems) {
-        this.cartTotalItems = this.cartTotalItems;
+        this.cartTotalItems = cartTotalItems;
     }
 
     public int getCartTotalPrice() {

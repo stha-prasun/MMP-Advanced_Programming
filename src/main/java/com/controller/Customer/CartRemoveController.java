@@ -11,8 +11,8 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet("/customer/cart")
-public class CartController extends HttpServlet {
+@WebServlet("/customer/cart/remove")
+public class CartRemoveController extends HttpServlet {
 
     private CartService cartService;
 
@@ -22,7 +22,7 @@ public class CartController extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         try {
@@ -33,25 +33,20 @@ public class CartController extends HttpServlet {
             }
 
             Cart cart = cartService.getCartByCustomerEmail(custEmail);
-
             if (cart == null) {
-                request.setAttribute("cart", null);
-                request.setAttribute("cartItems", null);
-                request.setAttribute("totalItems", 0);
-                request.setAttribute("totalPrice", 0);
-            } else {
-                request.setAttribute("cart", cart);
-                request.setAttribute("cartItems", cart.getCartTotalItems());
-                request.setAttribute("totalItems", cart.getCartTotalItems() != null ? cart.getCartTotalItems().size() : 0);
-                request.setAttribute("totalPrice", cart.getCartTotalPrice());
+                response.sendRedirect(request.getContextPath() + "/customer/cart");
+                return;
             }
 
-            request.getRequestDispatcher("/WEB-INF/pages/Cart.jsp").forward(request, response);
+            Long cartItemId = Long.parseLong(request.getParameter("cartItemId"));
+            cartService.removeItemFromCart(cartItemId, cart.getCartId());
+
+            response.sendRedirect(request.getContextPath() + "/customer/cart");
 
         } catch (Exception e) {
             e.printStackTrace();
-            request.setAttribute("error", "Something went wrong loading your cart");
-            request.getRequestDispatcher("/WEB-INF/pages/Cart.jsp").forward(request, response);
+            request.getSession().setAttribute("cartMessage", "Something went wrong");
+            response.sendRedirect(request.getContextPath() + "/customer/cart");
         }
     }
 }
