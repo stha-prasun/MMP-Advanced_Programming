@@ -266,4 +266,14 @@ public class ProductDAO {
         return product;
     }
 
+    public void markProductAsSold(Long productId) throws Exception {
+        Connection conn = DBconfig.getConnection();
+        String sql = "UPDATE product SET productIsSold = true WHERE productId = ?";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setLong(1, productId);
+        ps.executeUpdate();
+        ps.close();
+        conn.close();
+    }
+
 }

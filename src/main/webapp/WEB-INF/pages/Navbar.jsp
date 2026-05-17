@@ -74,7 +74,7 @@
                                         </a>
 
                                         <!-- Cart -->
-                                        <a href="${pageContext.request.contextPath}/cart"
+                                        <a href="${pageContext.request.contextPath}/customer/cart"
                                            class="favBtn">
 
                                             <img
