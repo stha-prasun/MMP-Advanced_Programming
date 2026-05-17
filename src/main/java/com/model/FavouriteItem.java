@@ -3,11 +3,13 @@ package com.model;
 public class FavouriteItem {
     private Long favouriteItemId;
     private Long favouriteId;
+    private Long customerId;
     private Long productId;
 
-    public FavouriteItem(Long favouriteItemId, Long favouriteId, Long productId) {
+    public FavouriteItem(Long favouriteItemId, Long customerId,Long favouriteId, Long productId) {
         this.favouriteItemId = favouriteItemId;
         this.favouriteId = favouriteId;
+        this.customerId=customerId;
         this.productId = productId;
     }
 
@@ -28,6 +30,14 @@ public class FavouriteItem {
 
     public void setFavouriteId(Long favouriteId) {
         this.favouriteId = favouriteId;
+    }
+
+    public Long getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
     }
 
     public Long getProductId() {
