@@ -91,6 +91,7 @@ body {
   flex-direction: column;
   align-items: center;
   margin-top: 3rem;
+  margin-bottom: 10rem;
 }
 
 /* FORM */
@@ -99,7 +100,9 @@ body {
   display: flex;
   flex-direction: column;
 }
-
+.editPadding a {
+text-decoration: none;
+}
 /* LABELS */
 .paymentForm label {
   color: #03c;

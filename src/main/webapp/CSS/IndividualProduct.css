@@ -124,16 +124,12 @@ body{
 
 /* ADD TO CART */
 .addToCart{
-    border: 2px solid #03C;
-    background: transparent;
-    color: #03C;
-
-    box-shadow:
-    0 181px 51px rgba(0, 51, 204, 0),
-    0 116px 46px rgba(0, 51, 204, 0.02),
-    0 65px 39px rgba(0, 51, 204, 0.07),
-    0 29px 29px rgba(0, 51, 204, 0.11),
-    0 7px 16px rgba(0, 51, 204, 0.13);
+border-radius: 0.5rem;
+background: #03C;
+color: #ffffff;
+border: none;
+width: 27.0625rem;
+box-shadow: 0 181px 51px 0 rgba(0, 51, 204, 0.00), 0 116px 46px 0 rgba(0, 51, 204, 0.02), 0 65px 39px 0 rgba(0, 51, 204, 0.07), 0 29px 29px 0 rgba(0, 51, 204, 0.11), 0 7px 16px 0 rgba(0, 51, 204, 0.13);
 }
 
 /* BUY NOW */

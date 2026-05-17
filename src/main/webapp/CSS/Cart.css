@@ -162,7 +162,7 @@ ul {
 }
 
 .fieldValue.price {
-  color: #0033CC;
+  color: #000000;
   font-family: Consolas, monospace;
 }
 
@@ -342,6 +342,11 @@ ul {
   letter-spacing: 0.0625rem;
   text-transform: uppercase;
   transition: color 0.15s;
+  text-decoration: none;
+}
+
+.price{
+color: #03c;
 }
 
 .cancelBtn:hover {

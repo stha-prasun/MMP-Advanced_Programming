@@ -26,10 +26,10 @@
       </a>
     </div>
 
-    <!-- Order Summary -->
-    <div class="orderSummary" style="padding: 20px 40px;">
-        <p>Order #${orderId} &bull; ${itemCount} item(s)</p>
-        <h3>Total: $ ${orderTotal}</h3>
+      <div class="field">
+        <label>Your Location</label>
+        <input type="text" name="location" placeholder="Kathmandu, Nepal" required />
+      </div>
     </div>
 
     <section class="methods">

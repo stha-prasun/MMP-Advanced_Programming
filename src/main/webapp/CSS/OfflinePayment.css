@@ -67,6 +67,13 @@ body {
   text-transform: uppercase;
 }
 
+.editPadding a {
+text-decoration: none;
+}
+
+.price{
+color: #03c;
+}
 /* SECTION CENTERING */
 .offline {
   display: flex;
@@ -75,6 +82,11 @@ body {
   justify-content: center;
   margin-top: 5rem;
   text-align: center;
+  margin-bottom: 10rem;
+}
+
+.totalPrice {
+color: #000000;
 }
 
 /* ICON CIRCLE */

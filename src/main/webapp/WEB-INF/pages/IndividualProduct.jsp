@@ -46,7 +46,6 @@
                         <button type="submit" class="addToCart">ADD TO CART</button>
                     </form>
 
-                    <button class="buyNow">BUY NOW</button>
                 </div>
             </c:otherwise>
         </c:choose>

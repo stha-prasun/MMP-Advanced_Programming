@@ -61,7 +61,7 @@
                 </div>
                 <div class="fieldRow">
                   <span class="fieldLabel">Price</span>
-                  <span class="fieldValue price">$ ${item.productPrice}</span>
+                  <span class="fieldValue price"><span class="price">$</span>${item.productPrice}</span>
                 </div>
               </div>
 
@@ -87,7 +87,7 @@
           <div class="summaryLines">
             <div class="summaryLineSubtotal">
               <span>Subtotal</span>
-              <span>$ ${totalPrice}</span>
+              <span class="totalPrice"><span class="price">$</span> ${totalPrice}</span>
             </div>
             <div class="summaryLineRest">
               <span>Shipping</span>
@@ -101,7 +101,7 @@
 
           <div class="totalLine">
             <span class="totalLabel">Total</span>
-            <span class="totalAmt">$ ${totalPrice + 14}</span>
+            <span class="totalAmt"><span class="price">$</span>${totalPrice + 14}</span>
           </div>
 
           <div class="summaryActions">
