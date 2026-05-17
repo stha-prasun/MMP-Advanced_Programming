@@ -81,7 +81,7 @@ public class RegisterController extends HttpServlet {
             service.addCustomer(custName, custEmail, custPassword, custCreatedAt, imgUrl);
 
             // Redirect after success
-            response.sendRedirect(request.getContextPath() + "/home");
+            response.sendRedirect(request.getContextPath() + "/login");
 
         } catch (Exception e) {
             e.printStackTrace();

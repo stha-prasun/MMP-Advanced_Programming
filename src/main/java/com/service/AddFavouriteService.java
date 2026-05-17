@@ -43,6 +43,8 @@ public class AddFavouriteService {
 
         item.setFavouriteId(favouriteId);
 
+        item.setCustomerId(customerId);
+
         item.setProductId(productId);
 
         dao.addFavouriteItem(item);
