@@ -97,6 +97,7 @@
                                                         src="${pageContext.request.contextPath}/${sessionScope.custProfileImg}"
                                                         alt="profile"
                                                         class="profileImg"
+                                                        onerror="this.src='<%= request.getContextPath() %>/Assets/Home/profilealt.png'"
                                                     />
 
                                                 </c:when>
