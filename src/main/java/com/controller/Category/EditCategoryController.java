@@ -1,4 +1,4 @@
-package com.controller.Admin;
+package com.controller.Category;
 
 import com.service.CategoryService;
 import jakarta.servlet.ServletException;

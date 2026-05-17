@@ -1,4 +1,4 @@
-package com.controller.Admin;
+package com.controller.Category;
 
 import com.model.Category;
 import com.service.CategoryService;

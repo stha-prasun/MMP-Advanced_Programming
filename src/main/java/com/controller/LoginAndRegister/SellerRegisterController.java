@@ -1,4 +1,4 @@
-package com.controller.Seller;
+package com.controller.LoginAndRegister;
 
 import java.io.*;
 import java.time.LocalDateTime;
