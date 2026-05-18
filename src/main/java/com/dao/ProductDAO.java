@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductDAO {
-    public void insertProduct(String productName, int price, String category,
+    public void insertProduct(String productName, int price, Long categoryId,
                               LocalDateTime postedAt, String description,
                               String imgUrl, Long sellerId) throws Exception {
 
@@ -26,7 +26,7 @@ public class ProductDAO {
 
         pst.setString(1, productName);
         pst.setInt(2, price);
-        pst.setString(3, category);
+        pst.setLong(3, categoryId);
         pst.setTimestamp(4, java.sql.Timestamp.valueOf(postedAt));
         pst.setString(5, description);
         pst.setString(6, imgUrl);

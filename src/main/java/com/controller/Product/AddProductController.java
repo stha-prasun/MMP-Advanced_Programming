@@ -57,12 +57,11 @@ public class AddProductController extends HttpServlet {
             // Get form parameters
             String productName = request.getParameter("productName");
             String priceStr = request.getParameter("price");
-            String category = request.getParameter("category");
+            Long categoryId = Long.parseLong(request.getParameter("category"));
             String description = request.getParameter("description");
 
             if (productName == null || productName.trim().isEmpty() ||
                     priceStr == null || priceStr.trim().isEmpty() ||
-                    category == null || category.trim().isEmpty() ||
                     description == null || description.trim().isEmpty()) {
 
                 // Reload categories for the form
@@ -115,7 +114,7 @@ public class AddProductController extends HttpServlet {
 
             // Call service with sellerId
             ProductService service = new ProductService();
-            service.addProduct(productName, price, category, postedAt, description, imgUrl, sellerId);
+            service.addProduct(productName, price, categoryId, postedAt, description, imgUrl, sellerId);
 
             // Redirect after success
             response.sendRedirect(request.getContextPath() + "/home");

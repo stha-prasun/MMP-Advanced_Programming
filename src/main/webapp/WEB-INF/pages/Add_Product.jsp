@@ -99,7 +99,9 @@
                   if (categories != null) {
                     for (Category cat : categories) {
                 %>
-                  <option value="<%= cat.getType() %>"><%= cat.getType() %></option>
+                  <option value="<%= cat.getCategoryId() %>">
+                      <%= cat.getType() %>
+                  </option>
                 <%
                     }
                   }
