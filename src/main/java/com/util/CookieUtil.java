@@ -24,18 +24,27 @@ public class CookieUtil {
         response.addCookie(cookie);
     }
 
+    /**
+     * method to get a cookie
+     * @param request specifies the HttpRequest where the cookie is needed
+     * @param name name of the cookie **/
     public static Cookie getCookie(HttpServletRequest request, String name)
     {
         if (request.getCookies() != null)
         {
+            //stream will iterate through all the cookies
             return Arrays.stream(request.getCookies())
-                    .filter(cookie -> name.equals(cookie.getName()))
-                    .findFirst()
+                    .filter(cookie -> name.equals(cookie.getName()))//finds the cookie with the same name
+                    .findFirst()//will return the first cookie that matches
                     .orElse(null);
         }
         return null;
     }
 
+    /**
+     * method to delete a cookie
+     * @param response specifies the HttpResponse where the cookie will be deleted
+     * @param name name of the cookie **/
     public static void deleteCookie (HttpServletResponse response, String name)
     {
         Cookie cookie = new Cookie(name, null);

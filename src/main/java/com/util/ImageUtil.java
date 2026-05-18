@@ -10,11 +10,11 @@ public class ImageUtil {
      * Extracts the file name from the given {@link Part} object based on the
      * "content-disposition" header.
      *
-     * <p>
+     *
      * This method parses the "content-disposition" header to retrieve the file name
      * of the uploaded image. If the file name cannot be determined, a default name
      * "download.png" is returned.
-     * </p>
+     *
      *
      * @param part the {@link Part} object representing the uploaded file.
      * @return the extracted file name. If no filename is found, returns a default
