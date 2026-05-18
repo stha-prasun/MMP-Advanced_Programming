@@ -118,10 +118,10 @@
                   <td class="colSold"><span class="badge badgeAvailable">${prod.productIsSold ? 'Sold' :
                       'Available'}</span></td>
                   <td class="colActions">
-                    <button class="editProfile">
-                      <img src="<%= request.getContextPath() %>/Assets/Profile/edit.png" alt="Edit" />
-                      <span>EDIT</span>
-                    </button>
+                <a href="<%= request.getContextPath() %>/product/edit?id=${prod.productId}" class="editProfile">
+                    <img src="<%= request.getContextPath() %>/Assets/Profile/edit.png" alt="Edit" />
+                    <span>EDIT</span>
+                </a>
 
                   </td>
                 </tr>

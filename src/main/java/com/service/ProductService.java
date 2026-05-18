@@ -50,4 +50,15 @@ public class ProductService {
         ProductDAO dao = new ProductDAO();
         return dao.getApprovedUnsoldProductById(id);
     }
+
+    public void updateProduct(Long productId, String productName, int price,
+                              Long categoryId, String description, String imgUrl) throws Exception {
+        ProductDAO dao = new ProductDAO();
+        dao.updateProduct(productId, productName, price, categoryId, description, imgUrl);
+    }
+
+    public void deleteProduct(Long productId) throws Exception {
+        ProductDAO dao = new ProductDAO();
+        dao.deleteProduct(productId);
+    }
 }

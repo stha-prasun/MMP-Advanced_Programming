@@ -276,4 +276,39 @@ public class ProductDAO {
         conn.close();
     }
 
+    public void updateProduct(Long productId, String productName, int price,
+                              Long categoryId, String description, String imgUrl) throws Exception {
+        Connection con = DBconfig.getConnection();
+
+        String sql = "UPDATE product SET productName = ?, productPrice = ?, categoryId = ?, " +
+                "productDescription = ?, productImageUrl = ? WHERE productId = ?";
+
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setString(1, productName);
+        pst.setInt(2, price);
+        pst.setLong(3, categoryId);
+        pst.setString(4, description);
+        pst.setString(5, imgUrl);
+        pst.setLong(6, productId);
+
+        pst.executeUpdate();
+
+        pst.close();
+        con.close();
+    }
+
+
+    public void deleteProduct(Long productId) throws Exception {
+        Connection con = DBconfig.getConnection();
+
+        String sql = "DELETE FROM product WHERE productId = ?";
+
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setLong(1, productId);
+
+        pst.executeUpdate();
+
+        pst.close();
+        con.close();
+    }
 }

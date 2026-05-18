@@ -1,0 +1,510 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f4f4f6;
+    color: #111111;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+    width: 16rem;
+    background: #ffffff;
+    border-right: 0.67px solid #e4e4e4;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 10;
+
+}
+
+
+.menu {
+     list-style: none;
+     margin-top: 6rem;
+     display: flex;
+     flex-direction: column;
+     gap: px;
+ }
+
+ .menu-item {
+     display: flex;
+     align-items: center;
+     gap: 10px;
+     padding: 1rem 5rem 1rem 2rem;
+     font-size: 13px;
+     font-weight: 600;
+     letter-spacing: 0.04em;
+     color: #888888;
+     cursor: pointer;
+     transition: background 0.15s, color 0.15s;
+     user-select: none;
+ }
+
+ .menu-item a {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+   text-decoration: none;
+   color: inherit;
+ }
+
+ .menu-item.active {
+     background: #F5F5F5;
+     color: #03c;
+     font-size: 0.875rem;
+     font-style: normal;
+     font-weight: 700;
+
+ }
+
+ .menu-icon {
+     display: flex;
+     align-items: center;
+     gap: 10px;
+     width: 100%;
+     text-decoration: none;
+     color: inherit;
+ }
+
+
+
+
+/* ── Main ── */
+.main {
+  margin-left: 16rem;
+  margin-top: 5.6rem;   /* same as navbar height */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #fff;
+}
+
+/* LOGO */
+.logo {
+  font-family: "Modak", cursive;
+  font-size: 1.75rem;
+  color: #0033CC;
+  cursor: pointer;
+  border-right: 0.667px solid #e4e4e4;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+
+  display: flex;
+  height: 5.6rem;
+  padding: 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+  background: #FFF;
+  border-bottom: 0.667px solid #e4e4e4;
+}
+
+
+/* NAV RIGHT */
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+/* SEARCH WRAPPER */
+.searchWrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  height: 2.875rem;
+  border-radius: 1.5rem;
+  padding: 0.3rem 0.3rem 0.3rem 0.625rem;
+  gap: 0.5rem;
+  background: #fff;
+  width: clamp(280px, 22vw, 400px);
+}
+
+.searchWrapper input {
+  border: none;
+  outline: none;
+  padding: 0;
+  font-size: 0.875rem;
+  flex: 1;
+  color: #333;
+  background: transparent;
+}
+
+.searchIcon {
+  width: 1rem;
+  height: 1rem;
+  opacity: 0.45;
+}
+
+/* SEARCH BUTTON */
+.searchBtn {
+  background: #03C;
+  color: white;
+  border: none;
+  height: 2.25rem;
+  padding: 0.625rem 1.125rem;
+  border-radius: 500px;
+  cursor: pointer;
+  font-size: 0.8125rem;
+  white-space: nowrap;
+}
+
+
+/* PROFILE */
+
+
+.profile {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+
+}
+
+.profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+/* ── Page Header ── */
+.user {
+    padding: 2rem 2.5rem 0.3rem 2.5rem;
+}
+
+.user h1 {
+    color: #03C;
+    font-family: Inter;
+    font-size: 3.75rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 3.75rem; /* 100% */
+    letter-spacing: -0.1875rem;
+}
+
+
+.contact {
+    color: #737373;
+    font-family: Inter;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1rem; /* 133.333% */
+    letter-spacing: 0.075rem;
+    text-transform: uppercase;
+}
+
+.editPadding {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0 3rem 0;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+    border-bottom: 2px solid #03C;
+}
+
+/* ── Form Container ── */
+.form-container {
+    max-width: 900px;
+    width: 100%;
+    margin: 40px auto;
+}
+
+.form-divider {
+    height: 1.5px;
+    background: #e4e4e4;
+    margin: 0 32px;
+}
+
+/* ── Form Sections ── */
+.form-section {
+    padding: 36px 60px;
+}
+
+.form-section h2{
+    color: #03c;
+    font-family: Inter;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.5rem; /* 150% */
+}
+
+.section-heading {
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+
+/* ── Form Fields ── */
+.field-group {
+    margin-bottom: 28px;
+}
+
+.field-label {
+    display: block;
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: #A1A1A1;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.field-input {
+    width: 100%;
+    border: none;
+    border-bottom: 1.5px solid #cccccc;
+    background: transparent;
+    padding: 8px 0;
+    font-size: 22px;
+    font-weight: 400;
+    font-family: 'DM Sans', sans-serif;
+    color: #111111;
+    outline: none;
+    transition: border-color 0.15s;
+    letter-spacing: 0.04em;
+}
+
+.field-input::placeholder {
+    color: #E5E5E5;
+    font-family: Inter;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.0375rem;
+}
+
+.field-input:focus {
+    border-color: #1a1aff;
+}
+
+/* Category select styled as underline */
+.field-select {
+    width: 280px;
+    border: none;
+    border-bottom: 1.5px solid #cccccc;
+    background: transparent;
+    padding: 8px 0;
+    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    color: #111111;
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+    transition: border-color 0.15s;
+}
+
+.field-select:focus {
+    border-color: #1a1aff;
+}
+
+/* Price field */
+.price-wrap {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    width: 280px;
+    border-bottom: 1.5px solid #cccccc;
+    transition: border-color 0.15s;
+}
+
+.price-wrap:focus-within {
+    border-color: #1a1aff;
+}
+
+.price-symbol {
+    font-size: 22px;
+    font-weight: 400;
+    color: #03C;
+    padding-bottom: 8px;
+}
+
+.field-price {
+    border: none;
+    background: transparent;
+    padding: 8px 0;
+    font-size: 22px;
+    font-weight: 400;
+    font-family: 'DM Sans', sans-serif;
+    color: #cccccc;
+    outline: none;
+    width: 100%;
+}
+
+.field-price::placeholder {
+    color: #cccccc;
+}
+
+/* Description textarea */
+.field-textarea {
+    width: 100%;
+    border: none;
+    border: 0.67px dashed #E6E6E6;
+    border-radius: 10px;
+    background: transparent;
+    padding: 0.8rem;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Inter';
+    color: #E5E5E5;
+    outline: none;
+    resize: none;
+    min-height: 160px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: border-color 0.15s;
+}
+
+.file-input {
+    display: none;
+}
+
+.field-textarea::placeholder {
+    color: #cccccc;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+}
+
+.field-textarea:focus {
+    border-color: #1a1aff;
+    color: #111111;
+}
+
+/* ── Upload Zone ── */
+.upload-zone {
+    border: 2px dashed #D4D4D4;
+    border-radius: 8px;
+    padding: 60px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    background: #fafafa;
+}
+
+.upload-zone:hover {
+    border: 2px dashed #03c;
+}
+
+
+.upload-title {
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.75rem; /* 140% */
+    letter-spacing: -0.03125rem;
+}
+
+.upload-hint {
+    color: #A1A1A1;
+    text-align: center;
+    font-family: Inter;
+    font-size: 0.625rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 0.9375rem; /* 150% */
+    letter-spacing: 0.0625rem;
+    text-transform: uppercase;
+    width: 24rem;
+    flex-shrink: 0;
+}
+
+
+.form-footer {
+    padding: 2.5rem 0 0 0;
+    border-top: 1.5px solid #e4e4e4;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 16px;
+    background: #ffffff;
+}
+
+.btn-cancel {
+    color: #A1A1A1;
+    font-family: Inter;
+    font-size: 0.625rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 0.9375rem; /* 150% */
+    letter-spacing: 0.0625rem;
+    border: none;
+    background: none;
+}
+
+.btn-cancel:hover {
+    color: #03c;
+}
+
+.btn-submit {
+    background: #03c;
+    color: #ffffff;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 0.25rem;
+    font-size: 0.625rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 0.9375rem; /* 150% */
+    letter-spacing: 0.0625rem;
+    transition: background 0.15s;
+}
+
+.btn-submit:hover {
+    background: #0000dd;
+}
+
+.btnDelete {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  color: #0033CC;
+  transition: color 0.18s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnDelete:hover {
+  color: #e74c3c;
+}
+
+.deleteIcon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
