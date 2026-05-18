@@ -122,7 +122,7 @@
                         <div class="order-row borderBtm">
                           <span class="order-info">STATUS</span>
                           <c:choose>
-                            <c:when test="${order.orderStatus == 'delivered'}">
+                            <c:when test="${order.orderStatus == 'completed'}">
                               <span class="status-badge completed">COMPLETED</span>
                             </c:when>
                             <c:when test="${order.orderStatus == 'pending'}">
@@ -161,7 +161,7 @@
                           </div>
                           <div class="timeline-item">
                             <c:choose>
-                              <c:when test="${order.orderStatus == 'pending'}">
+                              <c:when test="${order.orderStatus == 'Pending'}">
                                 <div class="timeline-icon">
                                   <img src="<%= request.getContextPath() %>/Assets/Seller Product/pending.png" alt="" />
                                 </div>
@@ -170,7 +170,7 @@
                                   <div class="tl-date">${order.orderedAt} UTC</div>
                                 </div>
                               </c:when>
-                              <c:when test="${order.orderStatus == 'cancelled'}">
+                              <c:when test="${order.orderStatus == 'Cancelled'}">
                                 <div class="timeline-icon">
                                   <img src="<%= request.getContextPath() %>/Assets/Seller Product/cancelled.png" alt="" />
                                 </div>

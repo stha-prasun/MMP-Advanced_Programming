@@ -42,6 +42,15 @@ public class SellerRegisterController extends HttpServlet {
                 return;
             }
 
+            if (sellerLocation.equalsIgnoreCase("KTM")||sellerLocation.equalsIgnoreCase("kaathmandu")||sellerLocation.equalsIgnoreCase("katmandu")||sellerLocation.equals("kathmandu")) {
+                sellerLocation = "Kathmandu";
+            }
+            else if (sellerLocation.equalsIgnoreCase("PKR")||sellerLocation.equalsIgnoreCase("pokara")||sellerLocation.equalsIgnoreCase("pokra")|| sellerLocation.equals("pokhara")) {
+                sellerLocation = "Pokhara";
+            }
+
+
+
             LocalDateTime sellerCreatedAt = LocalDateTime.now();
             boolean sellerIsActive= true;
 

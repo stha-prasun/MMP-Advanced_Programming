@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/IndividualProduct.css" />
 </head>
 <body>
-<<jsp:include page="/WEB-INF/pages/Navbar.jsp" />
+<jsp:include page="/WEB-INF/pages/Navbar.jsp" />
 
 <!-- Display cart message if exists -->
 <c:if test="${not empty sessionScope.cartMessage}">
