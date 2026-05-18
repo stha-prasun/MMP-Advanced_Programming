@@ -97,7 +97,7 @@
 
                                     <div class="fieldRow">
                                         <span class="fieldLabel">TOTAL PRODUCTS</span>
-                                        <span class="fieldValue">67</span>
+                                        <span class="fieldValue">${cat.productCount}</span>
                                     </div>
 
                                     <div class="divider"></div>

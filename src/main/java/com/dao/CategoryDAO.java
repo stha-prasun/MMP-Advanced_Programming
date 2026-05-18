@@ -24,13 +24,17 @@ public class CategoryDAO {
     public List<Category> getAllCategory() throws Exception {
         Connection con = DBconfig.getConnection();
         List<Category> categoryList = new ArrayList<>();
-        String sql = "SELECT * FROM category";
+        String sql = "SELECT cat.categoryId, cat.type, COUNT(prod.productId) AS productCount " +
+                "FROM category cat " +
+                "LEFT JOIN product prod ON cat.categoryId = prod.categoryId " +
+                "GROUP BY cat.categoryId, cat.type";
         PreparedStatement pst = con.prepareStatement(sql);
         ResultSet rs = pst.executeQuery();
         while (rs.next()) {
             Category cat = new Category(
                     rs.getLong("categoryId"),
-                    rs.getString("type")
+                    rs.getString("type"),
+                    rs.getInt("productCount")
             );
             categoryList.add(cat);
         }
