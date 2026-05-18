@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
     <%@ taglib uri="jakarta.tags.core" prefix="c" %>
         <!DOCTYPE html>
         <html lang="en">
@@ -41,13 +41,26 @@
                   <span class="add-plus">+</span> ADD NEW
                 </button>
               </a>
-                <div class="divider-v"></div>
-                <div class="user-info">
-                  <span class="username">JOHN DOE</span>
-                  <div class="avatar">
-                    <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/user.png" alt="User Avatar" />
+              <c:choose>
+                <c:when test="${not empty sessionScope.Email}">
+                  <div class="divider-v"></div>
+                  <div class="user-info">
+                    <span class="username">${sessionScope.Name}</span>
+                    <div class="avatar">
+                      <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/user.png" alt="User Avatar" />
+                    </div>
                   </div>
-                </div>
-              </div>
+                </c:when>
+                <c:otherwise>
+                  <div class="divider-v"></div>
+                  <div class="user-info">
+                    <span class="username">Admin</span>
+                    <div class="avatar">
+                      <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/user.png" alt="User Avatar" />
+                    </div>
+                  </div>
+                </c:otherwise>
+
+              </c:choose>
 
             </header>

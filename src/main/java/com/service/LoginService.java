@@ -16,14 +16,12 @@ public class LoginService {
 
     }
 
-    public boolean adminLogin(String email, String password) throws Exception {
+    public Admin adminLogin(String email, String password) throws Exception {
 
         AdminDAO admindao = new AdminDAO();
         Admin admin = admindao.getAdmin(email, password);
-        if (admin == null) {
-            return false;
-        }
-        return true;
+
+        return admin;
 
 
     }

@@ -1,5 +1,6 @@
 package com.controller.Admin;
 
+import com.model.Admin;
 import com.service.LoginService;
 import com.util.CookieUtil;
 import com.util.SessionUtil;
@@ -36,9 +37,10 @@ public class AdminLoginController extends HttpServlet {
 
             // Calling Admin Login Service
             LoginService ls = new LoginService();
-            boolean success= ls.adminLogin(adminMail,adminPassword);
-            if (success){
+            Admin admin= ls.adminLogin(adminMail,adminPassword);
+            if (admin!=null){
                 SessionUtil.setAttribute(request, "Email", adminMail);
+                SessionUtil.setAttribute(request, "Name", admin.getName());
                 CookieUtil.addCookie(response, "Email", adminMail, 5*30);
                 CookieUtil.addCookie(response, "Role", "Admin", 5*30);
                 // Redirect after success

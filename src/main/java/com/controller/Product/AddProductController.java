@@ -117,7 +117,7 @@ public class AddProductController extends HttpServlet {
             service.addProduct(productName, price, categoryId, postedAt, description, imgUrl, sellerId);
 
             // Redirect after success
-            response.sendRedirect(request.getContextPath() + "/home");
+            response.sendRedirect(request.getContextPath() + "/seller/dashboard");
 
         } catch (Exception e) {
             e.printStackTrace();
