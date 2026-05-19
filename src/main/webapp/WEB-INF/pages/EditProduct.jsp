@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.util.List, com.model.Category, com.model.Product" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,11 +61,11 @@
         </div>
 
         <!-- Error Message -->
-        <% if (request.getAttribute("error") != null) { %>
-          <p style="color: red; padding: 0 2.5rem;">
-            <%= request.getAttribute("error") %>
-          </p>
-        <% } %>
+        <c:if test="${not empty error}">
+            <p style="color: red">
+                ${error}
+            </p>
+        </c:if>
 
         <!-- Edit Form -->
         <form id="editForm" class="form-container"

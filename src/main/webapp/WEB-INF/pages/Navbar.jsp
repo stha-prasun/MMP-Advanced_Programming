@@ -52,10 +52,11 @@
 </ul>
                             </div>
                             <div class="navRight">
-                                <div class="searchWrapper">
+                                <form action="<%= request.getContextPath() %>/search" method="get" class="searchWrapper">
                                     <img class="searchIcon" src="<%= request.getContextPath() %>/Assets/Home/search.png" alt="" />
-                                    <input type="text" placeholder="Search..." />
-                                    <button class="searchBtn">Search</button>
+                                    <input type="text" name="q" placeholder="Search..." value="${searchQuery}" />
+                                    <button type="submit" class="searchBtn">Search</button>
+                                </form>
                                 </div>
                                 <c:choose>
 

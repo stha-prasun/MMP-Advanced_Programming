@@ -17,6 +17,7 @@ public class CategoryService {
         return dao.getAllCategory();
     }
 
+
     public void updateCategory(Long id, String newName) throws Exception {
         CategoryDAO dao = new CategoryDAO();
         dao.updateCategory(id, newName);

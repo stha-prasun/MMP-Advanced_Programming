@@ -1,4 +1,5 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -41,11 +42,11 @@
             Don’t have an account?
             <a href="<%= request.getContextPath() %>/customer/register">Sign up now</a>
           </p>
-          <% if (request.getAttribute("error") !=null) { %>
-          <p style="color: red">
-          <%= request.getAttribute("error") %>
-          </p>
-          <% } %>
+          <c:if test="${not empty error}">
+              <p style="color: red">
+                  ${error}
+              </p>
+          </c:if>
           <form method="POST" action="<%= request.getContextPath() %>/login">
 
             <input type="email" placeholder="Email address" name="Email" class="input" />
