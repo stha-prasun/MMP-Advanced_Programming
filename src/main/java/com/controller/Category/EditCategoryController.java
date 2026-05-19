@@ -15,7 +15,6 @@ public class EditCategoryController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // No longer needed — editing is inline
         response.sendRedirect(request.getContextPath() + "/admin/category");
     }
 
