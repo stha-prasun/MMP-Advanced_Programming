@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class AdminDAO {
+    //a method that is responsible for retrieving the Admin details according to the email.
     public Admin getAdmin(String email, String password) throws Exception {
         Connection con = DBconfig.getConnection();
 
@@ -44,6 +45,7 @@ public class AdminDAO {
         return admin;
     }
 
+    //a method that is responsible for changing the isActive status of the customer
     public boolean deactivateCustomer(boolean custIsActive, Long id) throws SQLException {
         Connection con = DBconfig.getConnection();
 
@@ -58,10 +60,11 @@ public class AdminDAO {
         if (rs == 0) {
             return false;
         }
-
+        pst.close();
+        con.close();
         return true;
     }
-
+    //a method that is responsible for changing the isActive status of the Seller
     public boolean deactivateSeller(boolean sellerIsActive, Long id) throws SQLException {
         Connection con = DBconfig.getConnection();
 
@@ -75,7 +78,8 @@ public class AdminDAO {
         if (rs == 0) {
             return false;
         }
-
+        pst.close();
+        con.close();
         return true;
     }
 }

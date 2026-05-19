@@ -57,9 +57,24 @@ public class AddProductController extends HttpServlet {
             // Get form parameters
             String productName = request.getParameter("productName");
             String priceStr = request.getParameter("price");
-            Long categoryId = Long.parseLong(request.getParameter("category"));
+
+            Long categoryId;
+            try {
+                categoryId = Long.parseLong(request.getParameter("category"));
+            } catch (Exception e) {
+                request.setAttribute("error", "Please Select a category");
+                CategoryService categoryService = new CategoryService();
+                List<Category> categoryList = categoryService.getAllCategory();
+                request.setAttribute("categories", categoryList);
+
+                request.getRequestDispatcher("/WEB-INF/pages/Add_Product.jsp")
+                        .forward(request, response);
+                return;
+            }
+
             String description = request.getParameter("description");
 
+            //checking for empty Fields
             if (productName == null || productName.trim().isEmpty() ||
                     priceStr == null || priceStr.trim().isEmpty() ||
                     description == null || description.trim().isEmpty()) {
@@ -78,6 +93,25 @@ public class AddProductController extends HttpServlet {
                 return;
             }
 
+            //checking for Invalid Special Characters
+            if (productName.contains("@") || productName.contains("$") || productName.contains("#")
+                    || productName.contains("%")|| productName.contains("&")|| productName.contains("*")) {
+
+                // Reload categories for the form
+                try {
+                    CategoryService categoryService = new CategoryService();
+                    List<Category> categoryList = categoryService.getAllCategory();
+                    request.setAttribute("categories", categoryList);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                request.setAttribute("error", "All fields are required");
+                request.getRequestDispatcher("/WEB-INF/pages/Add_Product.jsp").forward(request, response);
+                return;
+            }
+
+            //validating price is positive
             int price;
             try {
                 price = Integer.parseInt(priceStr);

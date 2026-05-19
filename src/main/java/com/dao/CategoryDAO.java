@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryDAO {
-//make try catch
+    //this method is responsible for inserting a new Category into the database
     public void insertCategory(String categoryName) throws Exception {
         Connection con = DBconfig.getConnection();
         String sql = "INSERT INTO category (type) VALUES (?)";
