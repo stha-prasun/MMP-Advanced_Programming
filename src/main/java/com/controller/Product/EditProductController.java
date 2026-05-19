@@ -92,8 +92,17 @@ public class EditProductController extends HttpServlet {
                     priceStr == null || priceStr.trim().isEmpty() ||
                     description == null || description.trim().isEmpty()) {
 
+                ProductService productService = new ProductService();
+                Product product = productService.getProductById(Long.parseLong(productIdStr));
+
+                CategoryService categoryService = new CategoryService();
+                List<Category> categoryList = categoryService.getAllCategory();
+
+                request.setAttribute("product", product);
+                request.setAttribute("categories", categoryList);
                 request.setAttribute("error", "All fields are required");
-                doGet(request, response);
+
+                request.getRequestDispatcher("/WEB-INF/pages/EditProduct.jsp").forward(request, response);
                 return;
             }
 
