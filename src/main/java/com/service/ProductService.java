@@ -56,6 +56,17 @@ public class ProductService {
         return dao.getApprovedUnsoldProductsByCategory(category);
     }
 
+    public List<Product> searchAvailableProducts(String keyword) throws Exception {
+        ProductDAO dao = new ProductDAO();
+        return dao.searchAvailableProducts(keyword);
+    }
+
+    // NEW: Search within a specific category
+    public List<Product> searchAvailableProductsByCategory(String keyword, String category) throws Exception {
+        ProductDAO dao = new ProductDAO();
+        return dao.searchAvailableProductsByCategory(keyword, category);
+    }
+
     public void updateProduct(Long productId, String productName, int price,
                               Long categoryId, String description, String imgUrl) throws Exception {
         ProductDAO dao = new ProductDAO();

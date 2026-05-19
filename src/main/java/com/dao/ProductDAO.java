@@ -305,6 +305,84 @@ public class ProductDAO {
         return products;
     }
 
+    public List<Product> searchAvailableProducts(String keyword) throws Exception {
+        List<Product> products = new ArrayList<>();
+        Connection con = DBconfig.getConnection();
+
+        String sql = "SELECT p.*, s.sellerName, s.sellerEmail, c.type AS categoryName " +
+                "FROM product p " +
+                "LEFT JOIN seller s ON p.sellerId = s.sellerId " +
+                "LEFT JOIN category c ON p.categoryId = c.categoryId " +
+                "WHERE p.isApproved = TRUE AND p.productIsSold = FALSE " +
+                "AND p.productName LIKE ? " +
+                "ORDER BY p.postedAt DESC";
+
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setString(1, "%" + keyword + "%");
+        ResultSet rs = pst.executeQuery();
+
+        while (rs.next()) {
+            Product p = new Product(
+                    rs.getLong("productId"),
+                    rs.getString("productName"),
+                    rs.getInt("productPrice"),
+                    rs.getString("productImageUrl"),
+                    rs.getBoolean("productIsSold"),
+                    rs.getString("categoryName"),
+                    rs.getTimestamp("postedAt").toLocalDateTime(),
+                    rs.getString("productDescription"),
+                    rs.getLong("sellerId"),
+                    rs.getString("sellerName")
+            );
+            products.add(p);
+        }
+
+        rs.close();
+        pst.close();
+        con.close();
+        return products;
+    }
+
+    public List<Product> searchAvailableProductsByCategory(String keyword, String category) throws Exception {
+        List<Product> products = new ArrayList<>();
+        Connection con = DBconfig.getConnection();
+
+        String sql = "SELECT p.*, s.sellerName, s.sellerEmail, c.type AS categoryName " +
+                "FROM product p " +
+                "LEFT JOIN seller s ON p.sellerId = s.sellerId " +
+                "LEFT JOIN category c ON p.categoryId = c.categoryId " +
+                "WHERE p.isApproved = TRUE AND p.productIsSold = FALSE " +
+                "AND c.type = ? " +
+                "AND p.productName LIKE ? " +
+                "ORDER BY p.postedAt DESC";
+
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setString(1, category);
+        pst.setString(2, "%" + keyword + "%");
+        ResultSet rs = pst.executeQuery();
+
+        while (rs.next()) {
+            Product p = new Product(
+                    rs.getLong("productId"),
+                    rs.getString("productName"),
+                    rs.getInt("productPrice"),
+                    rs.getString("productImageUrl"),
+                    rs.getBoolean("productIsSold"),
+                    rs.getString("categoryName"),
+                    rs.getTimestamp("postedAt").toLocalDateTime(),
+                    rs.getString("productDescription"),
+                    rs.getLong("sellerId"),
+                    rs.getString("sellerName")
+            );
+            products.add(p);
+        }
+
+        rs.close();
+        pst.close();
+        con.close();
+        return products;
+    }
+
     public void markProductAsSold(Long productId) throws Exception {
         Connection conn = DBconfig.getConnection();
         String sql = "UPDATE product SET productIsSold = true WHERE productId = ?";

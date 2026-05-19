@@ -13,8 +13,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/products")
-public class ProductController extends HttpServlet {
+@WebServlet("/search")
+public class SearchProductController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -24,12 +24,19 @@ public class ProductController extends HttpServlet {
             ProductService productService = new ProductService();
             CategoryService categoryService = new CategoryService();
 
-            List<Product> products;
+            String keyword = request.getParameter("q");
             String category = request.getParameter("category");
 
-            if (category != null && !category.trim().isEmpty()) {
-                products = productService.getAvailableProductsByCategory(category.trim());
+            List<Product> products;
+
+            if (keyword != null && !keyword.trim().isEmpty()) {
+                if (category != null && !category.trim().isEmpty()) {
+                    products = productService.searchAvailableProductsByCategory(keyword.trim(), category.trim());
+                } else {
+                    products = productService.searchAvailableProducts(keyword.trim());
+                }
             } else {
+                // No keyword — just show all (or redirect to /products)
                 products = productService.getAvailableProducts();
             }
 
@@ -37,11 +44,13 @@ public class ProductController extends HttpServlet {
 
             request.setAttribute("products", products);
             request.setAttribute("categories", categories);
+            request.setAttribute("searchQuery", keyword);
+
             request.getRequestDispatcher("/WEB-INF/pages/Products.jsp").forward(request, response);
 
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Unable to load products");
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Search failed");
         }
     }
 }
