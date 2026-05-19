@@ -28,6 +28,13 @@ public class AddCategoryController extends HttpServlet {
                 request.getRequestDispatcher("/WEB-INF/pages/AddCategory.jsp").forward(request, response);
                 return;
             }
+
+            if (categoryName.contains("@") || categoryName.contains("$") || categoryName.contains("#")
+                    || categoryName.contains("%")|| categoryName.contains("&")|| categoryName.contains("*")){
+                request.setAttribute("error", "No Special Characters allowed in Category Name");
+                request.getRequestDispatcher("/WEB-INF/pages/AddCategory.jsp").forward(request, response);
+                return;
+            }
             //calling service
             CategoryService service = new CategoryService();
             service.addCategory(categoryName);

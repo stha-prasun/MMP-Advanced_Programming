@@ -44,9 +44,9 @@ public class CategoryDAO {
         return categoryList;
     }
 
-    public Category getCategory(Long id) throws Exception {
+    public Category getProductCount(Long id) throws Exception {
         Connection con = DBconfig.getConnection();
-        String sql = "SELECT * FROM category WHERE categoryId = ?";
+        String sql = "SELECT COUNT(*) FROM product WHERE categoryId = ?";
         PreparedStatement pst = con.prepareStatement(sql);
         pst.setLong(1, id);
         ResultSet rs = pst.executeQuery();

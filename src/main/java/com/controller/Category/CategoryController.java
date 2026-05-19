@@ -44,14 +44,15 @@ public class CategoryController extends HttpServlet {
 
             CategoryService categoryService = new CategoryService();
             categoryService.deleteCategory(id);
+            int count = categoryService.getProductCount(id);
 
             List<Category> categoryList = categoryService.getAllCategory();
 
             request.setAttribute("categories", categoryList);
 
             request.getRequestDispatcher("/WEB-INF/pages/Category.jsp").forward(request, response);
-            // Forward to JSP
-            request.getRequestDispatcher("/WEB-INF/pages/Category.jsp").forward(request, response);
+
+
         } catch (Exception e) {
             e.printStackTrace();
             request.setAttribute("error", "Something went wrong");

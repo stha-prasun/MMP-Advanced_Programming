@@ -62,7 +62,7 @@
 
       <div class="textBottom">
         <h6>EMAIL ADDRESS</h6>
-        <h3>${sessionScope.Email}</h3>
+        <h3>${sessionScope.sellerEmail}</h3>
         </div>
       </div>
     </div>

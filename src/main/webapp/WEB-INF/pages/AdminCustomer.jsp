@@ -107,7 +107,8 @@
                                                 <div class="userCardIdentity">
                                                     <div class="userAvatar">
                                                         <div class="avatar">
-                                                            <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/${cust.custProfileImg}.png"
+                                                            <img src="<%= request.getContextPath() %>${cust.custProfileImg}"
+                                                            onerror="this.onerror=null;this.src='<%= request.getContextPath() %>/Assets/Admin Dashboard/user.png';"
                                                                 alt="User Avatar" />
                                                         </div>
                                                     </div>

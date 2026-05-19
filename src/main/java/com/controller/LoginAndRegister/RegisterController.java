@@ -2,7 +2,10 @@ package com.controller.LoginAndRegister;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.List;
 
+import com.model.Category;
+import com.service.CategoryService;
 import com.service.CustomerService;
 import com.util.ImageUtil;
 import jakarta.servlet.ServletException;
@@ -41,6 +44,13 @@ public class RegisterController extends HttpServlet {
                     custPassword == null || custPassword.trim().isEmpty() ||
                     confirmPassword == null || confirmPassword.trim().isEmpty()) {
                 request.setAttribute("error", "All fields are required");
+                request.getRequestDispatcher("/WEB-INF/pages/Register.jsp").forward(request, response);
+                return;
+            }
+            if (custName.contains("@") || custName.contains("$") || custName.contains("#")
+                    || custName.contains("%")|| custName.contains("&")|| custName.contains("*")) {
+
+                request.setAttribute("error", "Remove Special Character in your Name");
                 request.getRequestDispatcher("/WEB-INF/pages/Register.jsp").forward(request, response);
                 return;
             }

@@ -69,6 +69,11 @@
                         </div>
                     </c:when>
                     <c:otherwise>
+                    <c:if test="${not empty error}">
+                        <div class="errorMessage">
+                            ${error}
+                        </div>
+                    </c:if>
                         <ul class="productList">
                             <c:forEach var="cat" items="${categories}">
                                 <li class="categoryCard" id="card-${cat.categoryId}">

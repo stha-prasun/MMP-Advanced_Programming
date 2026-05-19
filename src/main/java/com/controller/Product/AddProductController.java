@@ -106,7 +106,7 @@ public class AddProductController extends HttpServlet {
                     e.printStackTrace();
                 }
 
-                request.setAttribute("error", "All fields are required");
+                request.setAttribute("error", "There should be no Special Characters in the Product Name");
                 request.getRequestDispatcher("/WEB-INF/pages/Add_Product.jsp").forward(request, response);
                 return;
             }

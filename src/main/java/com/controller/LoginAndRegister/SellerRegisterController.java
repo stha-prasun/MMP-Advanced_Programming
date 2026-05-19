@@ -35,6 +35,13 @@ public class SellerRegisterController extends HttpServlet {
                 request.getRequestDispatcher("/WEB-INF/pages/Seller.jsp").forward(request, response);
                 return;
             }
+            if (sellerName.contains("@") || sellerName.contains("$") || sellerName.contains("#")
+                    || sellerName.contains("%")|| sellerName.contains("&")|| sellerName.contains("*")) {
+
+                request.setAttribute("error", "Remove Special Character in your Name");
+                request.getRequestDispatcher("/WEB-INF/pages/Seller.jsp").forward(request, response);
+                return;
+            }
 
             if (!sellerPassword.equals(confirmPassword)) {
                 request.setAttribute("error", "Passwords do not match");

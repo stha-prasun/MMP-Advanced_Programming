@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.util.List, com.model.Category" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -63,11 +63,9 @@
     </div>
 
         <!-- Form -->
-        <% if (request.getAttribute("error") !=null) { %>
-         <p style="color: red">
-          <%= request.getAttribute("error") %>
-         </p>
-        <% } %>
+        <c:if test="${not empty error}">
+            <p style="color:red">${error}</p>
+        </c:if>
         <form class="form-container"
               action="<%= request.getContextPath() %>/product/add"
               method="post"
@@ -94,18 +92,11 @@
               <label class="field-label" for="category">Category</label>
               <select id="category" name="category" class="field-select">
                 <option value="" disabled selected>Select a category</option>
-                <%
-                  List<Category> categories = (List<Category>) request.getAttribute("categories");
-                  if (categories != null) {
-                    for (Category cat : categories) {
-                %>
-                  <option value="<%= cat.getCategoryId() %>">
-                      <%= cat.getType() %>
-                  </option>
-                <%
-                    }
-                  }
-                %>
+                <c:forEach var="cat" items="${categories}">
+                    <option value="${cat.categoryId}">
+                        ${cat.type}
+                    </option>
+                </c:forEach>
               </select>
             </div>
 

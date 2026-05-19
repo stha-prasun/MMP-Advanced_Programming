@@ -46,8 +46,8 @@ public class EditProfileController extends HttpServlet {
             throw new RuntimeException(e);
         }
 
-        SessionUtil.setAttribute(req, "Email", updatedSellerEmail);
-        SessionUtil.setAttribute(req, "Name", sellerName);
+        SessionUtil.setAttribute(req, "sellerEmail", updatedSellerEmail);
+        SessionUtil.setAttribute(req, "sellerName", sellerName);
 
         CookieUtil.addCookie(resp, "Email", updatedSellerEmail, 10 * 30);
         resp.sendRedirect(req.getContextPath() + "/seller/profile");

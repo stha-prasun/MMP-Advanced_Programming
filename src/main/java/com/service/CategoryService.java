@@ -27,4 +27,7 @@ public class CategoryService {
         CategoryDAO dao = new CategoryDAO();
         dao.deleteCategory(id);
     }
+
+    public int getProductCount(Long id) {
+    }
 }

@@ -106,6 +106,23 @@ public class EditProductController extends HttpServlet {
                 return;
             }
 
+            if (productName.contains("@") || productName.contains("$") || productName.contains("#")
+                    || productName.contains("%")|| productName.contains("&")|| productName.contains("*")) {
+
+                ProductService productService = new ProductService();
+                Product product = productService.getProductById(Long.parseLong(productIdStr));
+
+                CategoryService categoryService = new CategoryService();
+                List<Category> categoryList = categoryService.getAllCategory();
+
+                request.setAttribute("product", product);
+                request.setAttribute("categories", categoryList);
+                request.setAttribute("error", "NO special characters in product names");
+
+                request.getRequestDispatcher("/WEB-INF/pages/EditProduct.jsp").forward(request, response);
+                return;
+            }
+
             Long productId = Long.parseLong(productIdStr);
             int price = Integer.parseInt(priceStr);
             Long categoryId = Long.parseLong(categoryIdStr);

@@ -39,9 +39,11 @@
                 <div class="divider-v"></div>
                 <div class="user-info">
                   <span class="username">${sessionScope.sellerName}</span>
-                  <div class="avatar">
-                    <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/user.png" alt="User Avatar" />
-                  </div>
+                  <a href="<%= request.getContextPath() %>/seller/profile">
+                    <div class="avatar">
+                      <img src="<%= request.getContextPath() %>/Assets/Admin Dashboard/user.png" alt="User Avatar" />
+                    </div>
+                  </a>
                 </div>
               </div>
 
