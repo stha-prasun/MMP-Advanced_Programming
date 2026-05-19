@@ -51,6 +51,11 @@ public class ProductService {
         return dao.getApprovedUnsoldProductById(id);
     }
 
+    public List<Product> getAvailableProductsByCategory(String category) throws Exception {
+        ProductDAO dao = new ProductDAO();
+        return dao.getApprovedUnsoldProductsByCategory(category);
+    }
+
     public void updateProduct(Long productId, String productName, int price,
                               Long categoryId, String description, String imgUrl) throws Exception {
         ProductDAO dao = new ProductDAO();

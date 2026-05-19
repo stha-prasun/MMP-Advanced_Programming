@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 /**
  * Utility class to configure database connection
  * Uses jdbc driver to make the connection with mySQL
+ *
  * **/
 public class DBconfig {
     private static final String URL = "jdbc:mysql://localhost:3306/mmp_db";
