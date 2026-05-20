@@ -1,6 +1,6 @@
 package com.model;
 
-
+// admin model
 public class Admin {
     private Long adminId;
     private String name;

@@ -1,5 +1,6 @@
 package com.model;
 
+// category model
 public class Category {
     private Long categoryId;
     private String type;

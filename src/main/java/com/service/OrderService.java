@@ -10,6 +10,7 @@ import com.model.OrderItem;
 import java.sql.SQLException;
 import java.util.List;
 
+// service layer for orders
 public class OrderService {
     private OrderDAO orderDAO;
     private CartDAO cartDAO;
@@ -19,6 +20,7 @@ public class OrderService {
         this.cartDAO = new CartDAO();
     }
 
+    // get all orders for sellers
     public List<Order> getAllOrderForSeller(String sellerEmail) throws Exception {
         return orderDAO.getAllOrderforSeller(sellerEmail);
     }
@@ -40,10 +42,12 @@ public class OrderService {
         return orderId;
     }
 
+    // get order by id
     public Order getOrderById(Long orderId) throws SQLException {
         return orderDAO.getOrderById(orderId);
     }
 
+    // get order item by order id
     public List<OrderItem> getOrderItemsByOrderId(Long orderId) throws SQLException {
         return orderDAO.getOrderItemsByOrderId(orderId);
     }

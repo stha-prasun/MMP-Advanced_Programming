@@ -9,6 +9,7 @@ import com.model.OrderItem;
 
 import java.util.List;
 
+// service layer for payment
 public class PaymentService {
     private OrderDAO orderDAO;
     private CartDAO cartDAO;
@@ -22,6 +23,7 @@ public class PaymentService {
         this.productDAO = new ProductDAO();
     }
 
+    // process online payment
     public void processOnlinePayment(Long orderId) throws Exception {
         List<OrderItem> items = orderDAO.getOrderItemsByOrderId(orderId);
 
@@ -38,6 +40,7 @@ public class PaymentService {
         cartDAO.clearCartItems(order.getCartId());
     }
 
+    // offline paymeny
     public void processOfflinePayment(Long orderId) throws Exception {
         List<OrderItem> items = orderDAO.getOrderItemsByOrderId(orderId);
 

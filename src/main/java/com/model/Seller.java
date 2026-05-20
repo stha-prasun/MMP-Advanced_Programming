@@ -2,6 +2,7 @@ package com.model;
 
 import java.time.LocalDateTime;
 
+// seller model
 public class Seller {
     private Long sellerId; //Primary Key
     private String sellerEmail;

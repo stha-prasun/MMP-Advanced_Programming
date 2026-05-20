@@ -1,5 +1,6 @@
 package com.model;
 
+// order item model
 public class OrderItem {
     private Long orderitemId;
     private int orderTotalPrice;

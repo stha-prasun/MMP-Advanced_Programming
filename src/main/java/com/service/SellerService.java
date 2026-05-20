@@ -6,7 +6,9 @@ import com.util.PasswordUtil;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 
+// service layer for seller
 public class SellerService {
+    // seller register
     public void addSeller(String sellerEmail, String sellerPassword, String sellerName, String sellerLocation, boolean sellerIsActive, String verificationId, LocalDateTime sellerCreatedAt) throws Exception {
 
         // Hash the password
@@ -18,6 +20,7 @@ public class SellerService {
         dao.insertSeller(sellerEmail, hashedPassword, sellerName, sellerLocation, sellerIsActive, hashedNID, sellerCreatedAt);
     }
 
+    // update seller
     public void updateSeller(String sellerEmail, String updatedSellerEmail, String sellerName, String sellerPassword) throws SQLException {
         String hashedPassword = PasswordUtil.getHashPassword(sellerPassword);
 

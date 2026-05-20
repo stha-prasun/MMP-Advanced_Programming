@@ -16,6 +16,7 @@ public class LoginService {
 
     }
 
+    // admin login
     public Admin adminLogin(String email, String password) throws Exception {
 
         AdminDAO admindao = new AdminDAO();
@@ -26,6 +27,7 @@ public class LoginService {
 
     }
 
+    // seller login
     public Seller sellerLogin(String email, String password) throws Exception {
 
         SellerDAO sellerdao = new SellerDAO();

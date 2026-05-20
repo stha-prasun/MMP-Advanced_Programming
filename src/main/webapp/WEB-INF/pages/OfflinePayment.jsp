@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/OfflinePayment.css" />
 </head>
 <body>
-<<jsp:include page="/WEB-INF/pages/Navbar.jsp" />
+<jsp:include page="/WEB-INF/pages/Navbar.jsp" />
 
    <div class="user">
       <h1>OFFLINE PAYMENT</h1>

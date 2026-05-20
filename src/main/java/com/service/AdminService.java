@@ -8,7 +8,9 @@ import com.model.Seller;
 import java.sql.SQLException;
 import java.util.List;
 
+// service layer for  admin
 public class AdminService {
+    // update customer
     public boolean updateCustomer(boolean custIsActive, Long id)
             throws SQLException {
 
@@ -21,6 +23,7 @@ public class AdminService {
         return result;
     }
 
+    // update seller
     public boolean updateSeller(boolean sellerIsActive, Long id)
             throws SQLException {
 
@@ -33,6 +36,7 @@ public class AdminService {
         return result;
     }
 
+    // get all sellers
     public List<Seller> getAllSellers() throws Exception {
         SellerDAO dao = new SellerDAO();
         return dao.getAllSellers();

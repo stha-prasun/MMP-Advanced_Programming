@@ -5,6 +5,7 @@ import com.model.Cart;
 
 import java.sql.SQLException;
 
+// service layer for cart
 public class CartService {
 
     private CartDAO cartDAO;

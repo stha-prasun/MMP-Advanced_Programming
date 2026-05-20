@@ -1,5 +1,6 @@
 package com.model;
 
+// payment model
 public class Payment {
     private Long paymentId;
     private int paidAmount;

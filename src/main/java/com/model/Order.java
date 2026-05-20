@@ -3,6 +3,7 @@ package com.model;
 import java.time.LocalDateTime;
 import java.util.List;
 
+// order model
 public class Order {
     private Long orderId;
     private LocalDateTime orderedAt;

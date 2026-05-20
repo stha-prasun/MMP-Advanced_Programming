@@ -1,5 +1,6 @@
 package com.model;
 
+// used while fetching data from db
 public class FavouriteProductModel {
     private Long favouriteId;
     private Long favouriteItemId;

@@ -2,6 +2,7 @@ package com.model;
 
 import java.time.LocalDateTime;
 
+// product model
 public class Product {
 
     private Long productId;

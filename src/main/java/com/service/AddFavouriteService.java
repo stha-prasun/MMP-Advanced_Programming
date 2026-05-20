@@ -6,17 +6,18 @@ import com.model.FavouriteItem;
 
 import java.sql.SQLException;
 
+// service layer for adding favourites
 public class AddFavouriteService {
 
+    // add favourite
     public void addToFavourite(Long productId, String custEmail) throws SQLException {
 
         AddFavouriteDAO dao = new AddFavouriteDAO();
-        // GET CUSTOMER ID
+        // Get customer id
         Long customerId = dao.getCustomerIdByEmail(custEmail);
-        // GET FAVOURITE ID
+        // Get favourite id
         Long favouriteId = dao.getFavouriteIdByCustomerId(customerId);
 
-        // CREATE FAVOURITES IF NOT EXISTS
         if (favouriteId == null) {
 
             Favourite favourite = new Favourite();
@@ -27,18 +28,17 @@ public class AddFavouriteService {
 
             dao.createFavourite(favourite);
 
-            // GET AGAIN AFTER INSERT
+            // get again
             favouriteId = dao.getFavouriteIdByCustomerId(customerId);
         }
 
-        // PREVENT DUPLICATE
+        // duplicate
         boolean alreadyExists = dao.isProductAlreadyFavourite(favouriteId, productId);
 
         if (alreadyExists) {
             return;
         }
 
-        // INSERT ITEM
         FavouriteItem item = new FavouriteItem();
 
         item.setFavouriteId(favouriteId);
@@ -49,7 +49,6 @@ public class AddFavouriteService {
 
         dao.addFavouriteItem(item);
 
-        // UPDATE TOTAL
         dao.incrementTotalFavourites(favouriteId);
 
     }

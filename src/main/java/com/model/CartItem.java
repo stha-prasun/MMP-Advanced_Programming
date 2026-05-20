@@ -1,5 +1,6 @@
 package com.model;
 
+// cart item model
 public class CartItem {
     private Long cartItemID;
     private int quantity;

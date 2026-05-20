@@ -2,6 +2,7 @@ package com.model;
 
 import java.util.List;
 
+// cart model
 public class Cart {
     private Long cartId;
     private List<CartItem> cartTotalItems;

@@ -4,6 +4,7 @@ import com.model.enums.Role;
 
 import java.time.LocalDateTime;
 
+// customer model
 public class Customer {
     private Long customerId;
     private String custName;

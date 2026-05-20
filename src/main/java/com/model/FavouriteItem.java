@@ -1,5 +1,6 @@
 package com.model;
 
+// favourite item model
 public class FavouriteItem {
     private Long favouriteItemId;
     private Long favouriteId;
