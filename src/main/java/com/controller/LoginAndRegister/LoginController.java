@@ -67,7 +67,7 @@ public class LoginController extends HttpServlet {
                     }
 
                         SessionUtil.setAttribute(request, "Email", Email);
-                        CookieUtil.addCookie(response, "Email", Email, 10 * 30); //temp variable for now cause not finalized
+                        CookieUtil.addCookie(response, "Email", Email, 10 * 300); //temp variable for now cause not finalized
                         SessionUtil.setAttribute(request, "custProfileImg", customer.getCustProfileImg());
                         SessionUtil.setAttribute(request, "Name", customer.getCustName());
                         // Redirect after success
@@ -94,7 +94,7 @@ public class LoginController extends HttpServlet {
                         SessionUtil.setAttribute(request, "sellerName", seller.getSellerName());
                         SessionUtil.setAttribute(request, "userRole", "seller");
 
-                        CookieUtil.addCookie(response, "Email", Email, 5 * 30);
+                        CookieUtil.addCookie(response, "Email", Email, 5 * 300);
                         response.sendRedirect(request.getContextPath() + "/seller/dashboard");
                     } else {
                         request.setAttribute("error", "Please enter the correct email or password!!!");

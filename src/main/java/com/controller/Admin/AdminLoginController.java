@@ -41,8 +41,8 @@ public class AdminLoginController extends HttpServlet {
             if (admin!=null){
                 SessionUtil.setAttribute(request, "Email", adminMail);
                 SessionUtil.setAttribute(request, "Name", admin.getName());
-                CookieUtil.addCookie(response, "Email", adminMail, 5*30);
-                CookieUtil.addCookie(response, "Role", "Admin", 5*30);
+                CookieUtil.addCookie(response, "Email", adminMail, 5*300);
+                CookieUtil.addCookie(response, "Role", "Admin", 5*300);
                 // Redirect after success
                 response.sendRedirect(request.getContextPath() + "/admin/dashboard");
             }

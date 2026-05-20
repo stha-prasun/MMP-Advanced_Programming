@@ -35,10 +35,10 @@
     <!-- EMPTY STATE -->
     <c:if test="${empty productList}">
       <div class="emptyState" style="text-align: center; padding: 4rem 2rem;">
-        <h2 style="font-size: 1.5rem; color: #333; margin-bottom: 0.5rem;">No saved items yet</h2>
+        <h2 style="font-size: 1.5rem; color: #03C; margin-bottom: 0.5rem;">No saved items yet</h2>
         <p style="color: #666;">Browse products and click the heart icon to save them here.</p>
         <a href="<%= request.getContextPath() %>/products" class="browseBtn"
-           style="display: inline-block; margin-top: 1.5rem; padding: 0.75rem 1.5rem; background: #111; color: #fff; text-decoration: none; border-radius: 8px; font-weight: 600;">
+           style="display: inline-block; margin-top: 1.5rem; padding: 0.75rem 1.5rem; background: #03C; color: #fff; text-decoration: none; border-radius: 8px; font-weight: 600;">
           Browse Products
         </a>
       </div>
