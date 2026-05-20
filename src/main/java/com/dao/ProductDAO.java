@@ -216,7 +216,7 @@ public class ProductDAO {
                     rs.getInt("productPrice"),
                     rs.getString("productImageUrl"),
                     rs.getBoolean("productIsSold"),
-                    rs.getString("categoryName"),  // ← Changed from categoryId
+                    rs.getString("categoryName"),
                     rs.getTimestamp("postedAt").toLocalDateTime(),
                     rs.getString("productDescription"),
                     rs.getLong("sellerId"),

@@ -19,13 +19,6 @@ public class SessionUtil {
         return null;
     }
 
-    public static void removeAttribute(HttpServletRequest request, String key) {
-        HttpSession session = request.getSession(false);
-        if (session != null) {
-            session.removeAttribute(key);
-        }
-    }
-
     public static void invalidateSession (HttpServletRequest request) {
         HttpSession session = request.getSession(false);
         if (session != null) {
