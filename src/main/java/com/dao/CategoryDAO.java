@@ -44,21 +44,27 @@ public class CategoryDAO {
         return categoryList;
     }
 
-    public Category getProductCount(Long id) throws Exception {
+    public int getProductCount(Long id) throws Exception {
         Connection con = DBconfig.getConnection();
+
         String sql = "SELECT COUNT(*) FROM product WHERE categoryId = ?";
         PreparedStatement pst = con.prepareStatement(sql);
+
         pst.setLong(1, id);
+
         ResultSet rs = pst.executeQuery();
-        if (!rs.next()) return null;
-        Category cat = new Category(
-                rs.getLong("categoryId"),
-                rs.getString("type")
-        );
+
+        int count = 0;
+
+        if (rs.next()) {
+            count = rs.getInt(1);
+        }
+
         rs.close();
         pst.close();
         con.close();
-        return cat;
+
+        return count;
     }
 
     public void updateCategory(Long id, String newName) throws Exception {

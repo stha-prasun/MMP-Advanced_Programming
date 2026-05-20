@@ -28,6 +28,8 @@ public class CategoryService {
         dao.deleteCategory(id);
     }
 
-    public int getProductCount(Long id) {
+    public int getProductCount(Long id) throws Exception {
+        CategoryDAO dao = new CategoryDAO();
+        return dao.getProductCount(id);
     }
 }
