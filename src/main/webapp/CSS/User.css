@@ -226,6 +226,8 @@ text-transform: uppercase;
 .emptyText span {
   font-size: 3rem;
   color: #E0E7FF;
+  font-family: Modak;
+  padding-top: 0.8rem;
 }
 
 /* ADVERT SECTION */

@@ -16,7 +16,7 @@ body {
   min-height: 100vh;
 }
 
-/* ── Sidebar ── */
+/* Sidebar */
 .sidebar {
   width: 16rem;
   background: #ffffff;
@@ -65,7 +65,7 @@ body {
   flex-shrink: 0;
 }
 
-/* ── Navbar ── */
+/* Navbar */
 .navbar {
   position: fixed;
   top: 0;
@@ -150,7 +150,7 @@ body {
   display: block;
 }
 
-/* ── Main ── */
+/* Main */
 .main {
   margin-left: 16rem;
   margin-top: 5.6rem;
@@ -161,7 +161,7 @@ body {
   background: #fff;
 }
 
-/* ── Page Header ── */
+/* Page Header */
 .user {
   padding: 2rem 2.5rem 0.3rem 2.5rem;
 }

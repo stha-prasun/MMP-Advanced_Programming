@@ -39,7 +39,6 @@ label {
   overflow: hidden;
 }
 
-/* Crowd background image fills the right panel */
 .crowd-bg {
   position: absolute;
     inset: 0;
@@ -187,37 +186,3 @@ label {
   margin-bottom: 15px;
 }
 
-/* Responsive */
-
-/* Tablet */
-@media (max-width: 900px) {
-  .left {
-    display: none;
-  }
-
-  .right {
-    width: 100%;
-  }
-}
-
-/* Mobile */
-@media (max-width: 500px) {
-  .form-box {
-    width: 90%;
-  }
-
-  h1 {
-    font-size: 24px;
-  }
-
-  .roles {
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  .bottom-row {
-    flex-direction: column;
-    gap: 10px;
-    align-items: flex-start;
-  }
-}

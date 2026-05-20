@@ -25,31 +25,31 @@
         <section class="navbarSection">
                         <div class="navbar">
                             <div class="navLeft">
-<a href="<%= request.getContextPath() %>/home" class="logo" style="text-decoration: none;">
-  MMP
-</a>
-<ul class="navLinks">
+                                <a href="<%= request.getContextPath() %>/home" class="logo" style="text-decoration: none;">
+                                  MMP
+                                </a>
+                                <ul class="navLinks">
 
-    <li>
-        <a href="<%= request.getContextPath() %>/customer/about" class="navLink">
-            About us
-        </a>
-    </li>
+                                    <li>
+                                        <a href="<%= request.getContextPath() %>/customer/about" class="navLink">
+                                            About us
+                                        </a>
+                                    </li>
 
-    <li>
-        <a href="<%= request.getContextPath() %>/customer/about#newsletter" class="navLink">
-            Newsletter
-        </a>
-    </li>
+                                    <li>
+                                        <a href="<%= request.getContextPath() %>/customer/about#newsletter" class="navLink">
+                                            Newsletter
+                                        </a>
+                                    </li>
 
-    <li class="dropdown">
-        <a href="<%= request.getContextPath() %>/products" class="navLink">
-            Shop
-        </a>
-        <img src="<%= request.getContextPath() %>/Assets/Home/down.png" alt="" />
-    </li>
+                                    <li class="dropdown">
+                                        <a href="<%= request.getContextPath() %>/products" class="navLink">
+                                            Shop
+                                        </a>
+                                        <img src="<%= request.getContextPath() %>/Assets/Home/down.png" alt="" />
+                                    </li>
 
-</ul>
+                                </ul>
                             </div>
                             <div class="navRight">
                                 <form action="<%= request.getContextPath() %>/search" method="get" class="searchWrapper">
@@ -57,7 +57,6 @@
                                     <input type="text" name="q" placeholder="Search..." value="${searchQuery}" />
                                     <button type="submit" class="searchBtn">Search</button>
                                 </form>
-                                </div>
                                 <c:choose>
 
                                     <%-- LOGGED IN --%>

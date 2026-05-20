@@ -51,7 +51,7 @@
   <div class="heroActions">
     <form action="<%= request.getContextPath() %>/products" method="get" class="filterForm">
       <select name="category" class="filterSelect" onchange="this.form.submit()">
-        <option value="" ${empty param.category ? 'selected' : ''}>All Categories</option>
+        <option value="" ${empty param.category ? 'selected' : ''}>FILTER</option>
         <c:forEach var="cat" items="${categories}">
           <option value="${cat.type}" ${param.category == cat.type ? 'selected' : ''}>
             ${cat.type}
@@ -86,10 +86,6 @@
               <span>Available Right now</span>
             </h1>
             <c:if test="${not empty param.category}">
-              <p style="margin-top:1rem; font-family:'Inter',sans-serif; color:#666;">
-                No products found in "<strong>${param.category}</strong>".
-                <a href="<%= request.getContextPath() %>/products" style="color:#111; font-weight:700;">View all</a>
-              </p>
             </c:if>
           </section>
         </div>

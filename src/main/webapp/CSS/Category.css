@@ -1,4 +1,4 @@
-*, *::before, *::after {
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -23,7 +23,7 @@ a  { text-decoration: none; color: inherit; }
 .bodyLayout {
   display: flex;
   margin-top: 64px;
-  min-height: calc(100vh - 64px);
+  min-height: 100vh;
 }
 
 .sidebar {
@@ -31,7 +31,7 @@ a  { text-decoration: none; color: inherit; }
   top: 5.6rem;
   left: 0;
   width: 244px;
-  height: calc(100vh - 64px);
+  height: 100vh;
   background: #ffffff;
   border-right: 1.5px solid #03c;
   overflow-y: auto;
@@ -137,7 +137,7 @@ a  { text-decoration: none; color: inherit; }
   height: 2px;
 }
 
-/* ── CATEGORY CARDS ── */
+/*  CATEGORY CARDS  */
 
 .categoryCard {
   width: 100%;

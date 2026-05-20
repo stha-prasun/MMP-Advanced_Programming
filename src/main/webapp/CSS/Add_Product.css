@@ -83,10 +83,10 @@ body {
 
 
 
-/* ── Main ── */
+/*  Main  */
 .main {
   margin-left: 16rem;
-  margin-top: 5.6rem;   /* same as navbar height */
+  margin-top: 5.6rem;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -190,7 +190,7 @@ body {
 }
 
 
-/* ── Page Header ── */
+/* Page Header  */
 .user {
     padding: 2rem 2.5rem 0.3rem 2.5rem;
 }
@@ -201,7 +201,7 @@ body {
     font-size: 3.75rem;
     font-style: normal;
     font-weight: 900;
-    line-height: 3.75rem; /* 100% */
+    line-height: 3.75rem;
     letter-spacing: -0.1875rem;
 }
 
@@ -227,7 +227,7 @@ body {
     border-bottom: 2px solid #03C;
 }
 
-/* ── Form Container ── */
+/*  Form Container  */
 .form-container {
     max-width: 900px;
     width: 100%;
@@ -240,7 +240,7 @@ body {
     margin: 0 32px;
 }
 
-/* ── Form Sections ── */
+/*  Form Sections  */
 .form-section {
     padding: 36px 60px;
 }
@@ -261,7 +261,7 @@ body {
 }
 
 
-/* ── Form Fields ── */
+/*  Form Fields  */
 .field-group {
     margin-bottom: 28px;
 }
@@ -305,7 +305,6 @@ body {
     border-color: #1a1aff;
 }
 
-/* Category select styled as underline */
 .field-select {
     width: 280px;
     border: none;
@@ -397,7 +396,7 @@ body {
     color: #111111;
 }
 
-/* ── Upload Zone ── */
+/* Upload Zone  */
 .upload-zone {
     border: 2px dashed #D4D4D4;
     border-radius: 8px;
@@ -424,7 +423,7 @@ body {
     font-size: 1.25rem;
     font-style: normal;
     font-weight: 700;
-    line-height: 1.75rem; /* 140% */
+    line-height: 1.75rem;
     letter-spacing: -0.03125rem;
 }
 
@@ -442,7 +441,7 @@ body {
     flex-shrink: 0;
 }
 
-/* ── Footer Actions ── */
+/*  Footer Actions  */
 .form-footer {
     padding: 2.5rem 0 0 0;
     border-top: 1.5px solid #e4e4e4;

@@ -107,39 +107,3 @@ label {
   margin-bottom: 15px;
   cursor: pointer;
 }
-
-
-
-
-
-/* Responsive */
-
-/* Tablet */
-@media (max-width: 900px) {
-  .left {
-    display: none;
-  }
-
-  .right {
-    width: 100%;
-  }
-}
-
-/* Mobile */
-@media (max-width: 500px) {
-  .form-box {
-    width: 90%;
-  }
-
-  h1 {
-    font-size: 24px;
-  }
-
-
-
-  .bottom-row {
-    flex-direction: column;
-    gap: 10px;
-    align-items: flex-start;
-  }
-}

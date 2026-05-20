@@ -156,7 +156,7 @@ text-decoration: none;
 
 .field {
   width: 37.5rem;
-  margin: 4.8rem auto 0 auto;  /* Centers horizontally, adds top spacing */
+  margin: 4.8rem auto 0 auto;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;

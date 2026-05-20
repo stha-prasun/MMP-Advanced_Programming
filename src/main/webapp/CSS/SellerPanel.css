@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     background: #f4f4f6;
     color: #111111;
     min-height: 100vh;
@@ -16,7 +16,7 @@ body {
     min-height: 100vh;
 }
 
-/* ── Sidebar ── */
+/* Sidebar */
 .sidebar {
     width: 16rem;
     background: #ffffff;
@@ -82,10 +82,10 @@ body {
 
 
 
-/* ── Main ── */
+/* Main */
 .main {
   margin-left: 16rem;
-  margin-top: 5.6rem;   /* same as navbar height */
+  margin-top: 5.6rem;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -189,7 +189,7 @@ body {
 }
 
 
-/* ── Page Header ── */
+/* Page Header */
 .user {
     padding: 2rem 2.5rem 0.3rem 2.5rem;
 }
@@ -246,7 +246,6 @@ body {
   padding-bottom: 1rem;
 }
 
-/* ───── TABLE (INVENTORY) ───── */
 .inventoryTable {
   width: 100%;
   margin-top: 2rem;
