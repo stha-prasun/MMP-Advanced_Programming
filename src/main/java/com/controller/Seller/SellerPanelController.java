@@ -14,6 +14,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+// This class is a controller that is used for seller dashboard
 @WebServlet("/seller/dashboard")
 public class    SellerPanelController extends HttpServlet {
 
@@ -27,6 +28,7 @@ public class    SellerPanelController extends HttpServlet {
     }
 
     @Override
+    // show all products
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 

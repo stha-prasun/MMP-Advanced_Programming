@@ -13,10 +13,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+// This class is a controller that is used to show all orders to the seller
 @WebServlet("/seller/orders")
 public class OrdersController extends HttpServlet {
 
     @Override
+    // logic goes here
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 

@@ -8,8 +8,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+// sql logic for payment
 public class PaymentDAO {
 
+    // create payment
     public Long createPayment(int payedAmount, String type, Long orderItemId) throws SQLException {
         Connection conn = DBconfig.getConnection();
         String sql = "INSERT INTO payment (payedAmount, Type, orderitemId) VALUES (?, ?, ?)";

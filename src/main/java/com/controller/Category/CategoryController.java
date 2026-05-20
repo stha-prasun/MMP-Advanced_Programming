@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-
+// This class is a controller that is used to get all the categories
 @WebServlet("/admin/category")
 public class CategoryController extends HttpServlet {
     @Override
@@ -33,6 +33,7 @@ public class CategoryController extends HttpServlet {
 
     }
 
+    // delete category
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 

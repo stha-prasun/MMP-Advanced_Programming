@@ -12,10 +12,12 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 
+// This class is a controller that is used to handle seller profile edit
 @WebServlet("/seller/profile/edit")
 public class EditProfileController extends HttpServlet {
 
     @Override
+    // show page
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -24,6 +26,7 @@ public class EditProfileController extends HttpServlet {
     }
 
     @Override
+    // actual working of edit profile feature
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String sellerName = req.getParameter("sellerName");

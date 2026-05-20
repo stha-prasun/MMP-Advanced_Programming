@@ -12,7 +12,9 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+// sql logic for seller
 public class SellerDAO {
+    // seller register
     public void insertSeller(String sellerEmail, String sellerPassword, String sellerName,
                              String sellerLocation, boolean sellerIsActive, String verificationId,
                              LocalDateTime sellerCreatedAt) throws Exception {
@@ -39,6 +41,7 @@ public class SellerDAO {
         con.close();
     }
 
+    // login for seller
     public Seller getSeller(String sellerEmail, String sellerPassword) throws Exception {
         Connection con = DBconfig.getConnection();
 
@@ -79,6 +82,7 @@ public class SellerDAO {
         return seller;
     }
 
+    // get all sellers
     public List<Seller> getAllSellers() throws Exception {
         Connection con = DBconfig.getConnection();
         List<Seller> sellerList = new ArrayList<>();
@@ -103,6 +107,7 @@ public class SellerDAO {
         return sellerList;
     }
 
+    // update seller
     public void updateSeller(String sellerEmail, String updatedSellerEmail, String sellerName, String sellerPassword) throws SQLException {
         Connection con = DBconfig.getConnection();
 

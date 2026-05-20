@@ -18,11 +18,13 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
 import com.util.ImageUtil;
 
-@MultipartConfig
+@MultipartConfig // for image
+// This class is a controller that is used to add products
 @WebServlet("/product/add")
 public class AddProductController extends HttpServlet {
 
     @Override
+    // show the page and get category
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -40,6 +42,7 @@ public class AddProductController extends HttpServlet {
     }
 
     @Override
+    // add product
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 

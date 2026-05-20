@@ -12,9 +12,11 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
+// This class is a controller that is used to login the admin
 @WebServlet("/admin/login")
 public class AdminLoginController extends HttpServlet {
     @Override
+    //show the page
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -22,6 +24,7 @@ public class AdminLoginController extends HttpServlet {
     }
 
     @Override
+    // actual login code
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 

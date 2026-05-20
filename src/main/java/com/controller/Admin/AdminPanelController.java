@@ -7,6 +7,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+
+// This class is a controller that is used to show Admin Dashboard
 @WebServlet("/admin/dashboard")
 public class AdminPanelController extends HttpServlet{
 

@@ -11,10 +11,12 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+// This class is a controller that is used to get all the product details and approve/disapprove them
 @WebServlet("/admin/product")
 public class AdminProductController extends HttpServlet {
 
     @Override
+    // get details
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -37,6 +39,7 @@ public class AdminProductController extends HttpServlet {
     }
 
     @Override
+    // approve or disapprove logic
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 

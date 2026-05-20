@@ -13,10 +13,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+// This class is a controller that is used to add favourites
 @WebServlet("/favourite/add")
 public class AddFavourite extends HttpServlet {
 
     @Override
+    // add favourite logic
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {

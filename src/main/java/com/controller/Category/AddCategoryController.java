@@ -9,10 +9,11 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-
+// This class is a controller that is used to that is used to add category
 @WebServlet("/admin/category/add")
 public class AddCategoryController extends HttpServlet {
     @Override
+    // show page
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -20,6 +21,7 @@ public class AddCategoryController extends HttpServlet {
     }
 
     @Override
+    // add category
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
             String categoryName=request.getParameter("categoryName");

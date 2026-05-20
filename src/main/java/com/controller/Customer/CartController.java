@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
+// This class is a controller that is used to get all cart items and show them
 @WebServlet("/customer/cart")
 public class CartController extends HttpServlet {
 
@@ -22,6 +23,7 @@ public class CartController extends HttpServlet {
     }
 
     @Override
+    // get all cart items
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 

@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
+// This class is a controller that is used to remove product from cart
 @WebServlet("/customer/cart/remove")
 public class CartRemoveController extends HttpServlet {
 
@@ -22,6 +23,7 @@ public class CartRemoveController extends HttpServlet {
     }
 
     @Override
+    // actual logic
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 

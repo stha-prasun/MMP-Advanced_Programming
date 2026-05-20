@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
+// This class is a controller that is used to make offline payments
 @WebServlet("/customer/payment/offline")
 public class OfflinePaymentController extends HttpServlet {
 
@@ -21,6 +22,7 @@ public class OfflinePaymentController extends HttpServlet {
     }
 
     @Override
+    // show the page
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -45,6 +47,7 @@ public class OfflinePaymentController extends HttpServlet {
     }
 
     @Override
+    // actual logic is here
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 

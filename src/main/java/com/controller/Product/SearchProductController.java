@@ -13,10 +13,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+// This class is a controller that is used to handle search feature
 @WebServlet("/search")
 public class SearchProductController extends HttpServlet {
 
     @Override
+    // get method to handle search
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 

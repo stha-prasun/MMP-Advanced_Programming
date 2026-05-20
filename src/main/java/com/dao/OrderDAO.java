@@ -10,9 +10,10 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+// sql logic for orders
 public class OrderDAO {
 
-
+    // get all orders for seller using email
     public List<Order> getAllOrderforSeller(String sellerEmail) throws Exception {
         List<Order> orderList = new ArrayList<>();
         Connection con = DBconfig.getConnection();
@@ -89,7 +90,7 @@ public class OrderDAO {
     }
 
 
-
+    // create order
     public Long createOrder(Long customerId, Long cartId) throws SQLException {
         Connection conn = DBconfig.getConnection();
         String sql = "INSERT INTO orders (orderedAt, orderStatus, cartId, customerId) VALUES (NOW(), 'PENDING', ?, ?)";
@@ -109,6 +110,7 @@ public class OrderDAO {
         return orderId;
     }
 
+    // create order item
     public void createOrderItem(Long orderId, Long productId, int orderTotalPrice) throws SQLException {
         Connection conn = DBconfig.getConnection();
         String sql = "INSERT INTO orderitem (orderTotalPrice, orderId, productId) VALUES (?, ?, ?)";
@@ -121,6 +123,7 @@ public class OrderDAO {
         conn.close();
     }
 
+    // get order by id
     public Order getOrderById(Long orderId) throws SQLException {
         Connection conn = DBconfig.getConnection();
         String sql = "SELECT * FROM orders WHERE orderId = ?";
@@ -143,6 +146,7 @@ public class OrderDAO {
         return order;
     }
 
+    // get order item by id
     public List<OrderItem> getOrderItemsByOrderId(Long orderId) throws SQLException {
         List<OrderItem> items = new ArrayList<>();
         Connection conn = DBconfig.getConnection();
@@ -173,6 +177,7 @@ public class OrderDAO {
         return items;
     }
 
+    // update order status
     public void updateOrderStatus(Long orderId, String status) throws SQLException {
         Connection conn = DBconfig.getConnection();
         String sql = "UPDATE orders SET orderStatus = ? WHERE orderId = ?";

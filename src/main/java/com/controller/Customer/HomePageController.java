@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+// This class is a controller that is used to show the homepage and display the products there
 @WebServlet("/home")
 public class HomePageController extends HttpServlet {
     @Override

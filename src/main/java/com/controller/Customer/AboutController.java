@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
+// This class is a controller that is used to show the about us page
 @WebServlet("/customer/about")
 public class AboutController extends HttpServlet {
     @Override

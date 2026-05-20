@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
+// This class is a controller that is used to handle logout
 @WebServlet(asyncSupported = true, urlPatterns = {"/logout"})
 public class LogOutController extends HttpServlet {
     private final long serialVersionUID= 1L;

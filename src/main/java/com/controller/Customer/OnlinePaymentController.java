@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
+// This class is a controller that is used to handle online payments part
 @WebServlet("/customer/payment/online")
 public class OnlinePaymentController extends HttpServlet {
 
@@ -21,6 +22,7 @@ public class OnlinePaymentController extends HttpServlet {
     }
 
     @Override
+    // get the payment page
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -45,6 +47,7 @@ public class OnlinePaymentController extends HttpServlet {
     }
 
     @Override
+    // logic for online payment processing
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 

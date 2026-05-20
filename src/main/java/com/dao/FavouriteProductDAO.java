@@ -10,8 +10,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+// sql logic for favourite products
 public class FavouriteProductDAO {
 
+    // get all fav products
     public List<FavouriteProductModel> getAllFavouriteProducts(String custEmail) throws SQLException {
 
         List<FavouriteProductModel> products = new ArrayList<>();
@@ -37,7 +39,7 @@ public class FavouriteProductDAO {
         res.close();
         customerPst.close();
 
-        // Get favourite products
+        // Get favourite products query
         String sql = "SELECT fi.favouriteItemId, f.favouriteId, f.totalFavourites, p.productId, p.productName, p.productPrice, p.productImageUrl,p.productIsSold, c.type AS categoryName FROM favourites f JOIN favouriteitem fi ON f.favouriteId = fi.favouriteId JOIN product p ON fi.productId = p.productId JOIN category c ON p.categoryId = c.categoryId WHERE f.customerId = ?";
 
         PreparedStatement pst = con.prepareStatement(sql);

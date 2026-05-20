@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+// sql logic for category
 public class CategoryDAO {
     //this method is responsible for inserting a new Category into the database
     public void insertCategory(String categoryName) throws Exception {
@@ -44,6 +45,7 @@ public class CategoryDAO {
         return categoryList;
     }
 
+    // get product count
     public int getProductCount(Long id) throws Exception {
         Connection con = DBconfig.getConnection();
 
@@ -67,6 +69,7 @@ public class CategoryDAO {
         return count;
     }
 
+    // update category
     public void updateCategory(Long id, String newName) throws Exception {
         Connection con = DBconfig.getConnection();
         String sql = "UPDATE category SET type = ? WHERE categoryId = ?";
@@ -78,6 +81,7 @@ public class CategoryDAO {
         con.close();
     }
 
+    // delete category
     public void deleteCategory(Long id) throws Exception {
         Connection con = DBconfig.getConnection();
         String sql = "DELETE FROM category WHERE categoryId = ?";

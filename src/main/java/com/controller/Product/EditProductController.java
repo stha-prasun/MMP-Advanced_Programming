@@ -18,11 +18,13 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
 import com.util.ImageUtil;
 
-@MultipartConfig
+// This class is a controller that is used to handle product info change
+@MultipartConfig // for image
 @WebServlet("/product/edit")
 public class EditProductController extends HttpServlet {
 
     @Override
+    // get all the product info and show it in the page
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -69,6 +71,7 @@ public class EditProductController extends HttpServlet {
     }
 
     @Override
+    // handles edit
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 

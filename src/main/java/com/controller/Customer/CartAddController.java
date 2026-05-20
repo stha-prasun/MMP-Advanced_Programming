@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
+// This class is a controller that is used to add product to cart
 @WebServlet("/customer/cart/add")
 public class CartAddController extends HttpServlet {
 
@@ -22,6 +23,7 @@ public class CartAddController extends HttpServlet {
     }
 
     @Override
+    // adding logic
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 

@@ -8,7 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+// sql logic for adding favourites
 public class AddFavouriteDAO {
     // Get CustomerId By Email
     public Long getCustomerIdByEmail(String email) throws SQLException {

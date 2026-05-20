@@ -14,12 +14,13 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-//test comment
+// This class is a controller that is used to handle login feature
 @WebServlet("/login")
 public class LoginController extends HttpServlet {
     //object service
 
     @Override
+    // show the page
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -27,6 +28,7 @@ public class LoginController extends HttpServlet {
     }
 
     @Override
+    // login logic with validation for both seller and customer
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 

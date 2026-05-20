@@ -13,10 +13,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+// This class is a controller that is used to show all the products in product page
 @WebServlet("/products")
 public class ProductController extends HttpServlet {
 
     @Override
+    // get logic
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 

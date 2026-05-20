@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
+// This class is a controller that is used to get the customer details and deactivate customer's account
 @WebServlet("/admin/customer")
 public class AdminCustomerController extends HttpServlet {
     @Override
@@ -35,6 +36,7 @@ public class AdminCustomerController extends HttpServlet {
     }
 
     @Override
+    // Deactivate account
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 

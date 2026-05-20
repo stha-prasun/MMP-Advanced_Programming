@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
+// This class is a controller that is used for checkout functionality
 @WebServlet("/customer/checkout")
 public class CheckoutController extends HttpServlet {
 
@@ -34,6 +35,7 @@ public class CheckoutController extends HttpServlet {
     }
 
     @Override
+    // create order process
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 

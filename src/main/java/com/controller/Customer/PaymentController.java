@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+// // This class is a controller that is used to redirect customers. They can either choose online or offline payment
 @WebServlet("/customer/payment")
 public class PaymentController extends HttpServlet {
 

@@ -10,7 +10,9 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+// sql logic for products
 public class ProductDAO {
+    // add product
     public void insertProduct(String productName, int price, Long categoryId,
                               LocalDateTime postedAt, String description,
                               String imgUrl, Long sellerId) throws Exception {
@@ -39,6 +41,7 @@ public class ProductDAO {
     }
 
 
+    // get all products
     public List<Product> getAllProducts() throws Exception {
         List<Product> products = new ArrayList<>();
 
@@ -80,7 +83,7 @@ public class ProductDAO {
         return products;
     }
 
-
+    // get product by id
     public Product getProductById(Long id) throws Exception {
         Connection con = DBconfig.getConnection();
 
@@ -124,6 +127,8 @@ public class ProductDAO {
 
         return product;
     }
+
+    // get products for seller using email
     public List<Product> getProductBySeller(String sellerEmail) throws Exception {
         Connection con = DBconfig.getConnection();
         List<Product> productList = new ArrayList<>();
@@ -177,7 +182,7 @@ public class ProductDAO {
         return productList;
     }
 
-
+    // update product status
     public void updateProductStatus(Long productId, String status) throws Exception {
         Connection con = DBconfig.getConnection();
 
@@ -231,6 +236,7 @@ public class ProductDAO {
         return products;
     }
 
+    // get approved unsold product by id
     public Product getApprovedUnsoldProductById(Long id) throws Exception {
         Connection con = DBconfig.getConnection();
 
@@ -266,6 +272,7 @@ public class ProductDAO {
         return product;
     }
 
+    // get unsold products by category
     public List<Product> getApprovedUnsoldProductsByCategory(String category) throws Exception {
         List<Product> products = new ArrayList<>();
         Connection con = DBconfig.getConnection();
@@ -305,6 +312,7 @@ public class ProductDAO {
         return products;
     }
 
+    // searching feature
     public List<Product> searchAvailableProducts(String keyword) throws Exception {
         List<Product> products = new ArrayList<>();
         Connection con = DBconfig.getConnection();
@@ -343,6 +351,7 @@ public class ProductDAO {
         return products;
     }
 
+    // search by category
     public List<Product> searchAvailableProductsByCategory(String keyword, String category) throws Exception {
         List<Product> products = new ArrayList<>();
         Connection con = DBconfig.getConnection();
@@ -383,6 +392,7 @@ public class ProductDAO {
         return products;
     }
 
+    // mark product as sold
     public void markProductAsSold(Long productId) throws Exception {
         Connection conn = DBconfig.getConnection();
         String sql = "UPDATE product SET productIsSold = true WHERE productId = ?";
@@ -393,6 +403,7 @@ public class ProductDAO {
         conn.close();
     }
 
+    // update product
     public void updateProduct(Long productId, String productName, int price,
                               Long categoryId, String description, String imgUrl) throws Exception {
         Connection con = DBconfig.getConnection();
@@ -414,7 +425,7 @@ public class ProductDAO {
         con.close();
     }
 
-
+    // delete product
     public void deleteProduct(Long productId) throws Exception {
         Connection con = DBconfig.getConnection();
 

@@ -16,11 +16,14 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
 
-@MultipartConfig
+@MultipartConfig //this is for image
+
+// This class is a controller that is used to
 @WebServlet("/customer/register")
 public class RegisterController extends HttpServlet {
 
     @Override
+    // show the page
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -28,6 +31,7 @@ public class RegisterController extends HttpServlet {
     }
 
     @Override
+    // registration logic for customer
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 

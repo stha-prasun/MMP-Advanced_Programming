@@ -8,13 +8,16 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
+// This class is a controller that is used to handle registration for seller
 @WebServlet("/seller/register")
 public class SellerRegisterController extends HttpServlet {
+    //show the page
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         request.getRequestDispatcher("/WEB-INF/pages/Seller.jsp").forward(request,response);
     }
 
     @Override
+    // actual registration logic
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 

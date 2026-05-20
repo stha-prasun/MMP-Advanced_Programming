@@ -13,10 +13,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+// This class is a controller that is used to get all the favourite products from the database
 @WebServlet("/customer/favorite")
 public class FavouriteProductsController extends HttpServlet {
 
     @Override
+    // actual get logic is heree
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 

@@ -10,11 +10,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-
+// This class is a controller that is used to get the seller details and deactivate seller's account
 @WebServlet("/admin/seller")
 public class AdminSellerController extends HttpServlet {
 
     @Override
+    // get details
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -34,6 +35,7 @@ public class AdminSellerController extends HttpServlet {
     }
 
     @Override
+    // deactivate logic
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 

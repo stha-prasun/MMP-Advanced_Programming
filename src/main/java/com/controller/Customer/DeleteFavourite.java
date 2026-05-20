@@ -13,10 +13,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+// This class is a controller that is used to delete the item from favourite
 @WebServlet("/favourite/remove")
 public class DeleteFavourite extends HttpServlet {
 
     @Override
+    // removing product from favourite logic
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 

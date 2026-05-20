@@ -8,7 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+// sql logic for admin
 public class AdminDAO {
     //a method that is responsible for retrieving the Admin details according to the email.
     public Admin getAdmin(String email, String password) throws Exception {

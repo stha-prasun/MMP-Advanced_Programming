@@ -11,10 +11,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+// This class is a controller that is used to delete the product
 @WebServlet("/product/delete")
 public class DeleteProductController extends HttpServlet {
 
     @Override
+    // delete logic
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 

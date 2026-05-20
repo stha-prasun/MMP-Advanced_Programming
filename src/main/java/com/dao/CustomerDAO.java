@@ -14,8 +14,10 @@ import com.model.Customer;
 import com.util.DBconfig;
 import com.util.PasswordUtil;
 
+// sql logic for customer
 public class CustomerDAO {
 
+    // register
     public void insertCustomer(String custName, String custEmail, String custPassword, LocalDateTime custCreatedAt, String imgUrl) throws Exception {
 
         Connection con = DBconfig.getConnection();
@@ -39,7 +41,6 @@ public class CustomerDAO {
     //logic for getCustomer: takes in custEmail and password from the front end user(service), checks if the email exists, if it does, checks if password matches
     // then creates a Customer Object with the database's email's information which will be used for the profile later on.
     // thus this function has a return type of customer
-    // If this logic is invalid/wrong please let me know :)
     public Customer getCustomer(String custEmail,String custPassword) throws Exception {
         Connection con = DBconfig.getConnection();
 
@@ -77,6 +78,7 @@ public class CustomerDAO {
         return cust;
     }
 
+    // update customer
     public void updateCustomer(String imgUrl, String custEmail, String updatedCustEmail, String custName, String custPassword) throws SQLException {
         Connection con = DBconfig.getConnection();
 
