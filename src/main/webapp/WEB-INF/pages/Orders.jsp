@@ -102,7 +102,7 @@
                         </div>
                         <div class="order-row product-row">
                           <div class="product-info">
-                            <img class="productThumb" src="<%= request.getContextPath() %>/Assets/Product/${order.product.productImageUrl}"
+                            <img class="productThumb" src="<%= request.getContextPath() %>${order.product.productImageUrl}"
                               alt="${order.product.productName}" onerror="this.src='<%= request.getContextPath() %>/Assets/Home/NOTFOUND.png'"/>
                             <span class="product-name">${order.product.productName}</span>
                           </div>
