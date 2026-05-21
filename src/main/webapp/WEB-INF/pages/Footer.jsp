@@ -49,7 +49,7 @@
           <h4>Company</h4>
           <ul>
             <li><a href="<%= request.getContextPath() %>/pages/About.jsp">About Us</a></li>
-            <li><a href="<%= request.getContextPath() %>/pages/Contact.jsp">Contact Us</a></li>
+            <li><a href="<%= request.getContextPath() %>/customer/about#newsletter">Newsletter</a></li>
           </ul>
           <h4 style="margin-top: 1.5rem;">Follow Us</h4>
           <ul>

@@ -18,6 +18,7 @@ public class AuthenticationFilter extends HttpFilter implements Filter {
     private static final String Seller = "/seller/register";
     private static final String IndividualProduct = "/product/details";
     private static final String product = "/products";
+    private static final String about = "/customer/about";
     private static final String ROOT = "/";
 
     @Override
@@ -49,7 +50,7 @@ public class AuthenticationFilter extends HttpFilter implements Filter {
 
         boolean isLoggedIn = user != null;
 
-        boolean isPublic = path.equals(LOGIN) || path.equals(REGISTER) || path.equals(HOME) || path.equals(Admin) || path.equals(Seller) || path.equals(product) || path.equals(IndividualProduct);
+        boolean isPublic = path.equals(LOGIN) || path.equals(REGISTER) || path.equals(HOME) || path.equals(Admin) || path.equals(Seller) || path.equals(product) || path.equals(IndividualProduct) || path.equals(about);
 
         if (!isLoggedIn) {
             if (isPublic) {
