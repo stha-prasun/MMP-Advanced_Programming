@@ -235,7 +235,7 @@ public class CartDAO {
     // Update cart total price
     private void updateCartTotalPrice(Long cartId, Connection conn) throws SQLException {
         String sql = "UPDATE cart SET cartTotalPrice = " +
-                "(SELECT COALESCE(SUM(ci.quantity * p.productPrice), 0) " +
+                "(SELECT IFNULL(SUM(ci.quantity * p.productPrice), 0) " +
                 "FROM cartItem ci " +
                 "JOIN product p ON ci.productId = p.productId " +
                 "WHERE ci.cartId = ? AND p.productIsSold = false) " +
